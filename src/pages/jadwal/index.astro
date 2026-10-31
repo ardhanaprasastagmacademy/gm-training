@@ -1,0 +1,235 @@
+---
+import { getCollection, getEntry } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import PageBanner from "../../components/ui/PageBanner.astro";
+import BatchStatusCard from "../../components/sections/BatchStatusCard.astro";
+import Badge from "../../components/ui/Badge.astro";
+import CtaBanner from "../../components/sections/CtaBanner.astro";
+import { siteConfig } from "../../data/site";
+
+// Load active batch
+const activeBatchDoc = await getEntry("batch", "batch-1-2026");
+if (!activeBatchDoc) throw new Error("Data batch aktif tidak ditemukan");
+const activeBatch = activeBatchDoc.data;
+
+// Load all batches
+const allBatches = await getCollection("batch");
+
+const formatDate = (date: Date) =>
+  new Intl.DateTimeFormat("id-ID", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+    timeZone: "Asia/Jakarta",
+  }).format(date);
+
+const now = new Date();
+
+// Segregate active, upcoming, and archive batches
+const activeAndUpcoming = allBatches.filter((b) => b.data.tanggalSelesai >= now);
+const archivedBatches = allBatches.filter((b) => b.data.tanggalSelesai < now);
+
+const getStatus = (buka: Date, tutup: Date) => {
+  if (now < buka) return "soon";
+  if (now > tutup) return "closed";
+  return "open";
+};
+---
+
+<BaseLayout
+  title={`Jadwal & Kalender Batch Program Magang 2026/2027 | ${siteConfig.shortName}`}
+  description="Informasi jadwal resmi pendaftaran magang SMK dan mahasiswa: tanggal pembukaan, batas penutupan, periode seleksi, serta kalender pelaksanaan batch."
+>
+  <PageBanner
+    title="Jadwal & Kalender Batch Magang"
+    description="Pantau tanggal penting pembukaan pendaftaran, batas akhir berkas, dan tanggal mulai penempatan industri."
+    breadcrumbs={[{ label: "Jadwal & Batch" }]}
+    badge="Kalender Penerimaan Resmi"
+  />
+
+  <section class="py-14 md:py-20 bg-[#F8F9FA] text-gray-900">
+    <div class="max-w-[72rem] mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Top Section: Active Batch Highlight Card -->
+      <div class="mb-14">
+        <div class="max-w-2xl mb-6">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-maroon-50 text-maroon-700 text-xs font-bold uppercase tracking-wider mb-3 border border-maroon-100">
+            <span class="w-1.5 h-1.5 rounded-full bg-maroon-700"></span>
+            <span>Batch yang Sedang Dibuka</span>
+          </div>
+          <h2 class="text-2xl md:text-3xl font-extrabold text-gray-900 tracking-tight">
+            Status Pendaftaran Periode Ini
+          </h2>
+        </div>
+
+        <div class="max-w-3xl">
+          <BatchStatusCard batch={activeBatch} dark={false} />
+        </div>
+      </div>
+
+      <!-- Table / Cards: All Batches -->
+      <div class="pt-10 border-t border-gray-200/80">
+        <div class="max-w-2xl mb-8">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-maroon-50 text-maroon-700 text-xs font-bold uppercase tracking-wider mb-3 border border-maroon-100">
+            <span class="w-1.5 h-1.5 rounded-full bg-maroon-700"></span>
+            <span>Kalender Periode</span>
+          </div>
+          <h2 class="text-2xl md:text-3xl font-extrabold text-gray-900 tracking-tight mb-2">
+            Rincian Seluruh Periode Batch
+          </h2>
+          <p class="text-gray-600 text-sm md:text-base leading-relaxed">
+            Status periode di bawah ini dihitung otomatis berdasarkan waktu saat ini (zona waktu Indonesia Barat / WIB).
+          </p>
+        </div>
+
+        <!-- Desktop Table view -->
+        <div class="hidden md:block overflow-x-auto border border-gray-200/90 rounded-[24px] bg-white shadow-sm">
+          <table class="w-full text-left text-sm text-gray-900">
+            <thead class="bg-gray-50 text-gray-900 font-bold border-b border-gray-200">
+              <tr>
+                <th class="py-4 px-5">Nama Batch</th>
+                <th class="py-4 px-5">Jalur Peserta</th>
+                <th class="py-4 px-5">Pendaftaran Buka</th>
+                <th class="py-4 px-5">Pendaftaran Tutup</th>
+                <th class="py-4 px-5">Periode Magang</th>
+                <th class="py-4 px-5">Status</th>
+                <th class="py-4 px-5 text-right">Tindakan</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100 text-gray-700">
+              {
+                activeAndUpcoming.map((b) => {
+                  const status = getStatus(b.data.tanggalBuka, b.data.tanggalTutup);
+                  return (
+                    <tr class="hover:bg-gray-50/60 transition-colors">
+                      <td class="py-4 px-5 font-bold text-gray-900">
+                        {b.data.nama}
+                        {b.data.catatan && (
+                          <span class="block text-xs font-normal text-gray-500 mt-0.5">{b.data.catatan}</span>
+                        )}
+                      </td>
+                      <td class="py-4 px-5">
+                        <span class="inline-flex px-2.5 py-0.5 rounded-full text-xs font-semibold bg-gray-100 text-gray-700">
+                          {b.data.jalur === "keduanya" ? "SMK & Mahasiswa" : b.data.jalur.toUpperCase()}
+                        </span>
+                      </td>
+                      <td class="py-4 px-5 text-gray-600 tabular-nums">
+                        {formatDate(b.data.tanggalBuka)}
+                      </td>
+                      <td class="py-4 px-5 font-bold text-gray-900 tabular-nums">
+                        {formatDate(b.data.tanggalTutup)}
+                      </td>
+                      <td class="py-4 px-5 text-gray-600 text-xs tabular-nums">
+                        {formatDate(b.data.tanggalMulai)} – {formatDate(b.data.tanggalSelesai)}
+                      </td>
+                      <td class="py-4 px-5">
+                        {status === "open" && <Badge variant="open">Dibuka</Badge>}
+                        {status === "soon" && <Badge variant="soon">Akan Dibuka</Badge>}
+                        {status === "closed" && <Badge variant="closed">Ditutup</Badge>}
+                      </td>
+                      <td class="py-4 px-5 text-right">
+                        {status === "open" && (
+                          <a
+                            href="/pendaftaran/"
+                            class="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-maroon-700 hover:bg-maroon-800 text-white font-bold text-xs shadow-sm transition-all"
+                          >
+                            <span>Daftar</span>
+                            <span>↗</span>
+                          </a>
+                        )}
+                        {status === "soon" && (
+                          <span class="text-xs font-bold text-gray-400">Belum Buka</span>
+                        )}
+                        {status === "closed" && (
+                          <span class="text-xs font-bold text-gray-400">Ditutup</span>
+                        )}
+                      </td>
+                    </tr>
+                  );
+                })
+              }
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Mobile Cards view -->
+        <div class="md:hidden space-y-4">
+          {
+            activeAndUpcoming.map((b) => {
+              const status = getStatus(b.data.tanggalBuka, b.data.tanggalTutup);
+              return (
+                <div class="bg-white border border-gray-200/90 rounded-[22px] p-6 space-y-3.5 shadow-sm text-gray-900">
+                  <div class="flex items-center justify-between gap-2">
+                    <h3 class="font-bold text-base text-gray-900">{b.data.nama}</h3>
+                    {status === "open" && <Badge variant="open">Dibuka</Badge>}
+                    {status === "soon" && <Badge variant="soon">Akan Dibuka</Badge>}
+                    {status === "closed" && <Badge variant="closed">Ditutup</Badge>}
+                  </div>
+
+                  <div class="text-xs text-gray-600 space-y-2 pt-2 border-t border-gray-100">
+                    <div>Jalur: <strong class="text-gray-900">{b.data.jalur === "keduanya" ? "SMK & Mahasiswa" : b.data.jalur.toUpperCase()}</strong></div>
+                    <div>Buka: <span class="tabular-nums font-medium text-gray-900">{formatDate(b.data.tanggalBuka)}</span></div>
+                    <div>Tutup: <span class="tabular-nums font-bold text-maroon-700">{formatDate(b.data.tanggalTutup)}</span></div>
+                    <div>Pelaksanaan: <span class="tabular-nums text-gray-500">{formatDate(b.data.tanggalMulai)} – {formatDate(b.data.tanggalSelesai)}</span></div>
+                  </div>
+
+                  <div class="pt-3 border-t border-gray-100">
+                    {status === "open" ? (
+                      <a
+                        href="/pendaftaran/"
+                        class="w-full inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-maroon-700 hover:bg-maroon-800 text-white font-bold text-xs shadow-sm"
+                      >
+                        <span>Daftar Batch Ini</span>
+                        <span>↗</span>
+                      </a>
+                    ) : (
+                      <span class="w-full inline-flex items-center justify-center px-5 py-2.5 rounded-full bg-gray-100 text-gray-400 font-bold text-xs">
+                        {status === "soon" ? "Pendaftaran Belum Dibuka" : "Pendaftaran Ditutup"}
+                      </span>
+                    )}
+                  </div>
+                </div>
+              );
+            })
+          }
+        </div>
+      </div>
+
+      <!-- Archive Section: Completed Batches -->
+      {
+        archivedBatches.length > 0 && (
+          <div class="mt-16 pt-10 border-t border-gray-200/80">
+            <details class="group bg-white border border-gray-200/90 rounded-[24px] p-6 text-gray-900 shadow-sm">
+              <summary class="font-bold text-gray-900 cursor-pointer list-none flex items-center justify-between">
+                <span class="flex items-center gap-2 text-base">
+                  <svg class="w-4 h-4 text-maroon-700" viewBox="0 0 16 16" fill="currentColor">
+                    <path d="M1 2.5A1.5 1.5 0 0 1 2.5 1h11A1.5 1.5 0 0 1 15 2.5v11a1.5 1.5 0 0 1-1.5 1.5h-11A1.5 1.5 0 0 1 1 13.5v-11zM2.5 2a.5.5 0 0 0-.5.5v11a.5.5 0 0 0 .5.5h11a.5.5 0 0 0 .5-.5v-11a.5.5 0 0 0-.5-.5h-11z" />
+                    <path d="M4 4h8v2H4V4zm0 4h8v1H4V8zm0 3h5v1H4v-1z" />
+                  </svg>
+                  <span>Arsip Batch Sebelumnya ({archivedBatches.length} Periode Telah Selesai)</span>
+                </span>
+                <span class="text-maroon-700 font-bold group-open:rotate-180 transition-transform">↓</span>
+              </summary>
+
+              <div class="mt-5 pt-4 border-t border-gray-100 space-y-3">
+                {archivedBatches.map((b) => (
+                  <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 p-4 bg-gray-50 rounded-2xl border border-gray-200/80 text-xs">
+                    <div>
+                      <strong class="text-gray-900 text-sm block">{b.data.nama}</strong>
+                      <span class="text-gray-500">Pelaksanaan: {formatDate(b.data.tanggalMulai)} – {formatDate(b.data.tanggalSelesai)}</span>
+                    </div>
+                    <Badge variant="closed">Selesai</Badge>
+                  </div>
+                ))}
+              </div>
+            </details>
+          </div>
+        )
+      }
+    </div>
+  </section>
+
+  <CtaBanner
+    title="Jangan Lewatkan Batas Akhir Pendaftaran!"
+    subtitle="Segera periksa kelengkapan berkas kamu dan submit formulir pendaftaran sebelum periode batch berakhir."
+  />
+</BaseLayout>

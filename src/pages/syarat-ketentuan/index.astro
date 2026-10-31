@@ -1,0 +1,107 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import PageBanner from "../../components/ui/PageBanner.astro";
+import { siteConfig } from "../../data/site";
+---
+
+<BaseLayout
+  title={`Syarat & Ketentuan Program Magang | ${siteConfig.shortName}`}
+  description="Ketentuan resmi penggunaan situs web dan tata tertib partisipasi peserta Program Magang SMK dan Mahasiswa GM Training."
+>
+  <PageBanner
+    title="Syarat & Ketentuan Program"
+    description="Aturan penggunaan website resmi dan ketentuan umum pelaksanaan Praktik Kerja Lapangan (PKL) serta magang mahasiswa."
+    breadcrumbs={[{ label: "Syarat & Ketentuan" }]}
+    badge="Ketentuan Hukum & Tata Tertib"
+  />
+
+  <section class="py-14 md:py-20 bg-[#F8F9FA] text-gray-900">
+    <div class="max-w-[54rem] mx-auto px-4 sm:px-6 lg:px-8 space-y-8 text-base leading-relaxed">
+      <div class="p-5 rounded-[22px] bg-maroon-50/70 border border-maroon-100 text-xs text-maroon-900 leading-relaxed">
+        <strong class="font-bold">Berlaku Sejak:</strong> 29 Oktober 2026. Dengan mengakses situs web {siteConfig.domain} atau mendaftarkan diri pada program yang diselenggarakan oleh {siteConfig.name}, Anda dianggap telah membaca, memahami, dan menyetujui seluruh ketentuan di bawah ini.
+      </div>
+
+      <!-- Section 1 -->
+      <div class="bg-white border border-gray-200/90 rounded-[24px] p-6 md:p-8 shadow-sm text-gray-900">
+        <h2 class="text-xl md:text-2xl font-extrabold text-gray-900 mb-3 tracking-tight">
+          1. Ketentuan Umum Penggunaan Situs Web
+        </h2>
+        <p class="text-gray-600 leading-relaxed">
+          Seluruh konten teks, panduan dokumen, logo, dan materi informasi di website ini disediakan semata-mata untuk tujuan edukasi, transparansi pendaftaran, dan informasi kerja sama institusional. Pengunjung dilarang menyalahgunakan informasi situs untuk aktivitas penipuan komersial yang merugikan pihak lain.
+        </p>
+      </div>
+
+      <!-- Section 2 -->
+      <div class="bg-white border border-gray-200/90 rounded-[24px] p-6 md:p-8 shadow-sm text-gray-900">
+        <h2 class="text-xl md:text-2xl font-extrabold text-gray-900 mb-3 tracking-tight">
+          2. Keabsahan Dokumen & Kejujuran Pendaftaran
+        </h2>
+        <p class="text-gray-600 leading-relaxed mb-3">
+          Calon peserta wajib menjamin bahwa:
+        </p>
+        <ul class="list-disc pl-5 space-y-2 text-gray-600 text-sm">
+          <li>Seluruh data identitas, status kesiswaan/kemahasiswaan, dan nomor kontak yang dimasukkan ke dalam formulir adalah data yang benar, akurat, dan dapat diverifikasi.</li>
+          <li>Surat pengantar sekolah/kampus dan surat persetujuan orang tua/wali adalah dokumen asli yang sah. Pemalsuan tanda tangan atau kop surat merupakan pelanggaran serius yang berakibat diskualifikasi seketika serta pelaporan resmi ke institusi pendidikan terkait.</li>
+          <li>Karya portofolio yang dilampirkan adalah hasil kreasi orisinal pelamar atau mencantumkan peran kontribusi secara jujur bila berupa proyek kelompok.</li>
+        </ul>
+      </div>
+
+      <!-- Section 3 -->
+      <div class="bg-white border border-gray-200/90 rounded-[24px] p-6 md:p-8 shadow-sm text-gray-900">
+        <h2 class="text-xl md:text-2xl font-extrabold text-gray-900 mb-3 tracking-tight">
+          3. Tata Tertib & Etika Kerja di Tempat Magang
+        </h2>
+        <p class="text-gray-600 leading-relaxed mb-3">
+          Peserta yang telah dinyatakan lolos seleksi dan ditempatkan pada mitra industri wajib:
+        </p>
+        <ul class="list-disc pl-5 space-y-2 text-gray-600 text-sm">
+          <li>Mematuhi jam kerja operasional yang telah disepakati (maksimal 8 jam sehari, tanpa penugasan lembur malam yang membahayakan keselamatan).</li>
+          <li>Mengenakan pakaian kerja rapi, sopan, serta memakai Alat Pelindung Diri (APD) lengkap saat berada di area teknis/pabrik.</li>
+          <li>Menjaga kerahasiaan data internal, dokumen teknis, dan kode sumber (source code) milik mitra industri (kewajiban Non-Disclosure Agreement).</li>
+          <li>Mengisi logbook kegiatan mingguan secara tertib dan meminta pengesahan berkala kepada mentor industri.</li>
+        </ul>
+      </div>
+
+      <!-- Section 4 -->
+      <div class="bg-white border border-gray-200/90 rounded-[24px] p-6 md:p-8 shadow-sm text-gray-900">
+        <h2 class="text-xl md:text-2xl font-extrabold text-gray-900 mb-3 tracking-tight">
+          4. Hak Kekayaan Intelektual & Portofolio Peserta
+        </h2>
+        <p class="text-gray-600 leading-relaxed">
+          Hak cipta produk atau karya komersial yang diproduksi menggunakan fasilitas dan atas penugasan langsung mitra industri menjadi milik mitra industri yang bersangkutan, kecuali disepakati lain. Namun demikian, peserta berhak mencantumkan pengalaman dan ringkasan karya non-rahasia tersebut ke dalam portofolio pribadi serta laporan akhir magang untuk keperluan akademik sekolah/kampus.
+        </p>
+      </div>
+
+      <!-- Section 5 -->
+      <div class="bg-white border border-gray-200/90 rounded-[24px] p-6 md:p-8 shadow-sm text-gray-900">
+        <h2 class="text-xl md:text-2xl font-extrabold text-gray-900 mb-3 tracking-tight">
+          5. Kriteria Kelulusan & Penerbitan Sertifikat
+        </h2>
+        <p class="text-gray-600 leading-relaxed">
+          Sertifikat resmi kompetensi magang hanya diterbitkan bagi peserta yang:
+        </p>
+        <ul class="list-disc pl-5 space-y-2 text-gray-600 text-sm mt-3">
+          <li>Menuntaskan durasi magang penuh sesuai ketentuan batch.</li>
+          <li>Memiliki tingkat kehadiran minimal 85% dari total hari kerja operasional.</li>
+          <li>Memperoleh penilaian minimal "Baik" dari Mentor Pembimbing Industri.</li>
+          <li>Menyerahkan draf laporan akhir atau menyelesaikan presentasi luaran penugasan.</li>
+        </ul>
+      </div>
+
+      <!-- Section 6 -->
+      <div class="bg-white border border-gray-200/90 rounded-[24px] p-6 md:p-8 shadow-sm text-gray-900">
+        <h2 class="text-xl md:text-2xl font-extrabold text-gray-900 mb-3 tracking-tight">
+          6. Hukum yang Berlaku
+        </h2>
+        <p class="text-gray-600 leading-relaxed">
+          Syarat dan Ketentuan ini diatur dan ditafsirkan berdasarkan hukum Negara Kesatuan Republik Indonesia. Segala perselisihan yang timbul dari pelaksanaan ketentuan ini akan diselesaikan secara musyawarah untuk mufakat dengan melibatkan pihak perwakilan sekolah atau perguruan tinggi asal peserta.
+        </p>
+      </div>
+
+      <!-- Section 7 -->
+      <div class="pt-6 border-t border-gray-200 text-xs text-gray-500">
+        Apabila Anda memiliki pertanyaan seputar tata tertib ini, silakan hubungi tim sekretariat kami di <a href={`mailto:${siteConfig.email}`} class="text-maroon-700 font-bold hover:underline">{siteConfig.email}</a>.
+      </div>
+    </div>
+  </section>
+</BaseLayout>

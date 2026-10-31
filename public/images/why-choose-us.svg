@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 520" width="600" height="520" fill="none">
+  <defs>
+    <radialGradient id="mentorGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#800020" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#1A080C" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4A0012"/>
+      <stop offset="100%" stop-color="#24070D"/>
+    </linearGradient>
+    <linearGradient id="screenGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FBF4F5"/>
+      <stop offset="100%" stop-color="#EBCBD1"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Ambient background circle -->
+  <circle cx="300" cy="270" r="230" fill="url(#mentorGlow)"/>
+
+  <!-- Background decorative circular badge & grid -->
+  <circle cx="300" cy="260" r="180" stroke="#DBA3AE" stroke-width="1.5" stroke-dasharray="6 6" opacity="0.35"/>
+  <circle cx="300" cy="260" r="140" stroke="#800020" stroke-width="1" opacity="0.25"/>
+
+  <!-- Floating Achievement Badge (Top Right) -->
+  <g transform="translate(390, 80)">
+    <rect width="160" height="54" rx="14" fill="#24070D" stroke="#800020" stroke-width="2"/>
+    <circle cx="30" cy="27" r="14" fill="#800020"/>
+    <!-- Checkmark icon -->
+    <path d="M24 27l4 4 8-8" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="56" y="24" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-weight="700" font-size="12" fill="#FFFFFF">100% Resmi</text>
+    <text x="56" y="39" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-weight="500" font-size="10" fill="#DBA3AE">MoU &amp; Konversi</text>
+  </g>
+
+  <!-- Floating Mentor Feedback Badge (Top Left) -->
+  <g transform="translate(50, 110)">
+    <rect width="150" height="50" rx="14" fill="#24070D" stroke="#C47585" stroke-width="1.5"/>
+    <circle cx="28" cy="25" r="12" fill="#C47585"/>
+    <!-- Star/Quote icon -->
+    <path d="M28 19l2 4 4.5.5-3.5 3 1 4.5-4-2.5-4 2.5 1-4.5-3.5-3 4.5-.5z" fill="#FFFFFF"/>
+    <text x="50" y="24" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-weight="700" font-size="11" fill="#FFFFFF">Mentor 1-on-1</text>
+    <text x="50" y="38" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-weight="500" font-size="9.5" fill="#EBCBD1">Review Tiap Pekan</text>
+  </g>
+
+  <!-- Main Illustration: Modern Workspace, Desk, Monitor & Laptop -->
+  <!-- Desk Base -->
+  <rect x="80" y="380" width="440" height="16" rx="8" fill="#800020"/>
+  <rect x="120" y="396" width="16" height="85" rx="4" fill="#4A0012"/>
+  <rect x="464" y="396" width="16" height="85" rx="4" fill="#4A0012"/>
+
+  <!-- Large Central Monitor (Work Station) -->
+  <rect x="160" y="200" width="230" height="150" rx="12" fill="#1A080C" stroke="#800020" stroke-width="3"/>
+  <rect x="172" y="212" width="206" height="126" rx="6" fill="#24070D"/>
+  
+  <!-- Content on Monitor: Code & Data Analytics Dashboard -->
+  <rect x="186" y="226" width="50" height="10" rx="3" fill="#800020"/>
+  <rect x="242" y="226" width="40" height="10" rx="3" fill="#4A0012"/>
+  <rect x="186" y="246" width="110" height="6" rx="2" fill="#DBA3AE"/>
+  <rect x="186" y="258" width="140" height="6" rx="2" fill="#6B5A5E"/>
+  <rect x="200" y="270" width="80" height="6" rx="2" fill="#C47585"/>
+  <rect x="200" y="282" width="120" height="6" rx="2" fill="#EBCBD1"/>
+  <!-- Mini Bar Chart on Monitor -->
+  <rect x="316" y="295" width="8" height="25" rx="2" fill="#800020"/>
+  <rect x="328" y="280" width="8" height="40" rx="2" fill="#C47585"/>
+  <rect x="340" y="265" width="8" height="55" rx="2" fill="#DBA3AE"/>
+  <rect x="352" y="250" width="8" height="70" rx="2" fill="#F6E6E9"/>
+
+  <!-- Monitor Stand -->
+  <rect x="260" y="350" width="30" height="30" fill="#4A0012"/>
+  <rect x="235" y="376" width="80" height="6" rx="3" fill="#800020"/>
+
+  <!-- Laptop on Left Desk -->
+  <polygon points="105,378 185,378 175,325 115,325" fill="#24070D" stroke="#800020" stroke-width="1.5"/>
+  <polygon points="100,380 190,380 185,376 105,376" fill="#800020"/>
+
+  <!-- Logbook / Certificate on Right Desk -->
+  <rect x="405" y="345" width="65" height="35" rx="4" fill="#F6E6E9" stroke="#DBA3AE" stroke-width="2"/>
+  <line x1="415" y1="355" x2="455" y2="355" stroke="#800020" stroke-width="2"/>
+  <line x1="415" y1="363" x2="445" y2="363" stroke="#6B5A5E" stroke-width="2"/>
+  <line x1="415" y1="371" x2="450" y2="371" stroke="#800020" stroke-width="2"/>
+
+  <!-- Stylized Characters Silhouette: Mentor pointing to student screen -->
+  <!-- Student (Left) -->
+  <circle cx="140" cy="275" r="22" fill="#C47585"/>
+  <path d="M105 340 C105 305 175 305 175 340 Z" fill="#4A0012"/>
+  
+  <!-- Mentor (Right) with Graduation Cap motif -->
+  <circle cx="430" cy="240" r="24" fill="#DBA3AE"/>
+  <!-- Graduation cap / Mentor badge -->
+  <polygon points="430,208 456,220 430,228 404,220" fill="#800020"/>
+  <path d="M410 224 v10 c0 6 20 6 20 0 v-10" fill="#800020"/>
+  <line x1="454" y1="220" x2="454" y2="238" stroke="#DBA3AE" stroke-width="2"/>
+  <circle cx="454" cy="239" r="2.5" fill="#DBA3AE"/>
+  <!-- Mentor Body -->
+  <path d="M395 340 C395 295 470 295 470 340 Z" fill="#800020"/>
+
+  <!-- Connecting guidance line from mentor to screen -->
+  <path d="M405 285 Q360 260 300 270" stroke="#DBA3AE" stroke-width="2.5" stroke-dasharray="4 4" fill="none"/>
+  <circle cx="300" cy="270" r="4" fill="#FFFFFF"/>
+
+  <!-- Bottom Floor Shadow -->
+  <ellipse cx="300" cy="490" rx="240" ry="14" fill="#800020" opacity="0.25"/>
+</svg>
+

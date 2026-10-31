@@ -1,0 +1,120 @@
+---
+interface FeatureItem {
+  id: string;
+  judul: string;
+  deskripsi: string;
+  icon: string;
+}
+
+const features: FeatureItem[] = [
+  {
+    id: "mitra",
+    judul: "Mitra Industri Terverifikasi",
+    deskripsi:
+      "Kerja sama resmi dengan 30+ korporasi manufaktur, teknologi, logistik, dan agensi kreatif dengan payung hukum MoU formal.",
+    icon: "shield",
+  },
+  {
+    id: "mentor",
+    judul: "Pendampingan Mentor 1-on-1",
+    deskripsi:
+      "Bimbingan intensif berkala langsung dari praktisi industri senior untuk review teknis berkala dan feedback tugas mingguan.",
+    icon: "headset",
+  },
+  {
+    id: "gratis",
+    judul: "100% Bebas Biaya Pendaftaran",
+    deskripsi:
+      "Bebas pungutan dan biaya tersembunyi. Program ini diselenggarakan secara transparan untuk pemerataan akses talenta muda vokasi.",
+    icon: "pricing",
+  },
+  {
+    id: "konversi",
+    judul: "Konversi SKS & Nilai PKL Resmi",
+    deskripsi:
+      "Dilengkapi format logbook terstandar, lembar penilaian kurikulum kampus & SMK, serta sertifikat kompetensi industri resmi.",
+    icon: "team",
+  },
+];
+---
+
+<section class="py-16 md:py-24 bg-white border-t border-gray-100">
+  <div class="max-w-[72rem] mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+      <!-- Left Column: Title, Subtitle, and Illustration (5 cols on lg) -->
+      <div class="lg:col-span-5 space-y-6 text-left">
+        <div>
+          <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-maroon-50 text-maroon-700 text-xs font-bold uppercase tracking-wider mb-3 border border-maroon-100">
+            <span class="w-1.5 h-1.5 rounded-full bg-maroon-700"></span>
+            <span>Standar Kualitas &amp; Dedikasi</span>
+          </div>
+          <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-gray-900 leading-tight">
+            Mengapa Memilih GM Training?
+          </h2>
+          <p class="text-sm md:text-base text-gray-600 leading-relaxed mt-3">
+            Keunggulan teruji yang menghubungkan kurikulum pendidikan sekolah kejuruan dan perguruan tinggi dengan ekosistem industri nyata secara kredibel.
+          </p>
+        </div>
+
+        <!-- Photo in Clean Rounded Card -->
+        <div class="rounded-[24px] overflow-hidden bg-white border border-gray-200/80 shadow-md relative group">
+          <img
+            src="/images/why.webp"
+            alt="Dokumentasi peserta magang dan bimbingan mentor industri GM Training"
+            width="600"
+            height="450"
+            class="w-full h-auto max-h-[380px] object-cover rounded-[24px] transition-transform duration-500 group-hover:scale-105"
+            loading="lazy"
+          />
+        </div>
+      </div>
+
+      <!-- Right Column: 2x2 Feature Cards Grid (Maroon Cards matching request) -->
+      <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-5">
+        {
+          features.map((item) => (
+            <div class="rounded-[24px] bg-gradient-to-br from-[#800020] via-[#6D001B] to-[#4A0012] border border-maroon-700/50 p-6 md:p-7 text-white shadow-xl shadow-maroon-950/20 hover:shadow-2xl hover:shadow-maroon-950/35 hover:border-rose-400/50 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group">
+              <div>
+                <!-- Clean Icon Circle -->
+                <div class="w-12 h-12 rounded-2xl bg-white/15 text-white border border-white/20 flex items-center justify-center mb-5 group-hover:bg-white group-hover:text-maroon-800 transition-all duration-300 shadow-sm">
+                  {item.icon === "shield" && (
+                    <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                    </svg>
+                  )}
+                  {item.icon === "headset" && (
+                    <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M3 18v-6a9 9 0 0 1 18 0v6" />
+                      <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z" />
+                    </svg>
+                  )}
+                  {item.icon === "pricing" && (
+                    <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <rect x="2" y="5" width="20" height="14" rx="2" />
+                      <line x1="2" y1="10" x2="22" y2="10" />
+                    </svg>
+                  )}
+                  {item.icon === "team" && (
+                    <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                      <circle cx="9" cy="7" r="4" />
+                      <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                      <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                    </svg>
+                  )}
+                </div>
+
+                <h3 class="font-bold text-lg text-white group-hover:text-rose-200 transition-colors leading-snug mb-2">
+                  {item.judul}
+                </h3>
+                <p class="text-xs md:text-sm text-rose-100/90 leading-relaxed font-normal">
+                  {item.deskripsi}
+                </p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>

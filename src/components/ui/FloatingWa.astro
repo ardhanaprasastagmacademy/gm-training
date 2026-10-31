@@ -1,0 +1,72 @@
+---
+import { siteConfig } from "../../data/site";
+---
+
+<!-- Floating Action Stack (Bottom-Right) -->
+<aside aria-label="Kontak Cepat dan Navigasi" class="fixed bottom-6 right-5 md:right-8 z-40 flex flex-col items-end gap-3 select-none">
+  <!-- Scroll to Top Circular Button (Maroon Theme matching website) -->
+  <button
+    id="scroll-to-top-btn"
+    type="button"
+    class="w-11 h-11 md:w-12 md:h-12 rounded-full bg-maroon-700 hover:bg-maroon-800 active:bg-maroon-900 text-white flex items-center justify-center shadow-lg shadow-black/25 border border-maroon-600/80 hover:scale-110 active:scale-95 transition-all duration-300 opacity-0 pointer-events-none translate-y-3 focus-visible:outline-2 focus-visible:outline-maroon-400 cursor-pointer"
+    aria-label="Scroll kembali ke atas halaman"
+  >
+    <svg class="w-5 h-5 text-white stroke-[2.5]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="m18 15-6-6-6 6"></path>
+    </svg>
+  </button>
+
+  <!-- WhatsApp Floating Direct Link Button (Matching Reference Screenshot) -->
+  <a
+    id="wa-trigger-btn"
+    href={siteConfig.whatsappUrl}
+    target="_blank"
+    rel="noopener noreferrer"
+    data-track-event="klik_floating_wa"
+    class="relative w-13 h-13 md:w-14 md:h-14 rounded-full bg-[#25D366] hover:bg-[#20bd5a] text-white flex items-center justify-center shadow-xl shadow-emerald-900/30 hover:scale-105 active:scale-95 transition-all focus-visible:outline-2 focus-visible:outline-white"
+    aria-label="Hubungi Admin GM Training via WhatsApp"
+  >
+    <!-- Notification indicator pulse dot on top right (Matching Reference) -->
+    <span class="absolute top-0 right-0 flex h-4 w-4">
+      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+      <span class="relative inline-flex rounded-full h-4 w-4 bg-emerald-400 border-2 border-white"></span>
+    </span>
+
+    <svg class="w-7 h-7 text-white fill-current" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M12.031 2C6.495 2 2 6.496 2 12.032c0 1.954.561 3.82 1.624 5.432L2.094 22l4.675-1.503a9.98 9.98 0 0 0 5.262 1.535h.004c5.535 0 10.03-4.496 10.03-10.032 0-2.68-1.043-5.2-2.936-7.094A9.957 9.957 0 0 0 12.03 2zm5.856 14.184c-.244.686-1.42 1.309-1.956 1.393-.509.08-1.173.114-3.793-.97-2.235-.923-3.666-3.21-3.777-3.358-.112-.148-.905-1.205-.905-2.298 0-1.093.57-1.63.773-1.854.204-.224.448-.28.597-.28.149 0 .298.002.428.01.139.008.326-.053.509.387.189.453.647 1.579.704 1.693.057.114.095.248.019.398-.076.15-.114.244-.228.377-.114.133-.24.297-.343.398-.114.113-.233.236-.101.464.132.228.587.97 1.258 1.568.865.772 1.595 1.011 1.823 1.124.228.114.362.095.495-.057.133-.152.57-664.722-.892.152-.228.305-.19.513-.114.208.076 1.32.622 1.549.736.228.114.38.17.437.266.057.095.057.551-.187 1.237z" />
+    </svg>
+  </a>
+</aside>
+
+<script>
+  function setupScrollToTop() {
+    const scrollTopBtn = document.getElementById("scroll-to-top-btn");
+    if (!scrollTopBtn) return;
+    if (scrollTopBtn.dataset.initialized) return;
+    scrollTopBtn.dataset.initialized = "true";
+
+    function handleScroll() {
+      const scrollY = window.scrollY || document.documentElement.scrollTop;
+      if (scrollY > 250) {
+        scrollTopBtn?.classList.remove("opacity-0", "pointer-events-none", "translate-y-3");
+        scrollTopBtn?.classList.add("opacity-100", "pointer-events-auto", "translate-y-0");
+      } else {
+        scrollTopBtn?.classList.add("opacity-0", "pointer-events-none", "translate-y-3");
+        scrollTopBtn?.classList.remove("opacity-100", "pointer-events-auto", "translate-y-0");
+      }
+    }
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+
+    scrollTopBtn.addEventListener("click", () => {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    });
+  }
+
+  setupScrollToTop();
+  document.addEventListener("astro:page-load", setupScrollToTop);
+</script>

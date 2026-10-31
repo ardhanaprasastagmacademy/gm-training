@@ -1,0 +1,325 @@
+---
+import { getEntry } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import PageBanner from "../../components/ui/PageBanner.astro";
+import Badge from "../../components/ui/Badge.astro";
+import { siteConfig } from "../../data/site";
+
+// Load active batch
+const activeBatchDoc = await getEntry("batch", "batch-1-2026");
+if (!activeBatchDoc) throw new Error("Data batch aktif tidak ditemukan");
+const activeBatch = activeBatchDoc.data;
+
+const formatDate = (date: Date) =>
+  new Intl.DateTimeFormat("id-ID", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+    timeZone: "Asia/Jakarta",
+  }).format(date);
+---
+
+<BaseLayout
+  title={`Pendaftaran Program Magang SMK & Mahasiswa Batch 1 | ${siteConfig.shortName}`}
+  description="Pintu pendaftaran resmi program magang SMK dan mahasiswa: pilih jalur, siapkan berkas wajib, dan isi formulir pendaftaran daring terverifikasi."
+  canonical={`${siteConfig.url}/pendaftaran/`}
+>
+  <PageBanner
+    title="Pendaftaran Program Magang Resmi"
+    description="Pilih jalur peserta yang sesuai, pastikan dokumen telah lengkap, dan isi formulir pendaftaran resmi di bawah ini."
+    breadcrumbs={[{ label: "Pendaftaran" }]}
+    badge="Formulir Penerimaan Batch 1"
+  />
+
+  <section class="py-14 md:py-20 bg-[#F8F9FA] text-gray-900">
+    <div class="max-w-[72rem] mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
+        <!-- Main Form Guidance (8 cols) -->
+        <div class="lg:col-span-8 space-y-10">
+          <!-- Step 1: Track Selection -->
+          <div>
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-maroon-50 text-maroon-700 text-xs font-bold uppercase tracking-wider mb-2 border border-maroon-100">
+              <span class="w-1.5 h-1.5 rounded-full bg-maroon-700"></span>
+              <span>Langkah 1 dari 3</span>
+            </div>
+            <h2 class="text-2xl font-extrabold text-gray-900 mb-4 tracking-tight">
+              Pilih Jalur Pendaftaran Kamu
+            </h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4" id="jalur-selector">
+              <label class="cursor-pointer">
+                <input
+                  type="radio"
+                  name="jalur_pendaftaran"
+                  value="smk"
+                  checked
+                  class="peer sr-only"
+                />
+                <div class="p-6 rounded-[24px] border-2 border-gray-200 bg-white peer-checked:border-maroon-700 peer-checked:bg-maroon-50/40 transition-all shadow-sm">
+                  <div class="flex items-center justify-between mb-2">
+                    <span class="font-extrabold text-gray-900 text-base md:text-lg">Siswa SMK (PKL)</span>
+                    <span class="inline-flex px-2.5 py-0.5 rounded-full text-xs font-bold bg-maroon-50 text-maroon-700 border border-maroon-100">Kelas XI / XII</span>
+                  </div>
+                  <p class="text-xs text-gray-600 leading-relaxed">
+                    Khusus siswa sekolah kejuruan dengan persetujuan orang tua/wali dan rekomendasi BKK/Hubin.
+                  </p>
+                </div>
+              </label>
+
+              <label class="cursor-pointer">
+                <input
+                  type="radio"
+                  name="jalur_pendaftaran"
+                  value="mahasiswa"
+                  class="peer sr-only"
+                />
+                <div class="p-6 rounded-[24px] border-2 border-gray-200 bg-white peer-checked:border-maroon-700 peer-checked:bg-maroon-50/40 transition-all shadow-sm">
+                  <div class="flex items-center justify-between mb-2">
+                    <span class="font-extrabold text-gray-900 text-base md:text-lg">Mahasiswa (SKS)</span>
+                    <span class="inline-flex px-2.5 py-0.5 rounded-full text-xs font-bold bg-maroon-50 text-maroon-700 border border-maroon-100">Semester 5+</span>
+                  </div>
+                  <p class="text-xs text-gray-600 leading-relaxed">
+                    Mahasiswa diploma/sarjana aktif dengan surat rekomendasi kaprodi untuk konversi mata kuliah.
+                  </p>
+                </div>
+              </label>
+            </div>
+          </div>
+
+          <!-- Step 2: Document Checklist (Changes dynamically based on track) -->
+          <div>
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-maroon-50 text-maroon-700 text-xs font-bold uppercase tracking-wider mb-2 border border-maroon-100">
+              <span class="w-1.5 h-1.5 rounded-full bg-maroon-700"></span>
+              <span>Langkah 2 dari 3</span>
+            </div>
+            <h2 class="text-2xl font-extrabold text-gray-900 mb-3 tracking-tight">
+              Daftar Dokumen yang Wajib Disiapkan
+            </h2>
+            <p class="text-xs md:text-sm text-gray-600 leading-relaxed mb-5">
+              Sebelum membuka formulir Google Form, pastikan dokumen-dokumen berikut telah kamu siapkan dalam format file PDF atau link portofolio:
+            </p>
+
+            <!-- SMK Checklist -->
+            <div id="checklist-smk" class="space-y-4 bg-white border border-gray-200/90 rounded-[24px] p-6 shadow-sm">
+              <div class="flex items-start gap-3.5">
+                <div class="w-6 h-6 rounded-full bg-maroon-50 border border-maroon-100 text-maroon-700 flex items-center justify-center shrink-0 mt-0.5 text-xs font-bold">✓</div>
+                <div>
+                  <strong class="text-sm text-gray-900 block font-bold">Surat Izin Orang Tua / Wali</strong>
+                  <span class="text-xs text-gray-600">Wajib ditandatangani orang tua/wali bagi siswa berusia di bawah 18 tahun. (<a href="/unduhan/" class="text-maroon-700 underline font-bold hover:text-maroon-900">Unduh template surat</a>)</span>
+                </div>
+              </div>
+              <div class="flex items-start gap-3.5 pt-3 border-t border-gray-100">
+                <div class="w-6 h-6 rounded-full bg-maroon-50 border border-maroon-100 text-maroon-700 flex items-center justify-center shrink-0 mt-0.5 text-xs font-bold">✓</div>
+                <div>
+                  <strong class="text-sm text-gray-900 block font-bold">Surat Pengantar PKL dari Sekolah</strong>
+                  <span class="text-xs text-gray-600">Surat resmi dari Kepala Sekolah, BKK, atau Waka Bidang Hubungan Industri (Hubin).</span>
+                </div>
+              </div>
+              <div class="flex items-start gap-3.5 pt-3 border-t border-gray-100">
+                <div class="w-6 h-6 rounded-full bg-maroon-50 border border-maroon-100 text-maroon-700 flex items-center justify-center shrink-0 mt-0.5 text-xs font-bold">✓</div>
+                <div>
+                  <strong class="text-sm text-gray-900 block font-bold">Curriculum Vitae (CV) Siswa</strong>
+                  <span class="text-xs text-gray-600">Mencantumkan data pribadi, keahlian praktik kejuruan, dan nilai rapor kejuruan. (<a href="/blog/panduan-lengkap-menyiapkan-cv-magang-smk/" class="text-maroon-700 underline font-bold hover:text-maroon-900">Baca panduan CV</a>)</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Mahasiswa Checklist -->
+            <div id="checklist-mahasiswa" class="hidden space-y-4 bg-white border border-gray-200/90 rounded-[24px] p-6 shadow-sm">
+              <div class="flex items-start gap-3.5">
+                <div class="w-6 h-6 rounded-full bg-maroon-50 border border-maroon-100 text-maroon-700 flex items-center justify-center shrink-0 mt-0.5 text-xs font-bold">✓</div>
+                <div>
+                  <strong class="text-sm text-gray-900 block font-bold">Surat Rekomendasi Fakultas / Program Studi</strong>
+                  <span class="text-xs text-gray-600">Surat izin magang dari Ketua Program Studi atau Dekanat untuk konversi SKS.</span>
+                </div>
+              </div>
+              <div class="flex items-start gap-3.5 pt-3 border-t border-gray-100">
+                <div class="w-6 h-6 rounded-full bg-maroon-50 border border-maroon-100 text-maroon-700 flex items-center justify-center shrink-0 mt-0.5 text-xs font-bold">✓</div>
+                <div>
+                  <strong class="text-sm text-gray-900 block font-bold">Transkrip Nilai Akademik Terakhir (KHS)</strong>
+                  <span class="text-xs text-gray-600">Memuat daftar mata kuliah yang telah diselesaikan dengan IPK kumulatif minimal 3.00.</span>
+                </div>
+              </div>
+              <div class="flex items-start gap-3.5 pt-3 border-t border-gray-100">
+                <div class="w-6 h-6 rounded-full bg-maroon-50 border border-maroon-100 text-maroon-700 flex items-center justify-center shrink-0 mt-0.5 text-xs font-bold">✓</div>
+                <div>
+                  <strong class="text-sm text-gray-900 block font-bold">CV Profesional & Tautan Portofolio Proyek</strong>
+                  <span class="text-xs text-gray-600">Tautan repositori GitHub, Behance, Figma, atau dokumen portofolio karya mandiri.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 3: Button To External Form -->
+          <div>
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-maroon-50 text-maroon-700 text-xs font-bold uppercase tracking-wider mb-2 border border-maroon-100">
+              <span class="w-1.5 h-1.5 rounded-full bg-maroon-700"></span>
+              <span>Langkah 3 dari 3</span>
+            </div>
+            <h2 class="text-2xl font-extrabold text-gray-900 mb-4 tracking-tight">
+              Buka Formulir Pendaftaran Online
+            </h2>
+
+            <!-- SMK Action Box -->
+            <div id="action-box-smk" class="space-y-4">
+              <div class="p-4 bg-maroon-50/70 rounded-2xl border border-maroon-100 text-xs text-maroon-900 font-medium">
+                Kamu akan diarahkan ke formulir resmi pendaftaran <strong>Jalur Siswa SMK</strong> di tab baru. Pastikan akun Google yang kamu gunakan aktif.
+              </div>
+              <a
+                href={siteConfig.formUrls.smk}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="w-full inline-flex items-center justify-center gap-2.5 px-7 py-4 rounded-full bg-maroon-700 hover:bg-maroon-800 text-white font-extrabold text-sm shadow-md shadow-maroon-900/10 transition-all group"
+                data-track-event="klik_daftar"
+                data-track-jalur="smk"
+                data-track-batch="batch-1-2026"
+              >
+                <span>Isi Formulir Pendaftaran Siswa SMK (Buka Tab Baru)</span>
+                <span class="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center text-xs group-hover:translate-x-0.5 transition-transform">↗</span>
+              </a>
+            </div>
+
+            <!-- Mahasiswa Action Box -->
+            <div id="action-box-mahasiswa" class="hidden space-y-4">
+              <div class="p-4 bg-maroon-50/70 rounded-2xl border border-maroon-100 text-xs text-maroon-900 font-medium">
+                Kamu akan diarahkan ke formulir resmi pendaftaran <strong>Jalur Mahasiswa</strong> di tab baru.
+              </div>
+              <a
+                href={siteConfig.formUrls.mahasiswa}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="w-full inline-flex items-center justify-center gap-2.5 px-7 py-4 rounded-full bg-maroon-700 hover:bg-maroon-800 text-white font-extrabold text-sm shadow-md shadow-maroon-900/10 transition-all group"
+                data-track-event="klik_daftar"
+                data-track-jalur="mahasiswa"
+                data-track-batch="batch-1-2026"
+              >
+                <span>Isi Formulir Pendaftaran Mahasiswa (Buka Tab Baru)</span>
+                <span class="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center text-xs group-hover:translate-x-0.5 transition-transform">↗</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Privacy Notice Box -->
+          <div
+            id="privasi-siswa"
+            class="bg-white border border-gray-200/90 border-l-4 border-l-maroon-700 rounded-[24px] p-6 md:p-8 space-y-3.5 shadow-sm text-gray-900"
+          >
+            <h3 class="font-extrabold text-base md:text-lg text-gray-900 flex items-center gap-2.5">
+              <svg class="w-5 h-5 text-maroon-700 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              </svg>
+              <span>Jaminan Privasi & Perlindungan Peserta Didik</span>
+            </h3>
+            <p class="text-xs md:text-sm text-gray-600 leading-relaxed">
+              Website ini tidak menyimpan data pribadi pendaftar ke dalam database publik situs. Seluruh berkas identitas dikumpulkan secara aman melalui penyedia formulir eksternal resmi yang terenkripsi dan hanya diakses oleh panitia seleksi penyelenggara serta mentor mitra industri terkait.
+            </p>
+            <p class="text-xs md:text-sm text-gray-600 leading-relaxed">
+              Khusus bagi siswa yang berusia di bawah 18 tahun, persetujuan orang tua atau wali adalah ketentuan wajib hukum. Kami tidak pernah mempublikasikan nama, nomor kontak, maupun hasil kelulusan seleksi peserta secara terbuka di internet. Pelajari selengkapnya di <a href="/kebijakan-privasi/" class="text-maroon-700 font-bold hover:underline">Kebijakan Privasi Resmi</a> kami.
+            </p>
+          </div>
+        </div>
+
+        <!-- Sticky Sidebar Status (4 cols) -->
+        <aside class="lg:col-span-4 sticky top-24 space-y-6">
+          <div class="bg-white border border-gray-200/90 rounded-[24px] p-6 shadow-sm text-gray-900">
+            <div class="flex items-center justify-between gap-2 mb-3">
+              <Badge variant="open">Batch Aktif</Badge>
+              <span class="text-xs text-gray-500 font-medium">WIB (Asia/Jakarta)</span>
+            </div>
+
+            <h3 class="font-extrabold text-lg text-gray-900 mb-1">
+              {activeBatch.nama}
+            </h3>
+            <p class="text-xs text-gray-500 mb-4">
+              Batas akhir submit pendaftaran:
+            </p>
+
+            <div class="p-4 bg-gray-50 rounded-2xl border border-gray-200/80 mb-5 text-center">
+              <div class="text-lg md:text-xl font-extrabold text-maroon-700 tabular-nums">
+                {formatDate(activeBatch.tanggalTutup)}
+              </div>
+              <div class="text-[0.6875rem] text-gray-500 mt-1 font-medium">
+                Pukul 23.59 WIB
+              </div>
+            </div>
+
+            <div class="text-xs text-gray-600 space-y-2.5 border-t border-gray-100 pt-4">
+              <div>
+                • Tanggal Seleksi: <strong class="text-gray-900">{formatDate(activeBatch.tanggalSeleksi || activeBatch.tanggalTutup)}</strong>
+              </div>
+              <div>
+                • Mulai Magang: <strong class="text-gray-900">{formatDate(activeBatch.tanggalMulai)}</strong>
+              </div>
+              <div>
+                • Biaya Pendaftaran: <strong class="text-maroon-700">100% Gratis (Rp 0)</strong>
+              </div>
+            </div>
+          </div>
+
+          <div class="rounded-[24px] bg-gradient-to-br from-[#800020] to-[#5C0017] text-white p-6 text-xs space-y-3 shadow-md">
+            <h4 class="font-bold text-sm text-white">
+              Ada Pertanyaan Sebelum Mendaftar?
+            </h4>
+            <p class="text-maroon-100 leading-relaxed">
+              Jika mengalami kendala dokumen atau memerlukan konfirmasi jurusan, silakan hubungi tim sekretariat kami melalui WhatsApp.
+            </p>
+            <a
+              href={siteConfig.whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-1.5 font-bold text-white bg-white/15 hover:bg-white/25 px-4 py-2 rounded-full border border-white/20 transition-colors pt-1"
+            >
+              <span>Hubungi Admin WhatsApp</span>
+              <span>↗</span>
+            </a>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  function setupPendaftaranTrackSwitch() {
+    const radios = document.querySelectorAll<HTMLInputElement>(
+      "input[name='jalur_pendaftaran']",
+    );
+    const checkSmk = document.getElementById("checklist-smk");
+    const checkMhs = document.getElementById("checklist-mahasiswa");
+    const actionSmk = document.getElementById("action-box-smk");
+    const actionMhs = document.getElementById("action-box-mahasiswa");
+
+    // Check URL param if provided e.g. ?jalur=mahasiswa
+    const params = new URLSearchParams(window.location.search);
+    const jalurParam = params.get("jalur");
+    if (jalurParam === "mahasiswa") {
+      radios.forEach((r) => {
+        if (r.value === "mahasiswa") r.checked = true;
+      });
+    }
+
+    function updateView() {
+      const selected = (
+        document.querySelector(
+          "input[name='jalur_pendaftaran']:checked",
+        ) as HTMLInputElement
+      )?.value;
+      if (selected === "mahasiswa") {
+        checkSmk?.classList.add("hidden");
+        checkMhs?.classList.remove("hidden");
+        actionSmk?.classList.add("hidden");
+        actionMhs?.classList.remove("hidden");
+      } else {
+        checkSmk?.classList.remove("hidden");
+        checkMhs?.classList.add("hidden");
+        actionSmk?.classList.remove("hidden");
+        actionMhs?.classList.add("hidden");
+      }
+    }
+
+    radios.forEach((r) => r.addEventListener("change", updateView));
+    updateView();
+  }
+
+  setupPendaftaranTrackSwitch();
+  document.addEventListener("astro:page-load", setupPendaftaranTrackSwitch);
+</script>

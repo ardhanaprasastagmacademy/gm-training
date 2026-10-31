@@ -1,0 +1,54 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { siteConfig } from "../data/site";
+---
+
+<BaseLayout
+  title={`Halaman Tidak Ditemukan (404) | ${siteConfig.shortName}`}
+  description="Halaman yang Anda tuju tidak ditemukan atau telah dipindahkan."
+  noindex={true}
+>
+  <section class="pt-28 md:pt-36 pb-16 md:pb-28 bg-[#F8F9FA] text-gray-900 min-h-[70vh] flex items-center justify-center relative overflow-hidden">
+    <div class="max-w-xl mx-auto px-4 sm:px-6 text-center space-y-6 relative z-10">
+      <div class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-maroon-50 text-maroon-700 text-3xl font-black border border-maroon-100 shadow-sm mx-auto">
+        404
+      </div>
+
+      <h1 class="text-3xl md:text-4xl font-extrabold text-gray-900 tracking-tight">
+        Halaman Tidak Ditemukan
+      </h1>
+
+      <p class="text-gray-600 text-sm md:text-base leading-relaxed max-w-md mx-auto">
+        Maaf, tautan yang Anda tuju mungkin sudah dipindahkan, kedaluwarsa, atau alamat URL yang dimasukkan kurang tepat.
+      </p>
+
+      <div class="pt-4 max-w-sm mx-auto space-y-2.5">
+        <a
+          href="/"
+          class="w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-maroon-700 hover:bg-maroon-800 text-white font-bold text-sm shadow-sm transition-all group"
+        >
+          <span>Kembali ke Beranda Utama</span>
+          <span class="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center text-xs group-hover:translate-x-0.5 transition-transform">↗</span>
+        </a>
+        <a
+          href="/posisi/"
+          class="w-full inline-flex items-center justify-center px-6 py-2.5 rounded-full bg-white hover:bg-gray-50 border border-gray-200 text-gray-800 font-bold text-xs shadow-sm transition-all"
+        >
+          Cari Lowongan / Posisi Magang
+        </a>
+        <a
+          href="/jadwal/"
+          class="w-full inline-flex items-center justify-center px-6 py-2.5 rounded-full bg-white hover:bg-gray-50 border border-gray-200 text-gray-800 font-bold text-xs shadow-sm transition-all"
+        >
+          Lihat Jadwal & Kalender Batch
+        </a>
+        <a
+          href="/kontak/"
+          class="w-full inline-flex items-center justify-center px-6 py-2.5 rounded-full bg-white hover:bg-gray-50 border border-gray-200 text-gray-800 font-bold text-xs shadow-sm transition-all"
+        >
+          Hubungi Layanan Bantuan
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

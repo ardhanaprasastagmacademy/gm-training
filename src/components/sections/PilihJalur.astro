@@ -1,0 +1,135 @@
+---
+interface Props {
+  class?: string;
+}
+
+const { class: className = "" } = Astro.props;
+---
+
+<section class={`py-14 md:py-20 bg-[#F8F9FA] text-gray-900 ${className}`}>
+  <div class="max-w-[72rem] mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-2xl mb-10 text-left">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-maroon-50 text-maroon-700 text-xs font-bold uppercase tracking-wider mb-3 border border-maroon-100">
+        <span class="w-1.5 h-1.5 rounded-full bg-maroon-700"></span>
+        <span>Pilihan Jalur Program</span>
+      </div>
+      <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-gray-900 leading-tight tracking-tight">
+        Dua Jalur Terstruktur Sesuai Kebutuhan Akademik Kamu
+      </h2>
+      <p class="text-gray-600 text-sm md:text-base mt-3 leading-relaxed">
+        Pilih jalur yang sesuai dengan jenjang pendidikan kamu saat ini untuk melihat persyaratan khusus, dokumen yang dibutuhkan, dan mekanisme pembimbingan.
+      </p>
+    </div>
+
+    <!-- 2 Cards Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+      <!-- Jalur 1: Siswa SMK -->
+      <div class="bg-white border border-gray-200/90 rounded-[24px] p-6 md:p-8 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col justify-between group">
+        <div>
+          <div class="flex items-center justify-between gap-4 mb-4">
+            <span class="inline-flex items-center px-3.5 py-1 rounded-full text-xs font-bold bg-maroon-50 border border-maroon-100 text-maroon-700">
+              Jalur Siswa SMK
+            </span>
+            <div class="w-10 h-10 rounded-full bg-maroon-50 text-maroon-700 border border-maroon-100 flex items-center justify-center shrink-0">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
+              </svg>
+            </div>
+          </div>
+
+          <h3 class="text-xl md:text-2xl font-extrabold text-gray-900 group-hover:text-maroon-700 transition-colors mb-2">
+            Praktik Kerja Lapangan (PKL) Siswa SMK
+          </h3>
+          <p class="text-sm text-gray-600 mb-6 leading-relaxed">
+            Dikhususkan bagi siswa SMK aktif tingkat akhir yang memerlukan penempatan magang industri sesuai kompetensi keahlian dan kurikulum vokasi.
+          </p>
+
+          <!-- Details List -->
+          <dl class="space-y-3 border-t border-gray-100 pt-5 text-xs md:text-sm">
+            <div class="flex flex-col sm:flex-row sm:justify-between py-1 border-b border-gray-100 gap-1">
+              <dt class="font-semibold text-gray-500">Sasaran Peserta:</dt>
+              <dd class="text-gray-900 font-bold sm:text-right">Siswa SMK Kelas XI atau XII aktif</dd>
+            </div>
+            <div class="flex flex-col sm:flex-row sm:justify-between py-1 border-b border-gray-100 gap-1">
+              <dt class="font-semibold text-gray-500">Durasi Program:</dt>
+              <dd class="text-gray-900 font-bold sm:text-right">3 hingga 6 bulan (penuh waktu)</dd>
+            </div>
+            <div class="flex flex-col sm:flex-row sm:justify-between py-1 border-b border-gray-100 gap-1">
+              <dt class="font-semibold text-gray-500">Sistem Pendampingan:</dt>
+              <dd class="text-gray-900 font-bold sm:text-right">Guru Pembimbing & Mentor Industri</dd>
+            </div>
+            <div class="flex flex-col sm:flex-row sm:justify-between py-1 gap-1">
+              <dt class="font-semibold text-gray-500">Syarat Khusus:</dt>
+              <dd class="text-gray-900 font-bold sm:text-right">Izin Tertulis Orang Tua / Wali</dd>
+            </div>
+          </dl>
+        </div>
+
+        <div class="mt-8 pt-5 border-t border-gray-100 flex items-center justify-between">
+          <a
+            href="/program/magang-smk/"
+            class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-maroon-700 hover:bg-maroon-800 text-white font-bold text-xs shadow-md shadow-maroon-900/10 transition-all group"
+          >
+            <span>Pelajari Syarat Siswa SMK</span>
+            <span class="w-4 h-4 rounded-full bg-white/20 flex items-center justify-center text-[10px]">↗</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Jalur 2: Mahasiswa -->
+      <div class="bg-white border border-gray-200/90 rounded-[24px] p-6 md:p-8 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col justify-between group">
+        <div>
+          <div class="flex items-center justify-between gap-4 mb-4">
+            <span class="inline-flex items-center px-3.5 py-1 rounded-full text-xs font-bold bg-maroon-50 border border-maroon-100 text-maroon-700">
+              Jalur Perguruan Tinggi
+            </span>
+            <div class="w-10 h-10 rounded-full bg-maroon-50 text-maroon-700 border border-maroon-100 flex items-center justify-center shrink-0">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+                <path d="M6 12v5c3 3 9 3 12 0v-5" />
+              </svg>
+            </div>
+          </div>
+
+          <h3 class="text-xl md:text-2xl font-extrabold text-gray-900 group-hover:text-maroon-700 transition-colors mb-2">
+            Magang Mahasiswa (Konversi SKS MBKM)
+          </h3>
+          <p class="text-sm text-gray-600 mb-6 leading-relaxed">
+            Dikhususkan bagi mahasiswa D3, D4, dan S1 yang ingin mengasah keterampilan profesional dan proyek industri skala penuh dengan konversi SKS resmi.
+          </p>
+
+          <!-- Details List -->
+          <dl class="space-y-3 border-t border-gray-100 pt-5 text-xs md:text-sm">
+            <div class="flex flex-col sm:flex-row sm:justify-between py-1 border-b border-gray-100 gap-1">
+              <dt class="font-semibold text-gray-500">Sasaran Peserta:</dt>
+              <dd class="text-gray-900 font-bold sm:text-right">Mahasiswa aktif minimal Semester 5</dd>
+            </div>
+            <div class="flex flex-col sm:flex-row sm:justify-between py-1 border-b border-gray-100 gap-1">
+              <dt class="font-semibold text-gray-500">Durasi Program:</dt>
+              <dd class="text-gray-900 font-bold sm:text-right">4 hingga 6 bulan (fleksibel)</dd>
+            </div>
+            <div class="flex flex-col sm:flex-row sm:justify-between py-1 border-b border-gray-100 gap-1">
+              <dt class="font-semibold text-gray-500">Pengakuan Kredit:</dt>
+              <dd class="text-gray-900 font-bold sm:text-right">Rekomendasi hingga 20 SKS</dd>
+            </div>
+            <div class="flex flex-col sm:flex-row sm:justify-between py-1 gap-1">
+              <dt class="font-semibold text-gray-500">Syarat Khusus:</dt>
+              <dd class="text-gray-900 font-bold sm:text-right">Surat Rekomendasi Fakultas / Kaprodi</dd>
+            </div>
+          </dl>
+        </div>
+
+        <div class="mt-8 pt-5 border-t border-gray-100 flex items-center justify-between">
+          <a
+            href="/program/magang-mahasiswa/"
+            class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-maroon-700 hover:bg-maroon-800 text-white font-bold text-xs shadow-md shadow-maroon-900/10 transition-all group"
+          >
+            <span>Pelajari Syarat Mahasiswa</span>
+            <span class="w-4 h-4 rounded-full bg-white/20 flex items-center justify-center text-[10px]">↗</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

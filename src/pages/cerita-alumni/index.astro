@@ -1,0 +1,108 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import PageBanner from "../../components/ui/PageBanner.astro";
+import CtaBanner from "../../components/sections/CtaBanner.astro";
+import { siteConfig } from "../../data/site";
+
+const allTestimoni = await getCollection("testimoni", ({ data }) => data.izinTayang);
+
+const avatars: Record<string, string> = {
+  "ahmad-rizki": "/images/avatar-1.webp",
+  "nabila-putri": "/images/avatar-2.webp",
+  "farhan-maulana": "/images/avatar-3.webp",
+};
+---
+
+<BaseLayout
+  title={`Cerita Alumni & Testimoni Program Magang | ${siteConfig.shortName}`}
+  description="Kisah nyata dan rekam jejak pengalaman alumni siswa SMK dan mahasiswa yang telah menyelesaikan program magang terstruktur di industri rekanan."
+>
+  <PageBanner
+    title="Cerita Alumni & Jejak Pengalaman"
+    description="Pengalaman nyata alumni magang dalam mengasah kompetensi teknis di dunia industri."
+    breadcrumbs={[{ label: "Cerita Alumni" }]}
+  />
+
+  <section class="py-16 md:py-24 bg-[#F8F9FA] text-gray-900">
+    <div class="max-w-[76rem] mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl mb-14 text-center mx-auto">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-maroon-50 text-maroon-700 text-xs font-bold uppercase tracking-wider mb-3 border border-maroon-100">
+          <span class="w-1.5 h-1.5 rounded-full bg-maroon-700"></span>
+          <span>Suara Alumni</span>
+        </div>
+        <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-gray-900 tracking-tight mb-3">
+          Suara Alumni Program Magang
+        </h2>
+        <p class="text-gray-600 text-sm md:text-base leading-relaxed">
+          Seluruh testimoni yang dimuat di bawah ini berasal dari peserta nyata yang telah menyelesaikan program magang serta telah memberikan persetujuan publikasi tertulis.
+        </p>
+      </div>
+
+      <!-- Testimonials Grid (Matching Reference Screenshot: Deep Maroon Cards with Floating Top Avatars) -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-9 pt-6">
+        {
+          allTestimoni.map((t, idx) => {
+            const avatarSrc = avatars[t.id] || `/images/avatar-${(idx % 3) + 1}.webp`;
+            return (
+              <div class="relative bg-gradient-to-b from-[#1C0409] via-[#140206] to-[#0D0104] text-white border border-maroon-800/60 rounded-[32px] md:rounded-[36px] pt-12 pb-8 px-6 sm:px-7 flex flex-col justify-between shadow-xl shadow-maroon-950/20 hover:shadow-2xl hover:shadow-maroon-950/35 hover:border-rose-400/40 hover:-translate-y-2 transition-all duration-300 group">
+                <!-- Floating Avatar overlapping top edge -->
+                <div class="absolute -top-7 left-1/2 -translate-x-1/2 w-16 h-16 rounded-full border-4 border-white shadow-xl overflow-hidden bg-gray-200 z-20 group-hover:scale-105 transition-transform duration-300">
+                  <img
+                    src={avatarSrc}
+                    alt={t.data.nama}
+                    class="w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                </div>
+
+                <!-- Top Left Quote Icon (Matching Reference Screenshot) -->
+                <div class="absolute top-5 left-5 text-rose-400/30 select-none pointer-events-none">
+                  <svg class="w-7 h-7 fill-current" viewBox="0 0 24 24">
+                    <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+                  </svg>
+                </div>
+
+                <!-- Bottom Right Quote Icon (Matching Reference Screenshot) -->
+                <div class="absolute bottom-5 right-5 text-rose-400/25 select-none pointer-events-none">
+                  <svg class="w-7 h-7 fill-current rotate-180" viewBox="0 0 24 24">
+                    <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+                  </svg>
+                </div>
+
+                <!-- Testimonial Quote (Center Aligned Italic text matching screenshot) -->
+                <blockquote class="text-center italic text-xs sm:text-sm md:text-[0.9375rem] text-gray-200 leading-relaxed font-normal my-4 relative z-10 px-2">
+                  "{t.body}"
+                </blockquote>
+
+                <!-- Author Info (Bottom Center matching screenshot) -->
+                <div class="text-center pt-3 border-t border-white/10 relative z-10">
+                  <div class="font-extrabold text-base md:text-lg text-rose-300 tracking-tight leading-snug">
+                    {t.data.nama}
+                  </div>
+                  {t.data.peran && (
+                    <div class="text-xs text-rose-100/90 font-medium mt-1 leading-snug">
+                      {t.data.peran}
+                    </div>
+                  )}
+                  <div class="text-[0.75rem] text-gray-400 mt-1 leading-snug">
+                    {t.data.asal} &bull; {t.data.tempatMagang} ({t.data.tahun})
+                  </div>
+                </div>
+              </div>
+            );
+          })
+        }
+      </div>
+
+      <div class="mt-14 p-6 bg-maroon-50/70 border border-maroon-100 rounded-[24px] text-xs text-gray-700 leading-relaxed max-w-4xl mx-auto text-center">
+        <strong class="text-maroon-900 font-bold">Pemberitahuan Kepatuhan Etika:</strong> Kami menjaga integritas bukti sosial dengan tidak menggunakan testimoni fiktif atau rekayasa data. Bagi peserta di bawah 18 tahun, publikasi nama dan asal sekolah telah memperoleh persetujuan tertulis dari orang tua atau wali murid.
+      </div>
+    </div>
+  </section>
+
+  <CtaBanner
+    title="Ingin Meraih Pengalaman Nyata Seperti Mereka?"
+    subtitle="Segera daftarkan diri kamu pada batch yang sedang dibuka dan pilih posisi yang kamu minati."
+  />
+</BaseLayout>

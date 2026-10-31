@@ -1,0 +1,158 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import PageBanner from "../../components/ui/PageBanner.astro";
+import Accordion from "../../components/ui/Accordion.astro";
+import CtaBanner from "../../components/sections/CtaBanner.astro";
+import { siteConfig } from "../../data/site";
+
+const allFaq = await getCollection("faq");
+const sortedFaq = allFaq.sort((a, b) => a.data.urutan - b.data.urutan);
+
+const categories = [
+  { key: "semua", label: "Semua Kategori" },
+  { key: "umum", label: "Umum & Biaya" },
+  { key: "smk", label: "Siswa SMK" },
+  { key: "mahasiswa", label: "Mahasiswa & SKS" },
+  { key: "pendaftaran", label: "Pendaftaran & Seleksi" },
+  { key: "selama-magang", label: "Selama Magang" },
+  { key: "sekolah-kampus", label: "Sekolah & Kampus" },
+  { key: "mitra", label: "Mitra Industri" },
+];
+
+const accordionItems = sortedFaq.map((f) => ({
+  id: f.id,
+  title: f.data.pertanyaan,
+  content: f.body || "",
+  category: f.data.kategori,
+}));
+---
+
+<BaseLayout
+  title={`Tanya Jawab (FAQ) Program Magang SMK & Mahasiswa | ${siteConfig.shortName}`}
+  description="Pusat jawaban pertanyaan umum seputar biaya magang gratis, syarat pendaftaran SMK dan mahasiswa, konversi SKS, hingga bimbingan industri."
+>
+  <PageBanner
+    title="Pertanyaan yang Sering Diajukan (FAQ)"
+    description="Temukan jawaban lengkap dan transparan seputar pendaftaran, mekanisme seleksi, serta pelaksanaan program magang."
+    breadcrumbs={[{ label: "Tanya Jawab (FAQ)" }]}
+    badge="Pusat Bantuan Resmi"
+  />
+
+  <section class="py-14 md:py-20 bg-[#F8F9FA] text-gray-900">
+    <div class="max-w-[72rem] mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
+        <!-- Main FAQ list (8 cols) -->
+        <div class="lg:col-span-8">
+          <!-- Category Filter Bar (Pills) -->
+          <div class="mb-10 pb-6 border-b border-gray-200/80 flex flex-wrap gap-2.5" id="faq-categories">
+            {
+              categories.map((cat, idx) => (
+                <button
+                  type="button"
+                  data-faq-cat={cat.key}
+                  class={`px-4 md:px-5 py-2 min-h-[38px] rounded-full text-xs font-semibold transition-all cursor-pointer border ${
+                    idx === 0
+                      ? "bg-maroon-700 text-white border-maroon-700 shadow-sm font-bold active-filter"
+                      : "bg-white text-gray-700 border-gray-200 hover:bg-gray-100 hover:text-maroon-700"
+                  }`}
+                >
+                  {cat.label}
+                </button>
+              ))
+            }
+          </div>
+
+          <!-- Accordion List with light styling -->
+          <div class="bg-white border border-gray-200/90 rounded-[24px] p-6 md:p-8 shadow-sm">
+            <Accordion items={accordionItems} dark={false} />
+          </div>
+
+          <div class="mt-6 text-xs text-gray-500">
+            Belum menemukan jawaban yang kamu cari? Konsultasikan langsung dengan panitia melalui <a href="/kontak/" class="text-maroon-700 font-bold hover:underline">Halaman Kontak Resmi</a>.
+          </div>
+        </div>
+
+        <!-- Sidebar (4 cols) -->
+        <aside class="lg:col-span-4 sticky top-24 space-y-6">
+          <div class="bg-white border border-gray-200/90 rounded-[24px] p-6 md:p-8 space-y-4 shadow-sm text-gray-900">
+            <h3 class="font-extrabold text-base md:text-lg text-gray-900">
+              Pertanyaan Belum Terjawab?
+            </h3>
+            <p class="text-xs text-gray-600 leading-relaxed">
+              Tim sekretariat kami siap membantu menjawab pertanyaan spesifik mengenai penyesuaian kurikulum kejuruan atau prosedur MoU.
+            </p>
+            <div class="space-y-3 pt-3">
+              <a
+                href={siteConfig.whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="flex items-center justify-center gap-2 w-full py-3 px-5 rounded-full bg-maroon-700 text-white text-xs font-bold hover:bg-maroon-800 transition-all shadow-md shadow-maroon-900/10"
+              >
+                <span>Tanya via WhatsApp</span>
+                <span aria-hidden="true">↗</span>
+              </a>
+              <a
+                href={`mailto:${siteConfig.email}`}
+                class="flex items-center justify-center gap-2 w-full py-3 px-5 rounded-full bg-gray-50 border border-gray-200 text-gray-800 text-xs font-bold hover:bg-gray-100 transition-all"
+              >
+                Kirim Pertanyaan via Email
+              </a>
+            </div>
+          </div>
+
+          <div class="rounded-[24px] bg-gradient-to-br from-[#800020] to-[#5C0017] text-white p-6 shadow-md text-xs space-y-2">
+            <strong class="text-white text-sm block font-bold">Jam Layanan Bantuan:</strong>
+            <p class="text-maroon-100 leading-relaxed">
+              Senin – Jumat: 08.00 – 17.00 WIB.<br />
+              Pertanyaan yang masuk di luar jam operasional akan dijawab pada hari kerja berikutnya.
+            </p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <CtaBanner
+    title="Sudah Mendapatkan Kejelasan yang Kamu Butuhkan?"
+    subtitle="Siapkan dokumen persyaratan kamu dan daftarkan diri pada posisi impian."
+  />
+</BaseLayout>
+
+<script>
+  function setupFaqCategoryFilter() {
+    const container = document.getElementById("faq-categories");
+    if (!container || container.dataset.initialized) return;
+    container.dataset.initialized = "true";
+
+    const buttons = container.querySelectorAll<HTMLButtonElement>("button[data-faq-cat]");
+    const items = document.querySelectorAll<HTMLElement>("[data-accordion-item]");
+
+    buttons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const cat = btn.dataset.faqCat;
+
+        // Update button styles
+        buttons.forEach((b) => {
+          b.className =
+            "px-4 md:px-5 py-2 min-h-[38px] rounded-full text-xs font-semibold transition-all cursor-pointer border bg-white text-gray-700 border-gray-200 hover:bg-gray-100 hover:text-maroon-700";
+        });
+        btn.className =
+          "px-4 md:px-5 py-2 min-h-[38px] rounded-full text-xs font-bold transition-all cursor-pointer border bg-maroon-700 text-white border-maroon-700 shadow-sm active-filter";
+
+        // Filter accordion items
+        items.forEach((item) => {
+          const itemCat = item.dataset.category;
+          if (cat === "semua" || itemCat === cat) {
+            item.style.display = "";
+          } else {
+            item.style.display = "none";
+          }
+        });
+      });
+    });
+  }
+
+  setupFaqCategoryFilter();
+  document.addEventListener("astro:page-load", setupFaqCategoryFilter);
+</script>

@@ -1,0 +1,101 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import PageBanner from "../../components/ui/PageBanner.astro";
+import MitraGrid from "../../components/sections/MitraGrid.astro";
+import CtaBanner from "../../components/sections/CtaBanner.astro";
+import { siteConfig } from "../../data/site";
+
+const allMitra = await getCollection("mitra", ({ data }) => data.izinTayang);
+const mitraList = allMitra.map((m) => ({
+  slug: m.id,
+  nama: m.data.nama,
+  logo: m.data.logo,
+  sektor: m.data.sektor,
+  kota: m.data.kota,
+  website: m.data.website,
+  deskripsi: m.data.deskripsi || m.body,
+}));
+---
+
+<BaseLayout
+  title={`Mitra Industri & Instansi Penempatan Magang | ${siteConfig.shortName}`}
+  description="Daftar mitra industri, perusahaan teknologi, manufaktur, dan agensi kreatif resmi yang bekerja sama dalam Program Magang SMK & Mahasiswa."
+>
+  <PageBanner
+    title="Mitra Industri & Instansi Rekanan"
+    description="Kolaborasi nyata bersama perusahaan terkemuka untuk mencetak talenta muda yang kompeten dan siap kerja."
+    breadcrumbs={[{ label: "Mitra Industri" }]}
+    badge="Konsorsium Kemitraan Resmi"
+  />
+
+  <section class="py-14 md:py-20 bg-[#F8F9FA] text-gray-900">
+    <div class="max-w-[72rem] mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl mb-10">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-maroon-50 text-maroon-700 text-xs font-bold uppercase tracking-wider mb-3 border border-maroon-100">
+          <span class="w-1.5 h-1.5 rounded-full bg-maroon-700"></span>
+          <span>Jaringan Industri Terverifikasi</span>
+        </div>
+        <h2 class="text-2xl md:text-3xl font-extrabold text-gray-900 tracking-tight">
+          Perusahaan Penyedia Tempat Magang
+        </h2>
+        <p class="text-gray-600 text-sm md:text-base leading-relaxed mt-2">
+          Seluruh mitra di bawah ini telah menandatangani kesepakatan pembinaan dan menjamin lingkungan magang yang aman, edukatif, serta bebas dari eksploitasi kerja.
+        </p>
+      </div>
+
+      <!-- Partners Grid (Light theme) -->
+      <MitraGrid mitraList={mitraList} showLinkToPositions={true} dark={false} />
+
+      <!-- Detailed Partner Cards -->
+      <div class="mt-16 pt-12 border-t border-gray-200/80 space-y-8">
+        <div>
+          <h3 class="text-xl md:text-2xl font-extrabold text-gray-900 mb-2">
+            Profil Singkat Mitra Industri
+          </h3>
+          <p class="text-xs text-gray-500">
+            Kenali profil bidang usaha, lingkungan kerja, dan lokasi operasional instansi rekanan kami.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {
+            mitraList.map((m) => (
+              <div class="bg-white border border-gray-200/90 rounded-[24px] p-6 space-y-3.5 hover:shadow-md hover:border-maroon-300 transition-all duration-300 shadow-sm text-gray-900">
+                <div class="flex items-center justify-between gap-4">
+                  <div class="font-extrabold text-base md:text-lg text-gray-900">{m.nama}</div>
+                  <span class="text-xs px-3 py-1 rounded-full bg-gray-100 text-gray-700 font-semibold border border-gray-200">
+                    {m.kota}
+                  </span>
+                </div>
+                <div class="text-xs font-bold text-maroon-700">
+                  {m.sektor}
+                </div>
+                <p class="text-xs text-gray-600 leading-relaxed">
+                  {m.deskripsi}
+                </p>
+                <div class="pt-3 border-t border-gray-100 flex items-center justify-between text-xs">
+                  {m.website ? (
+                    <a href={m.website} target="_blank" rel="noopener noreferrer" class="text-maroon-700 font-bold hover:underline transition-colors">
+                      Kunjungi Website Mitra →
+                    </a>
+                  ) : (
+                    <span></span>
+                  )}
+                  <a href={`/posisi/?cari=${encodeURIComponent(m.nama)}`} class="font-bold text-maroon-700 hover:underline transition-colors">
+                    Lihat Posisi Buka →
+                  </a>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CtaBanner
+    title="Siap Mengembangkan Kemampuan di Industri Rekanan Kami?"
+    subtitle="Pilih posisi magang favorit kamu dan daftarkan diri pada batch yang sedang dibuka."
+  />
+</BaseLayout>

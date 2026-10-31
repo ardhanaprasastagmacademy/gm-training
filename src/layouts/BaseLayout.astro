@@ -1,0 +1,103 @@
+---
+import "../styles/global.css";
+import "@fontsource/plus-jakarta-sans/400.css";
+import "@fontsource/plus-jakarta-sans/700.css";
+
+import SkipLink from "../components/ui/SkipLink.astro";
+import Seo from "../components/ui/Seo.astro";
+import Header from "../components/sections/Header.astro";
+import Footer from "../components/sections/Footer.astro";
+import FloatingWa from "../components/ui/FloatingWa.astro";
+
+interface Props {
+  title: string;
+  description?: string;
+  canonical?: string;
+  ogImage?: string;
+  ogType?: "website" | "article";
+  publishedTime?: string;
+  modifiedTime?: string;
+  schema?: Record<string, any>;
+  showFloatingWa?: boolean;
+  noindex?: boolean;
+}
+
+const {
+  title,
+  description,
+  canonical,
+  ogImage,
+  ogType,
+  publishedTime,
+  modifiedTime,
+  schema,
+  showFloatingWa = true,
+  noindex = false,
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="id" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/webp" href="/images/favicon.webp" />
+    <link rel="apple-touch-icon" href="/images/favicon.webp" />
+    <meta name="theme-color" content="#800020" />
+
+    <Seo
+      title={title}
+      description={description}
+      canonical={canonical}
+      ogImage={ogImage}
+      ogType={ogType}
+      publishedTime={publishedTime}
+      modifiedTime={modifiedTime}
+      schema={schema}
+      noindex={noindex}
+    />
+  </head>
+  <body class="m-0 p-0 bg-[#F8F9FA] text-[#111827] min-h-screen flex flex-col antialiased selection:bg-maroon-700 selection:text-white">
+    <SkipLink />
+    <Header />
+
+    <main id="main-content" class="flex-1">
+      <slot />
+    </main>
+
+    <Footer />
+
+    {showFloatingWa && <FloatingWa />}
+
+    <!-- Event Analytics Tracking Listener (PRD 14.1) -->
+    <script>
+      function initAnalyticsTracking() {
+        document.addEventListener("click", (event) => {
+          const target = (event.target as HTMLElement)?.closest("[data-track-event]");
+          if (!target) return;
+
+          const eventName = target.getAttribute("data-track-event");
+          const eventParams = {
+            jalur: target.getAttribute("data-track-jalur") || "umum",
+            batch: target.getAttribute("data-track-batch") || "batch-1-2026",
+            posisi: target.getAttribute("data-track-posisi") || undefined,
+            url: window.location.pathname,
+            timestamp: new Date().toISOString(),
+          };
+
+          // Safe console / dataLayer logging for static privacy-friendly tracking
+          if (typeof window !== "undefined") {
+            // @ts-ignore
+            window.dataLayer = window.dataLayer || [];
+            // @ts-ignore
+            window.dataLayer.push({ event: eventName, ...eventParams });
+            console.debug(`[Analytics Event] ${eventName}:`, eventParams);
+          }
+        });
+      }
+
+      initAnalyticsTracking();
+      document.addEventListener("astro:page-load", initAnalyticsTracking);
+    </script>
+  </body>
+</html>

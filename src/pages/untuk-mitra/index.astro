@@ -1,0 +1,185 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import PageBanner from "../../components/ui/PageBanner.astro";
+import CtaBanner from "../../components/sections/CtaBanner.astro";
+import { siteConfig } from "../../data/site";
+
+const benefits = [
+  {
+    title: "Akses Talenta Muda Terkurasi",
+    desc: "Kandidat telah melalui seleksi administratif awal sesuai kualifikasi teknis yang disyaratkan oleh divisi Anda.",
+  },
+  {
+    title: "Beban Administrasi Nol",
+    desc: "Tim kami mengelola seluruh perizinan sekolah/kampus, surat pengantar, template logbook, hingga pelaporan berkala.",
+  },
+  {
+    title: "Membangun Saluran Rekrutmen Karyawan Baru",
+    desc: "Evaluasi kandidat secara langsung selama 3–6 bulan untuk mempermudah perekrutan karyawan tetap siap pakai setelah mereka lulus.",
+  },
+  {
+    title: "Dukungan Pembekalan Budaya Kerja & K3",
+    desc: "Peserta telah dibekali materi orientasi etika kerja profesional, kerahasiaan informasi, serta kesadaran K3 industri sebelum hari pertama bekerja.",
+  },
+];
+---
+
+<BaseLayout
+  title={`Kemitraan Industri Penyedia Tempat Magang | ${siteConfig.shortName}`}
+  description="Buka peluang kemitraan industri: dapatkan talenta muda SMK dan mahasiswa terbaik dengan dukungan manajemen administrasi terpadu GM Training."
+>
+  <PageBanner
+    title="Untuk Perusahaan & Mitra Industri"
+    description="Jadilah bagian dari ekosistem pencetak tenaga kerja masa depan dengan menyediakan wadah magang yang edukatif dan terarah."
+    breadcrumbs={[{ label: "Untuk Mitra" }]}
+    badge="Kolaborasi Dunia Usaha & Industri"
+  />
+
+  <section class="py-14 md:py-20 bg-[#F8F9FA] text-gray-900">
+    <div class="max-w-[72rem] mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
+        <!-- Main Content (8 cols) -->
+        <div class="lg:col-span-8 space-y-10">
+          <div>
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-maroon-50 text-maroon-700 text-xs font-bold uppercase tracking-wider mb-3 border border-maroon-100">
+              <span class="w-1.5 h-1.5 rounded-full bg-maroon-700"></span>
+              <span>Kemitraan Strategis</span>
+            </div>
+            <h2 class="text-2xl md:text-3xl font-extrabold text-gray-900 mb-4 tracking-tight">
+              Investasi Nyata bagi Pertumbuhan Talenta Perusahaan Anda
+            </h2>
+            <p class="text-gray-600 text-sm md:text-base leading-relaxed mb-4">
+              Merekrut dan melatih staf pemula membutuhkan waktu dan biaya yang tidak sedikit. Melalui program kemitraan {siteConfig.name}, perusahaan Anda dapat menjalin hubungan erat dengan calon-calon teknisi, pengembang perangkat lunak, analis, dan desainer muda berbakat sejak mereka masih menempuh pendidikan.
+            </p>
+            <p class="text-gray-600 text-sm md:text-base leading-relaxed">
+              Kami memastikan kerja sama ini memberikan keuntungan timbal balik yang seimbang: perusahaan mendapatkan tambahan kapasitas tim operasional yang penuh antusiasme, sementara peserta didik mendapatkan bimbingan nyata dari para profesional di bidangnya.
+            </p>
+          </div>
+
+          <!-- Benefits Grid -->
+          <div>
+            <div class="mb-5">
+              <span class="text-xs font-bold uppercase tracking-wider text-maroon-700">Nilai Tambah</span>
+              <h3 class="text-2xl font-extrabold text-gray-900 mt-1 tracking-tight">
+                Keuntungan Bergabung Sebagai Mitra Industri
+              </h3>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {
+                benefits.map((b) => (
+                  <div class="bg-white border border-gray-200/90 rounded-[24px] p-6 shadow-sm hover:shadow-md hover:border-maroon-300 transition-all duration-300">
+                    <div class="w-8 h-8 rounded-full bg-maroon-50 text-maroon-700 flex items-center justify-center text-sm font-bold mb-3 border border-maroon-100">
+                      ✓
+                    </div>
+                    <h4 class="font-bold text-base text-gray-900 mb-2">{b.title}</h4>
+                    <p class="text-xs md:text-sm text-gray-600 leading-relaxed">{b.desc}</p>
+                  </div>
+                ))
+              }
+            </div>
+          </div>
+
+          <!-- Kriteria Mitra -->
+          <div class="bg-maroon-50/70 border border-maroon-100 rounded-[24px] p-6 md:p-8">
+            <h3 class="text-xl font-extrabold text-gray-900 mb-4 tracking-tight flex items-center gap-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-maroon-700"></span>
+              <span>Kriteria Standar Perusahaan Mitra</span>
+            </h3>
+            <ul class="space-y-3.5 text-gray-700 text-sm md:text-base">
+              <li class="flex items-start gap-3">
+                <span class="w-5 h-5 rounded-full bg-maroon-700 text-white flex items-center justify-center text-xs font-bold shrink-0 mt-0.5 shadow-sm">✓</span>
+                <span>Berbadan hukum sah (PT, CV, BUMN, Yayasan, atau Instansi Pemerintahan resmi).</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="w-5 h-5 rounded-full bg-maroon-700 text-white flex items-center justify-center text-xs font-bold shrink-0 mt-0.5 shadow-sm">✓</span>
+                <span>Menyediakan lingkungan kerja yang aman, manusiawi, serta mematuhi aturan keselamatan kerja (K3).</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="w-5 h-5 rounded-full bg-maroon-700 text-white flex items-center justify-center text-xs font-bold shrink-0 mt-0.5 shadow-sm">✓</span>
+                <span>Bersedia menunjuk minimal satu praktisi atau karyawan senior sebagai Mentor Pembimbing peserta.</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="w-5 h-5 rounded-full bg-maroon-700 text-white flex items-center justify-center text-xs font-bold shrink-0 mt-0.5 shadow-sm">✓</span>
+                <span>Memiliki ruang lingkup pekerjaan atau penugasan riil yang relevan dengan kompetensi kejuruan peserta didik.</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Alur Menjadi Mitra -->
+          <div>
+            <div class="mb-5">
+              <span class="text-xs font-bold uppercase tracking-wider text-maroon-700">Tahapan Integrasi</span>
+              <h3 class="text-2xl font-extrabold text-gray-900 mt-1 tracking-tight">
+                Tahapan Bergabung Menjadi Mitra
+              </h3>
+            </div>
+            <div class="space-y-4">
+              <div class="p-5 rounded-[22px] bg-white border border-gray-200/90 flex items-start gap-4 shadow-sm">
+                <span class="w-8 h-8 rounded-full bg-maroon-50 border border-maroon-100 text-maroon-700 font-bold flex items-center justify-center text-sm shrink-0 mt-0.5">1</span>
+                <div>
+                  <h4 class="font-bold text-base text-gray-900 mb-1">Registrasi Minat & Deskripsi Kebutuhan</h4>
+                  <p class="text-xs md:text-sm text-gray-600 leading-relaxed">Isi formulir kemitraan dengan merincikan posisi yang dibutuhkan, kualifikasi jurusan, dan jumlah kuota yang dapat diterima.</p>
+                </div>
+              </div>
+
+              <div class="p-5 rounded-[22px] bg-white border border-gray-200/90 flex items-start gap-4 shadow-sm">
+                <span class="w-8 h-8 rounded-full bg-maroon-50 border border-maroon-100 text-maroon-700 font-bold flex items-center justify-center text-sm shrink-0 mt-0.5">2</span>
+                <div>
+                  <h4 class="font-bold text-base text-gray-900 mb-1">Penandatanganan Perjanjian Kemitraan</h4>
+                  <p class="text-xs md:text-sm text-gray-600 leading-relaxed">Kesepakatan bersama mengenai jadwal batch, hak cipta karya peserta, dan penunjukan mentor pembimbing.</p>
+                </div>
+              </div>
+
+              <div class="p-5 rounded-[22px] bg-white border border-gray-200/90 flex items-start gap-4 shadow-sm">
+                <span class="w-8 h-8 rounded-full bg-maroon-50 border border-maroon-100 text-maroon-700 font-bold flex items-center justify-center text-sm shrink-0 mt-0.5">3</span>
+                <div>
+                  <h4 class="font-bold text-base text-gray-900 mb-1">Penerimaan & Pelaksanaan Magang</h4>
+                  <p class="text-xs md:text-sm text-gray-600 leading-relaxed">Kandidat terbaik hasil seleksi mulai penempatan dengan pendampingan operasional berkala dari sekretariat kami.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sidebar CTA (4 cols) -->
+        <aside class="lg:col-span-4 sticky top-24 space-y-6">
+          <div class="rounded-[24px] bg-gradient-to-br from-[#800020] to-[#5C0017] text-white p-6 shadow-md relative overflow-hidden">
+            <span class="text-xs font-bold uppercase tracking-wider text-maroon-200 block mb-2">
+              Kemitraan Industri
+            </span>
+            <h3 class="font-extrabold text-xl text-white mb-2">
+              Daftar Sebagai Mitra
+            </h3>
+            <p class="text-xs text-maroon-100 leading-relaxed mb-6">
+              Buka peluang posisi magang baru di perusahaan Anda untuk Batch 1 atau Batch berikutnya.
+            </p>
+            <a
+              href={siteConfig.formUrls.kerjaSamaMitra}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-white text-maroon-900 font-extrabold text-sm shadow-md hover:bg-gray-100 transition-all group"
+              data-track-event="klik_kerja_sama"
+            >
+              <span>Isi Formulir Mitra Industri</span>
+              <span class="w-5 h-5 rounded-full bg-maroon-100 text-maroon-900 flex items-center justify-center text-xs group-hover:translate-x-0.5 transition-transform">↗</span>
+            </a>
+          </div>
+
+          <div class="bg-white border border-gray-200/90 rounded-[24px] p-6 text-xs text-gray-600 space-y-2 shadow-sm">
+            <strong class="text-gray-900 font-bold block text-sm">Hubungi PIC Hubungan Industri:</strong>
+            <p>Divisi Kemitraan Industri & Korporat</p>
+            <p>Email: <a href="mailto:industri@gmtraining.id" class="text-maroon-700 font-bold hover:underline">industri@gmtraining.id</a></p>
+            <p>WhatsApp: <strong class="text-gray-900">{siteConfig.whatsapp}</strong></p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <CtaBanner
+    title="Siap Berkolaborasi Bersama Jaringan Edukasi Kami?"
+    subtitle="Konsultasikan kebutuhan talenta magang perusahaan Anda bersama tim hubungan industri kami."
+    primaryText="Daftar Jadi Mitra"
+    primaryHref={siteConfig.formUrls.kerjaSamaMitra}
+  />
+</BaseLayout>

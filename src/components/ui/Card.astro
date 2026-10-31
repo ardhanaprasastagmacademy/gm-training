@@ -1,0 +1,36 @@
+---
+import type { HTMLTag } from "astro/types";
+
+interface Props {
+  as?: HTMLTag;
+  radius?: "sm" | "md" | "lg";
+  hover?: boolean;
+  class?: string;
+  [key: string]: any;
+}
+
+const {
+  as: Tag = "div",
+  radius = "md",
+  hover = false,
+  class: className = "",
+  ...rest
+} = Astro.props;
+
+const radiusMap = {
+  sm: "rounded-[12px]",
+  md: "rounded-[18px]",
+  lg: "rounded-[24px]",
+};
+
+const hoverClass = hover
+  ? "transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-2xl hover:shadow-maroon-950/40 hover:border-maroon-500/80"
+  : "";
+---
+
+<Tag
+  class={`bg-[#16050A] border border-white/10 text-white ${radiusMap[radius]} p-5 md:p-6 ${hoverClass} ${className}`}
+  {...rest}
+>
+  <slot />
+</Tag>

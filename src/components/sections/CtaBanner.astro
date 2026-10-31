@@ -1,0 +1,71 @@
+---
+interface Props {
+  title?: string;
+  subtitle?: string;
+  primaryText?: string;
+  primaryHref?: string;
+  secondaryText?: string;
+  secondaryHref?: string;
+  class?: string;
+}
+
+const {
+  title = "Siap Mengembangkan Keahlian di Dunia Kerja Nyata?",
+  subtitle = "Pendaftaran Batch 1 Tahun Akademik 2026/2027 sedang dibuka. Pelajari persyaratan dan kirimkan berkas pendaftaran kamu sekarang.",
+  primaryText = "Pendaftaran Sekarang",
+  primaryHref = "/pendaftaran/",
+  secondaryText,
+  secondaryHref,
+  class: className = "",
+} = Astro.props;
+---
+
+<section class={`py-14 md:py-20 bg-[#F8F9FA] ${className}`}>
+  <div class="max-w-[76rem] mx-auto px-4 sm:px-6 lg:px-8">
+    <div
+      class="bg-[#160408] text-white rounded-[28px] md:rounded-[36px] p-8 md:p-14 border border-maroon-800/40 shadow-2xl relative overflow-hidden flex flex-col lg:flex-row items-center justify-between gap-8"
+    >
+      <!-- Subtle Decorative Radial Glow -->
+      <div class="absolute -top-24 -right-24 w-80 h-80 bg-rose-500/10 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="absolute -bottom-24 -left-24 w-80 h-80 bg-maroon-900/20 rounded-full blur-3xl pointer-events-none"></div>
+
+      <!-- Left Content -->
+      <div class="space-y-4 max-w-2xl text-center lg:text-left relative z-10">
+        <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white tracking-tight leading-snug">
+          {title}
+        </h2>
+
+        <p class="text-sm md:text-base text-gray-300 leading-relaxed font-normal">
+          {subtitle}
+        </p>
+      </div>
+
+      <!-- Right Action Button in Cream Tint matching Reference Screenshot -->
+      <div class="shrink-0 flex flex-col sm:flex-row items-center gap-3.5 relative z-10">
+        <a
+          href={primaryHref}
+          class="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-[#EEDBC5] hover:bg-[#F5E8D6] text-[#4A0A16] font-extrabold text-sm md:text-base shadow-xl transition-all hover:scale-105 active:scale-95 group text-center"
+          data-track-event="klik_cta_banner_primary"
+        >
+          <span>{primaryText}</span>
+          <span
+            class="w-6 h-6 rounded-full bg-maroon-800 text-white flex items-center justify-center text-xs group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform shrink-0"
+          >
+            ↗
+          </span>
+        </a>
+
+        {
+          secondaryText && secondaryHref && (
+            <a
+              href={secondaryHref}
+              class="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-white/10 hover:bg-white/20 text-white font-bold text-sm border border-white/20 backdrop-blur-md transition-all text-center"
+            >
+              <span>{secondaryText}</span>
+            </a>
+          )
+        }
+      </div>
+    </div>
+  </div>
+</section>

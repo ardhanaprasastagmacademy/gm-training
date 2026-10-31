@@ -1,0 +1,47 @@
+---
+const highlights = [
+  {
+    title: "Standar Industri",
+    desc: "Kurikulum DUDI nasional & konversi resmi SKS / nilai PKL.",
+    icon: `<svg class="w-full h-full" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>`,
+  },
+  {
+    title: "Terverifikasi & Aman",
+    desc: "MoU legalitas resmi tanpa pungutan biaya pendaftaran.",
+    icon: `<svg class="w-full h-full" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg>`,
+  },
+  {
+    title: "Pendampingan 1-on-1",
+    desc: "Bimbingan langsung mentor praktisi dan jejaring karier.",
+    icon: `<svg class="w-full h-full" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>`,
+  },
+];
+---
+
+<section class="relative z-20 -mt-7 sm:-mt-10 md:-mt-14 max-w-[74rem] mx-auto px-3 sm:px-6 lg:px-8 mb-6 md:mb-8">
+  <!-- Slim Floating Capsule Ribbon (Horizontal 3-Column on all viewports) -->
+  <div class="bg-gradient-to-r from-[#1A0308] via-[#26050D] to-[#1A0308] border border-maroon-700/50 rounded-full px-3 py-2.5 sm:px-6 sm:py-3.5 md:px-8 md:py-4.5 shadow-2xl shadow-black/40 backdrop-blur-md">
+    <div class="grid grid-cols-3 gap-2 sm:gap-4 md:gap-6 items-center">
+      {
+        highlights.map((item, idx) => (
+          <div class={`flex items-center gap-1.5 sm:gap-3 md:gap-4 group ${idx < 2 ? "border-r border-white/15 pr-2 sm:pr-4 lg:pr-6" : ""}`}>
+            <!-- Circular Icon Badge (Compact & Scaled) -->
+            <div class="w-7 h-7 sm:w-9 sm:h-9 md:w-11 md:h-11 rounded-full bg-gradient-to-br from-maroon-600 to-maroon-800 text-white flex items-center justify-center shrink-0 shadow-md border border-maroon-400/40 p-1.5 sm:p-2 group-hover:scale-105 transition-transform duration-200">
+              <span set:html={item.icon} class="w-full h-full flex items-center justify-center" />
+            </div>
+
+            <!-- Content -->
+            <div class="min-w-0 flex-1">
+              <h3 class="text-white font-extrabold text-[0.625rem] sm:text-xs md:text-sm lg:text-[0.9375rem] leading-tight tracking-tight truncate sm:whitespace-normal">
+                {item.title}
+              </h3>
+              <p class="text-gray-300 text-[0.5625rem] sm:text-[0.6875rem] md:text-xs leading-tight sm:leading-relaxed mt-0.5 line-clamp-1 sm:line-clamp-2">
+                {item.desc}
+              </p>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

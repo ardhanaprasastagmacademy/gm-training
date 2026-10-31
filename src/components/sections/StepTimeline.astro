@@ -1,0 +1,86 @@
+---
+import { dataAlurPendaftaran, type TahapAlur } from "../../data/alur";
+
+interface Props {
+  filterJalur?: "smk" | "mahasiswa" | "keduanya";
+  items?: TahapAlur[];
+  class?: string;
+}
+
+const { filterJalur, items = dataAlurPendaftaran, class: className = "" } = Astro.props;
+
+const filteredItems = filterJalur
+  ? items.filter((item) => item.jalur === "keduanya" || item.jalur === filterJalur)
+  : items;
+
+const jalurBadges = {
+  smk: "Khusus Siswa SMK",
+  mahasiswa: "Khusus Mahasiswa",
+  keduanya: "SMK & Mahasiswa",
+};
+---
+
+<div class={`relative pl-8 md:pl-12 space-y-8 md:space-y-10 ${className}`}>
+  <!-- Continuous Vertical Spine -->
+  <div
+    class="absolute left-3.5 md:left-5 top-4 bottom-4 w-0.5 bg-gradient-to-b from-maroon-600 via-maroon-300 to-gray-200"
+    aria-hidden="true"
+  ></div>
+
+  {
+    filteredItems.map((step) => (
+      <div class="relative group">
+        <!-- Numbered circular node 32px -->
+        <div
+          class="absolute -left-8 md:-left-12 top-1 w-8 h-8 rounded-full bg-maroon-700 text-white font-bold text-xs flex items-center justify-center ring-4 ring-[#F8F9FA] shadow-md shadow-maroon-900/20"
+          aria-hidden="true"
+        >
+          {step.nomor}
+        </div>
+
+        <!-- Step Content Card -->
+        <div class="bg-white border border-gray-200/90 rounded-[22px] p-5 md:p-6 shadow-sm hover:shadow-md hover:border-maroon-300 transition-all duration-300">
+          <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+            <span class="text-xs font-bold uppercase tracking-wider text-maroon-700">
+              Tahap {step.nomor}
+            </span>
+            <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-maroon-50 text-maroon-700 border border-maroon-100">
+              {jalurBadges[step.jalur]}
+            </span>
+          </div>
+
+          <h3 class="text-lg md:text-xl font-bold text-gray-900 mb-2">
+            {step.judul}
+          </h3>
+
+          <p class="text-sm text-gray-600 leading-relaxed mb-4 max-w-[65ch]">
+            {step.deskripsi}
+          </p>
+
+          <!-- Meta Information Row: Siapa & Perkiraan Waktu -->
+          <div class="pt-3 border-t border-gray-100 flex flex-wrap items-center gap-6 text-xs text-gray-500">
+            <div class="flex items-center gap-1.5">
+              <strong class="text-gray-900 font-semibold">Penanggung Jawab:</strong>
+              <span>{step.siapa}</span>
+            </div>
+
+            <div class="flex items-center gap-1.5">
+              <strong class="text-gray-900 font-semibold">Estimasi Waktu:</strong>
+              <span class="tabular-nums font-bold text-maroon-700">{step.waktu}</span>
+            </div>
+          </div>
+
+          {step.catatan && (
+            <div class="mt-3 text-xs bg-maroon-50 text-maroon-800 p-3 rounded-xl border border-maroon-100 flex items-start gap-2.5">
+              <svg class="w-4 h-4 text-maroon-700 shrink-0 mt-0.5" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+                <circle cx="8" cy="8" r="7" fill="none" stroke="currentColor" stroke-width="2" />
+                <path d="M8 7v4M8 5v.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+              </svg>
+              <span class="leading-relaxed">{step.catatan}</span>
+            </div>
+          )}
+        </div>
+      </div>
+    ))
+  }
+</div>

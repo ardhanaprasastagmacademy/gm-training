@@ -1,0 +1,136 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import PageBanner from "../../components/ui/PageBanner.astro";
+import PilihJalur from "../../components/sections/PilihJalur.astro";
+import BidangKejuruanGrid from "../../components/sections/BidangKejuruanGrid.astro";
+import StepTimeline from "../../components/sections/StepTimeline.astro";
+import CtaBanner from "../../components/sections/CtaBanner.astro";
+import { siteConfig } from "../../data/site";
+---
+
+<BaseLayout
+  title={`Program Magang SMK & Mahasiswa | ${siteConfig.shortName}`}
+  description="Ikhtisar komprehensif program magang terstruktur: jalur Praktik Kerja Lapangan (PKL) siswa SMK dan jalur magang konversi SKS bagi mahasiswa bersama mitra industri terpercaya."
+>
+  <PageBanner
+    title="Program Magang & Praktik Kerja Lapangan"
+    description="Kurikulum terpadu yang memadukan kompetensi kejuruan SMK dan proyek mandiri perguruan tinggi."
+    breadcrumbs={[{ label: "Program" }]}
+    badge="Jalur Terintegrasi Industri"
+  />
+
+  <!-- Comparison & Choose Track Section -->
+  <PilihJalur />
+
+  <!-- Pilihan Program & Bidang Kejuruan Terstruktur -->
+  <BidangKejuruanGrid />
+
+  <!-- Detailed Track Comparison Table -->
+  <section class="py-14 md:py-20 bg-white text-gray-900 border-t border-gray-200/80">
+    <div class="max-w-[72rem] mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl mb-10">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-maroon-50 text-maroon-700 text-xs font-bold uppercase tracking-wider mb-3 border border-maroon-100">
+          <span class="w-1.5 h-1.5 rounded-full bg-maroon-700"></span>
+          <span>Matriks Perbandingan</span>
+        </div>
+        <h2 class="text-2xl md:text-3xl font-extrabold text-gray-900 tracking-tight mb-2">
+          Perbandingan Detail Antar Jalur
+        </h2>
+        <p class="text-gray-600 text-sm md:text-base leading-relaxed">
+          Pahami perbedaan teknis, kriteria kelayakan, dan dokumen yang wajib dipenuhi oleh calon peserta.
+        </p>
+      </div>
+
+      <div class="overflow-x-auto border border-gray-200/90 rounded-[24px] bg-white shadow-sm">
+        <table class="w-full text-left text-sm text-gray-900">
+          <thead class="bg-gray-50 text-gray-900 font-bold border-b border-gray-200">
+            <tr>
+              <th class="py-4 px-6">Aspek Program</th>
+              <th class="py-4 px-6 text-maroon-700">Jalur Siswa SMK (PKL)</th>
+              <th class="py-4 px-6 text-maroon-700">Jalur Mahasiswa (SKS)</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-gray-100 text-gray-700">
+            <tr class="hover:bg-gray-50/60 transition-colors">
+              <td class="py-4 px-6 font-bold text-gray-900">Sasaran Jenjang</td>
+              <td class="py-4 px-6">Siswa SMK aktif Kelas XI atau XII</td>
+              <td class="py-4 px-6">Mahasiswa D3/D4/S1 aktif minimal Semester 5</td>
+            </tr>
+            <tr class="hover:bg-gray-50/60 transition-colors">
+              <td class="py-4 px-6 font-bold text-gray-900">Durasi Magang</td>
+              <td class="py-4 px-6">3 hingga 6 bulan (penuh waktu)</td>
+              <td class="py-4 px-6">4 hingga 6 bulan (hybrid / onsite / remote)</td>
+            </tr>
+            <tr class="hover:bg-gray-50/60 transition-colors">
+              <td class="py-4 px-6 font-bold text-gray-900">Pengakuan Akademik</td>
+              <td class="py-4 px-6">Nilai rapor PKL & kelulusan sidang kejuruan</td>
+              <td class="py-4 px-6">Rekomendasi konversi hingga 20 SKS mata kuliah</td>
+            </tr>
+            <tr class="hover:bg-gray-50/60 transition-colors">
+              <td class="py-4 px-6 font-bold text-gray-900">Pendampingan</td>
+              <td class="py-4 px-6">Guru Pembimbing BKK & Mentor Praktisi</td>
+              <td class="py-4 px-6">Dosen Pembimbing Akademik & Mentor Divisi</td>
+            </tr>
+            <tr class="hover:bg-gray-50/60 transition-colors">
+              <td class="py-4 px-6 font-bold text-gray-900">Syarat Khusus</td>
+              <td class="py-4 px-6">Surat Izin Orang Tua/Wali (di bawah 18 tahun)</td>
+              <td class="py-4 px-6">Surat Rekomendasi Fakultas / Kaprodi</td>
+            </tr>
+            <tr class="hover:bg-gray-50/60 transition-colors">
+              <td class="py-4 px-6 font-bold text-gray-900">Halaman Panduan</td>
+              <td class="py-4 px-6">
+                <a href="/program/magang-smk/" class="font-bold text-maroon-700 hover:underline inline-flex items-center gap-1">
+                  <span>Lihat Panduan Siswa SMK</span>
+                  <span>→</span>
+                </a>
+              </td>
+              <td class="py-4 px-6">
+                <a href="/program/magang-mahasiswa/" class="font-bold text-maroon-700 hover:underline inline-flex items-center gap-1">
+                  <span>Lihat Panduan Mahasiswa</span>
+                  <span>→</span>
+                </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Step Timeline Section -->
+  <section class="py-14 md:py-20 bg-[#F8F9FA] text-gray-900 border-t border-gray-200/80">
+    <div class="max-w-[72rem] mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+        <div class="max-w-2xl">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-maroon-50 text-maroon-700 text-xs font-bold uppercase tracking-wider mb-3 border border-maroon-100">
+            <span class="w-1.5 h-1.5 rounded-full bg-maroon-700"></span>
+            <span>Alur Penerimaan</span>
+          </div>
+          <h2 class="text-2xl md:text-3xl font-extrabold text-gray-900 tracking-tight">
+            8 Tahapan dari Persiapan Hingga Penempatan
+          </h2>
+          <p class="text-gray-600 text-sm md:text-base leading-relaxed mt-2">
+            Ikuti alur terstruktur untuk memastikan berkas lamaran kamu diproses secara tepat waktu.
+          </p>
+        </div>
+
+        <a
+          href="/alur-pendaftaran/"
+          class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white hover:bg-gray-50 text-gray-900 font-bold text-xs border border-gray-200 shadow-sm transition-all self-start md:self-auto group"
+        >
+          <span>Pelajari Detail Alur</span>
+          <span class="w-4 h-4 rounded-full bg-maroon-50 text-maroon-700 flex items-center justify-center text-[10px] group-hover:translate-x-0.5 transition-transform">→</span>
+        </a>
+      </div>
+
+      <StepTimeline />
+    </div>
+  </section>
+
+  <CtaBanner
+    title="Siap Mengikuti Program Magang Terstruktur?"
+    subtitle="Pilih posisi yang kamu minati dan kirimkan formulir pendaftaran sebelum batas waktu berakhir."
+    primaryText="Menuju Pendaftaran"
+    primaryHref="/pendaftaran/"
+  />
+</BaseLayout>

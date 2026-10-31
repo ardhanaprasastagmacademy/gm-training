@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600" fill="none">
+  <!-- Background with subtle brand tone -->
+  <rect width="800" height="600" rx="16" fill="#FBF4F5"/>
+  <rect x="20" y="20" width="760" height="560" rx="12" fill="#FFFFFF" stroke="#EBCBD1" stroke-width="2"/>
+  
+  <!-- Modern Workspace Graphic illustrating internship mentoring -->
+  <!-- Desk -->
+  <rect x="80" y="420" width="640" height="24" rx="6" fill="#800020"/>
+  <rect x="140" y="444" width="20" height="110" fill="#4A0012"/>
+  <rect x="640" y="444" width="20" height="110" fill="#4A0012"/>
+  
+  <!-- Dual Monitors setup -->
+  <rect x="220" y="200" width="220" height="150" rx="8" fill="#2A1A1D" stroke="#E7DCDE" stroke-width="3"/>
+  <rect x="235" y="215" width="190" height="120" rx="4" fill="#FBF4F5"/>
+  <!-- Code on screen -->
+  <rect x="250" y="235" width="60" height="8" rx="2" fill="#800020"/>
+  <rect x="250" y="255" width="120" height="6" rx="2" fill="#6B5A5E"/>
+  <rect x="270" y="270" width="140" height="6" rx="2" fill="#800020"/>
+  <rect x="270" y="285" width="90" height="6" rx="2" fill="#6B5A5E"/>
+  <rect x="250" y="300" width="70" height="6" rx="2" fill="#1F6B3A"/>
+  <!-- Stand -->
+  <rect x="315" y="350" width="30" height="70" fill="#6B5A5E"/>
+  <rect x="280" y="415" width="100" height="8" rx="3" fill="#2A1A1D"/>
+  
+  <!-- Laptop on side -->
+  <rect x="470" y="270" width="170" height="110" rx="6" fill="#2A1A1D"/>
+  <rect x="480" y="280" width="150" height="90" rx="3" fill="#FFFFFF"/>
+  <circle cx="555" cy="320" r="22" fill="#F6E6E9"/>
+  <path d="M545 320l7 7 15-15" stroke="#800020" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Laptop base -->
+  <polygon points="450,420 660,420 645,380 465,380" fill="#6B5A5E"/>
+  
+  <!-- Notebook and logbook -->
+  <rect x="130" y="390" width="70" height="30" rx="4" fill="#F6E6E9" stroke="#DBA3AE" stroke-width="2"/>
+  <line x1="145" y1="400" x2="185" y2="400" stroke="#800020" stroke-width="2"/>
+  <line x1="145" y1="410" x2="175" y2="410" stroke="#6B5A5E" stroke-width="2"/>
+  
+  <!-- Coffee mug -->
+  <rect x="670" y="390" width="24" height="30" rx="4" fill="#800020"/>
+  <path d="M694 396h8a4 4 0 0 1 4 4v6a4 4 0 0 1-4 4h-8" stroke="#800020" stroke-width="3"/>
+  
+  <!-- Badges representing SMK & Mahasiswa collaboration -->
+  <g transform="translate(100, 70)">
+    <rect width="180" height="48" rx="8" fill="#800020"/>
+    <text x="90" y="30" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-weight="700" font-size="14" fill="#FFFFFF" text-anchor="middle">Siswa SMK (PKL)</text>
+  </g>
+  
+  <g transform="translate(520, 70)">
+    <rect width="180" height="48" rx="8" fill="#4A0012"/>
+    <text x="90" y="30" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-weight="700" font-size="14" fill="#FFFFFF" text-anchor="middle">Mahasiswa (SKS)</text>
+  </g>
+  
+  <g transform="translate(310, 100)">
+    <rect width="180" height="40" rx="20" fill="#EAF5EE" stroke="#1F6B3A" stroke-width="2"/>
+    <circle cx="25" cy="20" r="6" fill="#1F6B3A"/>
+    <text x="98" y="25" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-weight="700" font-size="13" fill="#1F6B3A" text-anchor="middle">Mentor Pendamping</text>
+  </g>
+</svg>
+

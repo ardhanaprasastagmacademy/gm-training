@@ -1,0 +1,65 @@
+---
+interface Props {
+  variant?: "open" | "soon" | "closed" | "chip" | "outline";
+  class?: string;
+  id?: string;
+}
+
+const { variant = "chip", class: className = "", id } = Astro.props;
+---
+
+{variant === "open" && (
+  <span
+    id={id}
+    class={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-emerald-50 text-emerald-800 border border-emerald-200 shadow-xs ${className}`}
+  >
+    <svg class="w-3.5 h-3.5 shrink-0 text-emerald-600" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+      <circle cx="8" cy="8" r="4" />
+    </svg>
+    <slot>Dibuka</slot>
+  </span>
+)}
+
+{variant === "soon" && (
+  <span
+    id={id}
+    class={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-amber-50 text-amber-800 border border-amber-200 shadow-xs ${className}`}
+  >
+    <svg class="w-3.5 h-3.5 shrink-0 text-amber-600" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+      <circle cx="8" cy="8" r="6" />
+      <path d="M8 5v3l2 2" stroke-linecap="round" />
+    </svg>
+    <slot>Akan Dibuka</slot>
+  </span>
+)}
+
+{variant === "closed" && (
+  <span
+    id={id}
+    class={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-gray-100 text-gray-700 border border-gray-200 shadow-xs ${className}`}
+  >
+    <svg class="w-3.5 h-3.5 shrink-0 text-gray-500" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+      <circle cx="8" cy="8" r="6" />
+      <path d="M5 8h6" stroke-linecap="round" />
+    </svg>
+    <slot>Ditutup</slot>
+  </span>
+)}
+
+{variant === "chip" && (
+  <span
+    id={id}
+    class={`inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-maroon-50 text-maroon-700 border border-maroon-100 ${className}`}
+  >
+    <slot />
+  </span>
+)}
+
+{variant === "outline" && (
+  <span
+    id={id}
+    class={`inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold border border-gray-200 text-gray-700 bg-white ${className}`}
+  >
+    <slot />
+  </span>
+)}

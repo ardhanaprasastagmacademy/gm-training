@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" fill="none">
+  <!-- Global Sphere & Latitudes -->
+  <circle cx="32" cy="32" r="26" stroke="#800020" stroke-width="2.5"/>
+  <ellipse cx="32" cy="32" rx="13" ry="26" stroke="#2A1A1D" stroke-width="2"/>
+  <line x1="6" y1="32" x2="58" y2="32" stroke="#2A1A1D" stroke-width="2"/>
+  <!-- Dynamic Orbital Logistics Path & Arrow -->
+  <path d="M12 44C18 52 38 54 50 36C56 27 52 14 38 12C26 10 16 20 18 32" stroke="#800020" stroke-width="3" stroke-linecap="round"/>
+  <polygon points="12,38 18,30 24,36" fill="#800020"/>
+  <circle cx="50" cy="36" r="3.5" fill="#800020"/>
+</svg>

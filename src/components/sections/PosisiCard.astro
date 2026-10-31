@@ -1,0 +1,118 @@
+---
+interface Props {
+  slug: string;
+  judul: string;
+  mitraNama: string;
+  mitraLogo?: string;
+  jalur: "smk" | "mahasiswa" | "keduanya";
+  bidang: string;
+  lokasi: string;
+  mode: "onsite" | "hybrid" | "remote";
+  durasiBulan: number;
+  kuotaAwal?: number;
+  ringkasan?: string;
+  featured?: boolean;
+  dark?: boolean;
+  class?: string;
+}
+
+const {
+  slug,
+  judul,
+  mitraNama,
+  mitraLogo,
+  jalur,
+  bidang,
+  lokasi,
+  mode,
+  durasiBulan,
+  kuotaAwal,
+  ringkasan,
+  featured = false,
+  class: className = "",
+} = Astro.props;
+
+const modeLabels = {
+  onsite: "Kerja Onsite",
+  hybrid: "Hybrid (Fleksibel)",
+  remote: "Remote (Daring)",
+};
+
+const jalurLabels = {
+  smk: "Khusus SMK",
+  mahasiswa: "Khusus Mahasiswa",
+  keduanya: "SMK & Mahasiswa",
+};
+---
+
+<article
+  data-posisi-item
+  data-jalur={jalur}
+  data-bidang={bidang.toLowerCase()}
+  data-mode={mode}
+  data-lokasi={lokasi.toLowerCase()}
+  class={`group relative p-6 bg-white border border-gray-200/80 rounded-[24px] shadow-sm hover:shadow-xl hover:border-maroon-700/50 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between text-gray-900 ${
+    featured ? "md:col-span-2 border-maroon-300 bg-gradient-to-br from-white to-maroon-50/20" : ""
+  } ${className}`}
+>
+  <div>
+    <!-- Top Meta: Jalur & Mode Chips -->
+    <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+      <div class="flex flex-wrap items-center gap-1.5">
+        <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-maroon-50 text-maroon-700 border border-maroon-100">
+          {jalurLabels[jalur]}
+        </span>
+        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-600">
+          {modeLabels[mode]}
+        </span>
+      </div>
+
+      {kuotaAwal && (
+        <span class="text-[0.75rem] font-semibold text-gray-500">
+          Kuota: {kuotaAwal} peserta
+        </span>
+      )}
+    </div>
+
+    <!-- Title and Link -->
+    <h3 class="text-lg md:text-xl font-bold leading-snug mb-1.5 text-gray-900 group-hover:text-maroon-700 transition-colors">
+      <a href={`/posisi/${slug}/`} class="after:absolute after:inset-0 focus-visible:outline-none">
+        {judul}
+      </a>
+    </h3>
+
+    <!-- Mitra & Lokasi -->
+    <div class="flex items-center gap-2 text-sm text-gray-600 mb-3 font-medium">
+      {mitraLogo && (
+        <img src={mitraLogo} alt="" class="w-4 h-4 object-contain" aria-hidden="true" />
+      )}
+      <span class="font-semibold text-gray-900">{mitraNama}</span>
+      <span>&bull;</span>
+      <span>{lokasi}</span>
+    </div>
+
+    {ringkasan && (
+      <p class="text-xs md:text-sm text-gray-600 line-clamp-2 mb-4 leading-relaxed font-normal">
+        {ringkasan}
+      </p>
+    )}
+  </div>
+
+  <!-- Bottom Details -->
+  <div class="pt-4 border-t border-gray-100 flex items-center justify-between text-xs text-gray-500">
+    <div class="flex items-center gap-4">
+      <span class="inline-flex items-center gap-1">
+        <svg class="w-3.5 h-3.5 text-maroon-700" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <circle cx="8" cy="8" r="6" />
+          <path d="M8 4v4l2.5 2.5" />
+        </svg>
+        <span class="font-medium text-gray-700">{durasiBulan} Bulan</span>
+      </span>
+      <span>Bidang: <strong class="text-gray-900">{bidang}</strong></span>
+    </div>
+
+    <span class="w-8 h-8 rounded-full bg-maroon-50 group-hover:bg-maroon-700 text-maroon-700 group-hover:text-white flex items-center justify-center font-bold text-xs transition-colors duration-200 shadow-xs">
+      ↗
+    </span>
+  </div>
+</article>

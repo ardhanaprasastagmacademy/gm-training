@@ -1,0 +1,56 @@
+---
+interface MitraItem {
+  slug: string;
+  nama: string;
+  logo: string;
+  sektor: string;
+  kota?: string;
+  website?: string;
+  deskripsi?: string;
+}
+
+interface Props {
+  mitraList: MitraItem[];
+  showLinkToPositions?: boolean;
+  dark?: boolean;
+  class?: string;
+}
+
+const {
+  mitraList,
+  class: className = "",
+} = Astro.props;
+---
+
+<div class={`grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6 sm:gap-8 lg:gap-10 items-start justify-center ${className}`}>
+  {
+    mitraList.map((m) => (
+      <a
+        href={`/posisi/?cari=${encodeURIComponent(m.nama)}`}
+        class="group flex flex-col items-center text-center p-3 rounded-2xl transition-all duration-300 focus-visible:outline-2 focus-visible:outline-maroon-700"
+      >
+        <!-- Logo Mitra (Clean vector emblem matching reference) -->
+        <div class="w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center mb-3 transition-transform duration-300 group-hover:-translate-y-1.5 group-hover:scale-105">
+          <img
+            src={m.logo}
+            alt={`Logo resmi ${m.nama}`}
+            width="64"
+            height="64"
+            class="w-12 h-12 sm:w-14 sm:h-14 object-contain filter group-hover:brightness-110 transition-all duration-300"
+            loading="lazy"
+          />
+        </div>
+
+        <!-- Nama Mitra -->
+        <h3 class="font-bold text-xs sm:text-sm text-gray-900 group-hover:text-maroon-700 transition-colors duration-200 leading-snug">
+          {m.nama}
+        </h3>
+
+        <!-- Sektor Industri -->
+        <p class="text-[0.6875rem] text-gray-500 mt-1 line-clamp-1 group-hover:text-gray-700 transition-colors duration-200">
+          {m.sektor}
+        </p>
+      </a>
+    ))
+  }
+</div>

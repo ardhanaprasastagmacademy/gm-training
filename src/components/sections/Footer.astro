@@ -1,0 +1,101 @@
+---
+import { siteConfig } from "../../data/site";
+import { footerColumns } from "../../data/navigasi";
+
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="bg-[#0A0204] text-gray-300 pt-16 pb-12 border-t border-white/10">
+  <div class="max-w-[72rem] mx-auto px-5 md:px-8 lg:px-10">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-10 lg:gap-8 pb-12 border-b border-white/10">
+      <!-- Col 1: About & Contact (takes 2 cols on lg) -->
+      <div class="lg:col-span-2 space-y-4">
+        <a href="/" class="inline-flex items-center text-white group py-1" aria-label={`${siteConfig.name} - Beranda`}>
+          <img
+            src="/images/logo.png"
+            alt={siteConfig.name}
+            width="170"
+            height="38"
+            class="h-8 md:h-10 w-auto object-contain transition-transform duration-200 group-hover:scale-105"
+          />
+        </a>
+
+        <p class="text-sm text-gray-300 leading-relaxed max-w-sm">
+          {siteConfig.description}
+        </p>
+
+        <div class="pt-2 text-xs space-y-2.5 text-gray-400">
+          <div class="flex items-start gap-2.5">
+            <svg class="w-4 h-4 text-maroon-400 shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+              <circle cx="12" cy="10" r="3" />
+            </svg>
+            <span>{siteConfig.address.street}, {siteConfig.address.city}, {siteConfig.address.postalCode}</span>
+          </div>
+
+          <div class="flex items-center gap-2.5">
+            <svg class="w-4 h-4 text-maroon-400 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <circle cx="12" cy="12" r="10" />
+              <polyline points="12 6 12 12 16 14" />
+            </svg>
+            <span>{siteConfig.officeHours}</span>
+          </div>
+
+          <div class="flex items-center gap-2.5">
+            <svg class="w-4 h-4 text-maroon-400 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+              <polyline points="22,6 12,13 2,6" />
+            </svg>
+            <a href={`mailto:${siteConfig.email}`} class="text-gray-200 hover:text-white hover:underline transition-colors">
+              {siteConfig.email}
+            </a>
+          </div>
+
+          <div class="flex items-center gap-2.5">
+            <svg class="w-4 h-4 text-maroon-400 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+            </svg>
+            <a href={siteConfig.whatsappUrl} target="_blank" rel="noopener noreferrer" class="text-maroon-300 hover:text-white hover:underline transition-colors font-medium">
+              {siteConfig.whatsapp} (WhatsApp Resmi)
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Links columns (4 columns) -->
+      {
+        footerColumns.map((col) => (
+          <div class="space-y-3">
+            <div class="text-white font-bold text-xs tracking-wider uppercase">
+              {col.title}
+            </div>
+            <ul class="space-y-2.5 text-xs md:text-sm">
+              {col.links.map((link) => (
+                <li>
+                  <a
+                    href={link.href}
+                    class="text-gray-400 hover:text-white hover:underline transition-colors block py-0.5"
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))
+      }
+    </div>
+
+    <!-- Bottom row -->
+    <div class="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-gray-400">
+      <p>
+        &copy; {currentYear} {siteConfig.name} ({siteConfig.shortName}). Seluruh hak cipta dilindungi undang-undang.
+      </p>
+      <div class="flex items-center gap-6">
+        <a href="/kebijakan-privasi/" class="hover:text-white hover:underline transition-colors">Kebijakan Privasi</a>
+        <a href="/syarat-ketentuan/" class="hover:text-white hover:underline transition-colors">Syarat &amp; Ketentuan</a>
+        <a href="/sitemap-index.xml" class="hover:text-white hover:underline transition-colors">Sitemap XML</a>
+      </div>
+    </div>
+  </div>
+</footer>

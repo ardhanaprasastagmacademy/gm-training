@@ -1,0 +1,297 @@
+---
+import { siteConfig } from "../../data/site";
+import { headerNav } from "../../data/navigasi";
+
+interface Props {
+  isDark?: boolean;
+}
+
+const currentPath = Astro.url.pathname;
+---
+
+<header class="fixed top-0 inset-x-0 z-50 w-full px-4 sm:px-6 lg:px-8 pt-3 pb-3 transition-all duration-200">
+  <div class="max-w-[72rem] mx-auto">
+    <div class="bg-white/95 backdrop-blur-md border border-gray-200/90 rounded-full px-4 sm:px-6 py-2 shadow-lg shadow-black/[0.04] flex items-center justify-between gap-4">
+      <!-- Logo -->
+      <a
+        href="/"
+        class="flex items-center shrink-0 focus-visible:outline-2 focus-visible:outline-maroon-700 rounded-full group py-0.5"
+        aria-label={`${siteConfig.name} - Beranda`}
+      >
+        <img
+          src="/images/logo-maroon.png"
+          alt={`${siteConfig.name} - GM Training`}
+          width="170"
+          height="38"
+          class="h-8 md:h-9 w-auto object-contain transition-transform duration-200 group-hover:scale-105"
+        />
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav
+        class="hidden lg:flex items-center gap-1 text-sm font-semibold"
+        aria-label="Navigasi Utama"
+      >
+        {
+          headerNav.map((item) => {
+            const isActive = currentPath === item.href || (item.children && item.children.some(c => currentPath === c.href));
+            
+            if (item.children) {
+              return (
+                <div class="relative group" data-dropdown>
+                  <button
+                    type="button"
+                    class={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-full transition-colors focus-visible:outline-2 ${
+                      isActive
+                        ? "text-maroon-700 font-bold bg-maroon-50"
+                        : "text-gray-700 hover:text-maroon-700 hover:bg-gray-100/80"
+                    }`}
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                  >
+                    <span>{item.label}</span>
+                    <svg class="w-3.5 h-3.5 transition-transform duration-150 group-hover:rotate-180 group-focus-within:rotate-180 text-gray-500" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                      <path d="M4 6l4 4 4-4" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                  </button>
+
+                  <!-- Dropdown panel -->
+                  <div class="absolute left-0 top-full pt-2 w-72 invisible opacity-0 translate-y-1 group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 group-focus-within:visible group-focus-within:opacity-100 group-focus-within:translate-y-0 transition-all duration-150 z-50">
+                    <div class="rounded-2xl p-2 divide-y divide-gray-100 bg-white border border-gray-200 shadow-xl text-gray-900">
+                      {item.children.map((child) => (
+                        <a
+                          href={child.href}
+                          class={`block p-2.5 rounded-xl transition-colors ${
+                            currentPath === child.href
+                              ? "bg-maroon-50 text-maroon-700 font-bold"
+                              : "text-gray-700 hover:bg-gray-50 hover:text-maroon-700"
+                          }`}
+                        >
+                          <div class="text-sm font-semibold">{child.label}</div>
+                          {child.description && (
+                            <div class="text-xs text-gray-500 mt-0.5 line-clamp-1">
+                              {child.description}
+                            </div>
+                          )}
+                        </a>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              );
+            }
+
+            return (
+              <a
+                href={item.href}
+                class={`px-3.5 py-1.5 rounded-full transition-colors focus-visible:outline-2 ${
+                  isActive
+                    ? "text-maroon-700 font-bold bg-maroon-50"
+                    : "text-gray-700 hover:text-maroon-700 hover:bg-gray-100/80"
+                }`}
+              >
+                {item.label}
+              </a>
+            );
+          })
+        }
+      </nav>
+
+      <!-- Right: Pill CTA Button with diagonal arrow (Matching Reference) + Mobile Toggle -->
+      <div class="flex items-center gap-2.5">
+        <a
+          href="/pendaftaran/"
+          class="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-maroon-700 hover:bg-maroon-800 text-white font-bold text-sm shadow-md shadow-maroon-900/20 hover:shadow-maroon-800/30 transition-all group"
+          data-track-event="klik_header_daftar"
+        >
+          <span>Daftar</span>
+          <span class="w-5 h-5 rounded-full bg-white/20 group-hover:bg-white/30 flex items-center justify-center text-xs transition-colors">
+            ↗
+          </span>
+        </a>
+
+        <!-- Mobile Hamburger Button -->
+        <button
+          type="button"
+          id="mobile-menu-btn"
+          aria-label="Buka menu navigasi"
+          aria-expanded="false"
+          aria-controls="mobile-nav-panel"
+          class="lg:hidden w-9 h-9 flex items-center justify-center rounded-full text-gray-700 hover:bg-gray-100 border border-gray-200 focus-visible:outline-2"
+        >
+          <svg id="hamburger-icon" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="3" y1="6" x2="21" y2="6" />
+            <line x1="3" y1="12" x2="21" y2="12" />
+            <line x1="3" y1="18" x2="21" y2="18" />
+          </svg>
+          <svg id="close-icon" class="w-5 h-5 hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="18" y1="6" x2="6" y2="18" />
+            <line x1="6" y1="6" x2="18" y2="18" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Navigation Panel -->
+  <div
+    id="mobile-nav-panel"
+    class="hidden lg:hidden fixed inset-x-4 top-[74px] max-w-sm sm:max-w-md mx-auto h-auto max-h-[calc(100vh-90px)] overflow-y-auto p-4 bg-white text-gray-900 border border-gray-200/90 rounded-[28px] shadow-2xl z-50 transition-all"
+    role="dialog"
+    aria-label="Menu Mobile"
+  >
+    <div class="flex flex-col divide-y divide-gray-100">
+      {
+        headerNav.map((item, idx) => {
+          if (item.children) {
+            const hasActiveChild = item.children.some(c => currentPath === c.href);
+            return (
+              <div class="py-0.5">
+                <button
+                  type="button"
+                  class={`mobile-accordion-btn w-full min-h-[44px] px-3 py-2.5 rounded-xl flex items-center justify-between text-sm font-semibold transition-colors ${
+                    hasActiveChild
+                      ? "text-maroon-700 font-bold bg-maroon-50"
+                      : "text-gray-700 hover:bg-gray-50 hover:text-maroon-700"
+                  }`}
+                  aria-expanded="false"
+                  aria-controls={`mobile-subnav-${idx}`}
+                >
+                  <span class="flex items-center gap-2">
+                    <span>{item.label}</span>
+                    <span class="text-[0.6875rem] font-bold px-2 py-0.5 rounded-full bg-maroon-100 text-maroon-700">
+                      {item.children.length}
+                    </span>
+                  </span>
+                  <svg
+                    class="accordion-chevron w-4 h-4 text-maroon-700 transition-transform duration-200"
+                    viewBox="0 0 16 16"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    aria-hidden="true"
+                  >
+                    <path d="M4 6l4 4 4-4" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                </button>
+
+                <!-- Collapsible Sub-menu (Tertutup secara default) -->
+                <div
+                  id={`mobile-subnav-${idx}`}
+                  class="mobile-subnav hidden flex flex-col space-y-1 pl-3 pr-1 pt-1 pb-2 border-l-2 border-maroon-200 ml-3.5 my-1"
+                >
+                  {item.children.map((child) => (
+                    <a
+                      href={child.href}
+                      class={`min-h-[40px] px-3 py-1.5 rounded-lg flex items-center justify-between text-xs sm:text-sm ${
+                        currentPath === child.href
+                          ? "bg-maroon-50 text-maroon-700 font-bold"
+                          : "text-gray-700 hover:bg-gray-50 hover:text-maroon-700"
+                      }`}
+                    >
+                      <span>{child.label}</span>
+                      <svg class="w-3.5 h-3.5 text-maroon-500 shrink-0" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                        <path d="M6 3l5 5-5 5" stroke-linecap="round" stroke-linejoin="round" />
+                      </svg>
+                    </a>
+                  ))}
+                </div>
+              </div>
+            );
+          }
+
+          return (
+            <a
+              href={item.href}
+              class={`min-h-[44px] px-3 py-2.5 rounded-xl flex items-center justify-between text-sm font-semibold ${
+                currentPath === item.href
+                  ? "text-maroon-700 font-bold bg-maroon-50"
+                  : "text-gray-700 hover:bg-gray-50 hover:text-maroon-700"
+              }`}
+            >
+              <span>{item.label}</span>
+              <svg class="w-4 h-4 text-maroon-700" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M6 3l5 5-5 5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </a>
+          );
+        })
+      }
+
+      <div class="pt-3 pb-1">
+        <a
+          href="/pendaftaran/"
+          class="w-full text-center py-2.5 rounded-full bg-maroon-700 hover:bg-maroon-800 text-white font-bold text-sm shadow-md shadow-maroon-900/25 inline-flex items-center justify-center gap-2"
+        >
+          <span>Pendaftaran Sekarang</span>
+          <span class="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center text-xs">↗</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<script>
+  function setupMobileMenu() {
+    const btn = document.getElementById("mobile-menu-btn");
+    const panel = document.getElementById("mobile-nav-panel");
+    const hamIcon = document.getElementById("hamburger-icon");
+    const closeIcon = document.getElementById("close-icon");
+
+    if (!btn || !panel || !hamIcon || !closeIcon) return;
+    if (btn.dataset.initialized) return;
+    btn.dataset.initialized = "true";
+
+    btn.addEventListener("click", () => {
+      const isExpanded = btn.getAttribute("aria-expanded") === "true";
+      if (isExpanded) {
+        btn.setAttribute("aria-expanded", "false");
+        panel.classList.add("hidden");
+        hamIcon.classList.remove("hidden");
+        closeIcon.classList.add("hidden");
+        document.body.style.overflow = "";
+      } else {
+        btn.setAttribute("aria-expanded", "true");
+        panel.classList.remove("hidden");
+        hamIcon.classList.add("hidden");
+        closeIcon.classList.remove("hidden");
+        document.body.style.overflow = "hidden";
+      }
+    });
+
+    // Mobile Accordion Toggle for submenus
+    const accordionBtns = panel.querySelectorAll(".mobile-accordion-btn");
+    accordionBtns.forEach((accordionBtn) => {
+      accordionBtn.addEventListener("click", () => {
+        const isExpanded = accordionBtn.getAttribute("aria-expanded") === "true";
+        const targetId = accordionBtn.getAttribute("aria-controls");
+        const target = targetId ? document.getElementById(targetId) : null;
+        const chevron = accordionBtn.querySelector(".accordion-chevron");
+
+        if (isExpanded) {
+          accordionBtn.setAttribute("aria-expanded", "false");
+          target?.classList.add("hidden");
+          chevron?.classList.remove("rotate-180");
+        } else {
+          accordionBtn.setAttribute("aria-expanded", "true");
+          target?.classList.remove("hidden");
+          chevron?.classList.add("rotate-180");
+        }
+      });
+    });
+
+    const links = panel.querySelectorAll("a");
+    links.forEach((link) => {
+      link.addEventListener("click", () => {
+        btn.setAttribute("aria-expanded", "false");
+        panel.classList.add("hidden");
+        hamIcon.classList.remove("hidden");
+        closeIcon.classList.add("hidden");
+        document.body.style.overflow = "";
+      });
+    });
+  }
+
+  setupMobileMenu();
+  document.addEventListener("astro:page-load", setupMobileMenu);
+</script>

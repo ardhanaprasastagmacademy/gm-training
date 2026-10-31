@@ -1,0 +1,76 @@
+---
+import Button from "../ui/Button.astro";
+
+const steps = [
+  {
+    number: "01",
+    title: "Cek Syarat & Posisi",
+    desc: "Pilih posisi yang selaras dengan jurusan atau keahlian kamu, lalu pastikan memenuhi kriteria jalur.",
+  },
+  {
+    number: "02",
+    title: "Siapkan Dokumen",
+    desc: "Lengkapi berkas wajib: CV, surat pengantar sekolah/fakultas, dan izin orang tua bagi siswa.",
+  },
+  {
+    number: "03",
+    title: "Daftar Online & Seleksi",
+    desc: "Kirim formulir resmi sebelum batas batch ditutup. Seleksi berkas dan wawancara singkat.",
+  },
+  {
+    number: "04",
+    title: "Orientasi & Magang",
+    desc: "Mulai penempatan di mitra industri dengan pendampingan mentor praktisi dan guru/dosen.",
+  },
+];
+---
+
+<section class="py-14 md:py-20 bg-[#0B0204] text-white border-y border-white/10">
+  <div class="max-w-[72rem] mx-auto px-5 md:px-8 lg:px-10">
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+      <div class="max-w-2xl">
+        <span class="text-xs font-bold uppercase tracking-wider text-maroon-400 block mb-2">
+          Langkah Mudah Bergabung
+        </span>
+        <h2 class="text-[clamp(1.5rem,1.2rem+1.5vw,2.25rem)] font-bold text-white leading-[1.2] tracking-tight">
+          Cara Kerja &amp; Alur Singkat Program
+        </h2>
+        <p class="text-gray-300 text-base mt-2 leading-relaxed">
+          Proses penerimaan dirancang transparan dan mudah diikuti dari tahap persiapan hingga penempatan.
+        </p>
+      </div>
+
+      <Button href="/alur-pendaftaran/" variant="secondary" size="default" class="shrink-0">
+        Lihat Alur Lengkap (8 Tahap)
+      </Button>
+    </div>
+
+    <!-- 4 Numbered Steps Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      {
+        steps.map((st, idx) => (
+          <div class="bg-[#16050A] border border-white/10 rounded-[18px] p-6 relative flex flex-col justify-between shadow-xl hover:border-maroon-500/60 transition-all duration-300">
+            <div>
+              <div class="text-3xl font-extrabold text-maroon-400 font-mono tracking-tight mb-4">
+                {st.number}
+              </div>
+              <h3 class="text-lg font-bold text-white mb-2">
+                {st.title}
+              </h3>
+              <p class="text-sm text-gray-300 leading-relaxed">
+                {st.desc}
+              </p>
+            </div>
+            
+            {idx < steps.length - 1 && (
+              <div class="hidden lg:block absolute -right-3 top-1/2 -translate-y-1/2 z-10 w-6 h-6 rounded-full bg-[#240A13] border border-maroon-500/40 text-maroon-300 text-xs font-bold flex items-center justify-center">
+                &rarr;
+              </div>
+            )}
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+

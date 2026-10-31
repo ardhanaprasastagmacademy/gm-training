@@ -1,0 +1,145 @@
+---
+interface BidangItem {
+  id: string;
+  judul: string;
+  tag: string;
+  deskripsi: string;
+  gambar: string;
+  link: string;
+}
+
+const bidangList: BidangItem[] = [
+  {
+    id: "rpl",
+    judul: "Rekayasa Perangkat Lunak & Web",
+    tag: "Teknologi & Digital",
+    deskripsi: "Praktik clean code review, pengembangan antarmuka web modern, dan REST API berstandar industri.",
+    gambar: "/images/program/web.webp",
+    link: "/posisi/?bidang=Teknologi%20Informasi",
+  },
+  {
+    id: "tkj",
+    judul: "Teknik Komputer & Jaringan",
+    tag: "Infrastruktur TI & Cloud",
+    deskripsi: "Konfigurasi routing mikrotik, virtualisasi server linux, keamanan jaringan, dan troubleshooting koneksi.",
+    gambar: "/images/program/tkj.webp",
+    link: "/posisi/?bidang=Teknologi%20Informasi",
+  },
+  {
+    id: "bisnisdigital",
+    judul: "Bisnis Digital & Manajemen Operasional",
+    tag: "Bisnis & E-Commerce",
+    deskripsi: "Strategi pemasaran digital, manajemen e-commerce, automasi sistem bisnis, dan analitik performa.",
+    gambar: "/images/program/bisnisdigital.webp",
+    link: "/posisi/?bidang=Bisnis%20Digital",
+  },
+  {
+    id: "dkv",
+    judul: "Desain Multimedia & UI/UX",
+    tag: "Kreatif & Media Visual",
+    deskripsi: "Perancangan wireframe & prototipe Figma, pengarahan seni merek, dan aset digital kampanye interaktif.",
+    gambar: "/images/program/designuiux.webp",
+    link: "/posisi/?bidang=Kreatif%20%26%20Desain",
+  },
+  {
+    id: "logistik",
+    judul: "Logistik Modern & Digital WMS",
+    tag: "Supply Chain & Pergudangan",
+    deskripsi: "Pengoperasian sistem Warehouse Management System (WMS), barcode scanner, stock opname, dan manifest jalan.",
+    gambar: "/images/program/logistik.webp",
+    link: "/posisi/?bidang=Logistik",
+  },
+  {
+    id: "akuntansi",
+    judul: "Akuntansi & Analis Keuangan Bisnis",
+    tag: "Keuangan & Audit Bisnis",
+    deskripsi: "Rekonsiliasi transaksi digital, verifikasi perpajakan, audit kas, dan penyusunan laporan keuangan akurat.",
+    gambar: "/images/program/analisis.webp",
+    link: "/posisi/?bidang=Keuangan",
+  },
+];
+---
+
+<section id="program-unggulan" class="max-w-[72rem] mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+  <!-- Header Section (Split: Title on left, Description on right matching reference) -->
+  <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-end mb-10 pb-6 border-b border-gray-200">
+    <div class="md:col-span-7">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-maroon-50 text-maroon-700 text-xs font-bold uppercase tracking-wider mb-3 border border-maroon-100">
+        <span class="w-1.5 h-1.5 rounded-full bg-maroon-700"></span>
+        <span>Program &amp; Bidang Kejuruan</span>
+      </div>
+      <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-gray-900 leading-tight">
+        Pengalaman Belajar &amp; Praktik Industri Nyata
+      </h2>
+    </div>
+    <div class="md:col-span-5">
+      <p class="text-sm md:text-base text-gray-600 leading-relaxed">
+        Pilihan jalur konsentrasi keahlian terstruktur yang diselaraskan langsung dengan kebutuhan nyata dunia usaha dan industri kerja (DUDI).
+      </p>
+    </div>
+  </div>
+
+  <!-- 3 Columns Grid Cards (Matching Reference Layout) -->
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    {
+      bidangList.map((bidang) => (
+        <a
+          href={bidang.link}
+          class="bg-white rounded-[24px] border border-gray-200/80 overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group"
+        >
+          <!-- Photo on Top -->
+          <div class="aspect-[16/10] w-full overflow-hidden bg-gray-100 relative">
+            <img
+              src={bidang.gambar}
+              alt={bidang.judul}
+              width="600"
+              height="375"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
+              loading="lazy"
+            />
+            <div class="absolute top-3 left-3">
+              <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-white/90 backdrop-blur-md text-maroon-800 shadow-sm border border-white/60">
+                {bidang.tag}
+              </span>
+            </div>
+          </div>
+
+          <!-- Content Below -->
+          <div class="p-6 flex flex-col justify-between flex-1">
+            <div>
+              <h3 class="text-lg md:text-xl font-bold text-gray-900 group-hover:text-maroon-700 transition-colors leading-snug mb-2">
+                {bidang.judul}
+              </h3>
+              <p class="text-xs md:text-sm text-gray-600 leading-relaxed line-clamp-2">
+                {bidang.deskripsi}
+              </p>
+            </div>
+
+            <!-- Bottom Row with Circular Arrow Button -->
+            <div class="pt-4 mt-5 border-t border-gray-100 flex items-center justify-between">
+              <span class="text-xs font-bold text-gray-500 group-hover:text-maroon-700 transition-colors">
+                Lihat Lowongan
+              </span>
+              <span class="w-9 h-9 rounded-full bg-maroon-700 group-hover:bg-maroon-800 text-white flex items-center justify-center font-bold text-sm shadow-sm transition-transform duration-200 group-hover:scale-105">
+                ↗
+              </span>
+            </div>
+          </div>
+        </a>
+      ))
+    }
+  </div>
+
+  <!-- Bottom CTA Link -->
+  <div class="mt-10 text-center">
+    <a
+      href="/posisi/"
+      class="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full bg-white hover:bg-gray-50 text-maroon-800 font-bold text-sm border border-gray-200 shadow-sm hover:shadow-md transition-all group"
+    >
+      <span>Jelajahi Seluruh Posisi Magang Tersedia</span>
+      <span class="w-5 h-5 rounded-full bg-maroon-50 text-maroon-700 flex items-center justify-center text-xs group-hover:translate-x-0.5 transition-transform">
+        →
+      </span>
+    </a>
+  </div>
+</section>

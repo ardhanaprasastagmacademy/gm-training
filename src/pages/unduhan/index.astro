@@ -1,0 +1,93 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import PageBanner from "../../components/ui/PageBanner.astro";
+import DownloadItem from "../../components/ui/DownloadItem.astro";
+import CtaBanner from "../../components/sections/CtaBanner.astro";
+import { siteConfig } from "../../data/site";
+
+const allUnduhan = await getCollection("unduhan");
+
+const categories = [
+  { key: "panduan", title: "Buku Panduan & Pedoman Program" },
+  { key: "surat-formulir", title: "Format Surat & Dokumen Persyaratan" },
+  { key: "template", title: "Template Jurnal, Logbook & Laporan Akhir" },
+  { key: "kerja-sama", title: "Dokumen Perjanjian & Kemitraan Institusi" },
+];
+---
+
+<BaseLayout
+  title={`Pusat Unduhan Dokumen Resmi Magang | ${siteConfig.shortName}`}
+  description="Unduh berkas resmi panduan magang, format surat persetujuan orang tua/wali, template logbook mingguan, draf laporan akhir, dan draf MoU kemitraan."
+>
+  <PageBanner
+    title="Pusat Unduhan Berkas & Dokumen Resmi"
+    description="Seluruh format surat, buku panduan teknis, template logbook, dan perjanjian kerja sama dapat diunduh secara gratis."
+    breadcrumbs={[{ label: "Pusat Unduhan" }]}
+    badge="Berkas Administrasi Standar"
+  />
+
+  <section class="py-14 md:py-20 bg-[#F8F9FA] text-gray-900">
+    <div class="max-w-[72rem] mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl mb-10">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-maroon-50 text-maroon-700 text-xs font-bold uppercase tracking-wider mb-3 border border-maroon-100">
+          <span class="w-1.5 h-1.5 rounded-full bg-maroon-700"></span>
+          <span>Arsip Digital</span>
+        </div>
+        <h2 class="text-2xl md:text-3xl font-extrabold text-gray-900 tracking-tight mb-2">
+          Daftar Berkas Resmi Terverifikasi
+        </h2>
+        <p class="text-gray-600 text-sm md:text-base leading-relaxed">
+          Gunakan template standar di bawah ini untuk mempermudah proses verifikasi administrasi oleh pihak sekolah, kampus, dan panitia seleksi.
+        </p>
+      </div>
+
+      <!-- Categories Groups -->
+      <div class="space-y-8">
+        {
+          categories.map((cat) => {
+            const items = allUnduhan.filter((d) => d.data.kategori === cat.key);
+            if (items.length === 0) return null;
+
+            return (
+              <div class="bg-white border border-gray-200/90 rounded-[24px] p-6 md:p-8 shadow-sm">
+                <div class="flex items-center gap-3 mb-4 pb-4 border-b border-gray-100">
+                  <span class="w-3 h-3 rounded-full bg-maroon-700 shadow-sm"></span>
+                  <h3 class="text-xl font-extrabold text-gray-900 tracking-tight">
+                    {cat.title}
+                  </h3>
+                </div>
+
+                <div class="divide-y divide-gray-100">
+                  {items.map((doc) => (
+                    <DownloadItem
+                      judul={doc.data.judul}
+                      ringkasan={doc.data.ringkasan}
+                      kategori={doc.data.kategori}
+                      berkas={doc.data.berkas}
+                      versi={doc.data.versi}
+                      diperbarui={doc.data.diperbarui}
+                      format={doc.data.format}
+                      ukuran={doc.data.ukuran}
+                    />
+                  ))}
+                </div>
+              </div>
+            );
+          })
+        }
+      </div>
+
+      <!-- Notice box -->
+      <div class="mt-10 p-6 bg-maroon-50/70 border border-maroon-100 rounded-[22px] text-xs text-gray-700 leading-relaxed">
+        <strong class="text-maroon-900 font-bold block mb-1">Catatan Keamanan Berkas:</strong>
+        Seluruh dokumen unduhan bebas dari virus dan metadata data pribadi. Pastikan Anda hanya mengunduh berkas resmi langsung dari domain <span class="font-bold text-maroon-800">{siteConfig.domain}</span>.
+      </div>
+    </div>
+  </section>
+
+  <CtaBanner
+    title="Sudah Melengkapi Seluruh Berkas Persyaratan?"
+    subtitle="Segera kirimkan formulir pendaftaran kamu sebelum batas akhir batch ditutup."
+  />
+</BaseLayout>

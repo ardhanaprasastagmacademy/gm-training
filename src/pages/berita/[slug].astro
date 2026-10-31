@@ -1,0 +1,423 @@
+---
+import { getCollection, render } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { siteConfig } from "../../data/site";
+
+export async function getStaticPaths() {
+  const allPosts = await getCollection("berita", ({ data }) => !data.draft);
+  return allPosts.map((item) => ({
+    params: { slug: item.id },
+    props: {
+      item,
+      relatedPosts: allPosts
+        .filter((p) => p.id !== item.id)
+        .slice(0, 3),
+    },
+  }));
+}
+
+const { item, relatedPosts = [] } = Astro.props;
+const data = item.data;
+const { Content } = await render(item);
+
+const formatDate = (date: Date) =>
+  new Intl.DateTimeFormat("id-ID", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+    timeZone: "Asia/Jakarta",
+  }).format(date);
+
+const categoryLabels: Record<string, string> = {
+  pengumuman: "Pengumuman Resmi",
+  kegiatan: "Dokumentasi Kegiatan",
+  artikel: "Artikel & Tips Magang",
+};
+
+// Article JSON-LD Schema (SEO-STRATEGY.md 7.4)
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: data.judul,
+  description: data.ringkasan,
+  datePublished: data.tanggal.toISOString(),
+  dateModified: (data.diperbarui || data.tanggal).toISOString(),
+  author: {
+    "@type": "Organization",
+    name: data.penulis || siteConfig.name,
+    url: siteConfig.url,
+  },
+  publisher: {
+    "@type": "Organization",
+    name: siteConfig.name,
+    logo: {
+      "@type": "ImageObject",
+      url: `${siteConfig.url}/og/default-og.svg`,
+    },
+  },
+  mainEntityOfPage: {
+    "@type": "WebPage",
+    "@id": `${siteConfig.url}/berita/${item.id}/`,
+  },
+};
+---
+
+<BaseLayout
+  title={`${data.judul} | Warta ${siteConfig.shortName}`}
+  description={data.ringkasan}
+  canonical={`${siteConfig.url}/blog/${item.id}/`}
+  ogType="article"
+  publishedTime={data.tanggal.toISOString()}
+  modifiedTime={(data.diperbarui || data.tanggal).toISOString()}
+  schema={articleSchema}
+>
+  <article class="pt-24 md:pt-28 pb-10 md:pb-16 bg-[#F8F9FA] text-gray-900 border-t border-gray-200/80">
+    <div class="max-w-[76rem] mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- 2-Column Layout matching Reference Screenshot -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+        <!-- Main Content Column (Left, 8 Cols) -->
+        <div class="lg:col-span-8">
+          <!-- Breadcrumb Navigation -->
+          <nav class="flex items-center gap-2 text-xs text-gray-500 mb-4 flex-wrap" aria-label="Breadcrumb">
+            <a href="/" class="hover:text-maroon-700 transition-colors">Beranda</a>
+            <span>/</span>
+            <a href="/blog/" class="hover:text-maroon-700 transition-colors">Blog</a>
+            <span>/</span>
+            <span class="text-maroon-700 font-semibold">{categoryLabels[data.kategori] || "Warta"}</span>
+          </nav>
+
+          <!-- Category Pill Badge -->
+          <div class="mb-3">
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[0.6875rem] font-extrabold uppercase tracking-wider bg-rose-50 text-maroon-700 border border-maroon-100 shadow-xs">
+              <span class="w-1.5 h-1.5 rounded-full bg-maroon-700"></span>
+              <span>{categoryLabels[data.kategori] || "Artikel"}</span>
+            </span>
+          </div>
+
+          <!-- Main H1 Headline -->
+          <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-[2.5rem] font-extrabold text-gray-900 tracking-tight leading-[1.2] mb-4">
+            {data.judul}
+          </h1>
+
+          <!-- Lead Subtitle Paragraph -->
+          <p class="text-base md:text-lg text-gray-600 leading-relaxed mb-6 font-normal">
+            {data.ringkasan}
+          </p>
+
+          <!-- Author & Meta Details Bar -->
+          <div class="flex flex-wrap items-center gap-3 text-xs text-gray-500 pb-6 mb-8 border-b border-gray-200/80">
+            <div class="flex items-center gap-2">
+              <div class="w-7 h-7 rounded-full bg-maroon-700 text-white flex items-center justify-center font-bold text-xs shadow-xs">
+                GM
+              </div>
+              <span class="text-gray-900 font-semibold">{data.penulis}</span>
+            </div>
+            <span>•</span>
+            <span class="tabular-nums flex items-center gap-1">
+              <svg class="w-3.5 h-3.5 text-gray-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+              </svg>
+              {formatDate(data.tanggal)}
+            </span>
+            {data.diperbarui && (
+              <>
+                <span>•</span>
+                <span class="text-gray-400">Diperbarui: {formatDate(data.diperbarui)}</span>
+              </>
+            )}
+            <span>•</span>
+            <span class="flex items-center gap-1">
+              <svg class="w-3.5 h-3.5 text-gray-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+              </svg>
+              5 Menit Baca
+            </span>
+          </div>
+
+          <!-- Featured Hero Image -->
+          <div class="mb-8">
+            <div class="aspect-[16/9] w-full rounded-[24px] overflow-hidden bg-gray-100 border border-gray-200/90 shadow-sm">
+              <img
+                src={data.gambar || "/images/galeri/galeri-1.webp"}
+                alt={data.judul}
+                width="1200"
+                height="675"
+                class="w-full h-full object-cover"
+                loading="eager"
+              />
+            </div>
+            <p class="text-xs text-gray-400 italic text-center mt-2.5">
+              Dokumentasi nyata kegiatan edukatif dan pendampingan karier industri bersama mentor praktisi GM Training.
+            </p>
+          </div>
+
+          <!-- Article Content Card Box -->
+          <div class="bg-white border border-gray-200/90 rounded-[28px] p-6 sm:p-10 md:p-12 shadow-sm">
+            <!-- Table of Contents (Daftar Isi Artikel) -->
+            <div class="rounded-[20px] bg-rose-50/40 border border-rose-100/90 p-5 md:p-6 mb-10">
+              <div class="flex items-center gap-2 font-bold text-sm text-gray-900 mb-3.5">
+                <svg class="w-4 h-4 text-maroon-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <line x1="8" y1="6" x2="21" y2="6"></line>
+                  <line x1="8" y1="12" x2="21" y2="12"></line>
+                  <line x1="8" y1="18" x2="21" y2="18"></line>
+                  <line x1="3" y1="6" x2="3.01" y2="6"></line>
+                  <line x1="3" y1="12" x2="3.01" y2="12"></line>
+                  <line x1="3" y1="18" x2="3.01" y2="18"></line>
+                </svg>
+                <span>Daftar Isi Artikel</span>
+              </div>
+              <ul class="space-y-2 text-xs md:text-sm text-maroon-800 font-medium">
+                <li>
+                  <a href="#poin-1" class="hover:underline hover:text-maroon-900 flex items-center gap-2">
+                    <span class="text-maroon-600 font-bold">1.</span> Urgensi Kompetensi & Kesiapan Mental Industri
+                  </a>
+                </li>
+                <li>
+                  <a href="#poin-2" class="hover:underline hover:text-maroon-900 flex items-center gap-2">
+                    <span class="text-maroon-600 font-bold">2.</span> Struktur Portofolio & Tips Seleksi Wawancara
+                  </a>
+                </li>
+                <li>
+                  <a href="#poin-3" class="hover:underline hover:text-maroon-900 flex items-center gap-2">
+                    <span class="text-maroon-600 font-bold">3.</span> Legalitas Pengakuan SKS & Nilai PKL
+                  </a>
+                </li>
+                <li>
+                  <a href="#faq-artikel" class="hover:underline hover:text-maroon-900 flex items-center gap-2">
+                    <span class="text-maroon-600 font-bold">4.</span> FAQ Seputar Pelaksanaan Magang
+                  </a>
+                </li>
+                <li>
+                  <a href="#kesimpulan" class="hover:underline hover:text-maroon-900 flex items-center gap-2">
+                    <span class="text-maroon-600 font-bold">5.</span> Kesimpulan & Inti Pembelajaran
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Prose Markdown Body -->
+            <div id="poin-1" class="prose max-w-none text-gray-700 text-base md:text-lg leading-relaxed space-y-6 [&_h2]:text-2xl [&_h2]:font-extrabold [&_h2]:text-gray-900 [&_h3]:text-xl [&_h3]:font-bold [&_h3]:text-gray-900 [&_h3]:pt-4 [&_ol]:list-decimal [&_ol]:pl-5 [&_ol]:space-y-2.5 [&_ul]:list-disc [&_ul]:pl-5 [&_ul]:space-y-2.5 [&_a]:text-maroon-700 [&_a]:underline [&_a:hover]:text-maroon-900 [&_strong]:text-gray-900 [&_p]:text-gray-600">
+              <Content />
+            </div>
+
+            <!-- In-Article Callout "Baca Juga" matching Reference -->
+            <div id="poin-2" class="my-8 p-4 md:p-5 rounded-r-2xl bg-gray-50 border-l-4 border-maroon-700 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs md:text-sm">
+              <span class="text-gray-700">
+                <strong class="text-maroon-700">Baca Juga:</strong> Informasi Pembukaan Batch 1 dan Rincian Posisi Magang Tersedia
+              </span>
+              <a href="/posisi/" class="shrink-0 font-bold text-maroon-700 hover:underline inline-flex items-center gap-1">
+                <span>Lihat Posisi</span>
+                <span>→</span>
+              </a>
+            </div>
+
+            <!-- In-Article Secondary Visual matching Reference -->
+            <div id="poin-3" class="my-8">
+              <div class="aspect-[16/9] w-full rounded-[20px] overflow-hidden bg-gray-100 border border-gray-200 shadow-sm">
+                <img
+                  src="/images/galeri/galeri-3.webp"
+                  alt="Suasana kolaborasi magang industri"
+                  class="w-full h-full object-cover"
+                  loading="lazy"
+                />
+              </div>
+              <p class="text-xs text-gray-400 italic text-center mt-2.5">
+                Kolaborasi aktif antar peserta magang lintas jurusan dalam menyelesaikan proyek berbasis studi kasus nyata industri.
+              </p>
+            </div>
+
+            <!-- In-Article FAQ Accordion Section matching Reference -->
+            <div id="faq-artikel" class="mt-12 pt-8 border-t border-gray-100">
+              <div class="flex items-center gap-2 mb-2">
+                <span class="w-2 h-2 rounded-full bg-maroon-700"></span>
+                <span class="text-xs font-bold uppercase tracking-wider text-maroon-700">Tanya Jawab Terkait</span>
+              </div>
+              <h3 class="text-xl md:text-2xl font-extrabold text-gray-900 mb-5">FAQ Seputar Topik Ini</h3>
+              
+              <div class="space-y-3">
+                <details class="group rounded-[18px] bg-gray-50/70 border border-gray-200/80 p-4 transition-all open:bg-rose-50/20 open:border-maroon-300">
+                  <summary class="font-bold text-sm text-gray-900 cursor-pointer flex items-center justify-between list-none">
+                    <span>Apakah siswa SMK atau mahasiswa pemula tanpa pengalaman bisa mendaftar?</span>
+                    <span class="w-6 h-6 rounded-full bg-white border border-gray-200 text-maroon-700 flex items-center justify-center text-xs group-open:rotate-180 transition-transform">↓</span>
+                  </summary>
+                  <p class="text-xs md:text-sm text-gray-600 mt-3 leading-relaxed">
+                    Bisa. Program magang GM Training dirancang khusus untuk menjembatani peserta dari tingkat dasar. Penilaian utama difokuskan pada kedisiplinan, kemauan belajar, dan kesesuaian jurusan.
+                  </p>
+                </details>
+
+                <details class="group rounded-[18px] bg-gray-50/70 border border-gray-200/80 p-4 transition-all open:bg-rose-50/20 open:border-maroon-300">
+                  <summary class="font-bold text-sm text-gray-900 cursor-pointer flex items-center justify-between list-none">
+                    <span>Bagaimana pengurusan administrasi surat izin dan konversi nilai ke kampus/sekolah?</span>
+                    <span class="w-6 h-6 rounded-full bg-white border border-gray-200 text-maroon-700 flex items-center justify-center text-xs group-open:rotate-180 transition-transform">↓</span>
+                  </summary>
+                  <p class="text-xs md:text-sm text-gray-600 mt-3 leading-relaxed">
+                    Tim kami menyediakan dokumen resmi penerimaan, MoU kemitraan, serta evaluasi berkala dan logbook mingguan yang disinkronisasikan langsung dengan pihak BKK sekolah atau dosen pembimbing.
+                  </p>
+                </details>
+
+                <details class="group rounded-[18px] bg-gray-50/70 border border-gray-200/80 p-4 transition-all open:bg-rose-50/20 open:border-maroon-300">
+                  <summary class="font-bold text-sm text-gray-900 cursor-pointer flex items-center justify-between list-none">
+                    <span>Berapa lama proses seleksi dari pengiriman berkas hingga pengumuman?</span>
+                    <span class="w-6 h-6 rounded-full bg-white border border-gray-200 text-maroon-700 flex items-center justify-center text-xs group-open:rotate-180 transition-transform">↓</span>
+                  </summary>
+                  <p class="text-xs md:text-sm text-gray-600 mt-3 leading-relaxed">
+                    Verifikasi administrasi membutuhkan waktu 3-5 hari kerja, dilanjutkan wawancara kompetensi singkat. Pengumuman resmi disampaikan berkala via email dan WhatsApp panitia.
+                  </p>
+                </details>
+              </div>
+            </div>
+
+            <!-- Conclusion Section with Dark Maroon Highlight Box matching Reference -->
+            <div id="kesimpulan" class="mt-12 pt-8 border-t border-gray-100">
+              <h3 class="text-xl md:text-2xl font-extrabold text-gray-900 mb-3">Kesimpulan</h3>
+              <p class="text-sm md:text-base text-gray-700 leading-relaxed mb-6">
+                Menghadapi persaingan dunia kerja modern, memiliki rekam jejak praktik industri dan pendampingan mentor adalah modal berharga. Pastikan berkasmu disiapkan dengan rapi dan pilihlah posisi magang yang sejalan dengan cita-cita kariermu.
+              </p>
+
+              <!-- Dark Highlight Box -->
+              <div class="bg-[#160408] text-white p-6 md:p-7 rounded-[22px] border border-maroon-800/40 shadow-xl relative overflow-hidden">
+                <div class="relative z-10 space-y-2.5">
+                  <div class="flex items-center gap-2 text-rose-300 font-extrabold text-xs uppercase tracking-wider">
+                    <span>💡 Inti Pembelajaran:</span>
+                  </div>
+                  <p class="text-sm md:text-base text-gray-200 leading-relaxed font-medium">
+                    Keberhasilan magang bukan dinilai dari seberapa rumit teori yang dihafal, melainkan kemampuan menerapkan keahlian nyata, disiplin waktu, dan etika kolaborasi profesional di lini industri.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Author Bio Box (Tentang Penulis) matching Reference -->
+            <div class="mt-12 p-6 rounded-[24px] bg-gray-50 border border-gray-200/80 flex flex-col sm:flex-row items-center sm:items-start gap-4 text-center sm:text-left">
+              <div class="w-16 h-16 rounded-2xl bg-maroon-700 text-white flex items-center justify-center font-extrabold text-xl shrink-0 shadow-md">
+                GM
+              </div>
+              <div>
+                <span class="text-[0.6875rem] font-bold uppercase tracking-wider text-maroon-700 block mb-1">Tentang Penulis</span>
+                <h4 class="text-base font-bold text-gray-900">{data.penulis}</h4>
+                <p class="text-xs md:text-sm text-gray-600 mt-1.5 leading-relaxed">
+                  Tim Kurikulum & Konselor Karier GM Training berdedikasi membimbing generasi muda vokasi dan akademisi melalui program magang industri terstruktur, pengakuan konversi resmi, serta bimbingan praktisi ahli.
+                </p>
+              </div>
+            </div>
+
+            <!-- Back Navigation & Action Buttons -->
+            <div class="mt-10 pt-6 border-t border-gray-100 flex flex-col sm:flex-row items-center justify-between gap-4">
+              <a
+                href="/berita/"
+                class="text-xs font-bold text-maroon-700 hover:underline inline-flex items-center gap-1.5"
+              >
+                ← Kembali ke Indeks Warta
+              </a>
+
+              <a
+                href="/pendaftaran/"
+                class="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-maroon-700 hover:bg-maroon-800 text-white font-bold text-xs shadow-sm transition-all"
+              >
+                <span>Daftar Magang Sekarang</span>
+                <span>↗</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sidebar Column (Right, 4 Cols) matching Reference -->
+        <aside class="lg:col-span-4 space-y-8 sticky top-24">
+          <!-- Widget 1: Artikel Terkait (Related Posts with Thumbnails) -->
+          <div class="bg-white border border-gray-200/90 rounded-[24px] p-6 shadow-sm">
+            <h3 class="font-extrabold text-base text-gray-900 pb-3 border-b border-gray-100 mb-4 flex items-center justify-between">
+              <span>Warta Terkait</span>
+              <span class="w-2 h-2 rounded-full bg-maroon-700"></span>
+            </h3>
+
+            <div class="space-y-4">
+              {
+                relatedPosts.map((p) => (
+                  <a
+                    href={`/berita/${p.id}/`}
+                    class="flex items-center gap-3.5 group p-2 rounded-xl hover:bg-gray-50 transition-colors"
+                  >
+                    <img
+                      src={p.data.gambar || "/images/galeri/galeri-1.webp"}
+                      alt={p.data.judul}
+                      width="80"
+                      height="64"
+                      class="w-20 h-16 rounded-xl object-cover shrink-0 border border-gray-200"
+                    />
+                    <div class="flex-1 min-w-0">
+                      <h4 class="text-xs md:text-sm font-bold text-gray-900 group-hover:text-maroon-700 transition-colors line-clamp-2 leading-snug">
+                        {p.data.judul}
+                      </h4>
+                      <div class="text-[0.6875rem] text-gray-400 mt-1 tabular-nums">
+                        {formatDate(p.data.tanggal)}
+                      </div>
+                    </div>
+                  </a>
+                ))
+              }
+            </div>
+          </div>
+
+          <!-- Widget 2: Kategori Lainnya (Pill Tags) -->
+          <div class="bg-white border border-gray-200/90 rounded-[24px] p-6 shadow-sm">
+            <h3 class="font-extrabold text-base text-gray-900 pb-3 border-b border-gray-100 mb-4 flex items-center justify-between">
+              <span>Kategori &amp; Topik Pilihan</span>
+              <span class="w-2 h-2 rounded-full bg-maroon-700"></span>
+            </h3>
+
+            <div class="flex flex-wrap gap-2">
+              <a href="/berita/" class="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-gray-50 border border-gray-200 text-gray-700 hover:border-maroon-700 hover:text-maroon-700 transition-all">
+                #PanduanCV
+              </a>
+              <a href="/berita/" class="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-gray-50 border border-gray-200 text-gray-700 hover:border-maroon-700 hover:text-maroon-700 transition-all">
+                #WawancaraMagang
+              </a>
+              <a href="/berita/" class="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-gray-50 border border-gray-200 text-gray-700 hover:border-maroon-700 hover:text-maroon-700 transition-all">
+                #KonversiSKS
+              </a>
+              <a href="/berita/" class="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-gray-50 border border-gray-200 text-gray-700 hover:border-maroon-700 hover:text-maroon-700 transition-all">
+                #MagangSMK
+              </a>
+              <a href="/berita/" class="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-gray-50 border border-gray-200 text-gray-700 hover:border-maroon-700 hover:text-maroon-700 transition-all">
+                #MahasiswaAktif
+              </a>
+              <a href="/berita/" class="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-gray-50 border border-gray-200 text-gray-700 hover:border-maroon-700 hover:text-maroon-700 transition-all">
+                #K3Industri
+              </a>
+              <a href="/berita/" class="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-gray-50 border border-gray-200 text-gray-700 hover:border-maroon-700 hover:text-maroon-700 transition-all">
+                #SertifikasiDUDI
+              </a>
+            </div>
+          </div>
+
+          <!-- Widget 3: Sticky CTA Box matching Reference -->
+          <div class="bg-gradient-to-br from-[#800020] to-[#500014] text-white rounded-[24px] p-6 shadow-xl border border-maroon-800/50">
+            <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[0.6875rem] font-bold bg-white/15 text-rose-200 border border-white/20 mb-3.5">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+              Penerimaan Batch 1
+            </div>
+
+            <h4 class="font-extrabold text-lg text-white mb-2 leading-snug">
+              Siap Memulai Langkah Karier Nyata?
+            </h4>
+
+            <p class="text-xs text-rose-100/90 leading-relaxed mb-5">
+              Konsultasikan divisi dan posisi magang yang paling cocok dengan keahlianmu bersama konselor GM Training.
+            </p>
+
+            <a
+              href="/pendaftaran/"
+              class="block w-full py-3 text-center rounded-full bg-white text-maroon-900 hover:bg-gray-100 font-extrabold text-xs uppercase tracking-wider transition-all shadow-md hover:-translate-y-0.5"
+            >
+              Daftar Magang Sekarang ↗
+            </a>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </article>
+</BaseLayout>

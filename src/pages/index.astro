@@ -1,0 +1,332 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Hero from "../components/sections/Hero.astro";
+import FeatureHighlights from "../components/sections/FeatureHighlights.astro";
+import PhilosophyBanner from "../components/sections/PhilosophyBanner.astro";
+import BidangKejuruanGrid from "../components/sections/BidangKejuruanGrid.astro";
+import WhyChooseUs from "../components/sections/WhyChooseUs.astro";
+import DokumentasiGaleriSection from "../components/sections/DokumentasiGaleriSection.astro";
+import PosisiCard from "../components/sections/PosisiCard.astro";
+import MitraGrid from "../components/sections/MitraGrid.astro";
+import Accordion from "../components/ui/Accordion.astro";
+import CtaBanner from "../components/sections/CtaBanner.astro";
+import { siteConfig } from "../data/site";
+
+// Fetch collections for homepage
+const allPosisi = await getCollection("posisi", ({ data }) => !data.draft);
+const allMitra = await getCollection("mitra");
+const allTestimoni = await getCollection("testimoni", ({ data }) => data.izinTayang);
+
+// Sort & slice for featured positions
+const featuredPosisi = allPosisi.slice(0, 6);
+
+// Map mitra logo and name to positions
+const posisiWithMitra = featuredPosisi.map((p) => {
+  const mitraDoc = allMitra.find((m) => m.id === p.data.mitra.id);
+  return {
+    slug: p.id,
+    judul: p.data.judul,
+    mitraNama: mitraDoc ? mitraDoc.data.nama : p.data.mitra.id,
+    mitraLogo: mitraDoc ? mitraDoc.data.logo : undefined,
+    jalur: p.data.jalur,
+    bidang: p.data.bidang,
+    lokasi: p.data.lokasi,
+    mode: p.data.mode,
+    durasiBulan: p.data.durasiBulan,
+    kuotaAwal: p.data.kuotaAwal,
+    ringkasan: p.data.tugas[0] || "",
+    featured: false,
+  };
+});
+
+// Partner Showcase items
+const mitraList = allMitra.slice(0, 5).map((m) => ({
+  slug: m.id,
+  nama: m.data.nama,
+  logo: m.data.logo,
+  sektor: m.data.sektor,
+  kota: m.data.kota,
+  website: m.data.website,
+  deskripsi: m.data.deskripsi,
+}));
+
+// Quick FAQs for Homepage
+const quickFaqItems = [
+  {
+    id: "faq-1",
+    title: "Apakah seluruh program magang di GM Training 100% bebas biaya?",
+    content:
+      "Benar. Seluruh program magang yang dikelola GM Training tidak memungut biaya pendaftaran, biaya seleksi, atau pungutan apa pun kepada peserta didik maupun pihak sekolah/kampus.",
+  },
+  {
+    id: "faq-2",
+    title: "Apakah kegiatan magang ini diakui secara resmi oleh sekolah SMK dan kampus?",
+    content:
+      "Ya, seluruh program magang dirancang selaras dengan kurikulum Capaian Pembelajaran (CP) SMK untuk pemenuhan nilai PKL resmi serta kebijakan konversi hingga 20 SKS MBKM perguruan tinggi.",
+  },
+  {
+    id: "faq-3",
+    title: "Bagaimana sistem pembimbingan mentor praktisi di tempat kerja?",
+    content:
+      "Setiap peserta didik didampingi minimal 1 mentor praktisi industri yang ditunjuk resmi oleh perusahaan untuk memberikan arahan tugas berkala, review teknis mingguan, dan evaluasi capaian kerja.",
+  },
+  {
+    id: "faq-4",
+    title: "Apa saja dokumen wajib yang harus disiapkan saat mendaftar?",
+    content:
+      "Berkas wajib meliputi Curriculum Vitae (CV) terbaru, surat pengantar resmi dari sekolah/fakultas, transkrip nilai/rapor terakhir, serta surat persetujuan orang tua/wali khusus bagi peserta jalur SMK di bawah 18 tahun.",
+  },
+];
+
+// Structured Data
+const orgSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": `${siteConfig.url}/#organization`,
+      name: siteConfig.name,
+      alternateName: siteConfig.shortName,
+      url: siteConfig.url,
+      logo: `${siteConfig.url}/og/default-og.svg`,
+      sameAs: [siteConfig.socials.instagram, siteConfig.socials.linkedin].filter(Boolean),
+      contactPoint: {
+        "@type": "ContactPoint",
+        contactType: "customer support",
+        email: siteConfig.email,
+        telephone: siteConfig.whatsapp,
+        areaServed: "ID",
+        availableLanguage: "id",
+      },
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${siteConfig.url}/#website`,
+      url: siteConfig.url,
+      name: siteConfig.name,
+      description: siteConfig.description,
+      publisher: {
+        "@id": `${siteConfig.url}/#organization`,
+      },
+      inLanguage: "id-ID",
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title={`${siteConfig.name} | ${siteConfig.tagline}`}
+  description={siteConfig.description}
+  canonical={siteConfig.url}
+  schema={orgSchema}
+>
+  <!-- 1. Hero Section (Framed Photo Card with Glass Batch Widget matching reference) -->
+  <Hero />
+
+  <!-- 2. 4 Squircle Features Cards (Matching Reference Layout) -->
+  <FeatureHighlights />
+
+  <!-- 3. Philosophy & Collaboration Story Banner (Tentang Kami) -->
+  <PhilosophyBanner />
+
+  <!-- 4. Standar Kualitas & Mengapa Memilih GM Training (Asymmetric 2-Column with Maroon Cards) -->
+  <WhyChooseUs />
+
+  <!-- 5. Pilihan Program & Bidang Kejuruan (3-Column Photo Cards) -->
+  <BidangKejuruanGrid />
+
+  <!-- 6. Dokumentasi Aktivitas Magang (Pill Filters & Grid) -->
+  <DokumentasiGaleriSection />
+
+  <!-- 7. Katalog Lowongan Terbuka & Pilihan Posisi Magang -->
+  <section class="py-16 md:py-24 bg-white border-t border-gray-100">
+    <div class="max-w-[72rem] mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+        <div class="max-w-2xl text-left">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-maroon-50 text-maroon-700 text-xs font-bold uppercase tracking-wider mb-3 border border-maroon-100">
+            <span class="w-1.5 h-1.5 rounded-full bg-maroon-700"></span>
+            <span>Katalog Lowongan Terbuka</span>
+          </div>
+          <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-gray-900 leading-tight">
+            Pilihan Posisi Magang Batch 1
+          </h2>
+          <p class="text-gray-600 text-sm md:text-base leading-relaxed mt-3">
+            Temukan posisi relevan sesuai jurusan sekolah kejuruan atau konsentrasi program studi perkuliahan kamu.
+          </p>
+        </div>
+
+        <a
+          href="/posisi/"
+          class="shrink-0 inline-flex items-center gap-2.5 px-6 py-3 rounded-full bg-white hover:bg-gray-50 border border-gray-200 text-maroon-800 font-bold text-sm shadow-sm hover:shadow-md transition-all group"
+        >
+          <span>Lihat Semua Posisi</span>
+          <span class="w-5 h-5 rounded-full bg-maroon-50 text-maroon-700 flex items-center justify-center text-xs group-hover:translate-x-0.5 transition-transform">
+            →
+          </span>
+        </a>
+      </div>
+
+      <!-- Posisi Cards Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {posisiWithMitra.map((p) => <PosisiCard {...p} />)}
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. Mitra Industri Terverifikasi -->
+  <section class="py-16 md:py-22 bg-[#F8F9FA] border-t border-gray-200/80">
+    <div class="max-w-[72rem] mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-maroon-50 text-maroon-700 text-xs font-bold uppercase tracking-wider mb-3 border border-maroon-100">
+          <span class="w-1.5 h-1.5 rounded-full bg-maroon-700"></span>
+          <span>Kemitraan Industri Resmi</span>
+        </div>
+        <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-gray-900 leading-tight">
+          Mitra Industri &amp; Korporasi Rekanan
+        </h2>
+        <p class="text-gray-600 text-sm md:text-base mt-3">
+          Bekerja sama langsung dengan jajaran industri manufaktur, teknologi, dan kreatif berintegritas tinggi.
+        </p>
+      </div>
+
+      <MitraGrid mitraList={mitraList} />
+
+      <div class="mt-10 text-center">
+        <a
+          href="/mitra/"
+          class="inline-flex items-center gap-2.5 px-7 py-3 rounded-full bg-white hover:bg-gray-50 border border-gray-200 text-xs md:text-sm font-bold text-maroon-800 shadow-sm hover:shadow-md transition-all group"
+        >
+          <span>Pelajari Seluruh Profil Mitra Industri</span>
+          <span class="w-5 h-5 rounded-full bg-maroon-50 text-maroon-700 flex items-center justify-center text-xs group-hover:translate-x-0.5 transition-transform">
+            →
+          </span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. Cerita Alumni Terverifikasi (3 Deep Maroon Cards with Floating Top Avatars matching reference) -->
+  {
+    allTestimoni.length > 0 && (
+      <section class="py-16 md:py-24 bg-white border-t border-gray-100">
+        <div class="max-w-[76rem] mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="max-w-2xl mb-14 text-center mx-auto">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-maroon-50 text-maroon-700 text-xs font-bold uppercase tracking-wider mb-3 border border-maroon-100">
+              <span class="w-1.5 h-1.5 rounded-full bg-maroon-700"></span>
+              <span>Suara Alumni Terverifikasi</span>
+            </div>
+            <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-gray-900 leading-tight">
+              Cerita Nyata Alumni Program Magang
+            </h2>
+            <p class="text-gray-600 text-sm md:text-base leading-relaxed mt-3">
+              Pengalaman otentik siswa SMK dan mahasiswa dalam mengasah kompetensi teknis bersama mentor industri.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-9 pt-6">
+            {allTestimoni.slice(0, 3).map((t, idx) => {
+              const avatarSrc = `/images/avatar-${(idx % 3) + 1}.webp`;
+              return (
+                <div class="relative bg-gradient-to-b from-[#1C0409] via-[#140206] to-[#0D0104] text-white border border-maroon-800/60 rounded-[32px] md:rounded-[36px] pt-12 pb-8 px-6 sm:px-7 flex flex-col justify-between shadow-xl shadow-maroon-950/20 hover:shadow-2xl hover:shadow-maroon-950/35 hover:border-rose-400/40 hover:-translate-y-2 transition-all duration-300 group">
+                  <!-- Floating Avatar overlapping top edge -->
+                  <div class="absolute -top-7 left-1/2 -translate-x-1/2 w-16 h-16 rounded-full border-4 border-white shadow-xl overflow-hidden bg-gray-200 z-20 group-hover:scale-105 transition-transform duration-300">
+                    <img
+                      src={avatarSrc}
+                      alt={t.data.nama}
+                      class="w-full h-full object-cover"
+                      loading="lazy"
+                    />
+                  </div>
+
+                  <!-- Top Left Quote Icon -->
+                  <div class="absolute top-5 left-5 text-rose-400/30 select-none pointer-events-none">
+                    <svg class="w-7 h-7 fill-current" viewBox="0 0 24 24">
+                      <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+                    </svg>
+                  </div>
+
+                  <!-- Bottom Right Quote Icon -->
+                  <div class="absolute bottom-5 right-5 text-rose-400/25 select-none pointer-events-none">
+                    <svg class="w-7 h-7 fill-current rotate-180" viewBox="0 0 24 24">
+                      <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+                    </svg>
+                  </div>
+
+                  <!-- Testimonial Quote -->
+                  <blockquote class="text-center italic text-xs sm:text-sm md:text-[0.9375rem] text-gray-200 leading-relaxed font-normal my-4 relative z-10 px-2">
+                    "{t.body}"
+                  </blockquote>
+
+                  <!-- Author Info -->
+                  <div class="text-center pt-3 border-t border-white/10 relative z-10">
+                    <div class="font-extrabold text-base md:text-lg text-rose-300 tracking-tight leading-snug">
+                      {t.data.nama}
+                    </div>
+                    {t.data.peran && (
+                      <div class="text-xs text-rose-100/90 font-medium mt-1 leading-snug">
+                        {t.data.peran}
+                      </div>
+                    )}
+                    <div class="text-[0.75rem] text-gray-400 mt-1 leading-snug">
+                      {t.data.asal} &bull; {t.data.tempatMagang} ({t.data.tahun})
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+          <div class="mt-12 text-center">
+            <a
+              href="/cerita-alumni/"
+              class="inline-flex items-center gap-2.5 px-7 py-3 rounded-full bg-white hover:bg-gray-50 border border-gray-200 text-xs md:text-sm font-bold text-maroon-800 shadow-sm hover:shadow-md transition-all group"
+            >
+              <span>Baca Seluruh Cerita Alumni & Testimoni</span>
+              <span class="w-5 h-5 rounded-full bg-maroon-50 text-maroon-700 flex items-center justify-center text-xs group-hover:translate-x-0.5 transition-transform">
+                →
+              </span>
+            </a>
+          </div>
+        </div>
+      </section>
+    )
+  }
+
+  <!-- 10. FAQ Ringkas -->
+  <section class="py-16 md:py-24 bg-white border-t border-gray-100">
+    <div class="max-w-[72rem] mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl mb-10 text-left">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-maroon-50 text-maroon-700 text-xs font-bold uppercase tracking-wider mb-3 border border-maroon-100">
+          <span class="w-1.5 h-1.5 rounded-full bg-maroon-700"></span>
+          <span>Tanya Jawab Populer</span>
+        </div>
+        <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-gray-900 leading-tight">
+          Pertanyaan yang Sering Diajukan
+        </h2>
+        <p class="text-gray-600 text-sm md:text-base leading-relaxed mt-3">
+          Temukan jawaban cepat seputar biaya pendaftaran, pendampingan mentor, dan syarat tiap jalur magang.
+        </p>
+      </div>
+
+      <div class="max-w-3xl">
+        <Accordion items={quickFaqItems} />
+
+        <div class="mt-8 pt-4">
+          <a
+            href="/faq/"
+            class="inline-flex items-center gap-2.5 px-6 py-3 rounded-full bg-maroon-50 hover:bg-maroon-100 text-maroon-700 font-bold text-sm border border-maroon-200 transition-all group"
+          >
+            <span>Lihat Semua Tanya Jawab (FAQ Lengkap)</span>
+            <span class="w-5 h-5 rounded-full bg-maroon-700 text-white flex items-center justify-center text-xs group-hover:translate-x-0.5 transition-transform">
+              →
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 12. Final CTA Banner -->
+  <CtaBanner />
+</BaseLayout>

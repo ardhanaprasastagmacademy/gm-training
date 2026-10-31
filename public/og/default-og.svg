@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" fill="none">
+  <rect width="1200" height="630" fill="#4A0012"/>
+  <rect x="40" y="40" width="1120" height="550" rx="20" fill="#800020" stroke="#EBCBD1" stroke-width="2"/>
+  
+  <circle cx="100" cy="110" r="30" fill="#FFFFFF"/>
+  <path d="M92 110h16M100 102v16" stroke="#800020" stroke-width="4" stroke-linecap="round"/>
+  
+  <text x="150" y="105" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-weight="700" font-size="28" fill="#FFFFFF">GM TRAINING</text>
+  <text x="150" y="132" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-weight="400" font-size="18" fill="#F6E6E9">Pusat Informasi Program Magang SMK &amp; Mahasiswa</text>
+  
+  <text x="100" y="270" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-weight="700" font-size="52" fill="#FFFFFF">Jembatan Kompetensi Menuju</text>
+  <text x="100" y="340" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-weight="700" font-size="52" fill="#FFFFFF">Dunia Kerja Nyata</text>
+  
+  <text x="100" y="410" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-weight="400" font-size="24" fill="#F6E6E9">Praktek Kerja Lapangan (PKL) terstruktur &amp; Magang Konversi SKS bersama Mitra Industri Terpercaya</text>
+  
+  <rect x="100" y="470" width="260" height="60" rx="10" fill="#FFFFFF"/>
+  <text x="230" y="508" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-weight="700" font-size="20" fill="#800020" text-anchor="middle">gmtraining.id</text>
+</svg>
+

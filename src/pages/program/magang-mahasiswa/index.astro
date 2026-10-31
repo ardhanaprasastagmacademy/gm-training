@@ -1,0 +1,256 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import PageBanner from "../../../components/ui/PageBanner.astro";
+import StepTimeline from "../../../components/sections/StepTimeline.astro";
+import Accordion from "../../../components/ui/Accordion.astro";
+import BidangKejuruanGrid from "../../../components/sections/BidangKejuruanGrid.astro";
+import CtaBanner from "../../../components/sections/CtaBanner.astro";
+import { siteConfig } from "../../../data/site";
+
+// Fetch FAQ specifically for Mahasiswa track
+const allFaq = await getCollection("faq", ({ data }) => data.kategori === "mahasiswa" || data.kategori === "umum");
+const mhsFaqItems = allFaq.slice(0, 4).map((f) => ({
+  id: f.id,
+  title: f.data.pertanyaan,
+  content: f.body || "",
+}));
+---
+
+<BaseLayout
+  title={`Program Magang Mahasiswa & Konversi SKS | ${siteConfig.shortName}`}
+  description="Peluang magang profesional bagi mahasiswa diploma dan sarjana: penyelarasan kurikulum, peluang konversi hingga 20 SKS, dan bimbingan mentor industri."
+>
+  <PageBanner
+    title="Program Magang Mahasiswa & Konversi SKS"
+    description="Tingkatkan kesiapan karier profesional dengan proyek industri nyata dan konversi SKS resmi."
+    breadcrumbs={[
+      { label: "Program", href: "/program/" },
+      { label: "Magang Mahasiswa" },
+    ]}
+    badge="Jalur Khusus Perguruan Tinggi"
+  />
+
+  <section class="py-14 md:py-20 bg-[#F8F9FA] text-gray-900">
+    <div class="max-w-[72rem] mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
+        <!-- Main Content (8 cols) -->
+        <div class="lg:col-span-8 space-y-10">
+          <!-- Overview Card -->
+          <div class="bg-white border border-gray-200/90 rounded-[24px] p-6 md:p-8 shadow-sm">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-maroon-50 text-maroon-700 text-xs font-bold uppercase tracking-wider mb-4 border border-maroon-100">
+              <span class="w-1.5 h-1.5 rounded-full bg-maroon-700"></span>
+              <span>Ikhtisar Program</span>
+            </div>
+            <h2 class="text-xl md:text-2xl font-extrabold text-gray-900 mb-5 tracking-tight">
+              Ringkasan Program Magang Perguruan Tinggi
+            </h2>
+            <dl class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
+              <div class="bg-gray-50 p-4 rounded-2xl border border-gray-200/80">
+                <dt class="font-bold text-xs uppercase tracking-wider text-maroon-700 mb-1">Sasaran Mahasiswa</dt>
+                <dd class="font-bold text-gray-900">Mahasiswa aktif D3/D4/S1 minimal Semester 5</dd>
+              </div>
+              <div class="bg-gray-50 p-4 rounded-2xl border border-gray-200/80">
+                <dt class="font-bold text-xs uppercase tracking-wider text-maroon-700 mb-1">Durasi & Format</dt>
+                <dd class="font-bold text-gray-900">4 hingga 6 bulan (Hybrid, Onsite, atau Remote)</dd>
+              </div>
+              <div class="bg-gray-50 p-4 rounded-2xl border border-gray-200/80">
+                <dt class="font-bold text-xs uppercase tracking-wider text-maroon-700 mb-1">Konversi Akademik</dt>
+                <dd class="font-bold text-gray-900">Hingga 20 SKS (sesuai persetujuan Kaprodi/Fakultas)</dd>
+              </div>
+              <div class="bg-gray-50 p-4 rounded-2xl border border-gray-200/80">
+                <dt class="font-bold text-xs uppercase tracking-wider text-maroon-700 mb-1">Sertifikasi & Portofolio</dt>
+                <dd class="font-bold text-gray-900">Sertifikat Magang & Hak Portofolio Proyek</dd>
+              </div>
+            </dl>
+          </div>
+
+          <!-- Requirements Table -->
+          <div>
+            <div class="mb-4">
+              <span class="text-xs font-bold uppercase tracking-wider text-maroon-700">Persyaratan</span>
+              <h2 class="text-2xl font-extrabold text-gray-900 mt-1 tracking-tight">
+                Persyaratan Akademik & Dokumen
+              </h2>
+            </div>
+            <p class="text-gray-600 text-sm md:text-base mb-6 leading-relaxed">
+              Mahasiswa wajib memastikan status perkuliahan aktif dan mendapatkan rekomendasi dari pihak program studi sebelum memulai pendaftaran.
+            </p>
+
+            <div class="overflow-x-auto border border-gray-200/90 rounded-[24px] bg-white shadow-sm">
+              <table class="w-full text-left text-sm text-gray-900">
+                <thead class="bg-gray-50 text-gray-900 font-bold border-b border-gray-200">
+                  <tr>
+                    <th class="py-4 px-5">Dokumen</th>
+                    <th class="py-4 px-5">Keterangan & Otoritas</th>
+                    <th class="py-4 px-5">Status</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-gray-100 text-gray-700">
+                  <tr class="hover:bg-gray-50/60 transition-colors">
+                    <td class="py-4 px-5 font-bold text-gray-900">Surat Rekomendasi Magang dari Kampus</td>
+                    <td class="py-4 px-5">Ditandatangani oleh Ketua Program Studi (Kaprodi) atau Dekanat Fakultas</td>
+                    <td class="py-4 px-5">
+                      <span class="inline-flex px-2.5 py-0.5 rounded-full text-xs font-bold bg-maroon-50 text-maroon-700 border border-maroon-100">
+                        Wajib
+                      </span>
+                    </td>
+                  </tr>
+                  <tr class="hover:bg-gray-50/60 transition-colors">
+                    <td class="py-4 px-5 font-bold text-gray-900">Curriculum Vitae (CV) ATS-Friendly</td>
+                    <td class="py-4 px-5">Mencantumkan riwayat pendidikan, skill teknis, proyek kuliah, dan link GitHub/portofolio</td>
+                    <td class="py-4 px-5">
+                      <span class="inline-flex px-2.5 py-0.5 rounded-full text-xs font-bold bg-maroon-50 text-maroon-700 border border-maroon-100">
+                        Wajib
+                      </span>
+                    </td>
+                  </tr>
+                  <tr class="hover:bg-gray-50/60 transition-colors">
+                    <td class="py-4 px-5 font-bold text-gray-900">Transkrip Nilai Akademik Kumulatif (KHS)</td>
+                    <td class="py-4 px-5">IPK minimal 3.00 (atau sesuai kualifikasi khusus mitra industri)</td>
+                    <td class="py-4 px-5">
+                      <span class="inline-flex px-2.5 py-0.5 rounded-full text-xs font-bold bg-maroon-50 text-maroon-700 border border-maroon-100">
+                        Wajib
+                      </span>
+                    </td>
+                  </tr>
+                  <tr class="hover:bg-gray-50/60 transition-colors">
+                    <td class="py-4 px-5 font-bold text-gray-900">Kartu Tanda Mahasiswa (KTM)</td>
+                    <td class="py-4 px-5">Bukti status mahasiswa aktif pada semester berjalan</td>
+                    <td class="py-4 px-5">
+                      <span class="inline-flex px-2.5 py-0.5 rounded-full text-xs font-bold bg-maroon-50 text-maroon-700 border border-maroon-100">
+                        Wajib
+                      </span>
+                    </td>
+                  </tr>
+                  <tr class="hover:bg-gray-50/60 transition-colors">
+                    <td class="py-4 px-5 font-bold text-gray-900">Portofolio Proyek Terpilih</td>
+                    <td class="py-4 px-5">Studi kasus, repositori kode, karya UI/UX, atau analisis data mandiri</td>
+                    <td class="py-4 px-5">
+                      <span class="inline-flex px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-600">
+                        Nilai Tambah
+                      </span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Academic Equivalence & Outputs -->
+          <div>
+            <div class="mb-4">
+              <span class="text-xs font-bold uppercase tracking-wider text-maroon-700">Luaran Program</span>
+              <h2 class="text-2xl font-extrabold text-gray-900 mt-1 tracking-tight">
+                Mekanisme Konversi SKS & Luaran Akhir
+              </h2>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <div class="bg-white border border-gray-200/90 rounded-[22px] p-6 shadow-sm">
+                <span class="text-xs font-bold text-maroon-700 block uppercase mb-1">Luaran 1</span>
+                <h3 class="font-bold text-base text-gray-900 mb-2">Laporan Akhir Komprehensif</h3>
+                <p class="text-xs text-gray-600 leading-relaxed">
+                  Dokumen evaluasi capaian proyek dan analisis pemecahan masalah teknis di industri.
+                </p>
+              </div>
+
+              <div class="bg-white border border-gray-200/90 rounded-[22px] p-6 shadow-sm">
+                <span class="text-xs font-bold text-maroon-700 block uppercase mb-1">Luaran 2</span>
+                <h3 class="font-bold text-base text-gray-900 mb-2">Presentasi di Hadapan Mentor</h3>
+                <p class="text-xs text-gray-600 leading-relaxed">
+                  Sesi pemaparan produk/solusi di hadapan jajaran pimpinan divisi mitra penempatan.
+                </p>
+              </div>
+
+              <div class="bg-white border border-gray-200/90 rounded-[22px] p-6 shadow-sm">
+                <span class="text-xs font-bold text-maroon-700 block uppercase mb-1">Luaran 3</span>
+                <h3 class="font-bold text-base text-gray-900 mb-2">Penilaian Akademik Resmi</h3>
+                <p class="text-xs text-gray-600 leading-relaxed">
+                  Formulir nilai angka dan huruf berskala industri yang siap diserahkan ke Dosen Pembimbing.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Timeline Alur Mahasiswa -->
+          <div>
+            <div class="mb-5">
+              <span class="text-xs font-bold uppercase tracking-wider text-maroon-700">Tahapan Proses</span>
+              <h2 class="text-2xl font-extrabold text-gray-900 mt-1 tracking-tight">
+                Tahapan Alur Pendaftaran Mahasiswa
+              </h2>
+            </div>
+            <StepTimeline filterJalur="mahasiswa" />
+          </div>
+
+          <!-- FAQ Mahasiswa -->
+          <div>
+            <div class="mb-5">
+              <span class="text-xs font-bold uppercase tracking-wider text-maroon-700">Tanya Jawab</span>
+              <h2 class="text-2xl font-extrabold text-gray-900 mt-1 tracking-tight">
+                Pertanyaan Khusus Mahasiswa
+              </h2>
+            </div>
+            <Accordion items={mhsFaqItems} />
+          </div>
+        </div>
+
+        <!-- Sticky Sidebar CTA (4 cols) -->
+        <aside class="lg:col-span-4 sticky top-24 space-y-6">
+          <div class="bg-white border border-gray-200/90 rounded-[24px] p-6 shadow-sm">
+            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-maroon-50 text-maroon-700 border border-maroon-100 mb-4 uppercase">
+              Pendaftaran Aktif
+            </span>
+            <h3 class="font-extrabold text-xl text-gray-900 mb-2">
+              Daftar Magang Mahasiswa
+            </h3>
+            <p class="text-xs text-gray-600 mb-6 leading-relaxed">
+              Dapatkan pengalaman kerja di industri rintisan teknologi terdepan dan konversikan nilainya ke SKS kuliah kamu.
+            </p>
+            <a
+              href="/pendaftaran/?jalur=mahasiswa"
+              class="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-maroon-700 hover:bg-maroon-800 text-white font-bold text-sm shadow-md shadow-maroon-900/10 transition-all group"
+              data-track-event="klik_program_mahasiswa_daftar"
+              data-track-jalur="mahasiswa"
+            >
+              <span>Daftar sebagai Mahasiswa</span>
+              <span class="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center text-xs">↗</span>
+            </a>
+
+            <div class="mt-4 text-center">
+              <a href="/posisi/?jalur=mahasiswa" class="text-xs font-bold text-maroon-700 hover:underline transition-colors">
+                Lihat Khusus Posisi Mahasiswa →
+              </a>
+            </div>
+          </div>
+
+          <div class="rounded-[24px] bg-gradient-to-br from-[#800020] to-[#5C0017] text-white p-6 shadow-md">
+            <h4 class="font-bold text-white text-base mb-2">
+              Biro Kerja Sama Kampus / Career Center
+            </h4>
+            <p class="text-xs text-maroon-100 leading-relaxed mb-4">
+              Ingin mendaftarkan program studi kamu dalam skema magang mandiri terintegrasi konsorsium industri kami?
+            </p>
+            <a
+              href="/untuk-sekolah-kampus/"
+              class="inline-flex items-center gap-2 text-xs font-bold text-white bg-white/15 hover:bg-white/25 px-4 py-2 rounded-full border border-white/20 transition-colors w-full justify-between"
+            >
+              <span>Pelajari Kerja Sama Perguruan Tinggi</span>
+              <span>↗</span>
+            </a>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pilihan Program & Bidang Kejuruan Mahasiswa -->
+  <BidangKejuruanGrid />
+
+  <CtaBanner
+    title="Siap Mengambil Langkah Magang Menuju Karier Impian?"
+    subtitle="Pilih posisi magang yang sesuai dengan program studi kamu sekarang juga."
+    primaryText="Pilih Posisi Mahasiswa"
+    primaryHref="/posisi/?jalur=mahasiswa"
+  />
+</BaseLayout>

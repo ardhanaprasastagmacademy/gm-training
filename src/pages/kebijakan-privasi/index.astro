@@ -1,0 +1,134 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import PageBanner from "../../components/ui/PageBanner.astro";
+import { siteConfig } from "../../data/site";
+---
+
+<BaseLayout
+  title={`Kebijakan Privasi | ${siteConfig.shortName}`}
+  description="Kebijakan Privasi dan Pelindungan Data Pribadi Program Magang SMK & Mahasiswa sesuai prinsip pelindungan data pribadi di Indonesia."
+>
+  <PageBanner
+    title="Kebijakan Privasi & Pelindungan Data Pribadi"
+    description="Komitmen kami dalam melindungi data identitas peserta didik, perizinan orang tua/wali, serta keamanan informasi akademik."
+    breadcrumbs={[{ label: "Kebijakan Privasi" }]}
+    badge="Transparansi & Keamanan"
+  />
+
+  <section class="py-14 md:py-20 bg-[#F8F9FA] text-gray-900">
+    <div class="max-w-[54rem] mx-auto px-4 sm:px-6 lg:px-8 space-y-8 text-base leading-relaxed">
+      <div class="p-5 rounded-[22px] bg-maroon-50/70 border border-maroon-100 text-xs text-maroon-900 leading-relaxed">
+        <strong class="font-bold">Pembaruan Terakhir:</strong> 29 Oktober 2026. Dokumen ini menjelaskan bagaimana {siteConfig.name} mengelola, memproses, dan menjaga kerahasiaan data calon peserta magang, siswa SMK, mahasiswa, orang tua/wali, serta pihak sekolah dan kampus.
+      </div>
+
+      <!-- Section 1 -->
+      <div class="bg-white border border-gray-200/90 rounded-[24px] p-6 md:p-8 shadow-sm text-gray-900">
+        <h2 class="text-xl md:text-2xl font-extrabold text-gray-900 mb-3 tracking-tight">
+          1. Prinsip Umum & Tanpa Database di Website
+        </h2>
+        <p class="text-gray-600 leading-relaxed mb-3">
+          Website resmi ini ({siteConfig.domain}) dibangun sebagai media informasi statis. <strong class="text-gray-900">Website ini tidak memiliki sistem pendaftaran berbasis akun login dan tidak menyimpan data sensitif pendaftar ke dalam database publik di peladen web.</strong>
+        </p>
+        <p class="text-gray-600 leading-relaxed">
+          Seluruh pengisian formulir pendaftaran dilakukan melalui platform penyedia formulir eksternal terpercaya (Google Workspace for Education / Form terenkripsi) yang dioperasikan langsung oleh panitia sekretariat resmi.
+        </p>
+      </div>
+
+      <!-- Section 2 -->
+      <div class="bg-white border border-gray-200/90 rounded-[24px] p-6 md:p-8 shadow-sm text-gray-900">
+        <h2 class="text-xl md:text-2xl font-extrabold text-gray-900 mb-3 tracking-tight">
+          2. Pelindungan Khusus Peserta Didik di Bawah 18 Tahun
+        </h2>
+        <p class="text-gray-600 leading-relaxed mb-3">
+          Menyadari bahwa sebagian besar peserta jalur SMK adalah siswa yang masih berusia di bawah 18 tahun, kami menerapkan kebijakan kepatuhan yang ketat:
+        </p>
+        <ul class="list-disc pl-5 space-y-2 text-gray-600 text-sm">
+          <li>
+            <strong class="text-gray-900">Persetujuan Orang Tua/Wali:</strong> Setiap pendaftar di bawah umur wajib melampirkan surat persetujuan resmi yang ditandatangani oleh orang tua atau wali yang sah.
+          </li>
+          <li>
+            <strong class="text-gray-900">Batasan Kontak:</strong> Komunikasi resmi terkait kegiatan magang selalu ditembuskan kepada pihak sekolah (Guru Pembimbing/Hubin) serta dapat dikonfirmasi oleh orang tua/wali.
+          </li>
+          <li>
+            <strong class="text-gray-900">Larangan Publikasi Foto Tanpa Izin:</strong> Kami tidak pernah mempublikasikan foto kegiatan atau profil siswa di bawah umur tanpa surat persetujuan tayang tertulis dari orang tua/wali.
+          </li>
+        </ul>
+      </div>
+
+      <!-- Section 3 -->
+      <div class="bg-white border border-gray-200/90 rounded-[24px] p-6 md:p-8 shadow-sm text-gray-900">
+        <h2 class="text-xl md:text-2xl font-extrabold text-gray-900 mb-3 tracking-tight">
+          3. Jenis Data yang Dikumpulkan & Tujuannya
+        </h2>
+        <p class="text-gray-600 leading-relaxed mb-3">
+          Data yang dikumpulkan saat kamu mendaftar meliputi:
+        </p>
+        <ul class="list-disc pl-5 space-y-2 text-gray-600 text-sm">
+          <li>
+            <strong class="text-gray-900">Identitas Diri:</strong> Nama lengkap, tanggal lahir, nomor induk siswa/mahasiswa (NISN/NIM), asal institusi pendidikan, dan jurusan/prodi. Digunakan semata-mata untuk verifikasi kelayakan seleksi.
+          </li>
+          <li>
+            <strong class="text-gray-900">Kontak Pribadi:</strong> Alamat email dan nomor WhatsApp aktif. Digunakan untuk mengirimkan panggilan seleksi, notifikasi hasil, dan konfirmasi kehadiran.
+          </li>
+          <li>
+            <strong class="text-gray-900">Dokumen Akademik & Portofolio:</strong> Transkrip nilai, CV, surat pengantar sekolah/kampus, dan bukti karya. Dibagikan secara terbatas hanya kepada pimpinan dan mentor industri pada posisi yang kamu lamar.
+          </li>
+        </ul>
+      </div>
+
+      <!-- Section 4 -->
+      <div class="bg-white border border-gray-200/90 rounded-[24px] p-6 md:p-8 shadow-sm text-gray-900">
+        <h2 class="text-xl md:text-2xl font-extrabold text-gray-900 mb-3 tracking-tight">
+          4. Kerahasiaan Hasil Seleksi
+        </h2>
+        <p class="text-gray-600 leading-relaxed">
+          Kami <strong class="text-gray-900">tidak pernah mempublikasikan daftar nama peserta yang lolos seleksi secara terbuka di website</strong>. Langkah ini diambil untuk mencegah penyalahgunaan identitas pribadi peserta di internet. Seluruh hasil seleksi diberitahukan secara tertutup langsung ke email dan WhatsApp masing-masing kandidat serta dilaporkan kepada koordinator sekolah/kampus asal.
+        </p>
+      </div>
+
+      <!-- Section 5 -->
+      <div class="bg-white border border-gray-200/90 rounded-[24px] p-6 md:p-8 shadow-sm text-gray-900">
+        <h2 class="text-xl md:text-2xl font-extrabold text-gray-900 mb-3 tracking-tight">
+          5. Pembagian Data kepada Mitra Industri
+        </h2>
+        <p class="text-gray-600 leading-relaxed">
+          Berkas lamaran kamu hanya dibagikan kepada mitra industri yang kamu pilih dalam formulir pendaftaran. Mitra industri terikat perjanjian kerahasiaan untuk tidak menyebarluaskan, memperjualbelikan, atau memanfaatkan data pribadi peserta di luar kepentingan program magang.
+        </p>
+      </div>
+
+      <!-- Section 6 -->
+      <div class="bg-white border border-gray-200/90 rounded-[24px] p-6 md:p-8 shadow-sm text-gray-900">
+        <h2 class="text-xl md:text-2xl font-extrabold text-gray-900 mb-3 tracking-tight">
+          6. Hak Subjek Data
+        </h2>
+        <p class="text-gray-600 leading-relaxed mb-3">
+          Sesuai dengan ketentuan Undang-Undang Pelindungan Data Pribadi (UU PDP) di Indonesia, kamu dan orang tua/wali berhak untuk:
+        </p>
+        <ul class="list-disc pl-5 space-y-2 text-gray-600 text-sm">
+          <li>Mengetahui keabsahan pengolahan data identitas kamu.</li>
+          <li>Meminta ralat atau pembaruan atas data yang salah atau kedaluwarsa.</li>
+          <li>Mengajukan permohonan penarikan berkas dan penghapusan data apabila membatalkan partisipasi pendaftaran.</li>
+        </ul>
+      </div>
+
+      <!-- Section 7 -->
+      <div class="bg-white border border-gray-200/90 rounded-[24px] p-6 md:p-8 shadow-sm text-gray-900">
+        <h2 class="text-xl md:text-2xl font-extrabold text-gray-900 mb-3 tracking-tight">
+          7. Kontak Pengelola Pelindungan Data
+        </h2>
+        <p class="text-gray-600 leading-relaxed mb-4">
+          Untuk pertanyaan mengenai kebijakan ini atau permohonan terkait data pribadi kamu, hubungi Sekretariat Resmi kami melalui:
+        </p>
+        <div class="p-5 bg-gray-50 rounded-2xl border border-gray-200 text-sm space-y-1.5">
+          <div>
+            Email: <a href={`mailto:${siteConfig.email}`} class="text-maroon-700 font-bold hover:underline">{siteConfig.email}</a>
+          </div>
+          <div>
+            Alamat: {siteConfig.address.street}, {siteConfig.address.city}
+          </div>
+          <div>Telepon / WhatsApp: <strong class="text-gray-900">{siteConfig.whatsapp}</strong></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

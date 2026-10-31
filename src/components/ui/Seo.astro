@@ -1,0 +1,79 @@
+---
+import { siteConfig } from "../../data/site";
+
+interface Props {
+  title: string;
+  description?: string;
+  canonical?: string;
+  ogImage?: string;
+  ogType?: "website" | "article";
+  publishedTime?: string;
+  modifiedTime?: string;
+  schema?: Record<string, any>;
+  noindex?: boolean;
+}
+
+const {
+  title,
+  description = siteConfig.description,
+  canonical,
+  ogImage = "/og/default-og.svg",
+  ogType = "website",
+  publishedTime,
+  modifiedTime,
+  schema,
+  noindex = false,
+} = Astro.props;
+
+// Ensure trailing slash on canonical per SEO-STRATEGY.md
+const siteUrl = siteConfig.url;
+let resolvedCanonical = canonical
+  ? (canonical.startsWith("http") ? canonical : new URL(canonical, siteUrl).toString())
+  : new URL(Astro.url.pathname, siteUrl).toString();
+
+if (!resolvedCanonical.endsWith("/") && !resolvedCanonical.includes(".")) {
+  resolvedCanonical += "/";
+}
+
+const resolvedOgImage = ogImage.startsWith("http")
+  ? ogImage
+  : new URL(ogImage, siteUrl).toString();
+
+// Formatted title
+const formattedTitle = title.includes(siteConfig.shortName) || title.includes(siteConfig.name)
+  ? title
+  : `${title} | ${siteConfig.shortName}`;
+---
+
+<!-- Primary Meta Tags -->
+<title>{formattedTitle}</title>
+<meta name="title" content={formattedTitle} />
+<meta name="description" content={description} />
+<link rel="canonical" href={resolvedCanonical} />
+
+{noindex && <meta name="robots" content="noindex, nofollow" />}
+
+<!-- Open Graph / Facebook / WhatsApp -->
+<meta property="og:type" content={ogType} />
+<meta property="og:url" content={resolvedCanonical} />
+<meta property="og:title" content={formattedTitle} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={resolvedOgImage} />
+<meta property="og:locale" content="id_ID" />
+<meta property="og:site_name" content={siteConfig.name} />
+
+{publishedTime && <meta property="article:published_time" content={publishedTime} />}
+{modifiedTime && <meta property="article:modified_time" content={modifiedTime} />}
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:url" content={resolvedCanonical} />
+<meta property="twitter:title" content={formattedTitle} />
+<meta property="twitter:description" content={description} />
+<meta property="twitter:image" content={resolvedOgImage} />
+
+<!-- Structured Data -->
+{schema && (
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+)}
+

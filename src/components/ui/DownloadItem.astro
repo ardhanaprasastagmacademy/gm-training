@@ -1,0 +1,76 @@
+---
+interface Props {
+  judul: string;
+  ringkasan: string;
+  kategori?: string;
+  berkas: string;
+  versi: string;
+  diperbarui: Date;
+  format: string;
+  ukuran: string;
+}
+
+const {
+  judul,
+  ringkasan,
+  berkas,
+  versi,
+  diperbarui,
+  format,
+  ukuran,
+} = Astro.props;
+
+const dateFormatted = new Intl.DateTimeFormat("id-ID", {
+  day: "numeric",
+  month: "long",
+  year: "numeric",
+}).format(diperbarui);
+---
+
+<div class="py-5 flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-gray-100 last:border-b-0">
+  <div class="flex items-start gap-3.5">
+    <!-- File Format Icon -->
+    <div class="w-10 h-10 rounded-2xl bg-maroon-50 text-maroon-700 border border-maroon-100 flex items-center justify-center shrink-0 mt-0.5 shadow-sm">
+      <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+        <polyline points="14 2 14 8 20 8" />
+        <line x1="16" y1="13" x2="8" y2="13" />
+        <line x1="16" y1="17" x2="8" y2="17" />
+        <polyline points="10 9 9 9 8 9" />
+      </svg>
+    </div>
+
+    <div>
+      <h3 class="font-bold text-base text-gray-900 mb-1">
+        {judul}
+      </h3>
+      <p class="text-sm text-gray-600 mb-2 max-w-[65ch] leading-relaxed">
+        {ringkasan}
+      </p>
+      <div class="flex flex-wrap items-center gap-2 text-xs text-gray-500 font-medium">
+        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full bg-maroon-50 border border-maroon-100 text-maroon-700 font-bold uppercase text-[0.6875rem]">
+          {format}
+        </span>
+        <span>•</span>
+        <span>Versi: {versi}</span>
+        <span>•</span>
+        <span>Ukuran: {ukuran}</span>
+        <span>•</span>
+        <span>Diperbarui: {dateFormatted}</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="shrink-0 self-start md:self-center">
+    <a
+      href={berkas}
+      download
+      class="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-maroon-700 hover:bg-maroon-800 text-white font-bold text-xs shadow-sm transition-all"
+      data-track-event="klik_unduhan"
+      data-track-judul={judul}
+    >
+      <span>Unduh {format} ({ukuran})</span>
+      <span>↓</span>
+    </a>
+  </div>
+</div>

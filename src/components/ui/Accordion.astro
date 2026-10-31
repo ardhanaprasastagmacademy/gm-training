@@ -1,0 +1,109 @@
+---
+export interface AccordionItemData {
+  id: string;
+  title: string;
+  content: string;
+  category?: string;
+}
+
+interface Props {
+  items: AccordionItemData[];
+  dark?: boolean;
+  class?: string;
+}
+
+const { items, dark = false, class: className = "" } = Astro.props;
+---
+
+<div
+  class={`divide-y border-y ${
+    dark
+      ? "divide-white/10 border-white/10 text-white"
+      : "divide-line border-line text-ink"
+  } ${className}`}
+  data-accordion-group
+>
+  {
+    items.map((item, index) => {
+      const buttonId = `accordion-btn-${item.id || index}`;
+      const panelId = `accordion-panel-${item.id || index}`;
+      return (
+        <div class="accordion-item" data-accordion-item data-category={item.category || "all"}>
+          <h3>
+            <button
+              type="button"
+              id={buttonId}
+              aria-expanded="false"
+              aria-controls={panelId}
+              class={`accordion-trigger w-full py-4 md:py-5 flex items-center justify-between text-left font-bold transition-colors focus-visible:outline-2 focus-visible:outline-maroon-500 focus-visible:rounded-sm min-h-[56px] gap-4 ${
+                dark
+                  ? "text-white hover:text-maroon-300"
+                  : "text-ink hover:text-maroon-700"
+              }`}
+            >
+              <span class="text-base md:text-lg">{item.title}</span>
+              <span class={`accordion-icon w-7 h-7 shrink-0 flex items-center justify-center rounded-full transition-transform duration-200 ${
+                dark
+                  ? "bg-white/10 text-maroon-300 border border-white/15"
+                  : "bg-maroon-50 text-maroon-700"
+              }`}>
+                <svg class="w-4 h-4 transition-transform duration-200 plus-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <path d="M8 3v10M3 8h10" stroke-linecap="round" />
+                </svg>
+              </span>
+            </button>
+          </h3>
+          <div
+            id={panelId}
+            role="region"
+            aria-labelledby={buttonId}
+            hidden
+            class={`accordion-content pb-5 pt-1 leading-relaxed max-w-[65ch] ${
+              dark ? "text-gray-300" : "text-ink"
+            }`}
+          >
+            <div set:html={item.content} />
+          </div>
+        </div>
+      );
+    })
+  }
+</div>
+
+<script>
+  function setupAccordions() {
+    const groups = document.querySelectorAll<HTMLElement>("[data-accordion-group]");
+    groups.forEach((group) => {
+      const triggers = group.querySelectorAll<HTMLButtonElement>(".accordion-trigger");
+      triggers.forEach((btn) => {
+        if (btn.dataset.initialized) return;
+        btn.dataset.initialized = "true";
+
+        btn.addEventListener("click", () => {
+          const isExpanded = btn.getAttribute("aria-expanded") === "true";
+          const panelId = btn.getAttribute("aria-controls");
+          if (!panelId) return;
+          const panel = document.getElementById(panelId);
+          if (!panel) return;
+
+          if (isExpanded) {
+            btn.setAttribute("aria-expanded", "false");
+            panel.hidden = true;
+            btn.classList.remove("text-maroon-400", "text-maroon-700");
+            const icon = btn.querySelector(".accordion-icon");
+            if (icon) (icon as HTMLElement).style.transform = "rotate(0deg)";
+          } else {
+            btn.setAttribute("aria-expanded", "true");
+            panel.hidden = false;
+            btn.classList.add(btn.closest("[data-accordion-group]")?.classList.contains("text-white") ? "text-maroon-400" : "text-maroon-700");
+            const icon = btn.querySelector(".accordion-icon");
+            if (icon) (icon as HTMLElement).style.transform = "rotate(45deg)";
+          }
+        });
+      });
+    });
+  }
+
+  setupAccordions();
+  document.addEventListener("astro:page-load", setupAccordions);
+</script>

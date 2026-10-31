@@ -1,0 +1,209 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import PageBanner from "../../components/ui/PageBanner.astro";
+import CtaBanner from "../../components/sections/CtaBanner.astro";
+import { siteConfig } from "../../data/site";
+---
+
+<BaseLayout
+  title={`Kontak Resmi Sekretariat Magang | ${siteConfig.shortName}`}
+  description="Hubungi saluran resmi Program Magang SMK & Mahasiswa: layanan informasi WhatsApp, email sekretariat, alamat kantor, dan jam operasional pelayanan."
+>
+  <PageBanner
+    title="Kontak Resmi Penyelenggara"
+    description="Sampaikan pertanyaan seputar program magang, verifikasi persyaratan, atau rencana kerja sama institusi."
+    breadcrumbs={[{ label: "Kontak" }]}
+    badge="Saluran Layanan Terverifikasi"
+  />
+
+  <section class="py-14 md:py-20 bg-[#F8F9FA] text-gray-900">
+    <div class="max-w-[72rem] mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
+        <!-- Contact Channels Info (6 cols) -->
+        <div class="lg:col-span-6 space-y-6">
+          <div>
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-maroon-50 text-maroon-700 text-xs font-bold uppercase tracking-wider mb-3 border border-maroon-100">
+              <span class="w-1.5 h-1.5 rounded-full bg-maroon-700"></span>
+              <span>Layanan Terpadu</span>
+            </div>
+            <h2 class="text-2xl md:text-3xl font-extrabold text-gray-900 mb-3 tracking-tight">
+              Pusat Informasi & Layanan Publik
+            </h2>
+            <p class="text-gray-600 text-sm md:text-base leading-relaxed">
+              Kami siap melayani calon peserta, guru/dosen pembimbing, serta perwakilan mitra industri melalui saluran komunikasi resmi berikut:
+            </p>
+          </div>
+
+          <!-- Channel Cards -->
+          <div class="space-y-4">
+            <!-- WhatsApp -->
+            <div class="bg-white border border-gray-200/90 rounded-[22px] p-5 flex items-start gap-4 transition-all duration-300 hover:shadow-md hover:border-maroon-300 shadow-sm">
+              <div class="w-10 h-10 rounded-full bg-maroon-50 text-maroon-700 border border-maroon-100 flex items-center justify-center shrink-0 mt-0.5 shadow-sm">
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12.031 2C6.495 2 2 6.496 2 12.032c0 1.954.561 3.82 1.624 5.432L2.094 22l4.675-1.503a9.98 9.98 0 0 0 5.262 1.535h.004c5.535 0 10.03-4.496 10.03-10.032 0-2.68-1.043-5.2-2.936-7.094A9.957 9.957 0 0 0 12.03 2zm5.856 14.184c-.244.686-1.42 1.309-1.956 1.393-.509.08-1.173.114-3.793-.97-2.235-.923-3.666-3.21-3.777-3.358-.112-.148-.905-1.205-.905-2.298 0-1.093.57-1.63.773-1.854.204-.224.448-.28.597-.28.149 0 .298.002.428.01.139.008.326-.053.509.387.189.453.647 1.579.704 1.693.057.114.095.248.019.398-.076.15-.114.244-.228.377-.114.133-.24.297-.343.398-.114.113-.233.236-.101.464.132.228.587.97 1.258 1.568.865.772 1.595 1.011 1.823 1.124.228.114.362.095.495-.057.133-.152.57-664.722-.892.152-.228.305-.19.513-.114.208.076 1.32.622 1.549.736.228.114.38.17.437.266.057.095.057.551-.187 1.237z" />
+                </svg>
+              </div>
+              <div>
+                <span class="text-xs font-bold uppercase tracking-wider text-gray-500 block mb-1">WhatsApp Resmi</span>
+                <a
+                  href={siteConfig.whatsappUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="font-extrabold text-base text-gray-900 hover:text-maroon-700 hover:underline"
+                >
+                  {siteConfig.whatsapp}
+                </a>
+                <p class="text-xs text-gray-600 mt-1">
+                  Respon tercepat pada jam kerja Senin – Jumat, 08.00 – 17.00 WIB.
+                </p>
+              </div>
+            </div>
+
+            <!-- Email -->
+            <div class="bg-white border border-gray-200/90 rounded-[22px] p-5 flex items-start gap-4 transition-all duration-300 hover:shadow-md hover:border-maroon-300 shadow-sm">
+              <div class="w-10 h-10 rounded-full bg-maroon-50 text-maroon-700 border border-maroon-100 flex items-center justify-center shrink-0 mt-0.5 shadow-sm">
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                  <polyline points="22,6 12,13 2,6" />
+                </svg>
+              </div>
+              <div>
+                <span class="text-xs font-bold uppercase tracking-wider text-gray-500 block mb-1">Email Korespondensi</span>
+                <a href={`mailto:${siteConfig.email}`} class="font-extrabold text-base text-gray-900 hover:text-maroon-700 hover:underline">
+                  {siteConfig.email}
+                </a>
+                <p class="text-xs text-gray-600 mt-1">
+                  Untuk permohonan kerja sama resmi, MoU, dan surat verifikasi kampus.
+                </p>
+              </div>
+            </div>
+
+            <!-- Office Address -->
+            <div class="bg-white border border-gray-200/90 rounded-[22px] p-5 flex items-start gap-4 transition-all duration-300 hover:shadow-md hover:border-maroon-300 shadow-sm">
+              <div class="w-10 h-10 rounded-full bg-maroon-50 text-maroon-700 border border-maroon-100 flex items-center justify-center shrink-0 mt-0.5 shadow-sm">
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                  <circle cx="12" cy="10" r="3" />
+                </svg>
+              </div>
+              <div>
+                <span class="text-xs font-bold uppercase tracking-wider text-gray-500 block mb-1">Alamat Sekretariat</span>
+                <address class="not-italic font-bold text-sm text-gray-900 leading-snug">
+                  {siteConfig.address.street}<br />
+                  {siteConfig.address.city}, {siteConfig.address.province} {siteConfig.address.postalCode}
+                </address>
+                <div class="mt-2">
+                  <a
+                    href="https://maps.google.com/?q=Jakarta+Selatan"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="text-xs font-bold text-maroon-700 hover:underline inline-flex items-center gap-1"
+                  >
+                    <span>Buka Peta di Google Maps</span>
+                    <span>→</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact Form / FAQ Check (6 cols) -->
+        <div class="lg:col-span-6">
+          <div class="bg-white border border-gray-200/90 rounded-[24px] p-6 md:p-8 shadow-sm text-gray-900">
+            <h3 class="text-xl font-extrabold text-gray-900 mb-2">
+              Kirim Pesan Cepat ke Admin
+            </h3>
+            <p class="text-xs text-gray-600 leading-relaxed mb-6">
+              Isi data di bawah ini untuk mengirimkan pesan langsung ke tim sekretariat via WhatsApp resmi.
+            </p>
+
+            <form id="contact-form" class="space-y-4">
+              <div>
+                <label for="contact-name" class="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-1.5">
+                  Nama Lengkap <span class="text-maroon-700">*</span>
+                </label>
+                <input
+                  type="text"
+                  id="contact-name"
+                  required
+                  placeholder="Contoh: Budi Santoso"
+                  class="w-full h-12 px-4 rounded-xl border border-gray-300 bg-gray-50/50 text-sm text-gray-900 placeholder:text-gray-400 focus:bg-white focus:border-maroon-600 focus:outline-none focus:ring-2 focus:ring-maroon-100 transition-all"
+                />
+              </div>
+
+              <div>
+                <label for="contact-role" class="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-1.5">
+                  Status Anda <span class="text-maroon-700">*</span>
+                </label>
+                <select
+                  id="contact-role"
+                  required
+                  class="w-full h-12 px-4 rounded-xl border border-gray-300 bg-gray-50/50 text-sm text-gray-900 focus:bg-white focus:border-maroon-600 focus:outline-none focus:ring-2 focus:ring-maroon-100 transition-all"
+                >
+                  <option value="Siswa SMK">Siswa SMK</option>
+                  <option value="Mahasiswa">Mahasiswa</option>
+                  <option value="Orang Tua / Wali">Orang Tua / Wali Siswa</option>
+                  <option value="Guru / Dosen Pembimbing">Guru / Dosen Pembimbing</option>
+                  <option value="Perwakilan Perusahaan">Perwakilan Perusahaan / Mitra</option>
+                  <option value="Lainnya">Lainnya</option>
+                </select>
+              </div>
+
+              <div>
+                <label for="contact-message" class="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-1.5">
+                  Isi Pesan / Pertanyaan <span class="text-maroon-700">*</span>
+                </label>
+                <textarea
+                  id="contact-message"
+                  required
+                  rows="4"
+                  placeholder="Tuliskan pertanyaan atau informasi yang ingin dikonfirmasikan..."
+                  class="w-full p-4 rounded-xl border border-gray-300 bg-gray-50/50 text-sm text-gray-900 placeholder:text-gray-400 focus:bg-white focus:border-maroon-600 focus:outline-none focus:ring-2 focus:ring-maroon-100 transition-all"
+                ></textarea>
+              </div>
+
+              <button
+                type="submit"
+                class="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-maroon-700 hover:bg-maroon-800 text-white font-bold text-sm shadow-md shadow-maroon-900/10 transition-all cursor-pointer group"
+                data-track-event="klik_kirim_pesan_kontak"
+              >
+                <span>Kirim via WhatsApp Resmi</span>
+                <span class="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center text-xs group-hover:translate-x-0.5 transition-transform">↗</span>
+              </button>
+            </form>
+
+            <div class="mt-6 pt-4 border-t border-gray-100 text-xs text-gray-500">
+              Sudah memeriksa halaman FAQ? Banyak pertanyaan umum telah kami jawab secara rinci di <a href="/faq/" class="text-maroon-700 font-bold hover:underline">Halaman Tanya Jawab</a>.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CtaBanner />
+</BaseLayout>
+
+<script>
+  function setupContactForm() {
+    const form = document.getElementById("contact-form");
+    if (!form || form.dataset.initialized) return;
+    form.dataset.initialized = "true";
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const name = (document.getElementById("contact-name") as HTMLInputElement)?.value;
+      const role = (document.getElementById("contact-role") as HTMLSelectElement)?.value;
+      const msg = (document.getElementById("contact-message") as HTMLTextAreaElement)?.value;
+
+      const fullText = `Halo Admin GM Training, perkenalkan saya ${name} (${role}).%0A%0A${encodeURIComponent(msg)}`;
+      const waUrl = `https://wa.me/6281234567890?text=${fullText}`;
+
+      window.open(waUrl, "_blank", "noopener,noreferrer");
+    });
+  }
+
+  setupContactForm();
+  document.addEventListener("astro:page-load", setupContactForm);
+</script>

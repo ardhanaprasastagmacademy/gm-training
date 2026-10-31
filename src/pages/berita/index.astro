@@ -1,0 +1,171 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import PageBanner from "../../components/ui/PageBanner.astro";
+import { siteConfig } from "../../data/site";
+
+const allPosts = await getCollection("berita", ({ data }) => !data.draft);
+const sortedPosts = allPosts.sort(
+  (a, b) => b.data.tanggal.getTime() - a.data.tanggal.getTime()
+);
+
+const formatDate = (date: Date) =>
+  new Intl.DateTimeFormat("id-ID", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  }).format(date);
+
+const categoryLabels = {
+  pengumuman: "Pengumuman Resmi",
+  kegiatan: "Dokumentasi Kegiatan",
+  artikel: "Artikel & Tips Magang",
+};
+---
+
+<BaseLayout
+  title={`Warta & Berita Resmi Program Magang | ${siteConfig.shortName}`}
+  description="Artikel, panduan karier, tips wawancara, dan warta resmi Program Magang SMK dan Mahasiswa GM Training."
+  canonical={`${siteConfig.url}/blog/`}
+>
+  <PageBanner
+    title="Warta & Berita Resmi Program Magang"
+    description="Artikel edukatif, panduan berkas PKL, tips seleksi industri, dan kabar program terkini."
+    breadcrumbs={[{ label: "Warta & Berita" }]}
+    badge="Warta Edukatif Resmi"
+  />
+
+  <section class="py-14 md:py-20 bg-[#F8F9FA] text-gray-900">
+    <div class="max-w-[76rem] mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Centered Search Bar -->
+      <div class="mb-12 max-w-xl mx-auto">
+        <div class="relative w-full">
+          <input
+            type="search"
+            id="blog-search"
+            placeholder="Cari artikel edukatif atau warta magang..."
+            class="w-full h-12 pl-12 pr-5 rounded-full border border-gray-300 bg-white text-sm text-gray-900 placeholder:text-gray-400 focus:border-maroon-600 focus:outline-none focus:ring-2 focus:ring-maroon-100 transition-all shadow-sm"
+          />
+          <svg class="w-5 h-5 text-gray-400 absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8" />
+            <path d="M21 21l-4.35-4.35" />
+          </svg>
+        </div>
+      </div>
+
+      <!-- 4-Column Card Grid (Matching Reference Screenshot) -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" id="blog-list">
+        {
+          sortedPosts.map((post) => (
+            <article
+              data-blog-item
+              data-kategori={post.data.kategori}
+              class="bg-white border border-gray-200/90 rounded-[22px] overflow-hidden flex flex-col justify-between group hover:-translate-y-1.5 hover:shadow-xl hover:border-maroon-300 transition-all duration-300 shadow-sm"
+            >
+              <!-- Card Photo with 16:10 Aspect Ratio -->
+              <a href={`/berita/${post.id}/`} class="block overflow-hidden aspect-[16/10] bg-gray-100 relative">
+                <img
+                  src={post.data.gambar || "/images/galeri/galeri-1.webp"}
+                  alt={post.data.judul}
+                  width="600"
+                  height="375"
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  loading="lazy"
+                />
+                <div class="absolute top-3 left-3">
+                  <span class="inline-flex items-center px-2.5 py-1 rounded-full text-[0.625rem] font-extrabold uppercase tracking-wider bg-white/95 backdrop-blur-md text-maroon-800 border border-white/80 shadow-xs">
+                    {categoryLabels[post.data.kategori] || "Warta"}
+                  </span>
+                </div>
+              </a>
+
+              <!-- Card Content -->
+              <div class="p-5 flex-1 flex flex-col justify-between">
+                <div>
+                  <h3 class="text-base font-bold text-gray-900 group-hover:text-maroon-700 transition-colors line-clamp-2 leading-snug">
+                    <a href={`/berita/${post.id}/`}>
+                      {post.data.judul}
+                    </a>
+                  </h3>
+
+                  <!-- Date Metadata with Calendar Icon -->
+                  <div class="flex items-center gap-1.5 text-xs text-gray-400 font-medium my-2.5">
+                    <svg class="w-3.5 h-3.5 shrink-0 text-gray-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                      <line x1="16" y1="2" x2="16" y2="6"></line>
+                      <line x1="8" y1="2" x2="8" y2="6"></line>
+                      <line x1="3" y1="10" x2="21" y2="10"></line>
+                    </svg>
+                    <span class="tabular-nums">{formatDate(post.data.tanggal)}</span>
+                  </div>
+
+                  <!-- Excerpt snippet -->
+                  <p class="text-xs text-gray-500 leading-relaxed line-clamp-3">
+                    {post.data.ringkasan}
+                  </p>
+                </div>
+              </div>
+            </article>
+          ))
+        }
+      </div>
+
+      <!-- Empty State -->
+      <div id="blog-empty" class="hidden py-14 text-center text-gray-500 text-sm bg-white rounded-[24px] border border-gray-200 shadow-sm my-6">
+        Tidak ditemukan warta yang sesuai dengan kata kunci pencarian.
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  function setupBlogFilter() {
+    const searchInput = document.getElementById("blog-search") as HTMLInputElement;
+    const items = document.querySelectorAll<HTMLElement>("[data-blog-item]");
+    const emptyState = document.getElementById("blog-empty");
+
+    if (!searchInput || searchInput.dataset.initialized) return;
+    searchInput.dataset.initialized = "true";
+
+    let searchQuery = "";
+
+    function applyFilter() {
+      let visibleCount = 0;
+
+      items.forEach((item) => {
+        const titleEl = item.querySelector("h3");
+        const titleText = titleEl ? titleEl.textContent?.toLowerCase() || "" : "";
+        const descEl = item.querySelector("p");
+        const descText = descEl ? descEl.textContent?.toLowerCase() || "" : "";
+
+        const matchesSearch =
+          searchQuery === "" ||
+          titleText.includes(searchQuery) ||
+          descText.includes(searchQuery);
+
+        if (matchesSearch) {
+          item.style.display = "";
+          visibleCount++;
+        } else {
+          item.style.display = "none";
+        }
+      });
+
+      if (emptyState) {
+        if (visibleCount === 0) {
+          emptyState.classList.remove("hidden");
+        } else {
+          emptyState.classList.add("hidden");
+        }
+      }
+    }
+
+    searchInput.addEventListener("input", (e) => {
+      searchQuery = (e.target as HTMLInputElement).value.trim().toLowerCase();
+      applyFilter();
+    });
+  }
+
+  setupBlogFilter();
+  document.addEventListener("astro:page-load", setupBlogFilter);
+</script>

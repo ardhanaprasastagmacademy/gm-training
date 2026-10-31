@@ -1,0 +1,240 @@
+---
+import Badge from "../ui/Badge.astro";
+
+interface Props {
+  batch: {
+    nama: string;
+    tanggalBuka: Date;
+    tanggalTutup: Date;
+    tanggalMulai: Date;
+    tanggalSelesai: Date;
+    formUrl: string;
+    catatan?: string;
+  };
+  overlapHero?: boolean;
+  dark?: boolean;
+  class?: string;
+  id?: string;
+}
+
+const {
+  batch,
+  overlapHero = false,
+  dark = false,
+  class: className = "",
+  id = "batch-status-card",
+} = Astro.props;
+
+// Format dates in Indonesian WIB format: e.g. "20 November 2026, 23:59 WIB"
+const optionsDate: Intl.DateTimeFormatOptions = {
+  day: "numeric",
+  month: "long",
+  year: "numeric",
+  timeZone: "Asia/Jakarta",
+};
+
+const formatDate = (date: Date) =>
+  new Intl.DateTimeFormat("id-ID", optionsDate).format(date);
+
+const bukaIso = batch.tanggalBuka.toISOString();
+const tutupIso = batch.tanggalTutup.toISOString();
+const bukaFormatted = formatDate(batch.tanggalBuka);
+const tutupFormatted = formatDate(batch.tanggalTutup);
+
+// Server-side initial status
+const now = new Date();
+let initialStatus: "open" | "soon" | "closed" = "open";
+if (now < batch.tanggalBuka) {
+  initialStatus = "soon";
+} else if (now > batch.tanggalTutup) {
+  initialStatus = "closed";
+}
+---
+
+<div
+  id={id}
+  data-batch-card
+  data-buka={bukaIso}
+  data-tutup={tutupIso}
+  data-form-url={batch.formUrl}
+  class={`transition-shadow relative z-20 ${
+    dark
+      ? "bg-[#16050A] border border-maroon-700/60 rounded-[24px] p-6 md:p-8 text-white shadow-2xl shadow-black/60"
+      : "bg-white border border-gray-200/90 rounded-[24px] p-6 md:p-8 shadow-sm text-gray-900"
+  } ${
+    overlapHero ? "-mt-8 md:-mt-12 mb-8 md:mb-12 max-w-3xl mx-auto" : ""
+  } ${className}`}
+>
+  <!-- Top Row: Badge & Batch Title -->
+  <div class={`flex flex-wrap items-center justify-between gap-3 pb-4 border-b ${dark ? "border-white/10" : "border-gray-100"}`}>
+    <div class="flex items-center gap-2.5">
+      <div data-status-badge-container>
+        {initialStatus === "open" && <Badge variant="open">Dibuka</Badge>}
+        {initialStatus === "soon" && <Badge variant="soon">Akan Dibuka</Badge>}
+        {initialStatus === "closed" && <Badge variant="closed">Ditutup</Badge>}
+      </div>
+      <h2 class={`font-extrabold text-base md:text-lg ${dark ? "text-white" : "text-gray-900"}`}>
+        {batch.nama}
+      </h2>
+    </div>
+
+    <div class={`text-xs font-semibold ${dark ? "text-gray-400" : "text-gray-500"}`}>
+      Zona Waktu: WIB (Asia/Jakarta)
+    </div>
+  </div>
+
+  <!-- Middle Row: Dates & Live Countdown -->
+  <div class="py-5 grid grid-cols-1 sm:grid-cols-2 gap-4 items-center">
+    <div>
+      <span class={`block text-xs font-bold uppercase tracking-wider mb-1 ${dark ? "text-maroon-300" : "text-maroon-700"}`}>
+        Batas Akhir Pendaftaran
+      </span>
+      <div class={`text-xl md:text-2xl font-extrabold tabular-nums tracking-tight ${dark ? "text-white" : "text-gray-900"}`}>
+        {tutupFormatted}
+      </div>
+      <div class={`text-xs mt-1 leading-relaxed ${dark ? "text-gray-400" : "text-gray-500"}`}>
+        Periode pendaftaran: {bukaFormatted} – {tutupFormatted}<br />
+        Pelaksanaan magang: {formatDate(batch.tanggalMulai)} – {formatDate(batch.tanggalSelesai)}
+      </div>
+    </div>
+
+    <!-- Countdown Timer Container -->
+    <div class={`p-4 rounded-2xl ${dark ? "bg-white/5 border border-white/10 sm:text-right" : "sm:text-right bg-maroon-50/70 border border-maroon-100"}`}>
+      <span class={`block text-xs font-bold uppercase tracking-wider mb-1 ${dark ? "text-maroon-300" : "text-maroon-700"}`}>
+        Sisa Waktu Pendaftaran
+      </span>
+      <div
+        data-countdown-display
+        class={`text-lg md:text-xl font-extrabold tabular-nums ${dark ? "text-maroon-200" : "text-maroon-800"}`}
+      >
+        <span class="countdown-loading">Menghitung sisa waktu...</span>
+      </div>
+      <p class={`text-[0.75rem] mt-0.5 ${dark ? "text-gray-400" : "text-gray-500"}`}>
+        Berdasarkan jam server & perangkat WIB
+      </p>
+    </div>
+  </div>
+
+  <!-- Bottom Row: CTA Button -->
+  <div class={`pt-4 border-t flex flex-col sm:flex-row items-center justify-between gap-4 ${dark ? "border-white/10" : "border-gray-100"}`}>
+    <div class={`text-xs text-center sm:text-left ${dark ? "text-gray-400" : "text-gray-600"}`}>
+      {batch.catatan || "Siapkan dokumen persyaratan sebelum mengisi formulir pendaftaran."}
+    </div>
+
+    <div class="w-full sm:w-auto" data-action-container>
+      {initialStatus === "closed" ? (
+        <span class="inline-flex items-center justify-center font-bold text-center px-6 min-h-[46px] rounded-full bg-gray-100 text-gray-400 text-sm w-full sm:w-auto">
+          Pendaftaran Ditutup
+        </span>
+      ) : (
+        <a
+          href="/pendaftaran/"
+          class="inline-flex items-center justify-center gap-2 font-bold text-center px-6 min-h-[46px] rounded-full bg-maroon-700 hover:bg-maroon-800 text-white text-sm w-full sm:w-auto transition-all shadow-md group"
+          data-track-event="klik_batch_card_daftar"
+        >
+          <span>Pendaftaran Sekarang</span>
+          <span class="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center text-xs group-hover:translate-x-0.5 transition-transform">↗</span>
+        </a>
+      )}
+    </div>
+  </div>
+</div>
+
+<!-- Client-side batch status & countdown script -->
+<script>
+  function updateBatchStatusCards() {
+    const cards = document.querySelectorAll<HTMLElement>("[data-batch-card]");
+    const now = new Date();
+
+    cards.forEach((card) => {
+      const bukaStr = card.dataset.buka;
+      const tutupStr = card.dataset.tutup;
+      const formUrl = card.dataset.formUrl;
+      const countdownEl = card.querySelector<HTMLElement>("[data-countdown-display]");
+      const badgeContainer = card.querySelector<HTMLElement>("[data-status-badge-container]");
+      const actionContainer = card.querySelector<HTMLElement>("[data-action-container]");
+
+      if (!bukaStr || !tutupStr) return;
+
+      const bukaDate = new Date(bukaStr);
+      const tutupDate = new Date(tutupStr);
+      tutupDate.setHours(23, 59, 59, 999);
+
+      if (now < bukaDate) {
+        if (badgeContainer) {
+          badgeContainer.innerHTML = `
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-amber-50 text-amber-800 border border-amber-200">
+              <svg class="w-3.5 h-3.5 shrink-0 text-amber-600" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="8" cy="8" r="6"/><path d="M8 5v3l2 2" stroke-linecap="round"/></svg>
+              Akan Dibuka
+            </span>
+          `;
+        }
+        if (countdownEl) {
+          const diffMs = bukaDate.getTime() - now.getTime();
+          const diffDays = Math.ceil(diffMs / (1000 * 60 * 60 * 24));
+          countdownEl.textContent = `Dibuka dalam ${diffDays} hari`;
+        }
+        if (actionContainer) {
+          actionContainer.innerHTML = `
+            <a href="/jadwal/" class="inline-flex items-center justify-center font-bold text-center px-6 min-h-[46px] rounded-full bg-gray-50 border border-gray-200 text-gray-800 hover:bg-gray-100 text-sm w-full sm:w-auto">
+              Lihat Kalender Batch
+            </a>
+          `;
+        }
+      } else if (now > tutupDate) {
+        if (badgeContainer) {
+          badgeContainer.innerHTML = `
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-gray-100 text-gray-700 border border-gray-200">
+              <svg class="w-3.5 h-3.5 shrink-0 text-gray-500" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="8" cy="8" r="6"/><path d="M5 8h6" stroke-linecap="round"/></svg>
+              Ditutup
+            </span>
+          `;
+        }
+        if (countdownEl) {
+          countdownEl.innerHTML = `<span class="text-gray-500 text-base">Periode Pendaftaran Berakhir</span>`;
+        }
+        if (actionContainer) {
+          actionContainer.innerHTML = `
+            <span class="inline-flex items-center justify-center font-bold text-center px-6 min-h-[46px] rounded-full bg-gray-100 text-gray-400 cursor-not-allowed text-sm w-full sm:w-auto">
+              Pendaftaran Ditutup
+            </span>
+          `;
+        }
+      } else {
+        if (badgeContainer) {
+          badgeContainer.innerHTML = `
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-emerald-50 text-emerald-800 border border-emerald-200">
+              <svg class="w-3.5 h-3.5 shrink-0 text-emerald-600" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><circle cx="8" cy="8" r="4"/></svg>
+              Dibuka
+            </span>
+          `;
+        }
+
+        const diffMs = tutupDate.getTime() - now.getTime();
+        const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
+        const diffHours = Math.floor((diffMs % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const diffMinutes = Math.floor((diffMs % (1000 * 60 * 60)) / (1000 * 60));
+
+        if (countdownEl) {
+          if (diffDays > 0) {
+            countdownEl.textContent = `${diffDays} hari ${diffHours} jam tersisa`;
+          } else {
+            countdownEl.textContent = `${diffHours} jam ${diffMinutes} menit tersisa`;
+          }
+        }
+
+        if (actionContainer && !actionContainer.querySelector("a[href='/pendaftaran/']")) {
+          actionContainer.innerHTML = `
+            <a href="${formUrl || '/pendaftaran/'}" class="inline-flex items-center justify-center gap-2 font-bold text-center px-6 min-h-[46px] rounded-full bg-maroon-700 hover:bg-maroon-800 text-white text-sm w-full sm:w-auto shadow-md">
+              <span>Pendaftaran Sekarang</span>
+              <span class="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center text-xs">↗</span>
+            </a>
+          `;
+        }
+      }
+    });
+  }
+
+  updateBatchStatusCards();
+  document.addEventListener("astro:page-load", updateBatchStatusCards);
+</script>

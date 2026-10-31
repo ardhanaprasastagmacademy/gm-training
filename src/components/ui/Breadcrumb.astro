@@ -1,0 +1,59 @@
+---
+import { siteConfig } from "../../data/site";
+
+export interface Crumb {
+  label: string;
+  href?: string;
+}
+
+interface Props {
+  items: Crumb[];
+  class?: string;
+}
+
+const { items, class: className = "" } = Astro.props;
+
+const allItems = [{ label: "Beranda", href: "/" }, ...items];
+
+const schemaItems = allItems.map((item, index) => ({
+  "@type": "ListItem",
+  position: index + 1,
+  name: item.label,
+  item: item.href ? new URL(item.href, siteConfig.url).toString() : undefined,
+}));
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: schemaItems,
+};
+---
+
+<nav aria-label="Breadcrumb" class={`mb-3 md:mb-4 ${className}`}>
+  <ol class="flex flex-wrap items-center gap-1.5 text-[0.875rem] text-gray-400">
+    {
+      allItems.map((item, idx) => {
+        const isLast = idx === allItems.length - 1;
+        return (
+          <li class="inline-flex items-center gap-1.5">
+            {idx > 0 && <span class="text-maroon-400 select-none" aria-hidden="true">/</span>}
+            {isLast || !item.href ? (
+              <span class="font-bold text-white" aria-current="page">
+                {item.label}
+              </span>
+            ) : (
+              <a
+                href={item.href}
+                class="hover:text-maroon-300 hover:underline transition-colors focus-visible:outline-2 focus-visible:outline-maroon-400 rounded-sm"
+              >
+                {item.label}
+              </a>
+            )}
+          </li>
+        );
+      })
+    }
+  </ol>
+</nav>
+
+<script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />

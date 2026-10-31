@@ -1,0 +1,68 @@
+---
+const benefits = [
+  {
+    title: "Pendampingan Terstruktur Mentor Praktisi",
+    desc: "Setiap peserta mendapatkan arahan langsung dari mentor industri yang berpengalaman, membantu proses adaptasi dan transfer keahlian teknis secara nyata.",
+  },
+  {
+    title: "Sertifikat Magang Resmi Berstandar Industri",
+    desc: "Dokumen sertifikasi keahlian yang ditandatangani oleh pimpinan mitra industri dan lembaga penyelenggara sebagai bukti kompetensi kerja.",
+  },
+  {
+    title: "Konversi Nilai PKL & SKS yang Diakui",
+    desc: "Silabus dan laporan kemajuan berkala dirancang selaras dengan kurikulum sekolah kejuruan dan kebijakan konversi mata kuliah magang di perguruan tinggi.",
+  },
+  {
+    title: "Akses Fasilitas Kerja & Alat Uji Modern",
+    desc: "Kesempatan mengoperasikan perangkat industri, perangkat lunak berlisensi, atau fasilitas produksi yang tidak tersedia di lab sekolah.",
+  },
+  {
+    title: "Portofolio Proyek Nyata Bernilai Tinggi",
+    desc: "Karya yang dihasilkan selama magang dapat dijadikan bukti portofolio profesional untuk melamar pekerjaan tetap setelah lulus nanti.",
+  },
+  {
+    title: "Jaminan Keselamatan & Perlindungan Siswa",
+    desc: "Pemberian perlengkapan kerja sesuai standar K3, pengawasan jam kerja proporsional, serta kewajiban izin orang tua bagi peserta di bawah 18 tahun.",
+  },
+];
+---
+
+<section class="py-14 md:py-22 bg-[#0E0305] text-white border-t border-white/10">
+  <div class="max-w-[72rem] mx-auto px-5 md:px-8 lg:px-10">
+    <div class="max-w-2xl mb-12 text-left">
+      <span class="text-xs font-bold uppercase tracking-wider text-maroon-400 block mb-2">
+        Keunggulan Program
+      </span>
+      <h2 class="text-[clamp(1.5rem,1.2rem+1.5vw,2.25rem)] font-bold text-white leading-[1.2] tracking-tight">
+        Manfaat Nyata yang Terkonfirmasi untuk Masa Depan Kamu
+      </h2>
+      <p class="text-gray-300 text-base mt-2 leading-relaxed">
+        Kami memastikan setiap kegiatan magang memberikan nilai tambah edukatif dan profesional, bukan sekadar penugasan administratif tanpa arah.
+      </p>
+    </div>
+
+    <!-- 2 Column Text List with clean Outline Icons (no card repetition) -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
+      {
+        benefits.map((b) => (
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 rounded-[10px] bg-[#240A13] text-rose-300 border border-maroon-500/30 flex items-center justify-center shrink-0 mt-1 shadow-md">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+            </div>
+            <div>
+              <h3 class="text-lg font-bold text-white mb-1.5 leading-snug">
+                {b.title}
+              </h3>
+              <p class="text-sm text-gray-300 leading-relaxed">
+                {b.desc}
+              </p>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+

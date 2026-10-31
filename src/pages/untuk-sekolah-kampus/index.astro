@@ -1,0 +1,180 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import PageBanner from "../../components/ui/PageBanner.astro";
+import CtaBanner from "../../components/sections/CtaBanner.astro";
+import { siteConfig } from "../../data/site";
+
+const benefits = [
+  {
+    title: "Penempatan Terjamin di Industri Legal",
+    desc: "Peserta didik Anda ditempatkan di mitra industri berbadan hukum resmi dengan jaminan standar keselamatan dan bimbingan terencana.",
+  },
+  {
+    title: "Sinkronisasi Kurikulum & Logbook Terstandar",
+    desc: "Kami menyediakan kerangka pembelajaran dan logbook mingguan yang selaras dengan Capaian Pembelajaran (CP) SMK dan konversi SKS MBKM perguruan tinggi.",
+  },
+  {
+    title: "Transparansi Monitoring Guru/Dosen",
+    desc: "Guru pembimbing atau dosen pembimbing memiliki akses koordinasi berkala bersama mentor industri untuk memantau kemajuan peserta didik.",
+  },
+  {
+    title: "Legalitas MoU & Dokumen Kerja Sama Formal",
+    desc: "Kerja sama diikat dengan Nota Kesepahaman (MoU) dan Perjanjian Kerja Sama (PKS) resmi yang dapat digunakan sebagai bukti akreditasi institusi.",
+  },
+];
+---
+
+<BaseLayout
+  title={`Kerja Sama Sekolah & Perguruan Tinggi | ${siteConfig.shortName}`}
+  description="Layanan kemitraan PKL SMK dan magang mahasiswa bagi BKK SMK, fakultas, dan pusat karier perguruan tinggi bersama konsorsium industri GM Training."
+>
+  <PageBanner
+    title="Untuk Sekolah & Perguruan Tinggi"
+    description="Bangun sinergi vokasi dan akademik yang kokoh melalui kerja sama penempatan Praktik Kerja Lapangan (PKL) dan magang terstandar."
+    breadcrumbs={[{ label: "Untuk Sekolah & Kampus" }]}
+    badge="Kemitraan Pendidikan & Vokasi"
+  />
+
+  <section class="py-14 md:py-20 bg-[#F8F9FA] text-gray-900">
+    <div class="max-w-[72rem] mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
+        <!-- Main Info (8 cols) -->
+        <div class="lg:col-span-8 space-y-10">
+          <div>
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-maroon-50 text-maroon-700 text-xs font-bold uppercase tracking-wider mb-3 border border-maroon-100">
+              <span class="w-1.5 h-1.5 rounded-full bg-maroon-700"></span>
+              <span>Sinergi Vokasi</span>
+            </div>
+            <h2 class="text-2xl md:text-3xl font-extrabold text-gray-900 mb-4 tracking-tight">
+              Sinergi Nyata Dunia Pendidikan dengan Dunia Industri
+            </h2>
+            <p class="text-gray-600 text-sm md:text-base leading-relaxed mb-4">
+              Kami menyadari pentingnya kepastian penyaluran magang yang aman dan berkualitas bagi institusi pendidikan. Melalui program terpadu ini, {siteConfig.name} bertindak sebagai jembatan yang menghubungkan sekolah SMK dan perguruan tinggi dengan jaringan industri terpercaya.
+            </p>
+            <p class="text-gray-600 text-sm md:text-base leading-relaxed">
+              Program ini dirancang tidak hanya untuk memenuhi kewajiban administratif PKL atau SKS, melainkan memastikan peserta didik Anda benar-benar menguasai kompetensi terapan yang relevan.
+            </p>
+          </div>
+
+          <!-- Benefits Grid -->
+          <div>
+            <div class="mb-5">
+              <span class="text-xs font-bold uppercase tracking-wider text-maroon-700">Nilai Tambah</span>
+              <h3 class="text-2xl font-extrabold text-gray-900 mt-1 tracking-tight">
+                Manfaat Menjadi Sekolah / Kampus Rekanan
+              </h3>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {
+                benefits.map((b) => (
+                  <div class="bg-white border border-gray-200/90 rounded-[24px] p-6 shadow-sm hover:shadow-md hover:border-maroon-300 transition-all duration-300">
+                    <div class="w-8 h-8 rounded-full bg-maroon-50 text-maroon-700 flex items-center justify-center text-sm font-bold mb-3 border border-maroon-100">
+                      ✓
+                    </div>
+                    <h4 class="font-bold text-base text-gray-900 mb-2">{b.title}</h4>
+                    <p class="text-xs md:text-sm text-gray-600 leading-relaxed">{b.desc}</p>
+                  </div>
+                ))
+              }
+            </div>
+          </div>
+
+          <!-- Prosedur Kerja Sama 4 Langkah -->
+          <div>
+            <div class="mb-5">
+              <span class="text-xs font-bold uppercase tracking-wider text-maroon-700">Tahapan MoU</span>
+              <h3 class="text-2xl font-extrabold text-gray-900 mt-1 tracking-tight">
+                Prosedur Pengajuan Kerja Sama Institusi
+              </h3>
+            </div>
+            <div class="space-y-4">
+              <div class="flex items-start gap-4 p-5 rounded-[22px] bg-white border border-gray-200/90 shadow-sm">
+                <span class="w-8 h-8 rounded-full bg-maroon-50 border border-maroon-100 text-maroon-700 font-bold flex items-center justify-center text-sm shrink-0 mt-0.5">1</span>
+                <div>
+                  <h4 class="font-bold text-base text-gray-900 mb-1">Pengajuan Awal & Data Kebutuhan</h4>
+                  <p class="text-xs md:text-sm text-gray-600 leading-relaxed">Pihak sekolah/kampus menghubungi sekretariat kami atau mengisi formulir permohonan dengan menyertakan jurusan dan perkiraan jumlah siswa/mahasiswa.</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-4 p-5 rounded-[22px] bg-white border border-gray-200/90 shadow-sm">
+                <span class="w-8 h-8 rounded-full bg-maroon-50 border border-maroon-100 text-maroon-700 font-bold flex items-center justify-center text-sm shrink-0 mt-0.5">2</span>
+                <div>
+                  <h4 class="font-bold text-base text-gray-900 mb-1">Penyesuaian Silabus & Kuota Penempatan</h4>
+                  <p class="text-xs md:text-sm text-gray-600 leading-relaxed">Tim kurikulum kami bersama konsorsium industri memetakan posisi dan waktu penempatan yang paling sesuai dengan kalender akademik Anda.</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-4 p-5 rounded-[22px] bg-white border border-gray-200/90 shadow-sm">
+                <span class="w-8 h-8 rounded-full bg-maroon-50 border border-maroon-100 text-maroon-700 font-bold flex items-center justify-center text-sm shrink-0 mt-0.5">3</span>
+                <div>
+                  <h4 class="font-bold text-base text-gray-900 mb-1">Penandatanganan Nota Kesepahaman (MoU)</h4>
+                  <p class="text-xs md:text-sm text-gray-600 leading-relaxed">Penerbitan dokumen legal kemitraan resmi antara pimpinan sekolah/fakultas dengan pengelola program dan mitra industri terkait.</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-4 p-5 rounded-[22px] bg-white border border-gray-200/90 shadow-sm">
+                <span class="w-8 h-8 rounded-full bg-maroon-50 border border-maroon-100 text-maroon-700 font-bold flex items-center justify-center text-sm shrink-0 mt-0.5">4</span>
+                <div>
+                  <h4 class="font-bold text-base text-gray-900 mb-1">Pelaksanaan, Monitoring & Evaluasi Berkala</h4>
+                  <p class="text-xs md:text-sm text-gray-600 leading-relaxed">Penugasan guru/dosen pembimbing untuk mendampingi peserta didik hingga tahap penilaian akhir dan penerbitan sertifikat.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sidebar (4 cols) -->
+        <aside class="lg:col-span-4 sticky top-24 space-y-6">
+          <div class="rounded-[24px] bg-gradient-to-br from-[#800020] to-[#5C0017] text-white p-6 shadow-md relative overflow-hidden">
+            <span class="text-xs font-bold uppercase tracking-wider text-maroon-200 block mb-2">
+              Layanan Kerja Sama
+            </span>
+            <h3 class="font-extrabold text-xl text-white mb-2">
+              Ajukan Kemitraan Institusi
+            </h3>
+            <p class="text-xs text-maroon-100 leading-relaxed mb-6">
+              Diskusikan kebutuhan penempatan rombongan belajar sekolah atau program magang studi independen kampus Anda.
+            </p>
+            <a
+              href={siteConfig.formUrls.kerjaSamaSekolah}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-white text-maroon-900 font-extrabold text-sm shadow-md hover:bg-gray-100 transition-all group"
+              data-track-event="klik_kerja_sama"
+            >
+              <span>Isi Formulir Kerja Sama</span>
+              <span class="w-5 h-5 rounded-full bg-maroon-100 text-maroon-900 flex items-center justify-center text-xs group-hover:translate-x-0.5 transition-transform">↗</span>
+            </a>
+          </div>
+
+          <div class="bg-white border border-gray-200/90 rounded-[24px] p-6 text-xs text-gray-600 space-y-3 shadow-sm">
+            <h4 class="font-bold text-gray-900 text-sm">Unduh Draf Dokumen MoU</h4>
+            <p class="leading-relaxed">
+              Anda dapat mengunduh format draf Nota Kesepahaman (MoU) kerja sama institusi terlebih dahulu untuk ditinjau oleh bagian hukum sekolah atau kampus.
+            </p>
+            <a href="/unduhan/" class="text-maroon-700 font-bold hover:underline inline-flex items-center gap-1 pt-1">
+              <span>Unduh Draf Dokumen Kerja Sama</span>
+              <span>→</span>
+            </a>
+          </div>
+
+          <div class="bg-white border border-gray-200/90 rounded-[24px] p-6 text-xs text-gray-600 space-y-2 shadow-sm">
+            <strong class="text-gray-900 font-bold block text-sm">Kontak PIC Kemitraan:</strong>
+            <p>Divisi Hubungan Lembaga Pendidikan</p>
+            <p>Email: <a href="mailto:kemitraan@gmtraining.id" class="text-maroon-700 font-bold hover:underline">kemitraan@gmtraining.id</a></p>
+            <p>WhatsApp: <strong class="text-gray-900">{siteConfig.whatsapp}</strong></p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <CtaBanner
+    title="Mari Bersama Mencetak Generasi Vokasi Unggul"
+    subtitle="Hubungi tim kerja sama kami untuk mendiskusikan peluang kemitraan bagi sekolah dan perguruan tinggi Anda."
+    primaryText="Ajukan Kerja Sama"
+    primaryHref={siteConfig.formUrls.kerjaSamaSekolah}
+    secondaryText="Hubungi PIC via WhatsApp"
+    secondaryHref={siteConfig.whatsappUrl}
+  />
+</BaseLayout>

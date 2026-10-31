@@ -1,0 +1,88 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import PageBanner from "../../components/ui/PageBanner.astro";
+import StepTimeline from "../../components/sections/StepTimeline.astro";
+import CtaBanner from "../../components/sections/CtaBanner.astro";
+import { siteConfig } from "../../data/site";
+---
+
+<BaseLayout
+  title={`Alur Pendaftaran Program Magang Lengkap 8 Tahap | ${siteConfig.shortName}`}
+  description="Panduan komprehensif alur pendaftaran program magang SMK dan mahasiswa: dari pemilihan posisi, pemberkasan, seleksi wawancara, hingga orientasi penempatan."
+>
+  <PageBanner
+    title="Alur & Prosedur Pendaftaran Magang"
+    description="Panduan 8 tahapan terstruktur mulai dari persiapan berkas hingga evaluasi dan penerbitan sertifikat industri."
+    breadcrumbs={[{ label: "Alur Pendaftaran" }]}
+    badge="Panduan Langkah demi Langkah"
+  />
+
+  <section class="py-14 md:py-20 bg-[#F8F9FA] text-gray-900">
+    <div class="max-w-[72rem] mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
+        <!-- Main Timeline (8 cols) -->
+        <div class="lg:col-span-8 space-y-8">
+          <div class="max-w-2xl mb-8">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-maroon-50 text-maroon-700 text-xs font-bold uppercase tracking-wider mb-3 border border-maroon-100">
+              <span class="w-1.5 h-1.5 rounded-full bg-maroon-700"></span>
+              <span>Prosedur Terpadu</span>
+            </div>
+            <h2 class="text-2xl md:text-3xl font-extrabold text-gray-900 mb-3 tracking-tight">
+              Tahapan Terstruktur Seleksi & Pelaksanaan
+            </h2>
+            <p class="text-gray-600 text-sm md:text-base leading-relaxed">
+              Pelajari rincian setiap tahapan di bawah ini agar proses pendaftaran kamu berjalan lancar tanpa ada dokumen persyaratan yang terlewat.
+            </p>
+          </div>
+
+          <StepTimeline />
+        </div>
+
+        <!-- Sidebar (4 cols) -->
+        <aside class="lg:col-span-4 sticky top-24 space-y-6">
+          <div class="rounded-[24px] bg-gradient-to-br from-[#800020] to-[#5C0017] text-white p-6 shadow-md">
+            <h3 class="font-extrabold text-lg text-white mb-2">
+              Siap Mendaftar Sekarang?
+            </h3>
+            <p class="text-xs text-maroon-100 leading-relaxed mb-6">
+              Jika seluruh berkas administrasi dan surat izin telah siap, lanjutkan langsung ke pengisian formulir pendaftaran daring.
+            </p>
+            <a
+              href="/daftar/"
+              class="w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-white text-maroon-900 font-extrabold text-sm shadow-md hover:bg-gray-100 transition-all group"
+            >
+              <span>Menuju Halaman Daftar</span>
+              <span class="w-5 h-5 rounded-full bg-maroon-100 text-maroon-900 flex items-center justify-center text-xs group-hover:translate-x-0.5 transition-transform">↗</span>
+            </a>
+          </div>
+
+          <div class="bg-white border border-gray-200/90 rounded-[24px] p-6 shadow-sm text-gray-900">
+            <h4 class="font-extrabold text-gray-900 text-base mb-2">
+              Butuh Format Berkas Resmi?
+            </h4>
+            <p class="text-xs text-gray-600 leading-relaxed mb-4">
+              Unduh template resmi surat izin orang tua, draf surat pengantar sekolah, dan logbook kegiatan di menu Pusat Unduhan.
+            </p>
+            <a
+              href="/unduhan/"
+              class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gray-50 hover:bg-gray-100 text-gray-800 font-bold text-xs border border-gray-200 shadow-sm transition-all w-full justify-center"
+            >
+              <span>Buka Pusat Unduhan</span>
+              <span>→</span>
+            </a>
+          </div>
+
+          <div class="p-5 rounded-[20px] bg-maroon-50/70 border border-maroon-100 text-xs text-gray-700 leading-relaxed">
+            <strong class="text-maroon-900 block font-bold mb-1">Catatan Privasi Seleksi:</strong>
+            Kami tidak mempublikasikan nama lengkap peserta yang lolos seleksi di website umum demi menjaga kerahasiaan data pribadi siswa dan mahasiswa. Seluruh notifikasi dikirimkan langsung secara tertutup melalui email dan nomor WhatsApp resmi.
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <CtaBanner
+    title="Sudah Memahami Alur dan Persyaratannya?"
+    subtitle="Pilih posisi yang sesuai dengan keahlian kamu dan daftarkan diri sebelum batas akhir batch ditutup."
+  />
+</BaseLayout>
