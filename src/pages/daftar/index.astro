@@ -162,38 +162,36 @@ const formatDate = (date: Date) =>
             <!-- SMK Action Box -->
             <div id="action-box-smk" class="space-y-4">
               <div class="p-4 bg-maroon-50/70 rounded-2xl border border-maroon-100 text-xs text-maroon-900 font-medium">
-                Kamu akan diarahkan ke formulir resmi pendaftaran <strong>Jalur Siswa SMK</strong> di tab baru. Pastikan akun Google yang kamu gunakan aktif.
+                Lengkapi formulir pendaftaran resmi <strong>Jalur Siswa SMK</strong>. Setelah data diisi, sistem akan otomatis menyusun draf pesan verifikasi pendaftaran ke WhatsApp resmi panitia.
               </div>
               <a
-                href={siteConfig.formUrls.smk}
-                target="_blank"
-                rel="noopener noreferrer"
+                id="btn-form-smk"
+                href="/pendaftaran/form/?jalur=smk"
                 class="w-full inline-flex items-center justify-center gap-2.5 px-7 py-4 rounded-full bg-maroon-700 hover:bg-maroon-800 text-white font-extrabold text-sm shadow-md shadow-maroon-900/10 transition-all group"
                 data-track-event="klik_daftar"
                 data-track-jalur="smk"
                 data-track-batch="batch-1-2026"
               >
-                <span>Isi Formulir Pendaftaran Siswa SMK (Buka Tab Baru)</span>
-                <span class="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center text-xs group-hover:translate-x-0.5 transition-transform">↗</span>
+                <span>Isi Formulir Pendaftaran Siswa SMK</span>
+                <span class="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center text-xs group-hover:translate-x-0.5 transition-transform">→</span>
               </a>
             </div>
 
             <!-- Mahasiswa Action Box -->
             <div id="action-box-mahasiswa" class="hidden space-y-4">
               <div class="p-4 bg-maroon-50/70 rounded-2xl border border-maroon-100 text-xs text-maroon-900 font-medium">
-                Kamu akan diarahkan ke formulir resmi pendaftaran <strong>Jalur Mahasiswa</strong> di tab baru.
+                Lengkapi formulir pendaftaran resmi <strong>Jalur Mahasiswa</strong>. Setelah data diisi, sistem akan otomatis menyusun draf pesan verifikasi pendaftaran ke WhatsApp resmi panitia.
               </div>
               <a
-                href={siteConfig.formUrls.mahasiswa}
-                target="_blank"
-                rel="noopener noreferrer"
+                id="btn-form-mahasiswa"
+                href="/pendaftaran/form/?jalur=mahasiswa"
                 class="w-full inline-flex items-center justify-center gap-2.5 px-7 py-4 rounded-full bg-maroon-700 hover:bg-maroon-800 text-white font-extrabold text-sm shadow-md shadow-maroon-900/10 transition-all group"
                 data-track-event="klik_daftar"
                 data-track-jalur="mahasiswa"
                 data-track-batch="batch-1-2026"
               >
-                <span>Isi Formulir Pendaftaran Mahasiswa (Buka Tab Baru)</span>
-                <span class="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center text-xs group-hover:translate-x-0.5 transition-transform">↗</span>
+                <span>Isi Formulir Pendaftaran Mahasiswa</span>
+                <span class="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center text-xs group-hover:translate-x-0.5 transition-transform">→</span>
               </a>
             </div>
           </div>
@@ -288,9 +286,19 @@ const formatDate = (date: Date) =>
     const actionSmk = document.getElementById("action-box-smk");
     const actionMhs = document.getElementById("action-box-mahasiswa");
 
-    // Check URL param if provided e.g. ?jalur=mahasiswa
+    // Check URL param if provided e.g. ?jalur=mahasiswa & ?posisi=junior-frontend-developer
     const params = new URLSearchParams(window.location.search);
     const jalurParam = params.get("jalur");
+    const posisiParam = params.get("posisi");
+
+    const btnSmk = document.getElementById("btn-form-smk") as HTMLAnchorElement;
+    const btnMhs = document.getElementById("btn-form-mahasiswa") as HTMLAnchorElement;
+
+    if (posisiParam) {
+      if (btnSmk) btnSmk.href = `/pendaftaran/form/?jalur=smk&posisi=${encodeURIComponent(posisiParam)}`;
+      if (btnMhs) btnMhs.href = `/pendaftaran/form/?jalur=mahasiswa&posisi=${encodeURIComponent(posisiParam)}`;
+    }
+
     if (jalurParam === "mahasiswa") {
       radios.forEach((r) => {
         if (r.value === "mahasiswa") r.checked = true;

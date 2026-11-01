@@ -157,20 +157,29 @@ const articleSchema = {
 
           <!-- Article Content Card Box -->
           <div class="bg-white border border-gray-200/90 rounded-[28px] p-6 sm:p-10 md:p-12 shadow-sm">
-            <!-- Table of Contents (Daftar Isi Artikel) -->
-            <div class="rounded-[20px] bg-rose-50/40 border border-rose-100/90 p-5 md:p-6 mb-10">
-              <div class="flex items-center gap-2 font-bold text-sm text-gray-900 mb-3.5">
-                <svg class="w-4 h-4 text-maroon-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <line x1="8" y1="6" x2="21" y2="6"></line>
-                  <line x1="8" y1="12" x2="21" y2="12"></line>
-                  <line x1="8" y1="18" x2="21" y2="18"></line>
-                  <line x1="3" y1="6" x2="3.01" y2="6"></line>
-                  <line x1="3" y1="12" x2="3.01" y2="12"></line>
-                  <line x1="3" y1="18" x2="3.01" y2="18"></line>
-                </svg>
-                <span>Daftar Isi Artikel</span>
-              </div>
-              <ul class="space-y-2 text-xs md:text-sm text-maroon-800 font-medium">
+            <!-- Table of Contents (Daftar Isi Artikel) with Collapsible Toggle (Buka/Tutup) -->
+            <details open class="group rounded-[20px] bg-rose-50/40 border border-rose-100/90 p-5 md:p-6 mb-10 transition-all">
+              <summary class="flex items-center justify-between cursor-pointer select-none font-bold text-sm text-gray-900 list-none [&::-webkit-details-marker]:hidden">
+                <div class="flex items-center gap-2">
+                  <svg class="w-4 h-4 text-maroon-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="8" y1="6" x2="21" y2="6"></line>
+                    <line x1="8" y1="12" x2="21" y2="12"></line>
+                    <line x1="8" y1="18" x2="21" y2="18"></line>
+                    <line x1="3" y1="6" x2="3.01" y2="6"></line>
+                    <line x1="3" y1="12" x2="3.01" y2="12"></line>
+                    <line x1="3" y1="18" x2="3.01" y2="18"></line>
+                  </svg>
+                  <span>Daftar Isi Artikel</span>
+                </div>
+                <div class="flex items-center gap-1.5 text-xs text-maroon-700 font-semibold bg-white/90 px-3 py-1 rounded-full border border-rose-200/80 shadow-xs hover:bg-white transition-colors">
+                  <span class="group-open:hidden">Buka</span>
+                  <span class="hidden group-open:inline">Tutup</span>
+                  <svg class="w-3.5 h-3.5 transition-transform duration-200 group-open:rotate-180" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M4 6l4 4 4-4" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                </div>
+              </summary>
+              <ul class="mt-4 pt-3.5 border-t border-rose-100/80 space-y-2 text-xs md:text-sm text-maroon-800 font-medium">
                 <li>
                   <a href="#poin-1" class="hover:underline hover:text-maroon-900 flex items-center gap-2">
                     <span class="text-maroon-600 font-bold">1.</span> Urgensi Kompetensi & Kesiapan Mental Industri
@@ -197,7 +206,7 @@ const articleSchema = {
                   </a>
                 </li>
               </ul>
-            </div>
+            </details>
 
             <!-- Prose Markdown Body -->
             <div id="poin-1" class="prose max-w-none text-gray-700 text-base md:text-lg leading-relaxed space-y-6 [&_h2]:text-2xl [&_h2]:font-extrabold [&_h2]:text-gray-900 [&_h3]:text-xl [&_h3]:font-bold [&_h3]:text-gray-900 [&_h3]:pt-4 [&_ol]:list-decimal [&_ol]:pl-5 [&_ol]:space-y-2.5 [&_ul]:list-disc [&_ul]:pl-5 [&_ul]:space-y-2.5 [&_a]:text-maroon-700 [&_a]:underline [&_a:hover]:text-maroon-900 [&_strong]:text-gray-900 [&_p]:text-gray-600">

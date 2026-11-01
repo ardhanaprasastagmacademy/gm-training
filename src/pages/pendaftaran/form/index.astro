@@ -1,0 +1,528 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import PageBanner from "../../../components/ui/PageBanner.astro";
+import Badge from "../../../components/ui/Badge.astro";
+import { siteConfig } from "../../../data/site";
+
+const allPosisi = await getCollection("posisi", ({ data }) => !data.draft);
+const allMitra = await getCollection("mitra");
+
+// Map mitra name to position
+const posisiList = allPosisi.map((p) => {
+  const m = allMitra.find((item) => item.id === p.data.mitra.id);
+  return {
+    id: p.id,
+    judul: p.data.judul,
+    mitraNama: m ? m.data.nama : "Mitra Industri",
+    jalur: p.data.jalur,
+    bidang: p.data.bidang,
+  };
+});
+---
+
+<BaseLayout
+  title={`Formulir Pendaftaran Program Magang | ${siteConfig.shortName}`}
+  description="Formulir online pendaftaran resmi Program Magang & PKL Industri GM Training untuk siswa SMK dan mahasiswa. Data langsung diverifikasi via WhatsApp resmi."
+>
+  <PageBanner
+    title="Formulir Pendaftaran Program Magang"
+    description="Lengkapi data diri dan pilihan posisi magang kamu. Setelah mengisi, pesan konfirmasi pendaftaran akan otomatis terhubung ke WhatsApp resmi panitia."
+    breadcrumbs={[
+      { label: "Pendaftaran", href: "/pendaftaran/" },
+      { label: "Formulir Online" },
+    ]}
+    badge="Penerimaan Batch 1 Resmi Dibuka"
+  />
+
+  <section class="py-14 md:py-20 bg-[#F8F9FA] text-gray-900">
+    <div class="max-w-[72rem] mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
+        <!-- Main Form Column (8 cols) -->
+        <div class="lg:col-span-8">
+          <div class="bg-white border border-gray-200/90 rounded-[28px] p-6 sm:p-10 shadow-sm text-gray-900">
+            <!-- Form Header Badge -->
+            <div class="flex items-center justify-between flex-wrap gap-3 pb-6 mb-8 border-b border-gray-100">
+              <div class="flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-maroon-700 animate-pulse"></span>
+                <span class="font-extrabold text-sm sm:text-base text-gray-900">
+                  Formulir Registrasi Mandiri Peserta
+                </span>
+              </div>
+              <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-maroon-50 text-maroon-700 border border-maroon-100">
+                100% Bebas Biaya
+              </span>
+            </div>
+
+            <!-- WhatsApp Success Banner (Hidden by default) -->
+            <div
+              id="success-banner"
+              class="hidden mb-8 p-5 rounded-2xl bg-emerald-50 border border-emerald-200 text-emerald-900 space-y-3"
+            >
+              <div class="flex items-center gap-3">
+                <span class="w-8 h-8 rounded-full bg-emerald-600 text-white flex items-center justify-center font-bold text-base shrink-0">
+                  ✓
+                </span>
+                <div>
+                  <h4 class="font-bold text-sm text-emerald-950">Data Berhasil Disiapkan!</h4>
+                  <p class="text-xs text-emerald-800">
+                    Sistem sedang mengarahkan kamu ke WhatsApp resmi panitia GM Training...
+                  </p>
+                </div>
+              </div>
+              <div class="pt-2 border-t border-emerald-200/80">
+                <a
+                  id="manual-wa-link"
+                  href="#"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs shadow-sm transition-all"
+                >
+                  <span>Buka WhatsApp Sekarang</span>
+                  <span>↗</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- Registration Form -->
+            <form id="pendaftaran-wa-form" class="space-y-6">
+              <!-- 1. Jalur Pendaftaran Selector -->
+              <div>
+                <label class="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-2.5">
+                  1. Pilih Jalur Pendidikan <span class="text-maroon-600">*</span>
+                </label>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                  <label class="jalur-option relative flex items-center gap-3 p-4 rounded-2xl border-2 border-maroon-700 bg-maroon-50/50 cursor-pointer transition-all hover:bg-maroon-50">
+                    <input
+                      type="radio"
+                      name="jalur"
+                      value="Siswa SMK (PKL Industri)"
+                      data-target="smk"
+                      checked
+                      class="w-4 h-4 text-maroon-700 focus:ring-maroon-700 accent-maroon-700"
+                    />
+                    <div>
+                      <span class="block font-bold text-sm text-gray-900">Siswa SMK (PKL Industri)</span>
+                      <span class="block text-xs text-gray-500">Kelas XI atau XII aktif</span>
+                    </div>
+                  </label>
+
+                  <label class="jalur-option relative flex items-center gap-3 p-4 rounded-2xl border-2 border-gray-200 bg-white cursor-pointer transition-all hover:bg-gray-50">
+                    <input
+                      type="radio"
+                      name="jalur"
+                      value="Mahasiswa (Konversi SKS)"
+                      data-target="mahasiswa"
+                      class="w-4 h-4 text-maroon-700 focus:ring-maroon-700 accent-maroon-700"
+                    />
+                    <div>
+                      <span class="block font-bold text-sm text-gray-900">Mahasiswa (Konversi SKS)</span>
+                      <span class="block text-xs text-gray-500">D3/D4/S1 minimal Semester 5</span>
+                    </div>
+                  </label>
+                </div>
+              </div>
+
+              <!-- 2. Nama Lengkap & Nomor WhatsApp -->
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                <div>
+                  <label for="form-nama" class="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-1.5">
+                    Nama Lengkap <span class="text-maroon-600">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    id="form-nama"
+                    name="nama"
+                    required
+                    placeholder="Contoh: Muhammad Rizky Pratama"
+                    class="w-full px-4 py-3 rounded-xl border border-gray-300 text-sm focus:border-maroon-700 focus:ring-2 focus:ring-maroon-700/20 outline-none transition-all bg-white"
+                  />
+                </div>
+
+                <div>
+                  <label for="form-wa" class="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-1.5">
+                    Nomor WhatsApp Aktif <span class="text-maroon-600">*</span>
+                  </label>
+                  <div class="relative">
+                    <input
+                      type="tel"
+                      id="form-wa"
+                      name="whatsapp"
+                      required
+                      placeholder="0812xxxxxxxx"
+                      class="w-full px-4 py-3 rounded-xl border border-gray-300 text-sm focus:border-maroon-700 focus:ring-2 focus:ring-maroon-700/20 outline-none transition-all bg-white"
+                    />
+                  </div>
+                  <span class="text-[0.6875rem] text-gray-500 mt-1 block">
+                    Digunakan untuk konfirmasi jadwal seleksi & wawancara mentor.
+                  </span>
+                </div>
+              </div>
+
+              <!-- 3. Email & Asal Sekolah/Kampus -->
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                <div>
+                  <label for="form-email" class="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-1.5">
+                    Alamat Email Aktif <span class="text-maroon-600">*</span>
+                  </label>
+                  <input
+                    type="email"
+                    id="form-email"
+                    name="email"
+                    required
+                    placeholder="nama@email.com"
+                    class="w-full px-4 py-3 rounded-xl border border-gray-300 text-sm focus:border-maroon-700 focus:ring-2 focus:ring-maroon-700/20 outline-none transition-all bg-white"
+                  />
+                </div>
+
+                <div>
+                  <label for="form-instansi" class="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-1.5">
+                    Asal Sekolah / Kampus <span class="text-maroon-600">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    id="form-instansi"
+                    name="instansi"
+                    required
+                    placeholder="Contoh: SMKN 1 Jakarta / Univ. Indonesia"
+                    class="w-full px-4 py-3 rounded-xl border border-gray-300 text-sm focus:border-maroon-700 focus:ring-2 focus:ring-maroon-700/20 outline-none transition-all bg-white"
+                  />
+                </div>
+              </div>
+
+              <!-- 4. Jurusan & Tingkat/Semester -->
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                <div>
+                  <label for="form-jurusan" class="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-1.5">
+                    Jurusan / Program Studi <span class="text-maroon-600">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    id="form-jurusan"
+                    name="jurusan"
+                    required
+                    placeholder="Contoh: Rekayasa Perangkat Lunak / Informatika"
+                    class="w-full px-4 py-3 rounded-xl border border-gray-300 text-sm focus:border-maroon-700 focus:ring-2 focus:ring-maroon-700/20 outline-none transition-all bg-white"
+                  />
+                </div>
+
+                <div>
+                  <label for="form-tingkat" class="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-1.5">
+                    Tingkat / Semester Saat Ini <span class="text-maroon-600">*</span>
+                  </label>
+                  <select
+                    id="form-tingkat"
+                    name="tingkat"
+                    required
+                    class="w-full px-4 py-3 rounded-xl border border-gray-300 text-sm focus:border-maroon-700 focus:ring-2 focus:ring-maroon-700/20 outline-none transition-all bg-white"
+                  >
+                    <option value="Kelas XI SMK">Kelas XI SMK</option>
+                    <option value="Kelas XII SMK">Kelas XII SMK</option>
+                    <option value="Semester 5 (Mahasiswa)">Semester 5 (Mahasiswa)</option>
+                    <option value="Semester 6 (Mahasiswa)">Semester 6 (Mahasiswa)</option>
+                    <option value="Semester 7 (Mahasiswa)">Semester 7 (Mahasiswa)</option>
+                    <option value="Semester 8 / Tingkat Akhir (Mahasiswa)">Semester 8 / Tingkat Akhir</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- 5. Pilihan Posisi Magang -->
+              <div>
+                <label for="form-posisi" class="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-1.5">
+                  Pilihan Posisi Magang <span class="text-maroon-600">*</span>
+                </label>
+                <select
+                  id="form-posisi"
+                  name="posisi"
+                  required
+                  class="w-full px-4 py-3 rounded-xl border border-gray-300 text-sm focus:border-maroon-700 focus:ring-2 focus:ring-maroon-700/20 outline-none transition-all bg-white"
+                >
+                  <option value="" disabled selected>-- Pilih Posisi Magang yang Diminati --</option>
+                  {
+                    posisiList.map((p) => (
+                      <option value={`${p.judul} (${p.mitraNama})`} data-slug={p.id}>
+                        {p.judul} — {p.mitraNama}
+                      </option>
+                    ))
+                  }
+                  <option value="Konsultasi / Rekomendasi Mentor (Belum Yakin Pilihan Posisi)">
+                    💡 Konsultasi / Rekomendasi Mentor (Belum Yakin Pilihan Posisi)
+                  </option>
+                </select>
+                <span class="text-[0.6875rem] text-gray-500 mt-1 block">
+                  Kamu tetap dapat berdiskusi dengan mentor industri saat sesi review berkas.
+                </span>
+              </div>
+
+              <!-- 6. Rencana Durasi Magang -->
+              <div>
+                <label class="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-2">
+                  Rencana Durasi Magang <span class="text-maroon-600">*</span>
+                </label>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                  <label class="flex items-center gap-3 p-3.5 rounded-xl border border-gray-200 bg-white hover:bg-gray-50 cursor-pointer text-sm">
+                    <input
+                      type="radio"
+                      name="durasi"
+                      value="3 Bulan"
+                      checked
+                      class="text-maroon-700 focus:ring-maroon-700 accent-maroon-700"
+                    />
+                    <span><strong>3 Bulan</strong> (Standar PKL SMK)</span>
+                  </label>
+                  <label class="flex items-center gap-3 p-3.5 rounded-xl border border-gray-200 bg-white hover:bg-gray-50 cursor-pointer text-sm">
+                    <input
+                      type="radio"
+                      name="durasi"
+                      value="6 Bulan"
+                      class="text-maroon-700 focus:ring-maroon-700 accent-maroon-700"
+                    />
+                    <span><strong>6 Bulan</strong> (Semester Penuh / Konversi 20 SKS)</span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- 7. Tautan Portofolio / Catatan Tambahan -->
+              <div>
+                <label for="form-catatan" class="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-1.5">
+                  Tautan CV / Portofolio / Catatan Tambahan (Opsional)
+                </label>
+                <textarea
+                  id="form-catatan"
+                  name="catatan"
+                  rows="3"
+                  placeholder="Contoh: Tautan link Google Drive CV, link GitHub/Figma/Behance, atau pertanyaan khusus mengenai alur magang kamu."
+                  class="w-full px-4 py-3 rounded-xl border border-gray-300 text-sm focus:border-maroon-700 focus:ring-2 focus:ring-maroon-700/20 outline-none transition-all bg-white"
+                ></textarea>
+                <span class="text-[0.6875rem] text-gray-500 mt-1 block">
+                  Jika tautan Google Drive, pastikan hak akses diatur ke "Siapa saja yang memiliki tautan dapat melihat".
+                </span>
+              </div>
+
+              <!-- 8. Persetujuan Syarat -->
+              <div class="p-4 rounded-xl bg-gray-50 border border-gray-200/80">
+                <label class="flex items-start gap-3 cursor-pointer select-none">
+                  <input
+                    type="checkbox"
+                    id="form-agree"
+                    required
+                    class="w-4 h-4 rounded text-maroon-700 focus:ring-maroon-700 accent-maroon-700 mt-0.5 shrink-0"
+                  />
+                  <span class="text-xs text-gray-600 leading-relaxed">
+                    Saya menyatakan bahwa data yang saya masukkan adalah benar dan bersedia mengikuti alur seleksi pendaftaran Program Magang GM Training sesuai ketentuan yang berlaku.
+                  </span>
+                </label>
+              </div>
+
+              <!-- Submit Button -->
+              <div class="pt-2">
+                <button
+                  type="submit"
+                  id="submit-wa-btn"
+                  class="w-full inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full bg-gradient-to-r from-maroon-700 to-maroon-800 hover:from-maroon-800 hover:to-maroon-900 text-white font-extrabold text-sm sm:text-base shadow-lg shadow-maroon-900/20 hover:shadow-xl hover:-translate-y-0.5 transition-all group cursor-pointer"
+                >
+                  <svg class="w-5 h-5 text-emerald-300 fill-current" viewBox="0 0 24 24">
+                    <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+                  </svg>
+                  <span>Kirim Pendaftaran via WhatsApp Resmi</span>
+                  <span class="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center text-xs group-hover:translate-x-0.5 transition-transform">↗</span>
+                </button>
+                <p class="text-center text-xs text-gray-500 mt-3">
+                  Setelah tombol ditekan, aplikasi WhatsApp kamu akan otomatis terbuka dengan draf pesan pendaftaran terformat rapi.
+                </p>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <!-- Sticky Sidebar Column (4 cols) -->
+        <aside class="lg:col-span-4 sticky top-24 space-y-6">
+          <!-- Batch Status Card -->
+          <div class="bg-white border border-gray-200/90 rounded-[24px] p-6 shadow-sm text-gray-900 space-y-4">
+            <div class="flex items-center justify-between gap-2">
+              <Badge variant="open">Batch 1 Dibuka</Badge>
+              <span class="text-xs text-gray-500 font-medium">T.A. 2026/2027</span>
+            </div>
+            <div>
+              <h3 class="font-extrabold text-lg text-gray-900 mb-1">
+                Penerimaan Peserta Magang
+              </h3>
+              <p class="text-xs text-gray-600 leading-relaxed">
+                Batas akhir pengajuan berkas: <strong>20 November 2026</strong>. Kuota mitra dibatasi per rombel jurusan.
+              </p>
+            </div>
+            <div class="space-y-1.5 pt-2 border-t border-gray-100">
+              <div class="flex justify-between text-xs font-semibold">
+                <span class="text-gray-600">Alokasi Kuota Terisi:</span>
+                <span class="text-maroon-700 font-extrabold">78%</span>
+              </div>
+              <div class="w-full h-2 rounded-full bg-gray-100 overflow-hidden">
+                <div class="h-full bg-gradient-to-r from-maroon-600 to-rose-500 rounded-full" style="width: 78%"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Benefits Card -->
+          <div class="bg-white border border-gray-200/90 rounded-[24px] p-6 shadow-sm space-y-3.5 text-xs text-gray-700">
+            <h4 class="font-bold text-sm text-gray-900 mb-2">
+              Jaminan Program GM Training:
+            </h4>
+            <div class="flex items-start gap-2.5">
+              <span class="w-5 h-5 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0 font-bold text-xs">✓</span>
+              <span><strong>100% Gratis:</strong> Tanpa biaya pendaftaran atau pungutan seleksi apa pun.</span>
+            </div>
+            <div class="flex items-start gap-2.5">
+              <span class="w-5 h-5 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0 font-bold text-xs">✓</span>
+              <span><strong>Mitra Resmi:</strong> MoU legalitas industri dan perlindungan keselamatan kerja K3.</span>
+            </div>
+            <div class="flex items-start gap-2.5">
+              <span class="w-5 h-5 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0 font-bold text-xs">✓</span>
+              <span><strong>Mentor 1-on-1:</strong> Arahan praktisi industri dan review tugas berkala.</span>
+            </div>
+            <div class="flex items-start gap-2.5">
+              <span class="w-5 h-5 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0 font-bold text-xs">✓</span>
+              <span><strong>Konversi Resmi:</strong> Lembar penilaian kurikulum rapor SMK & konversi SKS kampus.</span>
+            </div>
+          </div>
+
+          <!-- Admin Help Card -->
+          <div class="rounded-[24px] bg-gradient-to-br from-[#800020] to-[#5C0017] text-white p-6 text-xs space-y-3 shadow-md">
+            <h4 class="font-bold text-sm text-white">
+              Butuh Bantuan Pengisian?
+            </h4>
+            <p class="text-maroon-100 leading-relaxed">
+              Jika kamu memerlukan konsultasi awal sebelum mengirim formulir, tim konselor magang GM Training siap membantu.
+            </p>
+            <a
+              href={siteConfig.whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 font-bold text-white bg-white/15 hover:bg-white/25 px-4 py-2.5 rounded-full border border-white/20 transition-colors w-full justify-between"
+            >
+              <span>Chat Tim Konselor via WhatsApp</span>
+              <span>↗</span>
+            </a>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  function setupPendaftaranForm() {
+    const form = document.getElementById("pendaftaran-wa-form") as HTMLFormElement;
+    if (!form || form.dataset.initialized) return;
+    form.dataset.initialized = "true";
+
+    const radioJalur = document.querySelectorAll<HTMLInputElement>("input[name='jalur']");
+    const jalurOptions = document.querySelectorAll<HTMLElement>(".jalur-option");
+    const selectTingkat = document.getElementById("form-tingkat") as HTMLSelectElement;
+    const selectPosisi = document.getElementById("form-posisi") as HTMLSelectElement;
+    const banner = document.getElementById("success-banner");
+    const manualLink = document.getElementById("manual-wa-link") as HTMLAnchorElement;
+
+    // Handle initial params from URL: ?jalur=mahasiswa & ?posisi=junior-frontend-developer
+    const urlParams = new URLSearchParams(window.location.search);
+    const jalurParam = urlParams.get("jalur");
+    const posisiParam = urlParams.get("posisi");
+
+    if (jalurParam === "mahasiswa") {
+      radioJalur.forEach((r) => {
+        if (r.dataset.target === "mahasiswa") {
+          r.checked = true;
+        }
+      });
+    }
+
+    if (posisiParam && selectPosisi) {
+      for (let i = 0; i < selectPosisi.options.length; i++) {
+        const opt = selectPosisi.options[i];
+        if (opt.dataset.slug === posisiParam) {
+          opt.selected = true;
+          break;
+        }
+      }
+    }
+
+    // Toggle styling when jalur changes
+    function syncJalurStyle() {
+      radioJalur.forEach((r, idx) => {
+        const parent = jalurOptions[idx];
+        if (r.checked) {
+          parent.classList.add("border-maroon-700", "bg-maroon-50/50");
+          parent.classList.remove("border-gray-200", "bg-white");
+
+          // Sync default dropdown option
+          if (r.dataset.target === "mahasiswa") {
+            if (selectTingkat.value.includes("SMK")) {
+              selectTingkat.value = "Semester 5 (Mahasiswa)";
+            }
+          } else {
+            if (selectTingkat.value.includes("Mahasiswa")) {
+              selectTingkat.value = "Kelas XI SMK";
+            }
+          }
+        } else {
+          parent.classList.remove("border-maroon-700", "bg-maroon-50/50");
+          parent.classList.add("border-gray-200", "bg-white");
+        }
+      });
+    }
+
+    radioJalur.forEach((r) => r.addEventListener("change", syncJalurStyle));
+    syncJalurStyle();
+
+    // Form submit -> Format message & redirect to WhatsApp
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      const jalur = (document.querySelector("input[name='jalur']:checked") as HTMLInputElement)?.value || "Siswa SMK";
+      const nama = (document.getElementById("form-nama") as HTMLInputElement)?.value.trim();
+      const whatsapp = (document.getElementById("form-wa") as HTMLInputElement)?.value.trim();
+      const email = (document.getElementById("form-email") as HTMLInputElement)?.value.trim();
+      const instansi = (document.getElementById("form-instansi") as HTMLInputElement)?.value.trim();
+      const jurusan = (document.getElementById("form-jurusan") as HTMLInputElement)?.value.trim();
+      const tingkat = selectTingkat?.value || "";
+      const posisi = selectPosisi?.value || "Belum ditentukan";
+      const durasi = (document.querySelector("input[name='durasi']:checked") as HTMLInputElement)?.value || "3 Bulan";
+      const catatan = (document.getElementById("form-catatan") as HTMLTextAreaElement)?.value.trim() || "-";
+
+      const lines = [
+        "Halo Admin GM Training, saya ingin mendaftar Program Magang Batch 1.",
+        "",
+        "*DATA FORMULIR PENDAFTARAN:*",
+        `• *Jalur Pendidikan:* ${jalur}`,
+        `• *Nama Lengkap:* ${nama}`,
+        `• *Nomor WhatsApp:* ${whatsapp}`,
+        `• *Email:* ${email}`,
+        `• *Asal Sekolah/Kampus:* ${instansi}`,
+        `• *Jurusan / Prodi:* ${jurusan}`,
+        `• *Tingkat / Semester:* ${tingkat}`,
+        `• *Pilihan Posisi:* ${posisi}`,
+        `• *Rencana Durasi:* ${durasi}`,
+        `• *Tautan Portofolio/Catatan:* ${catatan}`,
+        "",
+        "Mohon informasi tahapan seleksi dan verifikasi berkas selanjutnya. Terima kasih!",
+      ];
+
+      const fullMessage = lines.join("\n");
+      const cleanPhone = "6281234567890";
+      const waUrl = `https://wa.me/${cleanPhone}?text=${encodeURIComponent(fullMessage)}`;
+
+      // Show success alert & set manual fallback link
+      if (banner && manualLink) {
+        manualLink.href = waUrl;
+        banner.classList.remove("hidden");
+        banner.scrollIntoView({ behavior: "smooth", block: "center" });
+      }
+
+      // Open WhatsApp
+      window.open(waUrl, "_blank", "noopener,noreferrer");
+    });
+  }
+
+  setupPendaftaranForm();
+  document.addEventListener("astro:page-load", setupPendaftaranForm);
+</script>
+
