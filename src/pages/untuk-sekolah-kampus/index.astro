@@ -11,7 +11,7 @@ const benefits = [
   },
   {
     title: "Sinkronisasi Kurikulum & Logbook Terstandar",
-    desc: "Kami menyediakan kerangka pembelajaran dan logbook mingguan yang selaras dengan Capaian Pembelajaran (CP) SMK dan konversi SKS MBKM perguruan tinggi.",
+    desc: "Kami menyediakan kerangka pembelajaran dan logbook mingguan yang selaras dengan Capaian Pembelajaran (CP) SMK dan standar kompetensi perguruan tinggi.",
   },
   {
     title: "Transparansi Monitoring Guru/Dosen",
@@ -26,7 +26,7 @@ const benefits = [
 
 <BaseLayout
   title={`Kerja Sama Sekolah & Perguruan Tinggi | ${siteConfig.shortName}`}
-  description="Layanan kemitraan PKL SMK dan magang mahasiswa bagi BKK SMK, fakultas, dan pusat karier perguruan tinggi bersama konsorsium industri GM Training."
+  description="Layanan kemitraan PKL SMK dan magang mahasiswa bagi BKK SMK, fakultas, dan pusat karier perguruan tinggi bersama konsorsium industri Gemilang Training."
 >
   <PageBanner
     title="Untuk Sekolah & Perguruan Tinggi"
@@ -52,7 +52,7 @@ const benefits = [
               Kami menyadari pentingnya kepastian penyaluran magang yang aman dan berkualitas bagi institusi pendidikan. Melalui program terpadu ini, {siteConfig.name} bertindak sebagai jembatan yang menghubungkan sekolah SMK dan perguruan tinggi dengan jaringan industri terpercaya.
             </p>
             <p class="text-gray-600 text-sm md:text-base leading-relaxed">
-              Program ini dirancang tidak hanya untuk memenuhi kewajiban administratif PKL atau SKS, melainkan memastikan peserta didik Anda benar-benar menguasai kompetensi terapan yang relevan.
+              Program ini dirancang tidak hanya untuk memenuhi kewajiban administratif PKL atau kurikulum, melainkan memastikan peserta didik Anda benar-benar menguasai kompetensi terapan yang relevan.
             </p>
           </div>
 
@@ -161,8 +161,7 @@ const benefits = [
           <div class="bg-white border border-gray-200/90 rounded-[24px] p-6 text-xs text-gray-600 space-y-2 shadow-sm">
             <strong class="text-gray-900 font-bold block text-sm">Kontak PIC Kemitraan:</strong>
             <p>Divisi Hubungan Lembaga Pendidikan</p>
-            <p>Email: <a href="mailto:kemitraan@gmtraining.id" class="text-maroon-700 font-bold hover:underline">kemitraan@gmtraining.id</a></p>
-            <p>WhatsApp: <strong class="text-gray-900">{siteConfig.whatsapp}</strong></p>
+            <p>WhatsApp: <a href={siteConfig.whatsappUrl} target="_blank" rel="noopener noreferrer" class="text-maroon-700 font-bold hover:underline">{siteConfig.whatsapp}</a></p>
           </div>
         </aside>
       </div>

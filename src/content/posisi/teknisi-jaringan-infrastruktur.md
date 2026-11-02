@@ -1,6 +1,6 @@
 ---
 judul: "Teknisi Jaringan & Infrastruktur IT"
-mitra: "pt-solusi-teknologi-nusantara"
+mitra: "skariga"
 batch: "batch-1-2026"
 jalur: "smk"
 bidang: "Jaringan Komputer"

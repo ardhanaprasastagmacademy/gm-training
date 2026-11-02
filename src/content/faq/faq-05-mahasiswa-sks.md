@@ -1,8 +1,8 @@
 ---
-pertanyaan: "Apakah program magang ini dapat dikonversikan ke dalam SKS perkuliahan?"
+pertanyaan: "Apakah mahasiswa mendapatkan penilaian dan sertifikat resmi setelah magang?"
 kategori: "mahasiswa"
 urutan: 20
 ---
 
-Ya. Penyelenggara menyediakan silabus pembelajaran, bukti presensi, evaluasi capaian kompetensi berkala, dan lembar penilaian akhir yang dapat dijadikan bukti kuat untuk klaim konversi mata kuliah magang atau MBKM mandiri di perguruan tinggi asal.
+Ya. Seluruh peserta magang mahasiswa yang menyelesaikan program akan mendapatkan sertifikat resmi berstandar industri berskala nasional, transkrip evaluasi kinerja mentor, serta hak portofolio atas proyek yang diselesaikan.
 

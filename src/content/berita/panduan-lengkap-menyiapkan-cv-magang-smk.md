@@ -4,7 +4,7 @@ ringkasan: "Pelajari cara menyusun daftar riwayat hidup (CV) ringkas, jujur, dan
 tanggal: 2026-10-18
 kategori: "artikel"
 gambar: "/images/galeri/galeri-1.webp"
-penulis: "Tim Konselor Karier GM Training"
+penulis: "Tim Konselor Karier Gemilang Training"
 draft: false
 ---
 

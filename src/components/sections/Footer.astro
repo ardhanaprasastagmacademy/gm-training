@@ -10,14 +10,20 @@ const currentYear = new Date().getFullYear();
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-10 lg:gap-8 pb-12 border-b border-white/10">
       <!-- Col 1: About & Contact (takes 2 cols on lg) -->
       <div class="lg:col-span-2 space-y-4">
-        <a href="/" class="inline-flex items-center text-white group py-1" aria-label={`${siteConfig.name} - Beranda`}>
+        <a href="/" class="inline-flex items-center gap-2.5 text-white group py-1" aria-label={`${siteConfig.name} - Beranda`}>
           <img
-            src="/images/logo.png"
+            src="/images/logo-gm.png"
             alt={siteConfig.name}
-            width="170"
-            height="38"
-            class="h-8 md:h-10 w-auto object-contain transition-transform duration-200 group-hover:scale-105"
+            width="44"
+            height="44"
+            class="h-10 md:h-11 w-auto object-contain transition-transform duration-200 group-hover:scale-105"
           />
+          <div class="flex items-center pl-2.5 border-l-2 border-white/40">
+            <div class="flex flex-col text-white font-extrabold text-[15px] sm:text-[17px] leading-[1.05] tracking-tight select-none">
+              <span>gemilang</span>
+              <span>training</span>
+            </div>
+          </div>
         </a>
 
         <p class="text-sm text-gray-300 leading-relaxed max-w-sm">
@@ -42,21 +48,20 @@ const currentYear = new Date().getFullYear();
           </div>
 
           <div class="flex items-center gap-2.5">
-            <svg class="w-4 h-4 text-maroon-400 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-              <polyline points="22,6 12,13 2,6" />
+            <svg class="w-4 h-4 text-emerald-400 shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12.031 2C6.495 2 2 6.496 2 12.032c0 1.954.561 3.82 1.624 5.432L2.094 22l4.675-1.503a9.98 9.98 0 0 0 5.262 1.535h.004c5.535 0 10.03-4.496 10.03-10.032 0-2.68-1.043-5.2-2.936-7.094A9.957 9.957 0 0 0 12.03 2zm5.856 14.184c-.244.686-1.42 1.309-1.956 1.393-.509.08-1.173.114-3.793-.97-2.235-.923-3.666-3.21-3.777-3.358-.112-.148-.905-1.205-.905-2.298 0-1.093.57-1.63.773-1.854.204-.224.448-.28.597-.28.149 0 .298.002.428.01.139.008.326-.053.509.387.189.453.647 1.579.704 1.693.057.114.095.248.019.398-.076.15-.114.244-.228.377-.114.133-.24.297-.343.398-.114.113-.233.236-.101.464.132.228.587.97 1.258 1.568.865.772 1.595 1.011 1.823 1.124.228.114.362.095.495-.057.133-.152.57-.664.722-.892.152-.228.305-.19.513-.114.208.076 1.32.622 1.549.736.228.114.38.17.437.266.057.095.057.551-.187 1.237z" />
             </svg>
-            <a href={`mailto:${siteConfig.email}`} class="text-gray-200 hover:text-white hover:underline transition-colors">
-              {siteConfig.email}
+            <a href={siteConfig.whatsappUrl} target="_blank" rel="noopener noreferrer" class="text-maroon-300 hover:text-white hover:underline transition-colors font-medium">
+              {siteConfig.whatsapp} (WhatsApp Resmi)
             </a>
           </div>
 
           <div class="flex items-center gap-2.5">
-            <svg class="w-4 h-4 text-maroon-400 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+            <svg class="w-4 h-4 text-pink-400 shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
             </svg>
-            <a href={siteConfig.whatsappUrl} target="_blank" rel="noopener noreferrer" class="text-maroon-300 hover:text-white hover:underline transition-colors font-medium">
-              {siteConfig.whatsapp} (WhatsApp Resmi)
+            <a href={siteConfig.socials.instagram} target="_blank" rel="noopener noreferrer" class="text-maroon-300 hover:text-white hover:underline transition-colors font-medium">
+              @gemilangtraining.id (Instagram)
             </a>
           </div>
         </div>
@@ -94,7 +99,6 @@ const currentYear = new Date().getFullYear();
       <div class="flex items-center gap-6">
         <a href="/kebijakan-privasi/" class="hover:text-white hover:underline transition-colors">Kebijakan Privasi</a>
         <a href="/syarat-ketentuan/" class="hover:text-white hover:underline transition-colors">Syarat &amp; Ketentuan</a>
-        <a href="/sitemap-index.xml" class="hover:text-white hover:underline transition-colors">Sitemap XML</a>
       </div>
     </div>
   </div>

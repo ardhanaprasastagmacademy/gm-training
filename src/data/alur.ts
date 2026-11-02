@@ -11,13 +11,13 @@ export interface TahapAlur {
 export const dataAlurPendaftaran: TahapAlur[] = [
   {
     nomor: 1,
-    judul: "Cek Persyaratan dan Pilih Posisi",
+    judul: "Cek Persyaratan dan Pilih Bidang Program",
     deskripsi:
-      "Pelajari kriteria tiap jalur (SMK atau Mahasiswa) dan tentukan posisi lowongan yang selaras dengan bidang keahlian, program studi, atau jurusan di sekolah/kampus kamu.",
+      "Pelajari kriteria tiap jalur (SMK atau Mahasiswa) dan tentukan bidang kejuruan yang selaras dengan keahlian, program studi, atau jurusan di sekolah/kampus kamu.",
     siapa: "Calon Peserta",
     waktu: "1–3 hari",
     jalur: "keduanya",
-    catatan: "Pastikan membaca detail tugas dan kualifikasi teknis di halaman Posisi.",
+    catatan: "Pastikan membaca detail ketentuan dan kualifikasi di halaman Program.",
   },
   {
     nomor: 2,
@@ -37,7 +37,7 @@ export const dataAlurPendaftaran: TahapAlur[] = [
     siapa: "Calon Peserta",
     waktu: "15–30 menit",
     jalur: "keduanya",
-    catatan: "Gunakan email aktif dan nomor WhatsApp yang terpasang pada ponsel utama kamu.",
+    catatan: "Pastikan nomor WhatsApp yang didaftarkan aktif pada ponsel utama kamu.",
   },
   {
     nomor: 4,
@@ -52,11 +52,11 @@ export const dataAlurPendaftaran: TahapAlur[] = [
     nomor: 5,
     judul: "Pengumuman Hasil Seleksi",
     deskripsi:
-      "Peserta yang lolos akan dihubungi secara langsung melalui email resmi dan pesan WhatsApp. Kami tidak mempublikasikan nama lengkap peserta secara terbuka di website demi perlindungan privasi data pribadi.",
+      "Peserta yang lolos akan dihubungi secara langsung melalui nomor WhatsApp resmi panitia. Kami tidak mempublikasikan nama lengkap peserta secara terbuka di website demi perlindungan privasi data pribadi.",
     siapa: "Penyelenggara Program",
     waktu: "Sesuai kalender batch",
     jalur: "keduanya",
-    catatan: "Pastikan memeriksa kotak masuk email dan folder spam kamu secara berkala.",
+    catatan: "Pastikan nomor WhatsApp kamu selalu aktif dan dapat menerima pesan konfirmasi.",
   },
   {
     nomor: 6,
@@ -84,7 +84,7 @@ export const dataAlurPendaftaran: TahapAlur[] = [
     siapa: "Peserta, Mentor Industri & Guru/Dosen Pembimbing",
     waktu: "3–6 bulan (sesuai jalur)",
     jalur: "keduanya",
-    catatan: "Laporan akhir diserahkan kepada pihak sekolah/kampus sebagai bukti pemenuhan PKL atau konversi SKS.",
+    catatan: "Laporan akhir diserahkan kepada pihak sekolah/kampus sebagai bukti pemenuhan PKL atau penilaian akademik.",
   },
 ];
 

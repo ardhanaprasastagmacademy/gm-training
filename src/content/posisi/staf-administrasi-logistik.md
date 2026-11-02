@@ -1,6 +1,6 @@
 ---
 judul: "Staf Operasional Gudang & Logistik Digital"
-mitra: "pt-logistik-prima-sentosa"
+mitra: "smk-1-turen"
 batch: "batch-1-2026"
 jalur: "keduanya"
 bidang: "Logistik & Administrasi"
@@ -30,5 +30,5 @@ benefit:
 draft: false
 ---
 
-Dapatkan wawasan nyata bagaimana jutaan paket diproses setiap hari menggunakan sistem pergudangan digital modern di hub logistik PT Logistik Prima Sentosa Surabaya.
+Dapatkan wawasan nyata bagaimana sistem informasi inventaris dan logistik modern dikelola bersama mitra SMK Negeri 1 Turen.
 

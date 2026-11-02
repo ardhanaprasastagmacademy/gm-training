@@ -1,4 +1,4 @@
-# Website Resmi Program Magang SMK & Mahasiswa (GM Training)
+# Website Resmi Program Magang SMK & Mahasiswa (Gemilang Training)
 
 Website statis resmi untuk pusat informasi dan pendaftaran program magang dan Praktik Kerja Lapangan (PKL) terstruktur bagi siswa SMK dan mahasiswa bersama mitra industri terpercaya di Indonesia.
 

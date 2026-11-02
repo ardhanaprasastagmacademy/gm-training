@@ -1,6 +1,6 @@
 ---
 judul: "Teknisi Mekatronika & Otomasi Pabrik"
-mitra: "pt-karya-presisi-manufaktur"
+mitra: "unmer"
 batch: "batch-1-2026"
 jalur: "keduanya"
 bidang: "Manufaktur & Otomasi"

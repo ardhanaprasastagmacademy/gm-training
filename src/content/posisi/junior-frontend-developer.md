@@ -1,6 +1,6 @@
 ---
 judul: "Junior Frontend Web Developer"
-mitra: "pt-solusi-teknologi-nusantara"
+mitra: "polinema"
 batch: "batch-1-2026"
 jalur: "keduanya"
 bidang: "Teknologi Informasi"
@@ -26,7 +26,7 @@ kualifikasi:
 benefit:
   - "Bimbingan teknis 1-on-1 dari Software Engineer Senior."
   - "Sertifikat resmi kompetensi magang industri."
-  - "Konversi kredit magang/PKL yang diakui sekolah dan kampus."
+  - "Penilaian magang/PKL yang diakui sekolah dan kampus."
   - "Akses fasilitas co-working space dan perangkat uji lab."
 draft: false
 ---

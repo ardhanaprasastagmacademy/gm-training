@@ -14,8 +14,8 @@ Pada batch ini, tersedia beragam posisi penempatan di sektor teknologi informasi
 
 ### Ketentuan Penting Calon Peserta
 1. Siswa SMK wajib mendapatkan persetujuan tertulis dari pihak sekolah (guru pembimbing/BKK) dan izin resmi dari orang tua atau wali.
-2. Mahasiswa aktif wajib melampirkan surat rekomendasi magang dari fakultas atau program studi guna mempermudah proses konversi nilai/SKS.
+2. Mahasiswa aktif wajib melampirkan surat rekomendasi magang dari fakultas atau program studi.
 3. Seluruh proses pendaftaran tidak dipungut biaya apa pun. Hati-hati terhadap segala bentuk penipuan yang mengatasnamakan panitia.
 
-Informasi lengkap mengenai persyaratan dan alur pendaftaran dapat dilihat di [Halaman Alur Pendaftaran](/alur-pendaftaran/) serta daftar posisi di [Halaman Posisi Magang](/posisi/).
+Informasi lengkap mengenai persyaratan dan alur pendaftaran dapat dilihat di [Halaman Alur Pendaftaran](/alur-pendaftaran/) serta [Halaman Pendaftaran Resmi](/pendaftaran/).
 

@@ -1,7 +1,7 @@
 export interface ItemGaleri {
   id: string;
   judul: string;
-  kategori: "mentoring" | "praktik" | "orientasi" | "presentasi" | "kunjungan";
+  kategori: "web-dev" | "ui-ux" | "jaringan" | "data-marketing";
   kategoriLabel: string;
   lokasi: string;
   tanggal: string;
@@ -13,63 +13,62 @@ export interface ItemGaleri {
 export const dataGaleri: ItemGaleri[] = [
   {
     id: "galeri-1",
-    judul: "Sesi Mentoring 1-on-1 & Code Review Pengembangan Software",
-    kategori: "mentoring",
-    kategoriLabel: "Mentoring Industri",
-    lokasi: "PT Solusi Teknologi Nusantara, Jakarta Selatan",
+    judul: "Sistem Informasi Manajemen PKL & Logbook Terpadu",
+    kategori: "web-dev",
+    kategoriLabel: "Web Development",
+    lokasi: "Lab Inovasi IT Polinema, Kota Malang",
     tanggal: "20 Oktober 2026",
     deskripsi:
       "Peserta magang siswa SMK RPL dan mahasiswa mendapatkan pendampingan arsitektur kode antarmuka dan praktik code review berstandar industri langsung dari Software Engineer Senior.",
-    gambar: "/images/galeri/galeri-1.webp",
+    gambar: "/images/portofolio/porto-1.webp",
     tag: ["Teknologi Informasi", "Code Review", "Frontend"],
   },
   {
     id: "galeri-2",
-    judul: "Presentasi Kinerja Tim & Evaluasi Proyek E-Commerce Dashboard",
-    kategori: "presentasi",
-    kategoriLabel: "Presentasi & Evaluasi",
-    lokasi: "Ruang Rapat Kolaborasi GM Training, Jakarta",
+    judul: "Redesign UI/UX & Design System Portal Pembelajaran",
+    kategori: "ui-ux",
+    kategoriLabel: "UI/UX & Product Design",
+    lokasi: "Creative Hub Gemilang Training, Malang",
     tanggal: "16 Oktober 2026",
     deskripsi:
-      "Pemaparan laporan kinerja funnel marketing, analisis data e-commerce, dan evaluasi capaian sprint proyek magang di hadapan mentor praktisi industri.",
-    gambar: "/images/galeri/galeri-2.webp",
-    tag: ["Digital Business", "Analisis Data", "Presentasi"],
+      "Perancangan antarmuka pengguna menyeluruh, riset alur pengguna (usability testing), serta penyusunan token design system modular untuk meningkatkan kemudahan navigasi dan estetika visual portal pendaftaran magang.",
+    gambar: "/images/portofolio/porto-2.webp",
+    tag: ["UI/UX Design", "Figma", "Design System"],
   },
   {
     id: "galeri-3",
-    judul: "Sprint Kolaborasi Desain UI/UX & Prototyping Aplikasi Mobile",
-    kategori: "praktik",
-    kategoriLabel: "Praktik & Kolaborasi",
-    lokasi: "Creative Hub GM Training, Jakarta",
+    judul: "Infrastruktur Jaringan Server & Cloud Monitoring Multi-Branch",
+    kategori: "jaringan",
+    kategoriLabel: "Jaringan & DevOps",
+    lokasi: "Digital & TRPL Hub, Malang",
     tanggal: "12 Oktober 2026",
     deskripsi:
-      "Kolaborasi intensif siswa SMK dan mahasiswa jurusan TRPL dalam menyusun wireframe, user flow, riset pasar, dan implementasi desain antarmuka sprint pertama.",
-    gambar: "/images/galeri/galeri-3.webp",
-    tag: ["UI/UX Design", "Sprint Collab", "TRPL & SMK"],
+      "Pembangunan topologi jaringan kantor terpusat, penguatan perimeter firewall, otomatisasi backup cloud berkala, serta konfigurasi dashboard pemantauan uptime server berstandar industri.",
+    gambar: "/images/portofolio/porto-3.webp",
+    tag: ["Jaringan", "DevOps", "Linux Server"],
   },
   {
     id: "galeri-4",
-    judul: "Pelepasan & Penyerahan Sertifikat Kelulusan Program Magang Nasional",
-    kategori: "presentasi",
-    kategoriLabel: "Kelulusan & Sertifikasi",
-    lokasi: "Digital & TRPL Hub, Jakarta",
+    judul: "E-Commerce Funnel Analytics & Performance Marketing Tracker",
+    kategori: "data-marketing",
+    kategoriLabel: "Data & Digital Business",
+    lokasi: "Ruang Rapat Kolaborasi Gemilang Training, Malang",
     tanggal: "08 Oktober 2026",
     deskripsi:
-      "Momen kelulusan peserta magang TRPL dan Digital Business dengan penyerahan sertifikat industri resmi berstandar nasional dan konversi nilai akademik.",
-    gambar: "/images/galeri/galeri-4.webp",
-    tag: ["Kelulusan", "Sertifikasi Industri", "TRPL Hub"],
+      "Dashboard visualisasi interaktif data transaksi penjualan multi-channel, tracking rasio konversi pesanan, serta automasi laporan performa kampanye digital marketing mingguan.",
+    gambar: "/images/portofolio/porto-4.webp",
+    tag: ["Data Analytics", "Business Intelligence", "Marketing"],
   },
   {
     id: "galeri-5",
-    judul: "Apresiasi & Penutupan Batch Magang Bersama Mentor Praktisi",
-    kategori: "orientasi",
-    kategoriLabel: "Apresiasi & Budaya Kerja",
-    lokasi: "Auditorium GM Training, Jakarta",
+    judul: "Aplikasi Mobile Katalog Produk & Pemesanan Terintegrasi",
+    kategori: "web-dev",
+    kategoriLabel: "Web & Mobile App",
+    lokasi: "Auditorium Gemilang Training, Jl. Soekarno Hatta, Malang",
     tanggal: "01 Oktober 2026",
     deskripsi:
-      "Perayaan kelulusan dan apresiasi atas dedikasi serta inovasi proyek nyata yang telah diselesaikan seluruh peserta magang selama satu semester penuh.",
-    gambar: "/images/galeri/galeri-5.webp",
-    tag: ["Batch Magang", "Konversi SKS", "Alumni"],
+      "Pengembangan aplikasi katalog interaktif dengan integrasi gateway pemesanan WhatsApp otomatis, filter kategori instan, dan optimasi kecepatan akses di perangkat mobile.",
+    gambar: "/images/portofolio/porto-5.webp",
+    tag: ["Mobile App", "Flutter", "E-Commerce"],
   },
 ];
-

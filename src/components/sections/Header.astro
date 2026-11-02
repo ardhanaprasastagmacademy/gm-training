@@ -15,16 +15,22 @@ const currentPath = Astro.url.pathname;
       <!-- Logo -->
       <a
         href="/"
-        class="flex items-center shrink-0 focus-visible:outline-2 focus-visible:outline-maroon-700 rounded-full group py-0.5"
+        class="flex items-center gap-2.5 shrink-0 focus-visible:outline-2 focus-visible:outline-maroon-700 rounded-full group py-0.5"
         aria-label={`${siteConfig.name} - Beranda`}
       >
         <img
-          src="/images/logo-maroon.png"
-          alt={`${siteConfig.name} - GM Training`}
-          width="170"
-          height="38"
-          class="h-8 md:h-9 w-auto object-contain transition-transform duration-200 group-hover:scale-105"
+          src="/images/logo-gm.png"
+          alt={`${siteConfig.name} - Gemilang Training`}
+          width="40"
+          height="40"
+          class="h-9 md:h-10 w-auto object-contain transition-transform duration-200 group-hover:scale-105"
         />
+        <div class="flex items-center pl-2.5 border-l-2 border-maroon-700">
+          <div class="flex flex-col text-maroon-800 font-extrabold text-[15px] sm:text-[17px] leading-[1.05] tracking-tight select-none">
+            <span>gemilang</span>
+            <span>training</span>
+          </div>
+        </div>
       </a>
 
       <!-- Desktop Navigation -->

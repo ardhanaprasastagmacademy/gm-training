@@ -18,7 +18,7 @@ export const headerNav: NavItem[] = [
     href: "/program/",
     children: [
       {
-        label: "Ikhtisar Seluruh Program",
+        label: "Seluruh Program",
         href: "/program/",
         description: "Perbandingan jalur SMK dan Mahasiswa",
       },
@@ -28,34 +28,28 @@ export const headerNav: NavItem[] = [
         description: "Praktik Kerja Lapangan sesuai kurikulum kejuruan",
       },
       {
-        label: "Magang Mahasiswa (SKS)",
+        label: "Magang Mahasiswa",
         href: "/program/magang-mahasiswa/",
-        description: "Magang kompetensi & konversi hingga 20 SKS",
-      },
-      {
-        label: "Posisi / Lowongan Magang",
-        href: "/posisi/",
-        description: "Katalog lowongan terbuka dengan filter keahlian",
+        description: "Magang kompetensi & portofolio proyek industri",
       },
       {
         label: "Alur Pendaftaran",
         href: "/alur-pendaftaran/",
         description: "Panduan 8 tahapan terstruktur hingga penempatan",
       },
-      {
-        label: "Jadwal & Kalender Batch",
-        href: "/jadwal/",
-        description: "Batas pembukaan dan penutupan periode pendaftaran",
-      },
     ],
   },
   {
-    label: "Galeri",
-    href: "/galeri/",
+    label: "Portofolio",
+    href: "/portofolio/",
   },
   {
     label: "Blog",
     href: "/blog/",
+  },
+  {
+    label: "Kontak",
+    href: "/kontak/",
   },
 ];
 
@@ -63,18 +57,16 @@ export const footerColumns = [
   {
     title: "Program",
     links: [
-      { label: "Ikhtisar Program", href: "/program/" },
+      { label: "Seluruh Program", href: "/program/" },
       { label: "Magang Siswa SMK", href: "/program/magang-smk/" },
       { label: "Magang Mahasiswa", href: "/program/magang-mahasiswa/" },
-      { label: "Posisi Magang", href: "/posisi/" },
       { label: "Alur Pendaftaran", href: "/alur-pendaftaran/" },
-      { label: "Jadwal & Batch", href: "/jadwal/" },
     ],
   },
   {
     title: "Eksplorasi",
     links: [
-      { label: "Galeri Kegiatan", href: "/galeri/" },
+      { label: "Portofolio Karya", href: "/portofolio/" },
       { label: "Blog & Warta", href: "/blog/" },
       { label: "Mitra Industri", href: "/mitra/" },
       { label: "Cerita Alumni", href: "/cerita-alumni/" },

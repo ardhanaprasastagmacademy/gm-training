@@ -4,7 +4,7 @@ ringkasan: "Simak strategi menghadapi sesi tanya jawab seleksi magang, mulai dar
 tanggal: 2026-10-22
 kategori: "artikel"
 gambar: "/images/galeri/galeri-2.webp"
-penulis: "Divisi Hubungan Industri GM Training"
+penulis: "Divisi Hubungan Industri Gemilang Training"
 draft: false
 ---
 

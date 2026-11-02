@@ -4,7 +4,7 @@ ringkasan: "Catatan pelaksanaan orientasi bersama pengawas industri, membahas pe
 tanggal: 2026-10-25
 kategori: "kegiatan"
 gambar: "/images/galeri/galeri-5.webp"
-penulis: "Koordinator Program GM Training"
+penulis: "Koordinator Program Gemilang Training"
 draft: false
 ---
 

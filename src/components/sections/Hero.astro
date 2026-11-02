@@ -6,7 +6,7 @@ interface Props {
 }
 
 const {
-  subtitle = "Raih pengalaman kerja nyata berstandar industri nasional, bimbingan intensif mentor praktisi 1-on-1, dan pengakuan konversi resmi SKS & nilai PKL bersama puluhan mitra terpercaya di Indonesia.",
+  subtitle = "Raih pengalaman kerja nyata di bidang teknologi & informatika berstandar industri, bimbingan intensif mentor praktisi 1-on-1, serta sertifikasi resmi di Kota Malang dan sekitarnya bersama mitra teknologi terpercaya.",
 } = Astro.props;
 ---
 
@@ -15,7 +15,7 @@ const {
   <div class="absolute inset-0 z-0 pointer-events-none">
     <img
       src="/images/hero.webp"
-      alt="Suasana Magang Industri GM Training"
+      alt="Suasana Magang Informatika Gemilang Training Malang"
       class="w-full h-full object-cover object-center"
       loading="eager"
       fetchpriority="high"
@@ -29,11 +29,17 @@ const {
   <div class="relative z-10 w-full max-w-[72rem] mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
     <!-- Left Column: Headline, Pill, Description & Buttons -->
     <div class="lg:col-span-7 xl:col-span-8 text-white space-y-6">
-      <!-- Big Display Headline -->
-      <h1 class="text-[clamp(2.2rem,1.8rem+2.6vw,3.8rem)] font-extrabold leading-[1.12] tracking-tight text-white drop-shadow-md">
+      <!-- Location & Niche Pill Badge -->
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-rose-500/20 border border-rose-400/30 text-rose-200 text-xs font-bold uppercase tracking-wider backdrop-blur-md">
+        <span class="w-2 h-2 rounded-full bg-rose-400 animate-pulse"></span>
+        <span>Pusat Magang Informatika • Malang &amp; Sekitarnya</span>
+      </div>
+
+      <!-- Display Headline (Optimized balanced scale) -->
+      <h1 class="text-[clamp(1.75rem,1.4rem+1.8vw,2.95rem)] font-extrabold leading-[1.18] tracking-tight text-white drop-shadow-md">
         LANGKAH AWAL MENUJU <br class="hidden sm:inline" />
-        <span class="text-rose-300">KARIER INDUSTRI NYATA</span> <br class="hidden sm:inline" />
-        BERSAMA GM TRAINING
+        <span class="text-rose-300">KARIER INFORMATIKA NYATA</span> <br class="hidden sm:inline" />
+        BERSAMA GEMILANG TRAINING MALANG
       </h1>
 
       <!-- Subtitle Paragraph -->
@@ -75,7 +81,7 @@ const {
             <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
             <circle cx="12" cy="10" r="3"></circle>
           </svg>
-          <span class="font-medium truncate">{siteConfig.address.city}, {siteConfig.address.province}</span>
+          <span class="font-medium truncate">Jl. Soekarno Hatta, {siteConfig.address.city} &amp; Sekitarnya</span>
         </div>
 
         <!-- Batch Title & Status Badge -->

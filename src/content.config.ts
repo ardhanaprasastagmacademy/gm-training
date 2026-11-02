@@ -92,6 +92,7 @@ const testimoni = defineCollection({
     tahun: z.number().int(),
     tempatMagang: z.string().optional(),
     peran: z.string().optional(),
+    foto: z.string().optional(),
     izinTayang: z.literal(true),
   }),
 });

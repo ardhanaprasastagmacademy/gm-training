@@ -68,7 +68,7 @@ import { siteConfig } from "../../data/site";
             <strong class="text-gray-900">Identitas Diri:</strong> Nama lengkap, tanggal lahir, nomor induk siswa/mahasiswa (NISN/NIM), asal institusi pendidikan, dan jurusan/prodi. Digunakan semata-mata untuk verifikasi kelayakan seleksi.
           </li>
           <li>
-            <strong class="text-gray-900">Kontak Pribadi:</strong> Alamat email dan nomor WhatsApp aktif. Digunakan untuk mengirimkan panggilan seleksi, notifikasi hasil, dan konfirmasi kehadiran.
+            <strong class="text-gray-900">Kontak Pribadi:</strong> Nomor WhatsApp aktif dan data kontak peserta. Digunakan untuk mengirimkan panggilan seleksi, notifikasi hasil, dan konfirmasi kehadiran.
           </li>
           <li>
             <strong class="text-gray-900">Dokumen Akademik & Portofolio:</strong> Transkrip nilai, CV, surat pengantar sekolah/kampus, dan bukti karya. Dibagikan secara terbatas hanya kepada pimpinan dan mentor industri pada posisi yang kamu lamar.
@@ -82,7 +82,7 @@ import { siteConfig } from "../../data/site";
           4. Kerahasiaan Hasil Seleksi
         </h2>
         <p class="text-gray-600 leading-relaxed">
-          Kami <strong class="text-gray-900">tidak pernah mempublikasikan daftar nama peserta yang lolos seleksi secara terbuka di website</strong>. Langkah ini diambil untuk mencegah penyalahgunaan identitas pribadi peserta di internet. Seluruh hasil seleksi diberitahukan secara tertutup langsung ke email dan WhatsApp masing-masing kandidat serta dilaporkan kepada koordinator sekolah/kampus asal.
+          Kami <strong class="text-gray-900">tidak pernah mempublikasikan daftar nama peserta yang lolos seleksi secara terbuka di website</strong>. Langkah ini diambil untuk mencegah penyalahgunaan identitas pribadi peserta di internet. Seluruh hasil seleksi diberitahukan secara tertutup langsung ke nomor WhatsApp masing-masing kandidat serta dilaporkan kepada koordinator sekolah/kampus asal.
         </p>
       </div>
 
@@ -120,9 +120,6 @@ import { siteConfig } from "../../data/site";
           Untuk pertanyaan mengenai kebijakan ini atau permohonan terkait data pribadi kamu, hubungi Sekretariat Resmi kami melalui:
         </p>
         <div class="p-5 bg-gray-50 rounded-2xl border border-gray-200 text-sm space-y-1.5">
-          <div>
-            Email: <a href={`mailto:${siteConfig.email}`} class="text-maroon-700 font-bold hover:underline">{siteConfig.email}</a>
-          </div>
           <div>
             Alamat: {siteConfig.address.street}, {siteConfig.address.city}
           </div>

@@ -8,9 +8,8 @@ import { siteConfig } from "../../data/site";
 const allTestimoni = await getCollection("testimoni", ({ data }) => data.izinTayang);
 
 const avatars: Record<string, string> = {
-  "ahmad-rizki": "/images/avatar-1.webp",
-  "nabila-putri": "/images/avatar-2.webp",
-  "farhan-maulana": "/images/avatar-3.webp",
+  "dian-uin-malang": "/images/testimoni/dian-uin-malang.webp",
+  "muhammad-fariz": "/images/testimoni/muhammad-fariz.webp",
 };
 ---
 
@@ -40,18 +39,20 @@ const avatars: Record<string, string> = {
       </div>
 
       <!-- Testimonials Grid (Matching Reference Screenshot: Deep Maroon Cards with Floating Top Avatars) -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-9 pt-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 max-w-4xl mx-auto gap-8 md:gap-9 pt-6">
         {
           allTestimoni.map((t, idx) => {
-            const avatarSrc = avatars[t.id] || `/images/avatar-${(idx % 3) + 1}.webp`;
+            const avatarSrc = t.data.foto || avatars[t.id] || `/images/avatar-${(idx % 3) + 1}.webp`;
             return (
               <div class="relative bg-gradient-to-b from-[#1C0409] via-[#140206] to-[#0D0104] text-white border border-maroon-800/60 rounded-[32px] md:rounded-[36px] pt-12 pb-8 px-6 sm:px-7 flex flex-col justify-between shadow-xl shadow-maroon-950/20 hover:shadow-2xl hover:shadow-maroon-950/35 hover:border-rose-400/40 hover:-translate-y-2 transition-all duration-300 group">
                 <!-- Floating Avatar overlapping top edge -->
-                <div class="absolute -top-7 left-1/2 -translate-x-1/2 w-16 h-16 rounded-full border-4 border-white shadow-xl overflow-hidden bg-gray-200 z-20 group-hover:scale-105 transition-transform duration-300">
+                <div class="absolute -top-9 left-1/2 -translate-x-1/2 w-18 h-18 sm:w-20 sm:h-20 rounded-full border-4 border-white shadow-xl overflow-hidden bg-gray-200 z-20 group-hover:scale-105 transition-transform duration-300">
                   <img
                     src={avatarSrc}
                     alt={t.data.nama}
-                    class="w-full h-full object-cover"
+                    width="80"
+                    height="80"
+                    class="w-full h-full object-cover object-center"
                     loading="lazy"
                   />
                 </div>

@@ -1,6 +1,6 @@
 ---
 judul: "Asisten Analis Data & Rekonsiliasi Keuangan"
-mitra: "pt-finansial-solusi-digital"
+mitra: "uin-malang"
 batch: "batch-1-2026"
 jalur: "mahasiswa"
 bidang: "Keuangan & Analitik"
@@ -27,7 +27,7 @@ benefit:
   - "Skema kerja remote fleksibel dengan koordinasi virtual terstruktur."
   - "Bimbingan langsung dari Akuntan Beregister Negara."
   - "Sertifikat magang analitik keuangan fintech terpercaya."
-  - "Rekomendasi konversi hingga 20 SKS magang kampus merdeka."
+  - "Transkrip penilaian kompetensi industri dan portofolio profesional."
 draft: false
 ---
 

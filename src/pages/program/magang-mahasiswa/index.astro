@@ -18,12 +18,12 @@ const mhsFaqItems = allFaq.slice(0, 4).map((f) => ({
 ---
 
 <BaseLayout
-  title={`Program Magang Mahasiswa & Konversi SKS | ${siteConfig.shortName}`}
-  description="Peluang magang profesional bagi mahasiswa diploma dan sarjana: penyelarasan kurikulum, peluang konversi hingga 20 SKS, dan bimbingan mentor industri."
+  title={`Program Magang Mahasiswa | ${siteConfig.shortName}`}
+  description="Peluang magang profesional bagi mahasiswa diploma dan sarjana: penyelarasan kompetensi, proyek industri nyata, dan bimbingan mentor praktisi."
 >
   <PageBanner
-    title="Program Magang Mahasiswa & Konversi SKS"
-    description="Tingkatkan kesiapan karier profesional dengan proyek industri nyata dan konversi SKS resmi."
+    title="Program Magang Mahasiswa"
+    description="Tingkatkan kesiapan karier profesional dengan proyek industri nyata dan pendampingan mentor praktisi."
     breadcrumbs={[
       { label: "Program", href: "/program/" },
       { label: "Magang Mahasiswa" },
@@ -40,7 +40,7 @@ const mhsFaqItems = allFaq.slice(0, 4).map((f) => ({
           <div class="bg-white border border-gray-200/90 rounded-[24px] p-6 md:p-8 shadow-sm">
             <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-maroon-50 text-maroon-700 text-xs font-bold uppercase tracking-wider mb-4 border border-maroon-100">
               <span class="w-1.5 h-1.5 rounded-full bg-maroon-700"></span>
-              <span>Ikhtisar Program</span>
+              <span>Informasi Program</span>
             </div>
             <h2 class="text-xl md:text-2xl font-extrabold text-gray-900 mb-5 tracking-tight">
               Ringkasan Program Magang Perguruan Tinggi
@@ -52,11 +52,11 @@ const mhsFaqItems = allFaq.slice(0, 4).map((f) => ({
               </div>
               <div class="bg-gray-50 p-4 rounded-2xl border border-gray-200/80">
                 <dt class="font-bold text-xs uppercase tracking-wider text-maroon-700 mb-1">Durasi & Format</dt>
-                <dd class="font-bold text-gray-900">4 hingga 6 bulan (Hybrid, Onsite, atau Remote)</dd>
+                <dd class="font-bold text-gray-900">2 hingga 6 bulan (fleksibel sesuai kurikulum)</dd>
               </div>
               <div class="bg-gray-50 p-4 rounded-2xl border border-gray-200/80">
-                <dt class="font-bold text-xs uppercase tracking-wider text-maroon-700 mb-1">Konversi Akademik</dt>
-                <dd class="font-bold text-gray-900">Hingga 20 SKS (sesuai persetujuan Kaprodi/Fakultas)</dd>
+                <dt class="font-bold text-xs uppercase tracking-wider text-maroon-700 mb-1">Evaluasi & Penilaian</dt>
+                <dd class="font-bold text-gray-900">Transkrip Nilai Industri & Sertifikat Resmi</dd>
               </div>
               <div class="bg-gray-50 p-4 rounded-2xl border border-gray-200/80">
                 <dt class="font-bold text-xs uppercase tracking-wider text-maroon-700 mb-1">Sertifikasi & Portofolio</dt>
@@ -142,7 +142,7 @@ const mhsFaqItems = allFaq.slice(0, 4).map((f) => ({
             <div class="mb-4">
               <span class="text-xs font-bold uppercase tracking-wider text-maroon-700">Luaran Program</span>
               <h2 class="text-2xl font-extrabold text-gray-900 mt-1 tracking-tight">
-                Mekanisme Konversi SKS & Luaran Akhir
+                Mekanisme Penilaian & Luaran Akhir
               </h2>
             </div>
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
@@ -205,7 +205,7 @@ const mhsFaqItems = allFaq.slice(0, 4).map((f) => ({
               Daftar Magang Mahasiswa
             </h3>
             <p class="text-xs text-gray-600 mb-6 leading-relaxed">
-              Dapatkan pengalaman kerja di industri rintisan teknologi terdepan dan konversikan nilainya ke SKS kuliah kamu.
+              Dapatkan pengalaman kerja di industri rintisan teknologi terdepan dan bangun portofolio profesional untuk karier masa depan kamu.
             </p>
             <a
               href="/pendaftaran/?jalur=mahasiswa"
@@ -218,8 +218,8 @@ const mhsFaqItems = allFaq.slice(0, 4).map((f) => ({
             </a>
 
             <div class="mt-4 text-center">
-              <a href="/posisi/?jalur=mahasiswa" class="text-xs font-bold text-maroon-700 hover:underline transition-colors">
-                Lihat Khusus Posisi Mahasiswa →
+              <a href="/pendaftaran/form/?jalur=mahasiswa" class="text-xs font-bold text-maroon-700 hover:underline transition-colors">
+                Isi Formulir Pendaftaran Mahasiswa →
               </a>
             </div>
           </div>
@@ -250,7 +250,7 @@ const mhsFaqItems = allFaq.slice(0, 4).map((f) => ({
   <CtaBanner
     title="Siap Mengambil Langkah Magang Menuju Karier Impian?"
     subtitle="Pilih posisi magang yang sesuai dengan program studi kamu sekarang juga."
-    primaryText="Pilih Posisi Mahasiswa"
-    primaryHref="/posisi/?jalur=mahasiswa"
+    primaryText="Daftar Magang Mahasiswa"
+    primaryHref="/pendaftaran/form/?jalur=mahasiswa"
   />
 </BaseLayout>

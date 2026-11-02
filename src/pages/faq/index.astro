@@ -13,7 +13,7 @@ const categories = [
   { key: "semua", label: "Semua Kategori" },
   { key: "umum", label: "Umum & Biaya" },
   { key: "smk", label: "Siswa SMK" },
-  { key: "mahasiswa", label: "Mahasiswa & SKS" },
+  { key: "mahasiswa", label: "Mahasiswa" },
   { key: "pendaftaran", label: "Pendaftaran & Seleksi" },
   { key: "selama-magang", label: "Selama Magang" },
   { key: "sekolah-kampus", label: "Sekolah & Kampus" },
@@ -30,7 +30,7 @@ const accordionItems = sortedFaq.map((f) => ({
 
 <BaseLayout
   title={`Tanya Jawab (FAQ) Program Magang SMK & Mahasiswa | ${siteConfig.shortName}`}
-  description="Pusat jawaban pertanyaan umum seputar biaya magang gratis, syarat pendaftaran SMK dan mahasiswa, konversi SKS, hingga bimbingan industri."
+  description="Pusat jawaban pertanyaan umum seputar biaya magang gratis, syarat pendaftaran SMK dan mahasiswa, hingga bimbingan mentor industri."
 >
   <PageBanner
     title="Pertanyaan yang Sering Diajukan (FAQ)"
@@ -93,10 +93,10 @@ const accordionItems = sortedFaq.map((f) => ({
                 <span aria-hidden="true">↗</span>
               </a>
               <a
-                href={`mailto:${siteConfig.email}`}
+                href="/kontak/"
                 class="flex items-center justify-center gap-2 w-full py-3 px-5 rounded-full bg-gray-50 border border-gray-200 text-gray-800 text-xs font-bold hover:bg-gray-100 transition-all"
               >
-                Kirim Pertanyaan via Email
+                Kunjungi Halaman Kontak
               </a>
             </div>
           </div>

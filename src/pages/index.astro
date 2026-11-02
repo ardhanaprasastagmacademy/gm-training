@@ -7,41 +7,17 @@ import PhilosophyBanner from "../components/sections/PhilosophyBanner.astro";
 import BidangKejuruanGrid from "../components/sections/BidangKejuruanGrid.astro";
 import WhyChooseUs from "../components/sections/WhyChooseUs.astro";
 import DokumentasiGaleriSection from "../components/sections/DokumentasiGaleriSection.astro";
-import PosisiCard from "../components/sections/PosisiCard.astro";
 import MitraGrid from "../components/sections/MitraGrid.astro";
 import Accordion from "../components/ui/Accordion.astro";
 import CtaBanner from "../components/sections/CtaBanner.astro";
 import { siteConfig } from "../data/site";
 
 // Fetch collections for homepage
-const allPosisi = await getCollection("posisi", ({ data }) => !data.draft);
 const allMitra = await getCollection("mitra");
 const allTestimoni = await getCollection("testimoni", ({ data }) => data.izinTayang);
 
-// Sort & slice for featured positions
-const featuredPosisi = allPosisi.slice(0, 6);
-
-// Map mitra logo and name to positions
-const posisiWithMitra = featuredPosisi.map((p) => {
-  const mitraDoc = allMitra.find((m) => m.id === p.data.mitra.id);
-  return {
-    slug: p.id,
-    judul: p.data.judul,
-    mitraNama: mitraDoc ? mitraDoc.data.nama : p.data.mitra.id,
-    mitraLogo: mitraDoc ? mitraDoc.data.logo : undefined,
-    jalur: p.data.jalur,
-    bidang: p.data.bidang,
-    lokasi: p.data.lokasi,
-    mode: p.data.mode,
-    durasiBulan: p.data.durasiBulan,
-    kuotaAwal: p.data.kuotaAwal,
-    ringkasan: p.data.tugas[0] || "",
-    featured: false,
-  };
-});
-
-// Partner Showcase items
-const mitraList = allMitra.slice(0, 5).map((m) => ({
+// Partner Showcase items (all 7 partners)
+const mitraList = allMitra.map((m) => ({
   slug: m.id,
   nama: m.data.nama,
   logo: m.data.logo,
@@ -55,15 +31,15 @@ const mitraList = allMitra.slice(0, 5).map((m) => ({
 const quickFaqItems = [
   {
     id: "faq-1",
-    title: "Apakah seluruh program magang di GM Training 100% bebas biaya?",
+    title: "Apakah seluruh program magang di Gemilang Training 100% bebas biaya?",
     content:
-      "Benar. Seluruh program magang yang dikelola GM Training tidak memungut biaya pendaftaran, biaya seleksi, atau pungutan apa pun kepada peserta didik maupun pihak sekolah/kampus.",
+      "Benar. Seluruh program magang yang dikelola Gemilang Training tidak memungut biaya pendaftaran, biaya seleksi, atau pungutan apa pun kepada peserta didik maupun pihak sekolah/kampus.",
   },
   {
     id: "faq-2",
     title: "Apakah kegiatan magang ini diakui secara resmi oleh sekolah SMK dan kampus?",
     content:
-      "Ya, seluruh program magang dirancang selaras dengan kurikulum Capaian Pembelajaran (CP) SMK untuk pemenuhan nilai PKL resmi serta kebijakan konversi hingga 20 SKS MBKM perguruan tinggi.",
+      "Ya, seluruh program magang dirancang selaras dengan kurikulum Capaian Pembelajaran (CP) SMK untuk pemenuhan nilai PKL resmi serta standar penilaian kompetensi magang perguruan tinggi.",
   },
   {
     id: "faq-3",
@@ -94,7 +70,6 @@ const orgSchema = {
       contactPoint: {
         "@type": "ContactPoint",
         contactType: "customer support",
-        email: siteConfig.email,
         telephone: siteConfig.whatsapp,
         areaServed: "ID",
         availableLanguage: "id",
@@ -130,7 +105,7 @@ const orgSchema = {
   <!-- 3. Philosophy & Collaboration Story Banner (Tentang Kami) -->
   <PhilosophyBanner />
 
-  <!-- 4. Standar Kualitas & Mengapa Memilih GM Training (Asymmetric 2-Column with Maroon Cards) -->
+  <!-- 4. Standar Kualitas & Mengapa Memilih Gemilang Training (Asymmetric 2-Column with Maroon Cards) -->
   <WhyChooseUs />
 
   <!-- 5. Pilihan Program & Bidang Kejuruan (3-Column Photo Cards) -->
@@ -139,54 +114,19 @@ const orgSchema = {
   <!-- 6. Dokumentasi Aktivitas Magang (Pill Filters & Grid) -->
   <DokumentasiGaleriSection />
 
-  <!-- 7. Katalog Lowongan Terbuka & Pilihan Posisi Magang -->
-  <section class="py-16 md:py-24 bg-white border-t border-gray-100">
-    <div class="max-w-[72rem] mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
-        <div class="max-w-2xl text-left">
-          <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-maroon-50 text-maroon-700 text-xs font-bold uppercase tracking-wider mb-3 border border-maroon-100">
-            <span class="w-1.5 h-1.5 rounded-full bg-maroon-700"></span>
-            <span>Katalog Lowongan Terbuka</span>
-          </div>
-          <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-gray-900 leading-tight">
-            Pilihan Posisi Magang Batch 1
-          </h2>
-          <p class="text-gray-600 text-sm md:text-base leading-relaxed mt-3">
-            Temukan posisi relevan sesuai jurusan sekolah kejuruan atau konsentrasi program studi perkuliahan kamu.
-          </p>
-        </div>
-
-        <a
-          href="/posisi/"
-          class="shrink-0 inline-flex items-center gap-2.5 px-6 py-3 rounded-full bg-white hover:bg-gray-50 border border-gray-200 text-maroon-800 font-bold text-sm shadow-sm hover:shadow-md transition-all group"
-        >
-          <span>Lihat Semua Posisi</span>
-          <span class="w-5 h-5 rounded-full bg-maroon-50 text-maroon-700 flex items-center justify-center text-xs group-hover:translate-x-0.5 transition-transform">
-            →
-          </span>
-        </a>
-      </div>
-
-      <!-- Posisi Cards Grid -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {posisiWithMitra.map((p) => <PosisiCard {...p} />)}
-      </div>
-    </div>
-  </section>
-
-  <!-- 8. Mitra Industri Terverifikasi -->
+  <!-- 7. Mitra Industri Terverifikasi -->
   <section class="py-16 md:py-22 bg-[#F8F9FA] border-t border-gray-200/80">
     <div class="max-w-[72rem] mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center max-w-2xl mx-auto mb-12">
         <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-maroon-50 text-maroon-700 text-xs font-bold uppercase tracking-wider mb-3 border border-maroon-100">
           <span class="w-1.5 h-1.5 rounded-full bg-maroon-700"></span>
-          <span>Kemitraan Industri Resmi</span>
+          <span>Kemitraan Resmi Kampus &amp; Sekolah</span>
         </div>
         <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-gray-900 leading-tight">
-          Mitra Industri &amp; Korporasi Rekanan
+          Mitra Institusi &amp; Kampus Rekanan
         </h2>
         <p class="text-gray-600 text-sm md:text-base mt-3">
-          Bekerja sama langsung dengan jajaran industri manufaktur, teknologi, dan kreatif berintegritas tinggi.
+          Bekerja sama langsung dengan jajaran perguruan tinggi negeri, politeknik, dan SMK rujukan berintegritas tinggi di Jawa Timur.
         </p>
       </div>
 
@@ -197,7 +137,7 @@ const orgSchema = {
           href="/mitra/"
           class="inline-flex items-center gap-2.5 px-7 py-3 rounded-full bg-white hover:bg-gray-50 border border-gray-200 text-xs md:text-sm font-bold text-maroon-800 shadow-sm hover:shadow-md transition-all group"
         >
-          <span>Pelajari Seluruh Profil Mitra Industri</span>
+          <span>Pelajari Seluruh Profil Mitra Rekanan</span>
           <span class="w-5 h-5 rounded-full bg-maroon-50 text-maroon-700 flex items-center justify-center text-xs group-hover:translate-x-0.5 transition-transform">
             →
           </span>
@@ -224,17 +164,19 @@ const orgSchema = {
             </p>
           </div>
 
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-9 pt-6">
-            {allTestimoni.slice(0, 3).map((t, idx) => {
-              const avatarSrc = `/images/avatar-${(idx % 3) + 1}.webp`;
+          <div class="grid grid-cols-1 md:grid-cols-2 max-w-4xl mx-auto gap-8 md:gap-9 pt-6">
+            {allTestimoni.map((t, idx) => {
+              const avatarSrc = t.data.foto || `/images/avatar-${(idx % 3) + 1}.webp`;
               return (
                 <div class="relative bg-gradient-to-b from-[#1C0409] via-[#140206] to-[#0D0104] text-white border border-maroon-800/60 rounded-[32px] md:rounded-[36px] pt-12 pb-8 px-6 sm:px-7 flex flex-col justify-between shadow-xl shadow-maroon-950/20 hover:shadow-2xl hover:shadow-maroon-950/35 hover:border-rose-400/40 hover:-translate-y-2 transition-all duration-300 group">
                   <!-- Floating Avatar overlapping top edge -->
-                  <div class="absolute -top-7 left-1/2 -translate-x-1/2 w-16 h-16 rounded-full border-4 border-white shadow-xl overflow-hidden bg-gray-200 z-20 group-hover:scale-105 transition-transform duration-300">
+                  <div class="absolute -top-9 left-1/2 -translate-x-1/2 w-18 h-18 sm:w-20 sm:h-20 rounded-full border-4 border-white shadow-xl overflow-hidden bg-gray-200 z-20 group-hover:scale-105 transition-transform duration-300">
                     <img
                       src={avatarSrc}
                       alt={t.data.nama}
-                      class="w-full h-full object-cover"
+                      width="80"
+                      height="80"
+                      class="w-full h-full object-cover object-center"
                       loading="lazy"
                     />
                   </div>

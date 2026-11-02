@@ -1,6 +1,6 @@
 ---
 judul: "Desainer Grafis & Multimedia Konten"
-mitra: "studio-cipta-kreatif-indonesia"
+mitra: "smkn-1-pasuruan"
 batch: "batch-1-2026"
 jalur: "keduanya"
 bidang: "Kreatif & Desain"

@@ -5,7 +5,7 @@ export interface SiteConfig {
   description: string;
   domain: string;
   url: string;
-  email: string;
+  email?: string;
   whatsapp: string;
   whatsappUrl: string;
   address: {
@@ -30,27 +30,26 @@ export interface SiteConfig {
 }
 
 export const siteConfig: SiteConfig = {
-  name: "Program Magang SMK & Mahasiswa",
-  shortName: "GM Training",
-  tagline: "Jembatan Kompetensi Menuju Dunia Kerja Nyata",
+  name: "Program Magang Informatika SMK & Mahasiswa",
+  shortName: "Gemilang Training Malang",
+  tagline: "Pusat Magang Informatika di Kota Malang & Sekitarnya",
   description:
-    "Pusat informasi dan pendaftaran resmi program magang dan PKL terstruktur untuk siswa SMK dan mahasiswa bersama mitra industri terpercaya.",
+    "Pusat informasi dan pendaftaran resmi program magang dan PKL bidang informatika, teknologi informasi, dan digital di Kota Malang dan sekitarnya bersama mitra industri terpercaya.",
   domain: "gmtraining.id",
   url: "https://gmtraining.id",
-  email: "kontak@gmtraining.id",
-  whatsapp: "+62 812-3456-7890",
-  whatsappUrl: "https://wa.me/6281234567890?text=Halo%20Admin%20GM%20Training,%20saya%20ingin%20bertanya%20tentang%20program%20magang",
+  whatsapp: "+62 819-4343-1484",
+  whatsappUrl: "https://wa.me/6281943431484?text=Halo%20Admin%20Gemilang%20Training,%20saya%20ingin%20bertanya%20tentang%20program%20magang",
   address: {
-    street: "Gedung Pusat Edukasi Terpadu, Lt. 3, Jl. Merdeka Ilmu No. 45",
-    city: "Jakarta Selatan",
-    province: "DKI Jakarta",
-    postalCode: "12340",
+    street: "Jl. Soekarno Hatta No. 45",
+    city: "Kota Malang",
+    province: "Jawa Timur",
+    postalCode: "65141",
     country: "Indonesia",
   },
   officeHours: "Senin – Jumat, 08.00 – 17.00 WIB",
   socials: {
-    instagram: "https://instagram.com/gmtraining.id",
-    linkedin: "https://linkedin.com/company/gm-training-indonesia",
+    instagram: "https://www.instagram.com/gemilangtraining.id/",
+    linkedin: "https://linkedin.com/company/gemilang-training-indonesia",
   },
   formUrls: {
     smk: "https://forms.gle/magang-smk-batch-1-2026",
