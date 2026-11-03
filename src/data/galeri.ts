@@ -31,9 +31,9 @@ export const dataGaleri: ItemGaleri[] = [
     lokasi: "Kota Malang",
     tanggal: "18 Oktober 2026",
     deskripsi:
-      "Penyelarasan kurikulum vokasi SMK bersama praktisi industri, praktik rekayasa perangkat lunak, konfigurasi jaringan komputer, dan simulasi alur kerja industri nyata.",
+      "Pelatihan intensif penyusunan CV profesional serta bimbingan teknis pembuatan website portofolio interaktif berbasis HTML, CSS, dan JavaScript bersama mentor industri.",
     gambar: "/images/portofolio/pelatihan-smk3pgri.webp",
-    tag: ["Vokasi SMK", "Praktik RPL", "MikroTik & Jaringan"],
+    tag: ["Pelatihan CV", "Website Portofolio", "HTML, CSS, JS"],
   },
   {
     id: "galeri-3",

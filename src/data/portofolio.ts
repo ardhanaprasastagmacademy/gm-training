@@ -39,10 +39,10 @@ export const dataPortofolio: ItemPortofolio[] = [
     peserta: "Siswa PKL Jurusan RPL & TKJ bersama Guru Pendamping",
     durasi: "Pendampingan 4 Bulan",
     deskripsi:
-      "Penyelarasan kurikulum vokasi SMK dengan standar industri teknologi, mencakup praktik rekayasa perangkat lunak, perakitan infrastruktur jaringan, dan simulasi alur kerja industri nyata.",
+      "Penyelarasan kurikulum vokasi SMK dengan standar industri teknologi, mencakup bimbingan penyusunan CV profesional serta pelatihan pembuatan website portofolio interaktif berbasis HTML, CSS, dan JavaScript.",
     gambar: "/images/portofolio/pelatihan-smk3pgri.webp",
-    techStack: ["MikroTik RouterOS", "Linux Server", "Clean Code RPL", "Uji Kompetensi Kejuruan"],
-    luaran: "Portofolio Proyek Siswa & Standar Kompetensi Industri",
+    techStack: ["Pelatihan CV", "Pembuatan Website Portofolio", "HTML", "CSS", "JavaScript"],
+    luaran: "CV Profesional Siswa & Website Portofolio Interaktif (HTML/CSS/JS)",
   },
   {
     id: "pelatihan-insan-kamil",
