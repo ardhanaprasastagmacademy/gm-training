@@ -11,11 +11,36 @@ const avatars: Record<string, string> = {
   "dian-uin-malang": "/images/testimoni/dian-uin-malang.webp",
   "muhammad-fariz": "/images/testimoni/muhammad-fariz.webp",
 };
+
+const alumniSchema = {
+  "@type": "CollectionPage",
+  "@id": `${siteConfig.url}/cerita-alumni/#webpage`,
+  name: "Cerita Alumni & Testimoni Program Magang",
+  description:
+    "Kisah nyata dan rekam jejak pengalaman alumni siswa SMK dan mahasiswa yang telah menyelesaikan program magang terstruktur di industri rekanan.",
+  hasPart: allTestimoni.map((t) => ({
+    "@type": "Review",
+    author: {
+      "@type": "Person",
+      name: t.data.nama,
+    },
+    reviewBody: t.body,
+    itemReviewed: {
+      "@id": `${siteConfig.url}/#organization`,
+    },
+    reviewRating: {
+      "@type": "Rating",
+      ratingValue: "5",
+      bestRating: "5",
+    },
+  })),
+};
 ---
 
 <BaseLayout
   title={`Cerita Alumni & Testimoni Program Magang | ${siteConfig.shortName}`}
   description="Kisah nyata dan rekam jejak pengalaman alumni siswa SMK dan mahasiswa yang telah menyelesaikan program magang terstruktur di industri rekanan."
+  schema={alumniSchema}
 >
   <PageBanner
     title="Cerita Alumni & Jejak Pengalaman"

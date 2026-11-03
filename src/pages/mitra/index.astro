@@ -16,11 +16,31 @@ const mitraList = allMitra.map((m) => ({
   website: m.data.website,
   deskripsi: m.data.deskripsi || m.body,
 }));
+
+const mitraSchema = {
+  "@type": "CollectionPage",
+  "@id": `${siteConfig.url}/mitra/#webpage`,
+  name: "Daftar Mitra Pendidikan & Kampus Rekanan Resmi",
+  description:
+    "Daftar mitra perguruan tinggi, politeknik, dan SMK resmi yang bekerja sama dalam Program Magang SMK & Mahasiswa Gemilang Training.",
+  hasPart: mitraList.map((m) => ({
+    "@type": "EducationalOrganization",
+    name: m.nama.replace(/\s*\([^)]*\)/g, ""),
+    url: m.website || `${siteConfig.url}/mitra/`,
+    image: `${siteConfig.url}${m.logo}`,
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: m.kota,
+      addressCountry: "ID",
+    },
+  })),
+};
 ---
 
 <BaseLayout
   title={`Mitra Pendidikan & Instansi Penempatan Magang | ${siteConfig.shortName}`}
   description="Daftar mitra perguruan tinggi, politeknik, dan sekolah menengah kejuruan resmi yang bekerja sama dalam Program Magang SMK & Mahasiswa Gemilang Training."
+  schema={mitraSchema}
 >
   <PageBanner
     title="Mitra Pendidikan & Instansi Rekanan"

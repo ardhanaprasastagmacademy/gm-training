@@ -12,11 +12,33 @@ const categories = [
   { key: "marketing", label: "Media & Digital Marketing" },
   { key: "branding", label: "Branding & Merchandise" },
 ];
+
+const portfolioSchema = {
+  "@type": "CollectionPage",
+  "@id": `${siteConfig.url}/portofolio/#webpage`,
+  name: "Portofolio Dokumentasi Karya & Aktivitas Magang Informatika",
+  description:
+    "Dokumentasi portofolio hasil karya, proyek digital, dan aktivitas program pelatihan serta magang industri di Gemilang Training Malang.",
+  hasPart: dataPortofolio.map((item) => ({
+    "@type": "CreativeWork",
+    name: item.judul,
+    description: item.deskripsi,
+    image: `${siteConfig.url}${item.gambar}`,
+    creator: {
+      "@id": `${siteConfig.url}/#organization`,
+    },
+    locationCreated: {
+      "@type": "Place",
+      name: item.lokasi,
+    },
+  })),
+};
 ---
 
 <BaseLayout
   title={`Portofolio Dokumentasi Karya | ${siteConfig.shortName}`}
   description="Dokumentasi portofolio hasil karya, proyek digital, dan aktivitas program pelatihan serta magang industri di Gemilang Training Malang."
+  schema={portfolioSchema}
 >
   <PageBanner
     title="Portofolio Dokumentasi Karya"

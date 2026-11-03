@@ -35,8 +35,9 @@ export const siteConfig: SiteConfig = {
   tagline: "Pusat Magang Informatika di Kota Malang & Sekitarnya",
   description:
     "Pusat informasi dan pendaftaran resmi program magang dan PKL bidang informatika, teknologi informasi, dan digital di Kota Malang dan sekitarnya bersama mitra industri terpercaya.",
-  domain: "gmtraining.id",
-  url: "https://gmtraining.id",
+  domain: "maganginformatika.web.id",
+  url: "https://maganginformatika.web.id",
+  email: "info@maganginformatika.web.id",
   whatsapp: "+62 819-4343-1484",
   whatsappUrl: "https://wa.me/6281943431484?text=Halo%20Admin%20Gemilang%20Training,%20saya%20ingin%20bertanya%20tentang%20program%20magang",
   address: {

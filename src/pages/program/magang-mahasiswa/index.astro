@@ -15,11 +15,37 @@ const mhsFaqItems = allFaq.slice(0, 4).map((f) => ({
   title: f.data.pertanyaan,
   content: f.body || "",
 }));
+
+// EducationalOccupationalProgram Schema (SEO & AEO)
+const mhsProgramSchema = {
+  "@type": "EducationalOccupationalProgram",
+  "@id": `${siteConfig.url}/program/magang-mahasiswa/#program`,
+  name: "Program Magang Mahasiswa Bidang Teknologi Informasi & Informatika",
+  description:
+    "Peluang magang profesional bagi mahasiswa diploma dan sarjana di Kota Malang: proyek industri nyata, pendampingan software engineer senior, dan konversi SKS / Magang Mandiri.",
+  provider: {
+    "@id": `${siteConfig.url}/#organization`,
+  },
+  educationalProgramMode: "hybrid",
+  timeToComplete: "P3M to P6M",
+  programPrerequisites: [
+    "Mahasiswa aktif D3/D4/S1 jurusan Teknik Informatika, Sistem Informasi, TRPL, atau serumpun",
+    "Surat rekomendasi / pengantar dari program studi / fakultas",
+    "Curriculum Vitae (CV) & portofolio proyek awal",
+  ],
+  offers: {
+    "@type": "Offer",
+    price: "0",
+    priceCurrency: "IDR",
+    category: "Gratis / Program Mandiri & Kemitraan Kampus",
+  },
+};
 ---
 
 <BaseLayout
   title={`Program Magang Mahasiswa | ${siteConfig.shortName}`}
   description="Peluang magang profesional bagi mahasiswa diploma dan sarjana: penyelarasan kompetensi, proyek industri nyata, dan bimbingan mentor praktisi."
+  schema={mhsProgramSchema}
 >
   <PageBanner
     title="Program Magang Mahasiswa"

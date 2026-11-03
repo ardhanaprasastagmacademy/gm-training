@@ -55,36 +55,51 @@ const quickFaqItems = [
   },
 ];
 
-// Structured Data
-const orgSchema = {
-  "@context": "https://schema.org",
+// Structured Data for Home (FAQ + Catalog)
+const homeSchema = {
   "@graph": [
     {
-      "@type": "Organization",
-      "@id": `${siteConfig.url}/#organization`,
-      name: siteConfig.name,
-      alternateName: siteConfig.shortName,
-      url: siteConfig.url,
-      logo: `${siteConfig.url}/og/default-og.svg`,
-      sameAs: [siteConfig.socials.instagram, siteConfig.socials.linkedin].filter(Boolean),
-      contactPoint: {
-        "@type": "ContactPoint",
-        contactType: "customer support",
-        telephone: siteConfig.whatsapp,
-        areaServed: "ID",
-        availableLanguage: "id",
-      },
+      "@type": "FAQPage",
+      "@id": `${siteConfig.url}/#home-faq`,
+      mainEntity: quickFaqItems.map((f) => ({
+        "@type": "Question",
+        name: f.title,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: f.content,
+        },
+      })),
     },
     {
-      "@type": "WebSite",
-      "@id": `${siteConfig.url}/#website`,
-      url: siteConfig.url,
-      name: siteConfig.name,
-      description: siteConfig.description,
-      publisher: {
-        "@id": `${siteConfig.url}/#organization`,
-      },
-      inLanguage: "id-ID",
+      "@type": "OfferCatalog",
+      "@id": `${siteConfig.url}/#tracks`,
+      name: "Pilihan Konsentrasi Magang Informatika Malang",
+      itemListElement: [
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Magang Rekayasa Perangkat Lunak (RPL)",
+            description: "Praktik pengembangan aplikasi web modern, REST API, clean code, dan bimbingan software engineer.",
+          },
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Magang Teknik Komputer & Jaringan (TKJ)",
+            description: "Konfigurasi MikroTik, routing switching, Linux server administration, dan pemeliharaan infrastruktur IT.",
+          },
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Magang Desain Komunikasi Visual (DKV)",
+            description: "Perancangan antarmuka pengguna (UI/UX), pembuatan aset grafis digital, dan visual identity branding.",
+          },
+        },
+      ],
     },
   ],
 };
@@ -94,7 +109,7 @@ const orgSchema = {
   title={`${siteConfig.name} | ${siteConfig.tagline}`}
   description={siteConfig.description}
   canonical={siteConfig.url}
-  schema={orgSchema}
+  schema={homeSchema}
 >
   <!-- 1. Hero Section (Framed Photo Card with Glass Batch Widget matching reference) -->
   <Hero />

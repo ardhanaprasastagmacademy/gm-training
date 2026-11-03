@@ -25,10 +25,12 @@ const {
   noindex = false,
 } = Astro.props;
 
-// Ensure trailing slash on canonical per SEO-STRATEGY.md
-const siteUrl = siteConfig.url;
+// Domain & Canonical URL resolution
+const siteUrl = siteConfig.url; // https://maganginformatika.web.id
 let resolvedCanonical = canonical
-  ? (canonical.startsWith("http") ? canonical : new URL(canonical, siteUrl).toString())
+  ? canonical.startsWith("http")
+    ? canonical
+    : new URL(canonical, siteUrl).toString()
   : new URL(Astro.url.pathname, siteUrl).toString();
 
 if (!resolvedCanonical.endsWith("/") && !resolvedCanonical.includes(".")) {
@@ -40,40 +42,298 @@ const resolvedOgImage = ogImage.startsWith("http")
   : new URL(ogImage, siteUrl).toString();
 
 // Formatted title
-const formattedTitle = title.includes(siteConfig.shortName) || title.includes(siteConfig.name)
-  ? title
-  : `${title} | ${siteConfig.shortName}`;
+const formattedTitle =
+  title.includes(siteConfig.shortName) || title.includes(siteConfig.name)
+    ? title
+    : `${title} | ${siteConfig.shortName}`;
+
+// Build BreadcrumbList items dynamically from pathname
+const pathSegments = Astro.url.pathname
+  .split("/")
+  .filter((segment) => segment.length > 0);
+
+const segmentNames: Record<string, string> = {
+  program: "Program Magang",
+  "magang-smk": "Magang SMK (PKL)",
+  "magang-mahasiswa": "Magang Mahasiswa",
+  mitra: "Mitra Rekanan",
+  portofolio: "Portofolio Karya",
+  galeri: "Dokumentasi Galeri",
+  blog: "Blog & Warta",
+  berita: "Berita",
+  faq: "Tanya Jawab (FAQ)",
+  tentang: "Tentang Kami",
+  kontak: "Kontak & Lokasi",
+  "cerita-alumni": "Cerita Alumni",
+  pendaftaran: "Pendaftaran",
+  daftar: "Pendaftaran",
+  form: "Formulir",
+  "alur-pendaftaran": "Alur Pendaftaran",
+  "syarat-ketentuan": "Syarat & Ketentuan",
+  "kebijakan-privasi": "Kebijakan Privasi",
+  unduhan: "Pusat Unduhan",
+  "untuk-mitra": "Kemitraan Industri",
+  "untuk-sekolah-kampus": "Kemitraan Sekolah & Kampus",
+};
+
+const breadcrumbElements = [
+  {
+    "@type": "ListItem",
+    position: 1,
+    name: "Beranda",
+    item: `${siteUrl}/`,
+  },
+];
+
+let currentPath = siteUrl;
+pathSegments.forEach((segment, idx) => {
+  currentPath += `/${segment}`;
+  const resolvedItem = `${currentPath}/`;
+  const readableName =
+    segmentNames[segment] ||
+    segment
+      .split("-")
+      .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+      .join(" ");
+
+  breadcrumbElements.push({
+    "@type": "ListItem",
+    position: idx + 2,
+    name: readableName,
+    item: resolvedItem,
+  });
+});
+
+// Base Organization Schema (EducationalOrganization + LocalBusiness for GEO & Local SEO)
+const baseOrgSchema = {
+  "@type": ["EducationalOrganization", "LocalBusiness"],
+  "@id": `${siteUrl}/#organization`,
+  name: "Gemilang Training - Pusat Magang Informatika Malang",
+  alternateName: [
+    "Gemilang Training",
+    "Magang Informatika Malang",
+    "PKL Informatika Malang",
+    "Pusat Magang SMK & Mahasiswa Malang",
+  ],
+  url: siteUrl,
+  logo: {
+    "@type": "ImageObject",
+    "@id": `${siteUrl}/#logo`,
+    url: `${siteUrl}/images/logo-gm.png`,
+    caption: "Gemilang Training Malang",
+  },
+  image: `${siteUrl}/og/default-og.svg`,
+  description:
+    "Pusat program magang dan Praktik Kerja Lapangan (PKL) resmi bidang Informatika, Rekayasa Perangkat Lunak (RPL), Teknik Komputer dan Jaringan (TKJ), Desain Komunikasi Visual (DKV), dan Sistem Informasi di Kota Malang untuk siswa SMK dan mahasiswa.",
+  telephone: siteConfig.whatsapp,
+  email: siteConfig.email || "info@maganginformatika.web.id",
+  priceRange: "Gratis (Free)",
+  currenciesAccepted: "IDR",
+  paymentAccepted: "Gratis / Beasiswa Mandiri & Kerjasama Sekolah",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: siteConfig.address.street,
+    addressLocality: siteConfig.address.city,
+    addressRegion: siteConfig.address.province,
+    postalCode: siteConfig.address.postalCode,
+    addressCountry: "ID",
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: -7.9405,
+    longitude: 112.6163,
+  },
+  openingHoursSpecification: [
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      opens: "08:00",
+      closes: "17:00",
+    },
+  ],
+  areaServed: [
+    {
+      "@type": "City",
+      name: "Kota Malang",
+    },
+    {
+      "@type": "AdministrativeArea",
+      name: "Malang Raya",
+    },
+    {
+      "@type": "AdministrativeArea",
+      name: "Jawa Timur",
+    },
+    {
+      "@type": "Country",
+      name: "Indonesia",
+    },
+  ],
+  knowsAbout: [
+    "Program Magang Informatika Malang",
+    "Praktik Kerja Lapangan (PKL) SMK",
+    "Rekayasa Perangkat Lunak (RPL)",
+    "Teknik Komputer dan Jaringan (TKJ)",
+    "Desain Komunikasi Visual (DKV)",
+    "Sistem Informasi & TRPL",
+    "Web Development (HTML, CSS, JavaScript, PHP)",
+    "UI/UX Design",
+    "Cloud Server & DevOps",
+  ],
+  sameAs: [siteConfig.socials.instagram, siteConfig.socials.linkedin].filter(
+    Boolean
+  ),
+  contactPoint: {
+    "@type": "ContactPoint",
+    contactType: "Customer Support & Admissions",
+    telephone: siteConfig.whatsapp,
+    areaServed: "ID",
+    availableLanguage: ["id", "en"],
+  },
+};
+
+// Base WebSite Schema (AEO SearchAction)
+const baseWebSiteSchema = {
+  "@type": "WebSite",
+  "@id": `${siteUrl}/#website`,
+  url: siteUrl,
+  name: "Magang Informatika Malang",
+  alternateName: "Gemilang Training",
+  description: siteConfig.description,
+  publisher: {
+    "@id": `${siteUrl}/#organization`,
+  },
+  inLanguage: "id-ID",
+  potentialAction: {
+    "@type": "SearchAction",
+    target: `${siteUrl}/blog/?q={search_term_string}`,
+    "query-input": "required name=search_term_string",
+  },
+};
+
+// Base WebPage Schema
+const baseWebPageSchema = {
+  "@type": ogType === "article" ? "ItemPage" : "WebPage",
+  "@id": `${resolvedCanonical}#webpage`,
+  url: resolvedCanonical,
+  name: formattedTitle,
+  description: description,
+  isPartOf: {
+    "@id": `${siteUrl}/#website`,
+  },
+  about: {
+    "@id": `${siteUrl}/#organization`,
+  },
+  inLanguage: "id-ID",
+};
+
+// Build Combined JSON-LD Graph
+const graphItems: any[] = [
+  baseOrgSchema,
+  baseWebSiteSchema,
+  baseWebPageSchema,
+];
+
+// Add Breadcrumbs if not home page
+if (pathSegments.length > 0) {
+  graphItems.push({
+    "@type": "BreadcrumbList",
+    "@id": `${resolvedCanonical}#breadcrumb`,
+    itemListElement: breadcrumbElements,
+  });
+}
+
+// Append or Merge Custom Page Schema
+if (schema) {
+  if (Array.isArray(schema["@graph"])) {
+    graphItems.push(...schema["@graph"]);
+  } else if (schema["@type"]) {
+    // If it's a standalone schema object (e.g. Article, FAQPage, Course)
+    graphItems.push(schema);
+  } else {
+    graphItems.push(schema);
+  }
+}
+
+const finalSchema = {
+  "@context": "https://schema.org",
+  "@graph": graphItems,
+};
 ---
 
-<!-- Primary Meta Tags -->
+<!-- 1. Primary Meta Tags (SEO) -->
 <title>{formattedTitle}</title>
 <meta name="title" content={formattedTitle} />
 <meta name="description" content={description} />
 <link rel="canonical" href={resolvedCanonical} />
+<meta
+  name="keywords"
+  content="magang informatika malang, pkl informatika malang, pkl smk rpl malang, tempat pkl tkj malang, magang mahasiswa informatika malang, pkl dkv malang, magang web developer malang, gemilang training malang, pkl malang 2026, maganginformatika.web.id"
+/>
+<meta name="author" content={siteConfig.shortName} />
+<meta name="publisher" content={siteConfig.shortName} />
+<meta name="copyright" content={siteConfig.shortName} />
+<meta name="language" content="Indonesian" />
+<meta name="revisit-after" content="7 days" />
+<meta name="rating" content="General" />
 
-{noindex && <meta name="robots" content="noindex, nofollow" />}
+<!-- Robots Indexing Directives (SEO) -->
+<meta
+  name="robots"
+  content={noindex
+    ? "noindex, nofollow"
+    : "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"}
+/>
+<meta
+  name="googlebot"
+  content={noindex
+    ? "noindex, nofollow"
+    : "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"}
+/>
+<meta
+  name="bingbot"
+  content={noindex
+    ? "noindex, nofollow"
+    : "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"}
+/>
 
-<!-- Open Graph / Facebook / WhatsApp -->
+<!-- Language Alternates & Hreflang -->
+<link rel="alternate" hreflang="id" href={resolvedCanonical} />
+<link rel="alternate" hreflang="x-default" href={resolvedCanonical} />
+
+<!-- 2. Geographic Meta Tags (GEO / Local SEO Malang) -->
+<meta name="geo.region" content="ID-JI" />
+<meta name="geo.placename" content="Kota Malang, Jawa Timur, Indonesia" />
+<meta name="geo.position" content="-7.9405;112.6163" />
+<meta name="ICBM" content="-7.9405, 112.6163" />
+<meta name="city" content="Kota Malang" />
+<meta name="state" content="Jawa Timur" />
+<meta name="country" content="Indonesia" />
+<meta name="target" content="all" />
+<meta name="coverage" content="Indonesia" />
+<meta name="distribution" content="Global" />
+
+<!-- 3. Open Graph / Facebook / WhatsApp (Social SEO) -->
 <meta property="og:type" content={ogType} />
 <meta property="og:url" content={resolvedCanonical} />
 <meta property="og:title" content={formattedTitle} />
 <meta property="og:description" content={description} />
 <meta property="og:image" content={resolvedOgImage} />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content={formattedTitle} />
 <meta property="og:locale" content="id_ID" />
 <meta property="og:site_name" content={siteConfig.name} />
 
 {publishedTime && <meta property="article:published_time" content={publishedTime} />}
 {modifiedTime && <meta property="article:modified_time" content={modifiedTime} />}
 
-<!-- Twitter -->
+<!-- 4. Twitter Card (Social SEO) -->
 <meta property="twitter:card" content="summary_large_image" />
 <meta property="twitter:url" content={resolvedCanonical} />
 <meta property="twitter:title" content={formattedTitle} />
 <meta property="twitter:description" content={description} />
 <meta property="twitter:image" content={resolvedOgImage} />
 
-<!-- Structured Data -->
-{schema && (
-  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
-)}
-
+<!-- 5. Structured Data JSON-LD (SEO, AEO & GEO) -->
+<script type="application/ld+json" set:html={JSON.stringify(finalSchema)} />

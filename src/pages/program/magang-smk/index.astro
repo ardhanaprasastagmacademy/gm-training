@@ -18,11 +18,38 @@ const smkFaqItems = allFaq.slice(0, 4).map((f) => ({
   title: f.data.pertanyaan,
   content: f.body || "",
 }));
+
+// EducationalOccupationalProgram Schema (SEO & AEO)
+const smkProgramSchema = {
+  "@type": "EducationalOccupationalProgram",
+  "@id": `${siteConfig.url}/program/magang-smk/#program`,
+  name: "Program Magang & PKL Siswa SMK Bidang Informatika",
+  description:
+    "Skema magang terstruktur yang diselaraskan dengan kurikulum kompetensi kejuruan SMK (RPL, TKJ, DKV, SIJA) di Kota Malang bersama mentor industri praktisi.",
+  provider: {
+    "@id": `${siteConfig.url}/#organization`,
+  },
+  educationalProgramMode: "hybrid",
+  timeToComplete: "P3M to P6M",
+  programPrerequisites: [
+    "Siswa aktif SMK kelas XI atau XII jurusan terkait",
+    "Surat pengantar resmi dari sekolah SMK",
+    "Surat persetujuan orang tua/wali",
+    "Curriculum Vitae (CV) siswa",
+  ],
+  offers: {
+    "@type": "Offer",
+    price: "0",
+    priceCurrency: "IDR",
+    category: "Gratis / Program Kerjasama Sekolah",
+  },
+};
 ---
 
 <BaseLayout
   title={`Program Magang Siswa SMK (PKL Industri) | ${siteConfig.shortName}`}
   description="Informasi resmi Praktik Kerja Lapangan (PKL) siswa SMK: persyaratan dokumen, surat izin orang tua, sistem bimbingan guru dan mentor industri."
+  schema={smkProgramSchema}
 >
   <PageBanner
     title="Program Magang Siswa SMK (PKL Industri)"

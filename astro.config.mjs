@@ -3,7 +3,7 @@ import tailwindcss from "@tailwindcss/vite";
 import sitemap from "@astrojs/sitemap";
 
 export default defineConfig({
-  site: "https://gmtraining.id",
+  site: "https://maganginformatika.web.id",
   trailingSlash: "always",
   integrations: [sitemap()],
   vite: {

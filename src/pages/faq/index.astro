@@ -26,11 +26,25 @@ const accordionItems = sortedFaq.map((f) => ({
   content: f.body || "",
   category: f.data.kategori,
 }));
+
+// AEO FAQPage Schema for AI & Google Rich Results
+const faqSchema = {
+  "@type": "FAQPage",
+  mainEntity: sortedFaq.map((f) => ({
+    "@type": "Question",
+    name: f.data.pertanyaan,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: (f.body || "").replace(/\r?\n|\r/g, " ").trim(),
+    },
+  })),
+};
 ---
 
 <BaseLayout
   title={`Tanya Jawab (FAQ) Program Magang SMK & Mahasiswa | ${siteConfig.shortName}`}
   description="Pusat jawaban pertanyaan umum seputar biaya magang gratis, syarat pendaftaran SMK dan mahasiswa, hingga bimbingan mentor industri."
+  schema={faqSchema}
 >
   <PageBanner
     title="Pertanyaan yang Sering Diajukan (FAQ)"

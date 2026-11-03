@@ -1,5 +1,5 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://gmtraining.id/sitemap-index.xml
+Sitemap: https://maganginformatika.web.id/sitemap-index.xml
 

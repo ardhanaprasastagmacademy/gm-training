@@ -3,12 +3,23 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import PageBanner from "../../components/ui/PageBanner.astro";
 import CtaBanner from "../../components/sections/CtaBanner.astro";
 import { siteConfig } from "../../data/site";
+const aboutSchema = {
+  "@type": "AboutPage",
+  "@id": `${siteConfig.url}/tentang/#webpage`,
+  name: `Tentang ${siteConfig.shortName}`,
+  description:
+    "Mengenal latar belakang, visi, nilai integritas, dan standar layanan Program Magang terstruktur Gemilang Training di Kota Malang.",
+  mainEntity: {
+    "@id": `${siteConfig.url}/#organization`,
+  },
+};
 ---
 
 <BaseLayout
   title={`Tentang Program Magang SMK & Mahasiswa | ${siteConfig.shortName}`}
   description="Mengenal latar belakang, visi, nilai integritas, dan standar layanan Program Magang terstruktur Gemilang Training bersama konsorsium industri teknologi."
   canonical={`${siteConfig.url}/tentang/`}
+  schema={aboutSchema}
 >
   <PageBanner
     title="Tentang Gemilang Training"

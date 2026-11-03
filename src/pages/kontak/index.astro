@@ -3,11 +3,27 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import PageBanner from "../../components/ui/PageBanner.astro";
 import CtaBanner from "../../components/sections/CtaBanner.astro";
 import { siteConfig } from "../../data/site";
+const contactSchema = {
+  "@type": "ContactPage",
+  "@id": `${siteConfig.url}/kontak/#webpage`,
+  name: "Kontak Resmi Gemilang Training Malang",
+  description:
+    "Layanan informasi resmi WhatsApp, sekretariat kantor, dan konsultasi pendaftaran magang informatika di Kota Malang.",
+  mainEntity: {
+    "@type": "ContactPoint",
+    contactType: "Customer Support & Admissions",
+    telephone: siteConfig.whatsapp,
+    email: siteConfig.email || "info@maganginformatika.web.id",
+    areaServed: "ID",
+    availableLanguage: ["id", "en"],
+  },
+};
 ---
 
 <BaseLayout
   title={`Kontak Resmi Sekretariat Magang | ${siteConfig.shortName}`}
   description="Hubungi saluran resmi Program Magang SMK & Mahasiswa: layanan informasi WhatsApp resmi, alamat kantor sekretariat di Jl. Soekarno Hatta Malang, dan jam operasional pelayanan."
+  schema={contactSchema}
 >
   <PageBanner
     title="Kontak Resmi"
