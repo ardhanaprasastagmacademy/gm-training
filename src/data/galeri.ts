@@ -1,7 +1,7 @@
 export interface ItemGaleri {
   id: string;
   judul: string;
-  kategori: "web-dev" | "ui-ux" | "jaringan" | "data-marketing";
+  kategori: "web-dev" | "pelatihan" | "marketing" | "branding";
   kategoriLabel: string;
   lokasi: string;
   tanggal: string;
@@ -13,62 +13,74 @@ export interface ItemGaleri {
 export const dataGaleri: ItemGaleri[] = [
   {
     id: "galeri-1",
-    judul: "Sistem Informasi Manajemen PKL & Logbook Terpadu",
-    kategori: "web-dev",
-    kategoriLabel: "Web Development",
-    lokasi: "Lab Inovasi IT Polinema, Kota Malang",
-    tanggal: "20 Oktober 2026",
+    judul: "Kemitraan Jurnalistik & Portal Media Digital Radar Kediri",
+    kategori: "marketing",
+    kategoriLabel: "Media & Digital",
+    lokasi: "Kediri",
+    tanggal: "24 Oktober 2026",
     deskripsi:
-      "Peserta magang siswa SMK RPL dan mahasiswa mendapatkan pendampingan arsitektur kode antarmuka dan praktik code review berstandar industri langsung dari Software Engineer Senior.",
-    gambar: "/images/portofolio/porto-1.webp",
-    tag: ["Teknologi Informasi", "Code Review", "Frontend"],
+      "Kolaborasi pengembangan liputan konten multimedia, manajemen portal berita digital, serta integrasi analitik pembaca bersama tim redaksi Jawa Pos Radar Kediri.",
+    gambar: "/images/portofolio/kka-radar-kediri.webp",
+    tag: ["Media Massa", "SEO Portal", "Jurnalistik Digital"],
   },
   {
     id: "galeri-2",
-    judul: "Redesign UI/UX & Design System Portal Pembelajaran",
-    kategori: "ui-ux",
-    kategoriLabel: "UI/UX & Product Design",
-    lokasi: "Creative Hub Gemilang Training, Malang",
-    tanggal: "16 Oktober 2026",
+    judul: "Pelatihan Kejuruan Terpadu & Sinkronisasi Industri SKARIGA",
+    kategori: "pelatihan",
+    kategoriLabel: "Vokasi & Kejuruan",
+    lokasi: "Kota Malang",
+    tanggal: "18 Oktober 2026",
     deskripsi:
-      "Perancangan antarmuka pengguna menyeluruh, riset alur pengguna (usability testing), serta penyusunan token design system modular untuk meningkatkan kemudahan navigasi dan estetika visual portal pendaftaran magang.",
-    gambar: "/images/portofolio/porto-2.webp",
-    tag: ["UI/UX Design", "Figma", "Design System"],
+      "Penyelarasan kurikulum vokasi SMK bersama praktisi industri, praktik rekayasa perangkat lunak, konfigurasi jaringan komputer, dan simulasi alur kerja industri nyata.",
+    gambar: "/images/portofolio/pelatihan-smk3pgri.webp",
+    tag: ["Vokasi SMK", "Praktik RPL", "MikroTik & Jaringan"],
   },
   {
     id: "galeri-3",
-    judul: "Infrastruktur Jaringan Server & Cloud Monitoring Multi-Branch",
-    kategori: "jaringan",
-    kategoriLabel: "Jaringan & DevOps",
-    lokasi: "Digital & TRPL Hub, Malang",
-    tanggal: "12 Oktober 2026",
+    judul: "Pelatihan Literasi Digital & Pengenalan IT Insan Kamil",
+    kategori: "pelatihan",
+    kategoriLabel: "Pelatihan IT",
+    lokasi: "Jawa Timur",
+    tanggal: "14 Oktober 2026",
     deskripsi:
-      "Pembangunan topologi jaringan kantor terpusat, penguatan perimeter firewall, otomatisasi backup cloud berkala, serta konfigurasi dashboard pemantauan uptime server berstandar industri.",
-    gambar: "/images/portofolio/porto-3.webp",
-    tag: ["Jaringan", "DevOps", "Linux Server"],
+      "Program edukasi teknologi terapan dan literasi digital praktis bagi generasi muda dan siswa binaan dengan pendampingan instruktur berpengalaman.",
+    gambar: "/images/portofolio/pelatihan-insan-kamil.webp",
+    tag: ["Edukasi IT", "Literasi Digital", "Workshop Coding"],
   },
   {
     id: "galeri-4",
-    judul: "E-Commerce Funnel Analytics & Performance Marketing Tracker",
-    kategori: "data-marketing",
-    kategoriLabel: "Data & Digital Business",
-    lokasi: "Ruang Rapat Kolaborasi Gemilang Training, Malang",
+    judul: "Sistem Registrasi Digital & Event Management QRIS Run",
+    kategori: "web-dev",
+    kategoriLabel: "Web & FinTech",
+    lokasi: "Jawa Timur",
     tanggal: "08 Oktober 2026",
     deskripsi:
-      "Dashboard visualisasi interaktif data transaksi penjualan multi-channel, tracking rasio konversi pesanan, serta automasi laporan performa kampanye digital marketing mingguan.",
-    gambar: "/images/portofolio/porto-4.webp",
-    tag: ["Data Analytics", "Business Intelligence", "Marketing"],
+      "Implementasi portal pendaftaran peserta lomba lari berbasis web terintegrasi sistem pembayaran instan QRIS otomatis dan generator tiket elektronik real-time.",
+    gambar: "/images/portofolio/qris-run.webp",
+    tag: ["Web Development", "QRIS Payment", "E-Ticket System"],
   },
   {
     id: "galeri-5",
-    judul: "Aplikasi Mobile Katalog Produk & Pemesanan Terintegrasi",
-    kategori: "web-dev",
-    kategoriLabel: "Web & Mobile App",
-    lokasi: "Auditorium Gemilang Training, Jl. Soekarno Hatta, Malang",
-    tanggal: "01 Oktober 2026",
+    judul: "Seminar Digitalisasi UMKM & Adopsi Teknologi XL Smart",
+    kategori: "marketing",
+    kategoriLabel: "Digital Marketing",
+    lokasi: "Malang Raya",
+    tanggal: "02 Oktober 2026",
     deskripsi:
-      "Pengembangan aplikasi katalog interaktif dengan integrasi gateway pemesanan WhatsApp otomatis, filter kategori instan, dan optimasi kecepatan akses di perangkat mobile.",
-    gambar: "/images/portofolio/porto-5.webp",
-    tag: ["Mobile App", "Flutter", "E-Commerce"],
+      "Seminar dan pendampingan akselerasi digital bagi pelaku UMKM mencakup optimalisasi toko digital, periklanan online, dan pemanfaatan konektivitas modern.",
+    gambar: "/images/portofolio/seminar-umkm-xlsmart.webp",
+    tag: ["UMKM Go Digital", "Digital Ads", "E-Commerce"],
+  },
+  {
+    id: "galeri-6",
+    judul: "Pengembangan Fasilitas & Perlengkapan Pelatihan Seminar Kit",
+    kategori: "branding",
+    kategoriLabel: "Branding & Merchandise",
+    lokasi: "Kota Malang",
+    tanggal: "28 September 2026",
+    deskripsi:
+      "Perancangan visual identitas korporat dan produksi paket seminar kit eksklusif untuk standarisasi fasilitas program pelatihan dan workshop profesional.",
+    gambar: "/images/portofolio/seminarkits.webp",
+    tag: ["Brand Identity", "Merchandise", "Event Production"],
   },
 ];

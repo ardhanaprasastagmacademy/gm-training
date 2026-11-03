@@ -75,20 +75,16 @@ const mitraList = allMitra.map((m) => ({
                       />
                     </div>
                     <div class="flex-1 min-w-0">
-                      <div class="flex items-center justify-between gap-2 flex-wrap mb-1">
-                        <div class="font-extrabold text-base md:text-lg text-gray-900 leading-snug">{m.nama}</div>
+                      <div class="flex items-center justify-between gap-2 flex-wrap">
+                        <div class="font-extrabold text-base md:text-lg text-gray-900 leading-snug">
+                          {m.nama.replace(/\s*\([^)]*\)/g, "")}
+                        </div>
                         <span class="text-[11px] px-2.5 py-0.5 rounded-full bg-gray-100 text-gray-700 font-semibold border border-gray-200">
                           {m.kota}
                         </span>
                       </div>
-                      <div class="text-xs font-bold text-maroon-700">
-                        {m.sektor}
-                      </div>
                     </div>
                   </div>
-                  <p class="text-xs sm:text-sm text-gray-600 leading-relaxed">
-                    {m.deskripsi}
-                  </p>
                 </div>
                 <div class="pt-3 border-t border-gray-100 flex items-center justify-between text-xs">
                   {m.website ? (
