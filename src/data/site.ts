@@ -41,7 +41,7 @@ export const siteConfig: SiteConfig = {
   whatsapp: "+62 819-4343-1484",
   whatsappUrl: "https://wa.me/6281943431484?text=Halo%20Admin%20Gemilang%20Training,%20saya%20ingin%20bertanya%20tentang%20program%20magang",
   address: {
-    street: "Jl. Soekarno Hatta No. 45",
+    street: "Jl. Lowokwaru",
     city: "Kota Malang",
     province: "Jawa Timur",
     postalCode: "65141",

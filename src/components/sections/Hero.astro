@@ -10,7 +10,9 @@ const {
 } = Astro.props;
 ---
 
-<section class="relative w-full overflow-hidden bg-[#0A0305] text-white flex items-center min-h-[640px] md:min-h-[720px] lg:min-h-[780px] pt-[96px] md:pt-[116px] pb-16 md:pb-24">
+<section
+  class="relative w-full overflow-hidden bg-[#0A0305] text-white flex items-center min-h-[640px] md:min-h-[720px] lg:min-h-[780px] pt-[96px] md:pt-[116px] pb-16 md:pb-24"
+>
   <!-- Photography Background (Full width edge-to-edge) -->
   <div class="absolute inset-0 z-0 pointer-events-none">
     <img
@@ -21,29 +23,44 @@ const {
       fetchpriority="high"
     />
     <!-- Gentle dark vignette overlay so photo details are clear & text is legible -->
-    <div class="absolute inset-0 bg-gradient-to-r from-black/85 via-black/60 to-black/35 lg:to-black/20"></div>
-    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/40"></div>
+    <div
+      class="absolute inset-0 bg-gradient-to-r from-black/85 via-black/60 to-black/35 lg:to-black/20"
+    >
+    </div>
+    <div
+      class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/40"
+    >
+    </div>
   </div>
 
   <!-- Hero Content Grid -->
-  <div class="relative z-10 w-full max-w-[72rem] mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+  <div
+    class="relative z-10 w-full max-w-[72rem] mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center"
+  >
     <!-- Left Column: Headline, Pill, Description & Buttons -->
     <div class="lg:col-span-7 xl:col-span-8 text-white space-y-6">
       <!-- Location & Niche Pill Badge -->
-      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-rose-500/20 border border-rose-400/30 text-rose-200 text-xs font-bold uppercase tracking-wider backdrop-blur-md">
+      <div
+        class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-rose-500/20 border border-rose-400/30 text-rose-200 text-xs font-bold uppercase tracking-wider backdrop-blur-md"
+      >
         <span class="w-2 h-2 rounded-full bg-rose-400 animate-pulse"></span>
         <span>Pusat Magang Informatika • Malang &amp; Sekitarnya</span>
       </div>
 
       <!-- Display Headline (Ukuran diperkecil proporsional & rapi) -->
-      <h1 class="text-[clamp(1.25rem,1rem+0.9vw,2.15rem)] font-extrabold leading-[1.22] tracking-tight text-white drop-shadow-md">
+      <h1
+        class="text-[clamp(1.25rem,1rem+0.9vw,2.15rem)] font-extrabold leading-[1.22] tracking-tight text-white drop-shadow-md"
+      >
         LANGKAH AWAL MENUJU <br class="hidden sm:inline" />
-        <span class="text-rose-300">KARIER INFORMATIKA NYATA</span> <br class="hidden sm:inline" />
+        <span class="text-rose-300">KARIER INFORMATIKA NYATA</span>
+        <br class="hidden sm:inline" />
         BERSAMA GEMILANG TRAINING MALANG
       </h1>
 
       <!-- Subtitle Paragraph -->
-      <p class="text-[clamp(0.875rem,0.825rem+0.25vw,1.05rem)] text-gray-200 leading-relaxed max-w-xl font-normal drop-shadow-sm">
+      <p
+        class="text-[clamp(0.875rem,0.825rem+0.25vw,1.05rem)] text-gray-200 leading-relaxed max-w-xl font-normal drop-shadow-sm"
+      >
         {subtitle}
       </p>
 
@@ -55,7 +72,9 @@ const {
           data-track-event="klik_hero_daftar"
         >
           <span>Daftar Magang Sekarang</span>
-          <span class="w-6 h-6 rounded-full bg-maroon-700 group-hover:bg-maroon-800 text-white flex items-center justify-center text-xs transition-colors">
+          <span
+            class="w-6 h-6 rounded-full bg-maroon-700 group-hover:bg-maroon-800 text-white flex items-center justify-center text-xs transition-colors"
+          >
             ↗
           </span>
         </a>
@@ -65,7 +84,9 @@ const {
           class="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-full bg-white/15 hover:bg-white/25 text-white font-semibold text-sm md:text-base border border-white/30 backdrop-blur-md hover:-translate-y-0.5 transition-all group"
         >
           <span>Lihat Program</span>
-          <span class="w-5 h-5 rounded-full bg-white/20 group-hover:bg-white/30 flex items-center justify-center text-xs transition-colors">
+          <span
+            class="w-5 h-5 rounded-full bg-white/20 group-hover:bg-white/30 flex items-center justify-center text-xs transition-colors"
+          >
             ↗
           </span>
         </a>
@@ -73,25 +94,49 @@ const {
     </div>
 
     <!-- Right Column: Floating Glass Batch Info Card (Matching Reference Layout) -->
-    <div class="lg:col-span-5 xl:col-span-4 flex justify-end lg:-translate-y-6 xl:-translate-y-8">
-      <div class="w-full max-w-[420px] rounded-[28px] bg-black/75 backdrop-blur-xl border border-white/20 p-7 text-white shadow-2xl space-y-5">
+    <div
+      class="lg:col-span-5 xl:col-span-4 flex justify-end lg:-translate-y-6 xl:-translate-y-8"
+    >
+      <div
+        class="w-full max-w-[420px] rounded-[28px] bg-black/75 backdrop-blur-xl border border-white/20 p-7 text-white shadow-2xl space-y-5"
+      >
         <!-- Card Header with Location Pin -->
-        <div class="flex items-center gap-2 text-xs md:text-sm text-gray-300 pb-3.5 border-b border-white/15">
-          <svg class="w-4 h-4 text-rose-400 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <div
+          class="flex items-center gap-2 text-xs md:text-sm text-gray-300 pb-3.5 border-b border-white/15"
+        >
+          <svg
+            class="w-4 h-4 text-rose-400 shrink-0"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
             <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
             <circle cx="12" cy="10" r="3"></circle>
           </svg>
-          <span class="font-medium truncate">Jl. Soekarno Hatta, {siteConfig.address.city} &amp; Sekitarnya</span>
+          <span class="font-medium truncate"
+            >{siteConfig.address.street}, {siteConfig.address.city} &amp; Sekitarnya</span
+          >
         </div>
 
         <!-- Batch Title & Status Badge -->
         <div class="flex items-center justify-between gap-3">
           <div>
-            <span class="text-xs uppercase tracking-wider text-rose-300 font-bold block mb-0.5">Tahun 2026/2027</span>
-            <h3 class="text-xl md:text-2xl font-extrabold text-white leading-tight">Batch 1 Pendaftaran</h3>
+            <span
+              class="text-xs uppercase tracking-wider text-rose-300 font-bold block mb-0.5"
+              >Tahun 2026/2027</span
+            >
+            <h3
+              class="text-xl md:text-2xl font-extrabold text-white leading-tight"
+            >
+              Batch 1 Pendaftaran
+            </h3>
           </div>
-          <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-400/40 shrink-0">
-            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+          <span
+            class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-400/40 shrink-0"
+          >
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"
+            ></span>
             Dibuka
           </span>
         </div>
@@ -100,22 +145,33 @@ const {
         <div class="grid grid-cols-2 gap-3.5 pt-1 text-xs">
           <div class="p-3 rounded-2xl bg-white/5 border border-white/10">
             <span class="text-gray-400 block mb-1">Batas Akhir:</span>
-            <strong class="text-white text-base md:text-lg font-extrabold block">20 Nov 2026</strong>
+            <strong class="text-white text-base md:text-lg font-extrabold block"
+              >20 Nov 2026</strong
+            >
           </div>
           <div class="p-3 rounded-2xl bg-white/5 border border-white/10">
             <span class="text-gray-400 block mb-1">Mulai Magang:</span>
-            <strong class="text-white text-base md:text-lg font-extrabold block">01 Des 2026</strong>
+            <strong class="text-white text-base md:text-lg font-extrabold block"
+              >25 Des 2026</strong
+            >
           </div>
         </div>
 
         <!-- Micro Progress Bar -->
         <div class="pt-1">
-          <div class="flex items-center justify-between text-xs md:text-sm text-gray-300 mb-2 font-medium">
+          <div
+            class="flex items-center justify-between text-xs md:text-sm text-gray-300 mb-2 font-medium"
+          >
             <span>Kuota Terisi</span>
             <span class="text-rose-300 font-bold">78% Terisi</span>
           </div>
-          <div class="w-full h-2.5 rounded-full bg-white/15 overflow-hidden p-0.5">
-            <div class="h-full rounded-full bg-gradient-to-r from-rose-500 to-maroon-500 w-[78%]"></div>
+          <div
+            class="w-full h-2.5 rounded-full bg-white/15 overflow-hidden p-0.5"
+          >
+            <div
+              class="h-full rounded-full bg-gradient-to-r from-rose-500 to-maroon-500 w-[78%]"
+            >
+            </div>
           </div>
         </div>
 
