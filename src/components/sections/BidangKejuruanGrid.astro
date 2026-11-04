@@ -3,7 +3,7 @@ interface BidangItem {
   id: string;
   judul: string;
   tag: string;
-  category: "software" | "network" | "data-iot" | "design";
+  category: "software" | "network" | "data-iot" | "design" | "business";
   skills: string[];
   deskripsi: string;
   gambar: string;
@@ -86,32 +86,32 @@ const bidangList: BidangItem[] = [
     link: "/pendaftaran/form/",
   },
   {
-    id: "cloud-devops",
-    judul: "Cloud Computing & DevOps Engineering",
-    tag: "Cloud & DevOps",
-    category: "network",
-    skills: ["Docker", "Kubernetes", "CI/CD Pipeline", "Git Workflow"],
-    deskripsi: "Otomasi siklus deployment dengan CI/CD pipeline, kontainerisasi aplikasi Docker & Kubernetes, manajemen Git collaborative, serta monitoring server cloud.",
+    id: "digital-marketing",
+    judul: "Digital Marketing & Growth Strategy",
+    tag: "Digital Marketing",
+    category: "business",
+    skills: ["Meta Ads", "Google Ads", "SEO / SEM", "Funnel Konversi"],
+    deskripsi: "Strategi kampanye performa digital melalui Meta & Google Ads, optimasi SEO/SEM, analitik konversi penjualan, dan funnel pemasaran digital terintegrasi.",
     gambar: "/images/program/bisnisdigital.webp",
     link: "/pendaftaran/form/",
   },
   {
-    id: "software-qa",
-    judul: "Software QA & Automated Testing",
-    tag: "QA & Testing",
-    category: "software",
-    skills: ["Cypress", "Postman", "Automated QA", "Bug Tracking"],
-    deskripsi: "Penyusunan skenario pengujian komprehensif, manual & automated functional testing dengan Cypress, verifikasi endpoint API Postman, dan pelaporan bug.",
+    id: "ecommerce-management",
+    judul: "E-Commerce & Marketplace Management",
+    tag: "E-Commerce",
+    category: "business",
+    skills: ["TikTok Shop", "Shopee & Toped", "Live Shopping", "CRM Pelanggan"],
+    deskripsi: "Pengelolaan toko daring resmi di marketplace, strategi promosi campaign flash sale, optimalisasi live streaming sales, serta manajemen loyalitas pelanggan.",
     gambar: "/images/galeri/galeri-2.webp",
     link: "/pendaftaran/form/",
   },
   {
-    id: "iot-embedded",
-    judul: "Internet of Things (IoT) & Smart Embedded",
-    tag: "IoT & Hardware",
-    category: "data-iot",
-    skills: ["ESP32", "Arduino", "MQTT", "Sensor Telemetri"],
-    deskripsi: "Pemrograman mikrokontroler ESP32 & Arduino, perakitan sensor telemetri lingkungan, protokol transmisi data MQTT, dan perancangan dashboard smart IoT.",
+    id: "social-media-branding",
+    judul: "Social Media Marketing & Creative Content",
+    tag: "Social Media",
+    category: "business",
+    skills: ["Content Strategy", "Copywriting", "KOL / Influencer", "Social Analytics"],
+    deskripsi: "Perumusan kalender editorial konten viral multi-platform, copywriting persuasif, teknik visual storytelling, riset tren algoritma, dan manajemen kolaborasi kreator.",
     gambar: "/images/galeri/galeri-5.webp",
     link: "/pendaftaran/form/",
   },
@@ -139,7 +139,7 @@ const bidangList: BidangItem[] = [
     id: "bisnis-it",
     judul: "Bisnis Digital & IT Product Management",
     tag: "IT & Digital Business",
-    category: "design",
+    category: "business",
     skills: ["Agile/Scrum", "Product Roadmap", "Analisis Sistem", "SEO/SEM"],
     deskripsi: "Manajemen siklus rilis produk perangkat lunak dengan metode Agile Scrum, perumusan user stories teknis, analisis kebutuhan sistem, dan automasi digital.",
     gambar: "/images/why.webp",
@@ -190,21 +190,28 @@ const bidangList: BidangItem[] = [
           data-filter="network"
           class="program-filter-btn px-5 py-2 rounded-full text-xs md:text-sm font-semibold transition-all bg-white text-gray-700 border border-gray-200 hover:bg-gray-50"
         >
-          Jaringan &amp; Cloud
+          Jaringan &amp; Keamanan
         </button>
         <button
           type="button"
           data-filter="data-iot"
           class="program-filter-btn px-5 py-2 rounded-full text-xs md:text-sm font-semibold transition-all bg-white text-gray-700 border border-gray-200 hover:bg-gray-50"
         >
-          Data, AI &amp; IoT
+          Data &amp; AI
         </button>
         <button
           type="button"
           data-filter="design"
           class="program-filter-btn px-5 py-2 rounded-full text-xs md:text-sm font-semibold transition-all bg-white text-gray-700 border border-gray-200 hover:bg-gray-50"
         >
-          Desain &amp; Produk Digital
+          UI/UX &amp; Desain
+        </button>
+        <button
+          type="button"
+          data-filter="business"
+          class="program-filter-btn px-5 py-2 rounded-full text-xs md:text-sm font-semibold transition-all bg-white text-gray-700 border border-gray-200 hover:bg-gray-50"
+        >
+          Bisnis Digital
         </button>
       </div>
     )
