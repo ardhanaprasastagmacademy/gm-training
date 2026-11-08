@@ -49,3 +49,4 @@ Seluruh panduan teknis, template berkas, dan modul pembekalan dapat diunduh lang
 
 Tutup artikel dengan rangkuman inti dalam 1–2 paragraf. Tegaskan kembali bahwa keberhasilan magang ditentukan oleh kombinasi kemampuan teknis (*hard skills*), kedisiplinan (*soft skills*), dan integritas kerja. Calon peserta disarankan untuk mempersiapkan diri sebelum periode batch pendaftaran berakhir.
 ```
+

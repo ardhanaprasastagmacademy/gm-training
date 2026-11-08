@@ -176,3 +176,4 @@ Sebelum mengubah `draft: false` dan melakukan commit, periksa 8 poin verifikasi 
 - [ ] **Sinyal Lokal Malang (GEO):** Terdapat penyebutan Kota Malang dan relevansi kejuruan industri.
 - [ ] **Snippet AEO:** Paragraf pertama menjawab topik utama secara langsung dalam 2–3 kalimat lugas.
 - [ ] **Pengujian Build Lokal:** Jalankan `npm run check` dan `npm run build` di terminal untuk memastikan 0 error pada seluruh halaman statis.
+
