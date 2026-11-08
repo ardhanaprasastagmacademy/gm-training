@@ -34,12 +34,17 @@ const categoryLabels: Record<string, string> = {
   artikel: "Artikel & Tips Magang",
 };
 
+const articleImageUrl = data.gambar
+  ? (data.gambar.startsWith("http") ? data.gambar : `${siteConfig.url}${data.gambar}`)
+  : `${siteConfig.url}/images/galeri/galeri-1.webp`;
+
 // Article JSON-LD Schema (SEO-STRATEGY.md 7.4)
 const articleSchema = {
   "@context": "https://schema.org",
   "@type": "Article",
   headline: data.judul,
   description: data.ringkasan,
+  image: [articleImageUrl],
   datePublished: data.tanggal.toISOString(),
   dateModified: (data.diperbarui || data.tanggal).toISOString(),
   author: {
@@ -50,14 +55,15 @@ const articleSchema = {
   publisher: {
     "@type": "Organization",
     name: siteConfig.name,
+    url: siteConfig.url,
     logo: {
       "@type": "ImageObject",
-      url: `${siteConfig.url}/og/default-og.svg`,
+      url: `${siteConfig.url}/images/logo-gm.png`,
     },
   },
   mainEntityOfPage: {
     "@type": "WebPage",
-    "@id": `${siteConfig.url}/berita/${item.id}/`,
+    "@id": `${siteConfig.url}/blog/${item.id}/`,
   },
 };
 ---
@@ -67,6 +73,7 @@ const articleSchema = {
   description={data.ringkasan}
   canonical={`${siteConfig.url}/blog/${item.id}/`}
   ogType="article"
+  ogImage={articleImageUrl}
   publishedTime={data.tanggal.toISOString()}
   modifiedTime={(data.diperbarui || data.tanggal).toISOString()}
   schema={articleSchema}
