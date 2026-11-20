@@ -1,6 +1,323 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <sitemap>
-    <loc>https://maganginformatika.web.id/sitemap-0.xml</loc>
-  </sitemap>
-</sitemapindex>
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+>
+
+  <!-- Halaman Utama (Beranda) -->
+  <url>
+    <loc>https://maganginformatika.web.id/</loc>
+    <lastmod>2026-11-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://maganginformatika.web.id/images/galeri/galeri-1.webp</image:loc>
+      <image:title>Program Magang Informatika SMK dan Mahasiswa Malang Gemilang Training</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://maganginformatika.web.id/images/galeri/galeri-2.webp</image:loc>
+      <image:title>Suasana Pendampingan dan Mentoring Praktisi Industri Teknologi</image:title>
+    </image:image>
+  </url>
+
+  <!-- Halaman Program Utama -->
+  <url>
+    <loc>https://maganginformatika.web.id/program/</loc>
+    <lastmod>2026-11-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://maganginformatika.web.id/images/galeri/galeri-2.webp</image:loc>
+      <image:title>Daftar Pilihan Program dan Posisi Magang Kejuruan Informatika</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://maganginformatika.web.id/program/magang-smk/</loc>
+    <lastmod>2026-11-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://maganginformatika.web.id/images/galeri/galeri-3.webp</image:loc>
+      <image:title>Program Praktik Kerja Lapangan PKL Siswa SMK Jurusan RPL TKJ DKV</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://maganginformatika.web.id/program/magang-mahasiswa/</loc>
+    <lastmod>2026-11-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://maganginformatika.web.id/images/galeri/galeri-4.webp</image:loc>
+      <image:title>Program Magang Industri Riset dan Konversi SKS Mahasiswa Informatika</image:title>
+    </image:image>
+  </url>
+
+  <!-- Alur dan Prosedur Pendaftaran -->
+  <url>
+    <loc>https://maganginformatika.web.id/alur-pendaftaran/</loc>
+    <lastmod>2026-11-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://maganginformatika.web.id/images/galeri/galeri-1.webp</image:loc>
+      <image:title>Alur dan Tahapan Seleksi Masuk Magang Gemilang Training Malang</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://maganginformatika.web.id/pendaftaran/</loc>
+    <lastmod>2026-11-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://maganginformatika.web.id/pendaftaran/form/</loc>
+    <lastmod>2026-11-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://maganginformatika.web.id/daftar/</loc>
+    <lastmod>2026-11-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://maganginformatika.web.id/daftar/form/</loc>
+    <lastmod>2026-11-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- Blog & Artikel Edukasi -->
+  <url>
+    <loc>https://maganginformatika.web.id/blog/</loc>
+    <lastmod>2026-11-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://maganginformatika.web.id/blog/orientasi-onboarding-peserta-magang-industri/</loc>
+    <lastmod>2026-10-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://maganginformatika.web.id/images/galeri/galeri-5.webp</image:loc>
+      <image:title>Pembekalan Budaya Kerja dan Keselamatan Industri bagi Peserta Baru</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://maganginformatika.web.id/images/galeri/galeri-3.webp</image:loc>
+      <image:title>Suasana Kolaborasi dan Diskusi Proyek Kerja Tim Peserta Magang</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://maganginformatika.web.id/blog/panduan-lengkap-menyiapkan-cv-magang-smk/</loc>
+    <lastmod>2026-10-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://maganginformatika.web.id/images/galeri/galeri-1.webp</image:loc>
+      <image:title>Panduan Lengkap Menyusun CV Magang untuk Siswa SMK dan Mahasiswa Pemula</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://maganginformatika.web.id/blog/pembukaan-pendaftaran-batch-1-2026/</loc>
+    <lastmod>2026-10-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://maganginformatika.web.id/images/galeri/galeri-4.webp</image:loc>
+      <image:title>Pendaftaran Program Magang Batch 1 Tahun Akademik 2026 Resmi Dibuka</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://maganginformatika.web.id/blog/tips-sukses-wawancara-magang-mitra-industri/</loc>
+    <lastmod>2026-10-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://maganginformatika.web.id/images/galeri/galeri-2.webp</image:loc>
+      <image:title>5 Kunci Sukses Menghadapi Wawancara Magang di Perusahaan Mitra</image:title>
+    </image:image>
+  </url>
+
+  <!-- Saluran Warta Berita -->
+  <url>
+    <loc>https://maganginformatika.web.id/berita/</loc>
+    <lastmod>2026-11-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://maganginformatika.web.id/berita/orientasi-onboarding-peserta-magang-industri/</loc>
+    <lastmod>2026-10-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://maganginformatika.web.id/images/galeri/galeri-5.webp</image:loc>
+      <image:title>Pembekalan Budaya Kerja dan Keselamatan Industri bagi Peserta Baru</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://maganginformatika.web.id/berita/panduan-lengkap-menyiapkan-cv-magang-smk/</loc>
+    <lastmod>2026-10-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://maganginformatika.web.id/images/galeri/galeri-1.webp</image:loc>
+      <image:title>Panduan Lengkap Menyusun CV Magang untuk Siswa SMK dan Mahasiswa Pemula</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://maganginformatika.web.id/berita/pembukaan-pendaftaran-batch-1-2026/</loc>
+    <lastmod>2026-10-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://maganginformatika.web.id/images/galeri/galeri-4.webp</image:loc>
+      <image:title>Pendaftaran Program Magang Batch 1 Tahun Akademik 2026 Resmi Dibuka</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://maganginformatika.web.id/berita/tips-sukses-wawancara-magang-mitra-industri/</loc>
+    <lastmod>2026-10-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://maganginformatika.web.id/images/galeri/galeri-2.webp</image:loc>
+      <image:title>5 Kunci Sukses Menghadapi Wawancara Magang di Perusahaan Mitra</image:title>
+    </image:image>
+  </url>
+
+  <!-- Kemitraan dan Institusi Pendidikan -->
+  <url>
+    <loc>https://maganginformatika.web.id/mitra/</loc>
+    <lastmod>2026-11-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://maganginformatika.web.id/untuk-sekolah-kampus/</loc>
+    <lastmod>2026-11-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://maganginformatika.web.id/untuk-mitra/</loc>
+    <lastmod>2026-11-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Dokumentasi dan Profil Lembaga -->
+  <url>
+    <loc>https://maganginformatika.web.id/galeri/</loc>
+    <lastmod>2026-11-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://maganginformatika.web.id/images/galeri/galeri-1.webp</image:loc>
+      <image:title>Dokumentasi Pembekalan dan Pelatihan Praktik Peserta Magang</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://maganginformatika.web.id/images/galeri/galeri-2.webp</image:loc>
+      <image:title>Sesi Mentoring Langsung Bersama Mentor Praktisi Industri</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://maganginformatika.web.id/images/galeri/galeri-3.webp</image:loc>
+      <image:title>Kerja Sama Tim Peserta Magang Menyelesaikan Proyek Digital</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://maganginformatika.web.id/images/galeri/galeri-4.webp</image:loc>
+      <image:title>Penerimaan Sertifikat Resmi Kelulusan Program Magang Industri</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://maganginformatika.web.id/portofolio/</loc>
+    <lastmod>2026-11-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://maganginformatika.web.id/images/galeri/galeri-3.webp</image:loc>
+      <image:title>Karya dan Portofolio Hasil Studi Kasus Peserta Magang Gemilang Training</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://maganginformatika.web.id/cerita-alumni/</loc>
+    <lastmod>2026-11-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://maganginformatika.web.id/tentang/</loc>
+    <lastmod>2026-11-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://maganginformatika.web.id/images/tentang/about-1.webp</image:loc>
+      <image:title>Kurasi Silabus Teruji dan Standar Industri Gemilang Training Malang</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://maganginformatika.web.id/images/tentang/about-2.webp</image:loc>
+      <image:title>Dukungan Mentoring Terpadu Praktisi Industri Berpengalaman</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://maganginformatika.web.id/images/tentang/about-3.webp</image:loc>
+      <image:title>Jaminan Legalitas Resmi dan Sertifikasi Kemitraan Vokasi</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://maganginformatika.web.id/faq/</loc>
+    <lastmod>2026-11-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+  </url>
+
+  <url>
+    <loc>https://maganginformatika.web.id/unduhan/</loc>
+    <lastmod>2026-11-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+  </url>
+
+  <url>
+    <loc>https://maganginformatika.web.id/kontak/</loc>
+    <lastmod>2026-11-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://maganginformatika.web.id/kebijakan-privasi/</loc>
+    <lastmod>2026-11-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <url>
+    <loc>https://maganginformatika.web.id/syarat-ketentuan/</loc>
+    <lastmod>2026-11-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+</urlset>
