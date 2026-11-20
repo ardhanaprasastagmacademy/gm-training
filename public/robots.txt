@@ -1,5 +1,6 @@
 User-agent: *
 Allow: /
 
+Sitemap: https://maganginformatika.web.id/sitemap.xml
 Sitemap: https://maganginformatika.web.id/sitemap-index.xml
 
