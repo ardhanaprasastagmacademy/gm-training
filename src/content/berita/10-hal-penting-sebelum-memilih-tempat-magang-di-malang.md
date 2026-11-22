@@ -40,6 +40,22 @@ Tugas yang terdefinisi dengan jelas membuat proses pembelajaran lebih terarah. T
 ### 3. Ketersediaan Pembimbing Lapangan yang Jelas
 Pembimbing berperan penting dalam memberikan arahan, transfer keahlian teknis, telaah hasil (*review*), dan evaluasi berkala. Pastikan institusi menunjuk mentor praktisi tertentu yang bertanggung jawab membimbing Anda selama masa magang berlangsung.
 
+<div class="my-8">
+  <div class="aspect-[16/9] w-full rounded-[20px] overflow-hidden bg-gray-100 border border-gray-200 shadow-sm">
+    <img
+      src="/images/blog/Mahasiswi-magang-mencatat-arahan-pembimbing.webp"
+      alt="Mahasiswi magang mencatat arahan pembimbing di tempat magang"
+      width="1200"
+      height="675"
+      class="w-full h-full object-cover"
+      loading="lazy"
+    />
+  </div>
+  <p class="text-xs text-gray-400 italic text-center mt-2.5">
+    Bimbingan terstruktur dan arahan langsung dari mentor praktisi menjadi faktor penentu kualitas pengalaman magang di Malang.
+  </p>
+</div>
+
 ### 4. Kejelasan Jam Kerja dan Durasi Pelaksanaan
 Jam kerja operasional, jadwal hari masuk, dan total durasi magang perlu disepakati di awal secara tertulis. Hal ini penting agar kegiatan magang tidak berbenturan dengan agenda perkuliahan, jadwal praktikum laboratorium, ujian semester, atau aktivitas organisasi kampus.
 

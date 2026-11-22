@@ -21,6 +21,22 @@ Memahami perbedaan istilah ini sangat penting agar siswa SMK, mahasiswa, orang t
 
 Berikut adalah tabel komparasi cepat untuk memahami karakteristik masing-masing program:
 
+<div class="my-8">
+  <div class="aspect-[16/9] w-full rounded-[20px] overflow-hidden bg-gray-100 border border-gray-200 shadow-sm">
+    <img
+      src="/images/blog/tabel-perbedaan-pkl-magang.webp"
+      alt="Tabel perbedaan PKL SMK dan magang mahasiswa"
+      width="1200"
+      height="675"
+      class="w-full h-full object-cover"
+      loading="lazy"
+    />
+  </div>
+  <p class="text-xs text-gray-400 italic text-center mt-2.5">
+    Tabel perbandingan ringkas perbedaan PKL SMK, prakerin, internship, dan magang mahasiswa.
+  </p>
+</div>
+
 | Istilah | Ditujukan Untuk | Diatur & Dipantau Oleh | Durasi Umum | Sistem Penilaian |
 |---|---|---|---|---|
 | **PKL** | Siswa SMK (Kelas XI / XII) | Sekolah & Tempat PKL Industri | 3 hingga 6 bulan (mengikuti kalender sekolah) | Guru Pembimbing & Mentor Industri |
