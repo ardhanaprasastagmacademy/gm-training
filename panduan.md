@@ -23,9 +23,9 @@ Tampilan artikel diatur secara terpusat oleh template master (`src/pages/blog/[s
 - **Featured Hero Image 16:9** berbingkai rounded & shadow
 - **Daftar Isi Artikel (Table of Contents)** interaktif buka/tutup
 - **Box Rekomendasi "Baca Juga"** beraksen merah marun
-- **Visual Foto Pendukung Kedua**
-- **Accordion FAQ Terkait Topik**
-- **Kotak Kesimpulan dengan Highlight Gelap "Inti Pembelajaran"**
+- **Visual Foto Pendukung** di dalam isi pembahasan
+- **Bagian FAQ Terkait Topik** (ditulis langsung di markdown artikel sehingga kontekstual dan masuk daftar isi secara otomatis tanpa duplikasi)
+- **Kotak Rangkuman Gelap "Inti Pembelajaran"**
 - **Box Profil Penulis Resmi**
 - **Sidebar Kanan Otomatis:** Widget Artikel Terkait, Kategori/Tags, dan Sticky CTA Penerimaan Batch Baru
 - **Injeksi Metadata Schema.org (Article JSON-LD) & OpenGraph** untuk pratinjau media sosial & Google Rich Snippets tanpa error

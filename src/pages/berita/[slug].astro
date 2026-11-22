@@ -207,16 +207,6 @@ const articleSchema = {
                     </li>
                   )
                 }
-                <li>
-                  <a href="#faq-artikel" class="hover:underline hover:text-maroon-900 flex items-center gap-2">
-                    <span class="text-maroon-600 font-bold">{articleH2s.length > 0 ? articleH2s.length + 1 : 2}.</span> FAQ Seputar Topik Ini
-                  </a>
-                </li>
-                <li>
-                  <a href="#kesimpulan" class="hover:underline hover:text-maroon-900 flex items-center gap-2">
-                    <span class="text-maroon-600 font-bold">{articleH2s.length > 0 ? articleH2s.length + 2 : 3}.</span> Kesimpulan
-                  </a>
-                </li>
               </ul>
             </details>
 
@@ -226,7 +216,7 @@ const articleSchema = {
             </div>
 
             <!-- In-Article Callout "Baca Juga" matching Reference -->
-            <div id="poin-2" class="my-8 p-4 md:p-5 rounded-r-2xl bg-gray-50 border-l-4 border-maroon-700 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs md:text-sm">
+            <div class="my-8 p-4 md:p-5 rounded-r-2xl bg-gray-50 border-l-4 border-maroon-700 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs md:text-sm">
               <span class="text-gray-700">
                 <strong class="text-maroon-700">Baca Juga:</strong> Informasi Pembukaan Batch 1 dan Rincian Program Magang Tersedia
               </span>
@@ -236,64 +226,15 @@ const articleSchema = {
               </a>
             </div>
 
-            <!-- In-Article FAQ Accordion Section matching Reference -->
-            <div id="faq-artikel" class="mt-12 pt-8 border-t border-gray-100">
-              <div class="flex items-center gap-2 mb-2">
-                <span class="w-2 h-2 rounded-full bg-maroon-700"></span>
-                <span class="text-xs font-bold uppercase tracking-wider text-maroon-700">Tanya Jawab Terkait</span>
-              </div>
-              <h3 class="text-xl md:text-2xl font-extrabold text-gray-900 mb-5">FAQ Seputar Topik Ini</h3>
-              
-              <div class="space-y-3">
-                <details class="group rounded-[18px] bg-gray-50/70 border border-gray-200/80 p-4 transition-all open:bg-rose-50/20 open:border-maroon-300">
-                  <summary class="font-bold text-sm text-gray-900 cursor-pointer flex items-center justify-between list-none">
-                    <span>Apakah siswa SMK atau mahasiswa pemula tanpa pengalaman bisa mendaftar?</span>
-                    <span class="w-6 h-6 rounded-full bg-white border border-gray-200 text-maroon-700 flex items-center justify-center text-xs group-open:rotate-180 transition-transform">↓</span>
-                  </summary>
-                  <p class="text-xs md:text-sm text-gray-600 mt-3 leading-relaxed">
-                    Bisa. Program magang Gemilang Training dirancang khusus untuk menjembatani peserta dari tingkat dasar. Penilaian utama difokuskan pada kedisiplinan, kemauan belajar, dan kesesuaian jurusan.
-                  </p>
-                </details>
-
-                <details class="group rounded-[18px] bg-gray-50/70 border border-gray-200/80 p-4 transition-all open:bg-rose-50/20 open:border-maroon-300">
-                  <summary class="font-bold text-sm text-gray-900 cursor-pointer flex items-center justify-between list-none">
-                    <span>Bagaimana pengurusan administrasi surat izin dan pelaporan nilai ke kampus/sekolah?</span>
-                    <span class="w-6 h-6 rounded-full bg-white border border-gray-200 text-maroon-700 flex items-center justify-center text-xs group-open:rotate-180 transition-transform">↓</span>
-                  </summary>
-                  <p class="text-xs md:text-sm text-gray-600 mt-3 leading-relaxed">
-                    Tim kami menyediakan dokumen resmi penerimaan, MoU kemitraan, serta evaluasi berkala dan logbook mingguan yang disinkronisasikan langsung dengan pihak BKK sekolah atau dosen pembimbing.
-                  </p>
-                </details>
-
-                <details class="group rounded-[18px] bg-gray-50/70 border border-gray-200/80 p-4 transition-all open:bg-rose-50/20 open:border-maroon-300">
-                  <summary class="font-bold text-sm text-gray-900 cursor-pointer flex items-center justify-between list-none">
-                    <span>Berapa lama proses seleksi dari pengiriman berkas hingga pengumuman?</span>
-                    <span class="w-6 h-6 rounded-full bg-white border border-gray-200 text-maroon-700 flex items-center justify-center text-xs group-open:rotate-180 transition-transform">↓</span>
-                  </summary>
-                  <p class="text-xs md:text-sm text-gray-600 mt-3 leading-relaxed">
-                    Verifikasi administrasi membutuhkan waktu 3-5 hari kerja, dilanjutkan wawancara kompetensi singkat. Pengumuman resmi disampaikan berkala via WhatsApp panitia.
-                  </p>
-                </details>
-              </div>
-            </div>
-
-            <!-- Conclusion Section with Dark Maroon Highlight Box matching Reference -->
-            <div id="kesimpulan" class="mt-12 pt-8 border-t border-gray-100">
-              <h3 class="text-xl md:text-2xl font-extrabold text-gray-900 mb-3">Kesimpulan</h3>
-              <p class="text-sm md:text-base text-gray-700 leading-relaxed mb-6">
-                Menghadapi persaingan dunia kerja modern, memiliki rekam jejak praktik industri dan pendampingan mentor adalah modal berharga. Pastikan berkasmu disiapkan dengan rapi dan pilihlah posisi magang yang sejalan dengan cita-cita kariermu.
-              </p>
-
-              <!-- Dark Highlight Box -->
-              <div class="bg-[#160408] text-white p-6 md:p-7 rounded-[22px] border border-maroon-800/40 shadow-xl relative overflow-hidden">
-                <div class="relative z-10 space-y-2.5">
-                  <div class="flex items-center gap-2 text-rose-300 font-extrabold text-xs uppercase tracking-wider">
-                    <span>💡 Inti Pembelajaran:</span>
-                  </div>
-                  <p class="text-sm md:text-base text-gray-200 leading-relaxed font-medium">
-                    Keberhasilan magang bukan dinilai dari seberapa rumit teori yang dihafal, melainkan kemampuan menerapkan keahlian nyata, disiplin waktu, dan etika kolaborasi profesional di lini industri.
-                  </p>
+            <!-- Dark Highlight Box -->
+            <div class="mt-8 bg-[#160408] text-white p-6 md:p-7 rounded-[22px] border border-maroon-800/40 shadow-xl relative overflow-hidden">
+              <div class="relative z-10 space-y-2.5">
+                <div class="flex items-center gap-2 text-rose-300 font-extrabold text-xs uppercase tracking-wider">
+                  <span>💡 Inti Pembelajaran:</span>
                 </div>
+                <p class="text-sm md:text-base text-gray-200 leading-relaxed font-medium">
+                  Keberhasilan magang bukan dinilai dari seberapa rumit teori yang dihafal, melainkan kemampuan menerapkan keahlian nyata, disiplin waktu, dan etika kolaborasi profesional di lini industri.
+                </p>
               </div>
             </div>
 
