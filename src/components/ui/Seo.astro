@@ -43,7 +43,9 @@ const resolvedOgImage = ogImage.startsWith("http")
 
 // Formatted title
 const formattedTitle =
-  title.includes(siteConfig.shortName) || title.includes(siteConfig.name)
+  title.includes(siteConfig.shortName) ||
+  title.includes(siteConfig.name) ||
+  title.includes("Gemilang Training")
     ? title
     : `${title} | ${siteConfig.shortName}`;
 
