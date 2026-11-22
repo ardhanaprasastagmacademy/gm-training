@@ -29,9 +29,6 @@ Pengalaman magang yang terstruktur pada perusahaan terpercaya membekali Anda den
 
 Kota Malang dikenal sebagai kota pendidikan dengan ekosistem teknologi yang berkembang pesat. Ada empat jalur utama yang paling aman dan kredibel untuk menemukan lowongan magang berkualitas:
 
-### 1. Career Center Kampus dan BKK Sekolah Menengah Kejuruan
-Pusat karier kampus (seperti di Polinema, Universitas Negeri Malang, UMM, UB, dan UIN Malang) serta Bursa Kerja Khusus (BKK) di SMK mitra secara rutin mempublikasikan lowongan magang yang telah terikat perjanjian kerja sama resmi (MoU). Jalur ini menjamin bahwa beban tugas magang telah disinkronkan dengan konversi SKS maupun capaian kompetensi kejuruan.
-
 <div class="my-8">
   <div class="aspect-[16/9] w-full rounded-[20px] overflow-hidden bg-gray-100 border border-gray-200 shadow-sm">
     <img
@@ -47,6 +44,9 @@ Pusat karier kampus (seperti di Polinema, Universitas Negeri Malang, UMM, UB, da
     Peserta PKL PixxelPro berdiskusi menunjuk layar laptop saat menyelesaikan studi kasus industri.
   </p>
 </div>
+
+### 1. Career Center Kampus dan BKK Sekolah Menengah Kejuruan
+Pusat karier kampus (seperti di Polinema, Universitas Negeri Malang, UMM, UB, dan UIN Malang) serta Bursa Kerja Khusus (BKK) di SMK mitra secara rutin mempublikasikan lowongan magang yang telah terikat perjanjian kerja sama resmi (MoU). Jalur ini menjamin bahwa beban tugas magang telah disinkronkan dengan konversi SKS maupun capaian kompetensi kejuruan.
 
 ### 2. Website Resmi dan Halaman Karier Perusahaan
 Perusahaan teknologi, konsultan perangkat lunak, dan studio multimedia di wilayah Malang Raya umumnya memiliki rubrik khusus seperti *Career* atau *Internship* di situs resmi mereka. Informasi lowongan yang tayang di situs web korporasi mencantumkan kualifikasi teknis, durasi penempatan, serta hak-hak peserta secara transparan.

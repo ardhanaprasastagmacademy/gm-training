@@ -23,7 +23,7 @@ Tampilan artikel diatur secara terpusat oleh template master (`src/pages/blog/[s
 - **Featured Hero Image 16:9** berbingkai rounded & shadow
 - **Daftar Isi Artikel (Table of Contents)** interaktif buka/tutup
 - **Callout "Baca Juga" In-Article** berdesain boks elegan beraksen merah marun di dalam artikel
-- **Visual Foto Pendukung** di dalam isi pembahasan
+- **Visual Foto Pendukung Kedua:** Diletakkan secara konsisten di bawah sub-bab Daftar Isi nomor 2 (heading H2 ke-2) setelah kalimat pengantar
 - **Bagian FAQ Terkait Topik** (ditulis langsung di markdown artikel sehingga kontekstual dan masuk daftar isi secara otomatis tanpa duplikasi)
 - **Kotak Rangkuman Gelap "Inti Pembelajaran"**
 - **Box Profil Penulis Resmi**
@@ -127,6 +127,8 @@ Agar artikel tampil tajam, cepat dimuat, dan memiliki thumbnail saat dibagikan k
    * Wajib di bawah **200 KB** (Sangat disarankan **di bawah 100 KB**).
 4. **Folder Penyimpanan Gambar:**
    * Simpan file gambar di folder: `public/images/galeri/` atau `public/images/tentang/`.
+5. **Posisi Foto Kedua di Isi Artikel:**
+   * Foto pendukung kedua (`gambarKedua`) diletakkan tepat di bawah sub-bab **Daftar Isi Nomor 2 (Heading H2 ke-2)** setelah 1 kalimat/paragraf pembuka.
 
 ---
 

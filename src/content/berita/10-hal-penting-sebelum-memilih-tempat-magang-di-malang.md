@@ -31,15 +31,6 @@ Sebaliknya, memilih tempat magang secara tergesa-gesa tanpa pertimbangan matang 
 
 Terdapat sepuluh indikator utama yang wajib Anda bedah sebelum menandatangani berkas penerimaan magang. Setiap poin dapat Anda evaluasi melalui pertanyaan sederhana kepada pihak perusahaan atau instansi:
 
-### 1. Kesesuaian Bidang Magang dengan Jurusan dan Minat
-Pastikan bidang pekerjaan yang ditawarkan selaras dengan program studi Anda—seperti Rekayasa Perangkat Lunak (RPL), Teknik Komputer dan Jaringan (TKJ), Desain Komunikasi Visual (DKV), Teknik Informatika, atau Sistem Informasi. Magang yang relevan membantu memperkuat portofolio dan memudahkan penerapan teori bangku kuliah ke dalam arsitektur pekerjaan nyata.
-
-### 2. Kejelasan Deskripsi Tugas Harian (Job Description)
-Tugas yang terdefinisi dengan jelas membuat proses pembelajaran lebih terarah. Tanyakan secara spesifik apa saja pekerjaan harian, hasil yang diharapkan (*deliverables*), serta alat (*tools*) atau *software* yang akan digunakan dalam lini kerja.
-
-### 3. Ketersediaan Pembimbing Lapangan yang Jelas
-Pembimbing berperan penting dalam memberikan arahan, transfer keahlian teknis, telaah hasil (*review*), dan evaluasi berkala. Pastikan institusi menunjuk mentor praktisi tertentu yang bertanggung jawab membimbing Anda selama masa magang berlangsung.
-
 <div class="my-8">
   <div class="aspect-[16/9] w-full rounded-[20px] overflow-hidden bg-gray-100 border border-gray-200 shadow-sm">
     <img
@@ -55,6 +46,15 @@ Pembimbing berperan penting dalam memberikan arahan, transfer keahlian teknis, t
     Bimbingan terstruktur dan arahan langsung dari mentor praktisi menjadi faktor penentu kualitas pengalaman magang di Malang.
   </p>
 </div>
+
+### 1. Kesesuaian Bidang Magang dengan Jurusan dan Minat
+Pastikan bidang pekerjaan yang ditawarkan selaras dengan program studi Anda—seperti Rekayasa Perangkat Lunak (RPL), Teknik Komputer dan Jaringan (TKJ), Desain Komunikasi Visual (DKV), Teknik Informatika, atau Sistem Informasi. Magang yang relevan membantu memperkuat portofolio dan memudahkan penerapan teori bangku kuliah ke dalam arsitektur pekerjaan nyata.
+
+### 2. Kejelasan Deskripsi Tugas Harian (Job Description)
+Tugas yang terdefinisi dengan jelas membuat proses pembelajaran lebih terarah. Tanyakan secara spesifik apa saja pekerjaan harian, hasil yang diharapkan (*deliverables*), serta alat (*tools*) atau *software* yang akan digunakan dalam lini kerja.
+
+### 3. Ketersediaan Pembimbing Lapangan yang Jelas
+Pembimbing berperan penting dalam memberikan arahan, transfer keahlian teknis, telaah hasil (*review*), dan evaluasi berkala. Pastikan institusi menunjuk mentor praktisi tertentu yang bertanggung jawab membimbing Anda selama masa magang berlangsung.
 
 ### 4. Kejelasan Jam Kerja dan Durasi Pelaksanaan
 Jam kerja operasional, jadwal hari masuk, dan total durasi magang perlu disepakati di awal secara tertulis. Hal ini penting agar kegiatan magang tidak berbenturan dengan agenda perkuliahan, jadwal praktikum laboratorium, ujian semester, atau aktivitas organisasi kampus.
