@@ -90,7 +90,7 @@ Berdasarkan catatan evaluasi pembimbing lapangan di kawasan Malang Raya, beberap
 - **Mengabaikan Beban Perjalanan Harian:** Meremehkan jarak tempuh dan kemacetan jam sibuk di Kota Malang, sehingga kelelahan fisik menurunkan produktivitas belajar dan mengganggu perkuliahan.
 - **Tidak Memastikan Legalitas Tertulis:** Masuk ke lingkungan kerja tanpa dokumen perjanjian magang yang memuat hak bimbingan, jadwal libur, serta kriteria penilaian akhir.
 
-Untuk menghindari risiko tersebut, luangkan waktu untuk meriset rekam jejak perusahaan dan ajukan pertanyaan klarifikasi secara sopan pada sesi wawancara.
+Untuk menghindari risiko tersebut, luangkan waktu untuk meriset rekam jejak perusahaan dan ajukan pertanyaan klarifikasi secara sopan pada sesi wawancara. Pahami juga panduan [Cara Mencari Lowongan Magang di Malang yang Terpercaya](/blog/cara-mencari-lowongan-magang-malang/) serta ketahui [Perbedaan PKL, Prakerin, Internship, dan Magang Mahasiswa](/blog/perbedaan-pkl-prakerin-internship-magang-mahasiswa/) agar Anda tidak salah memilih jalur.
 
 ## Tips Praktis Sebelum Menerima Tawaran Magang
 

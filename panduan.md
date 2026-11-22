@@ -22,7 +22,7 @@ Tampilan artikel diatur secara terpusat oleh template master (`src/pages/blog/[s
 - **Info Penulis, Tanggal Terbit, Status Pembaruan, dan Estimasi Waktu Baca**
 - **Featured Hero Image 16:9** berbingkai rounded & shadow
 - **Daftar Isi Artikel (Table of Contents)** interaktif buka/tutup
-- **Box Rekomendasi "Baca Juga"** beraksen merah marun
+- **Box Rekomendasi "Baca Juga" (Minimal 3 Artikel):** Secara otomatis menampilkan minimal 3 artikel rekomendasi pilihan lainnya yang saling terhubung (*internal cross-linking*) dengan aksen merah marun.
 - **Visual Foto Pendukung** di dalam isi pembahasan
 - **Bagian FAQ Terkait Topik** (ditulis langsung di markdown artikel sehingga kontekstual dan masuk daftar isi secara otomatis tanpa duplikasi)
 - **Kotak Rangkuman Gelap "Inti Pembelajaran"**
