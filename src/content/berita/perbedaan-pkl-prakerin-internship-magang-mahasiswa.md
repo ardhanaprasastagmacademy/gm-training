@@ -1,8 +1,8 @@
 ---
 judul: "Perbedaan PKL, Prakerin, Internship & Magang Mahasiswa"
 ringkasan: "Apa beda PKL, prakerin, internship, dan magang mahasiswa? Pahami arti, peserta, durasi, penilaian, dan cara memilih program yang tepat untuk SMK dan kampus."
-tanggal: 2026-11-22
-diperbarui: 2026-11-22
+tanggal: 2026-11-21
+diperbarui: 2026-11-21
 kategori: "artikel"
 gambar: "/images/blog/perbedaan-pkl-prakerin-internship-magang.webp"
 gambarKedua: "/images/blog/tabel-perbedaan-pkl-magang.webp"
@@ -21,12 +21,16 @@ Memahami perbedaan istilah ini sangat penting agar siswa SMK, mahasiswa, orang t
 
 Berikut adalah tabel komparasi cepat untuk memahami karakteristik masing-masing program:
 
+<div class="overflow-x-auto my-6 rounded-2xl border border-gray-200/80 shadow-xs bg-white">
+
 | Istilah | Ditujukan Untuk | Diatur & Dipantau Oleh | Durasi Umum | Sistem Penilaian |
 |---|---|---|---|---|
 | **PKL** | Siswa SMK (Kelas XI / XII) | Sekolah & Tempat PKL Industri | 3 hingga 6 bulan (mengikuti kalender sekolah) | Guru Pembimbing & Mentor Industri |
 | **Prakerin** | Siswa SMK (Istilah Lama PKL) | Sekolah & Tempat PKL Industri | Sama dengan PKL | Guru Pembimbing & Mentor Industri |
 | **Internship** | Mahasiswa & *Fresh Graduate* | Perusahaan atau Lembaga Penyelenggara | Bervariasi & fleksibel (1–6 bulan) | Mentor / *Supervisor* Tempat Kerja |
 | **Magang Mahasiswa** | Mahasiswa Aktif Diploma & S1 | Kampus, Dosen Wali, & Tempat Magang | 1 semester (konversi SKS / MBKM) | Dosen Pembimbing & Mentor Industri |
+
+</div>
 
 > **Catatan:** Regulasi teknis dapat bervariasi bergantung pada kurikulum masing-masing sekolah, fakultas kampus, serta kebijakan instansi mitra. Selalu pastikan konfirmasi berkas resmi sebelum mendaftar.
 
@@ -80,6 +84,8 @@ Untuk melihat rincian divisi dan kualifikasi yang dibuka di Malang, Anda dapat m
 
 Untuk melihat pemetaan komprehensif antara jalur kejuruan SMK dan jenjang perguruan tinggi, perhatikan tabel perbandingan berikut:
 
+<div class="overflow-x-auto my-6 rounded-2xl border border-gray-200/80 shadow-xs bg-white">
+
 | Aspek Penilaian | PKL / Prakerin (SMK) | Internship / Magang Mahasiswa |
 |---|---|---|
 | **Target Peserta** | Siswa SMK aktif kelas XI atau XII | Mahasiswa aktif (D3, D4, S1) & *fresh graduate* |
@@ -89,6 +95,8 @@ Untuk melihat pemetaan komprehensif antara jalur kejuruan SMK dan jenjang pergur
 | **Fokus Pembelajaran** | Keterampilan teknis dasar kejuruan (RPL, TKJ, DKV) | Penerapan keilmuan spesifik, arsitektur sistem, riset terapan |
 | **Dokumen Wajib** | Surat pengantar BKK sekolah, jurnal harian, lembar nilai PKL | Surat pengantar fakultas, proposal magang, laporan akhir/skripsi |
 | **Hasil Kelulusan** | Nilai rapor PKL, sertifikat resmi, & portofolio tugas | Konversi nilai SKS, sertifikat kompetensi, & portofolio karya |
+
+</div>
 
 > **Baca Juga:** [Cara Mencari Lowongan Magang di Malang yang Terpercaya](/blog/cara-mencari-lowongan-magang-malang/)
 

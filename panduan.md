@@ -21,7 +21,7 @@ Tampilan artikel diatur secara terpusat oleh template master (`src/pages/blog/[s
 - **Lead Subtitle / Ringkasan Pembuka**
 - **Info Penulis, Tanggal Terbit, Status Pembaruan, dan Estimasi Waktu Baca**
 - **Featured Hero Image 16:9** berbingkai rounded & shadow
-- **Daftar Isi Artikel (Table of Contents)** interaktif buka/tutup
+- **Daftar Isi Artikel (Table of Contents)** interaktif buka/tutup (default tertutup saat halaman pertama kali dibuka)
 - **Callout "Baca Juga" In-Article** berdesain boks elegan beraksen merah marun di dalam artikel
 - **Visual Foto Pendukung Kedua:** Diletakkan secara konsisten di bawah sub-bab Daftar Isi nomor 2 (heading H2 ke-2) setelah kalimat pengantar
 - **Bagian FAQ Terkait Topik** (ditulis langsung di markdown artikel sehingga kontekstual dan masuk daftar isi secara otomatis tanpa duplikasi)

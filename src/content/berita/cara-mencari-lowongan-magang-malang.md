@@ -1,8 +1,8 @@
 ---
 judul: "Cara Mencari Lowongan Magang di Malang yang Terpercaya"
 ringkasan: "Pelajari cara mencari lowongan magang di Malang yang terpercaya lewat career center, website resmi, dan tips verifikasi agar terhindar dari rekrutmen palsu."
-tanggal: 2026-11-22
-diperbarui: 2026-11-22
+tanggal: 2026-11-21
+diperbarui: 2026-11-21
 kategori: "artikel"
 gambar: "/images/blog/Diskusi-peserta-PKL.webp"
 gambarKedua: "/images/blog/peserta-PKL-di-Pixxel-Pro.webp"
