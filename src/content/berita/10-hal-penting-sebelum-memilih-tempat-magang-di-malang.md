@@ -56,6 +56,8 @@ Tugas yang terdefinisi dengan jelas membuat proses pembelajaran lebih terarah. T
 ### 3. Ketersediaan Pembimbing Lapangan yang Jelas
 Pembimbing berperan penting dalam memberikan arahan, transfer keahlian teknis, telaah hasil (*review*), dan evaluasi berkala. Pastikan institusi menunjuk mentor praktisi tertentu yang bertanggung jawab membimbing Anda selama masa magang berlangsung.
 
+> **Baca Juga:** [Perbedaan PKL, Prakerin, Internship & Magang Mahasiswa](/blog/perbedaan-pkl-prakerin-internship-magang-mahasiswa/)
+
 ### 4. Kejelasan Jam Kerja dan Durasi Pelaksanaan
 Jam kerja operasional, jadwal hari masuk, dan total durasi magang perlu disepakati di awal secara tertulis. Hal ini penting agar kegiatan magang tidak berbenturan dengan agenda perkuliahan, jadwal praktikum laboratorium, ujian semester, atau aktivitas organisasi kampus.
 
@@ -65,13 +67,10 @@ Kebijakan kompensasi pada program magang dapat berbeda-beda, mulai dari program 
 ### 6. Aksesibilitas Lokasi dan Biaya Perjalanan di Malang
 Lokasi memengaruhi waktu tempuh harian, biaya bahan bakar, dan tingkat kelelahan fisik. Hitung estimasi waktu tempuh dari tempat tinggal atau tempat kos menuju kantor, terutama jika harus melintasi kawasan padat lalu lintas Kota Malang seperti koridor Lowokwaru, Soekarno-Hatta, dan Dinoyo.
 
-> **Baca Juga:**
-> - [Perbedaan PKL, Prakerin, Internship & Magang Mahasiswa](/blog/perbedaan-pkl-prakerin-internship-magang-mahasiswa/)
-> - [Cara Mencari Lowongan Magang di Malang yang Terpercaya](/blog/cara-mencari-lowongan-magang-malang/)
-> - [Panduan Lengkap Menyiapkan CV Magang SMK & Mahasiswa](/blog/panduan-lengkap-menyiapkan-cv-magang-smk/)
-
 ### 7. Reputasi, Legalitas, dan Rekam Jejak Instansi
 Reputasi organisasi dapat dinilai dari profil resmi perusahaan, ulasan alumni peserta magang, portofolio proyek industri, serta kemitraan resmi dengan institusi vokasi. Baca ulasan secara kritis dan bandingkan dengan rekam jejak publik yang dapat diverifikasi.
+
+> **Baca Juga:** [Cara Mencari Lowongan Magang di Malang yang Terpercaya](/blog/cara-mencari-lowongan-magang-malang/)
 
 ### 8. Kepatuhan terhadap Persyaratan dan Kebijakan Kampus
 Banyak kampus dan SMK memiliki aturan khusus terkait magang, seperti format surat pengantar BKK sekolah, draf nota kesepahaman (MoU), batas durasi minimal, hingga pengakuan konversi 20 SKS program Merdeka Belajar. Selalu konsultasikan rencana magang dengan dosen wali, kaprodi, atau koordinator BKK sekolah.
@@ -95,7 +94,9 @@ Berdasarkan catatan evaluasi pembimbing lapangan di kawasan Malang Raya, beberap
 - **Mengabaikan Beban Perjalanan Harian:** Meremehkan jarak tempuh dan kemacetan jam sibuk di Kota Malang, sehingga kelelahan fisik menurunkan produktivitas belajar dan mengganggu perkuliahan.
 - **Tidak Memastikan Legalitas Tertulis:** Masuk ke lingkungan kerja tanpa dokumen perjanjian magang yang memuat hak bimbingan, jadwal libur, serta kriteria penilaian akhir.
 
-Untuk menghindari risiko tersebut, luangkan waktu untuk meriset rekam jejak perusahaan dan ajukan pertanyaan klarifikasi secara sopan pada sesi wawancara. Pahami juga panduan [Cara Mencari Lowongan Magang di Malang yang Terpercaya](/blog/cara-mencari-lowongan-magang-malang/) serta ketahui [Perbedaan PKL, Prakerin, Internship, dan Magang Mahasiswa](/blog/perbedaan-pkl-prakerin-internship-magang-mahasiswa/) agar Anda tidak salah memilih jalur.
+Untuk menghindari risiko tersebut, luangkan waktu untuk meriset rekam jejak perusahaan dan ajukan pertanyaan klarifikasi secara sopan pada sesi wawancara.
+
+> **Baca Juga:** [Panduan Lengkap Menyiapkan CV Magang SMK & Mahasiswa](/blog/panduan-lengkap-menyiapkan-cv-magang-smk/)
 
 ## Tips Praktis Sebelum Menerima Tawaran Magang
 

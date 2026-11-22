@@ -66,6 +66,8 @@ Istilah prakerin lebih populer pada kurikulum edisi sebelumnya (seperti Kurikulu
 
 Program *internship* umumnya ditujukan bagi mahasiswa semester akhir maupun lulusan baru (*fresh graduate*) yang ingin mengasah jam terbang profesional. Skema *internship* cenderung lebih dinamis: beberapa perusahaan membuka magang berbayar (*paid internship*) dengan target proyek spesifik, sementara durasi dan jadwal kerja disesuaikan dengan kebutuhan divisi operasional perusahaan.
 
+> **Baca Juga:** [10 Hal Penting Sebelum Memilih Tempat Magang di Malang](/blog/10-hal-penting-sebelum-memilih-tempat-magang-di-malang/)
+
 ## Apa Itu Magang Mahasiswa?
 
 Magang mahasiswa adalah kegiatan penempatan kerja terstruktur yang dijalani mahasiswa aktif perguruan tinggi untuk mengonversi teori akademis ke dalam studi kasus industri nyata.
@@ -88,10 +90,7 @@ Untuk melihat pemetaan komprehensif antara jalur kejuruan SMK dan jenjang pergur
 | **Dokumen Wajib** | Surat pengantar BKK sekolah, jurnal harian, lembar nilai PKL | Surat pengantar fakultas, proposal magang, laporan akhir/skripsi |
 | **Hasil Kelulusan** | Nilai rapor PKL, sertifikat resmi, & portofolio tugas | Konversi nilai SKS, sertifikat kompetensi, & portofolio karya |
 
-> **Baca Juga:**
-> - [10 Hal Penting Sebelum Memilih Tempat Magang di Malang](/blog/10-hal-penting-sebelum-memilih-tempat-magang-di-malang/)
-> - [Cara Mencari Lowongan Magang di Malang yang Terpercaya](/blog/cara-mencari-lowongan-magang-malang/)
-> - [Panduan Lengkap Menyiapkan CV Magang SMK & Mahasiswa](/blog/panduan-lengkap-menyiapkan-cv-magang-smk/)
+> **Baca Juga:** [Cara Mencari Lowongan Magang di Malang yang Terpercaya](/blog/cara-mencari-lowongan-magang-malang/)
 
 ## Siapa yang Cocok Mengikuti Masing-masing Program?
 
@@ -116,6 +115,8 @@ Agar keputusan Anda terarah, ikuti langkah sistematis berikut:
 2. **Konsultasikan Regulasi Kampus/Sekolah:** Pastikan batas minimal durasi, format lembar penilaian pembimbing, serta kriteria perusahaan mitra yang disetujui.
 3. **Pilih Spesialisasi Keahlian yang Linier:** Tentukan divisi yang ingin didalami, seperti pemrograman *Frontend* (HTML, CSS, JavaScript, Astro), *UI/UX Design*, *Digital Marketing*, atau Administrasi Jaringan.
 4. **Verifikasi Keberadaan Mentor Industri:** Pilih tempat magang yang memiliki rekam jejak bimbingan aktif, legalitas kemitraan terverifikasi, dan portofolio kerja nyata.
+
+> **Baca Juga:** [Panduan Lengkap Menyiapkan CV Magang SMK & Mahasiswa](/blog/panduan-lengkap-menyiapkan-cv-magang-smk/)
 
 ## Program PKL dan Magang di Gemilang Training Malang
 

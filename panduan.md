@@ -99,12 +99,17 @@ draft: false
    * Formulir Pendaftaran: `[Formulir Pendaftaran Batch](/pendaftaran/form/)`
    * Pusat Unduhan Dokumen: `[Pusat Unduhan Resmi](/unduhan/)`
    * Kemitraan Sekolah/Kampus: `[Kemitraan Sekolah & Kampus](/untuk-sekolah-kampus/)`
-   * Sisipkan juga callout **"Baca Juga"** di tengah artikel (minimal 3 artikel rekomendasi):
+   * Sisipkan **3 callout "Baca Juga"** yang disebar satu per satu di sela-sela sub-bab artikel (jangan ditumpuk 3 sekaligus):
      ```markdown
-     > **Baca Juga:**
-     > - [Judul Artikel Terkait 1](/blog/slug-1/)
-     > - [Judul Artikel Terkait 2](/blog/slug-2/)
-     > - [Judul Artikel Terkait 3](/blog/slug-3/)
+     > **Baca Juga:** [Judul Artikel Terkait 1](/blog/slug-1/)
+     
+     ... (paragraf pembahasan) ...
+     
+     > **Baca Juga:** [Judul Artikel Terkait 2](/blog/slug-2/)
+     
+     ... (paragraf pembahasan) ...
+     
+     > **Baca Juga:** [Judul Artikel Terkait 3](/blog/slug-3/)
      ```
 6. **Optimasi Lokal & Geografis (GEO Malang):**
    Sebutkan entitas wilayah target secara wajar di dalam tulisan:
