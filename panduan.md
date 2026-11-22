@@ -166,6 +166,18 @@ Seluruh peserta program di Gemilang Training Malang dilibatkan dalam alur kerja 
 
 Untuk mengunduh format surat izin, template laporan magang, atau pedoman logbook mingguan, silakan kunjungi [Pusat Unduhan Resmi](/unduhan/). Anda juga dapat mempelajari rincian persyaratan pendaftaran melalui halaman [Alur Pendaftaran Magang](/alur-pendaftaran/).
 
+## Pertanyaan yang Sering Diajukan (FAQ)
+
+Berikut adalah beberapa pertanyaan yang sering diajukan:
+
+- **Apakah peserta tanpa pengalaman teknis bisa mendaftar?**  
+  Bisa. Seluruh materi pembekalan disusun terstruktur mulai dari dasar dengan bimbingan intensif dari mentor praktisi.
+
+- **Bagaimana proses pengurusan surat izin resmi kampus/sekolah?**  
+  Tim administrasi kami menyediakan surat balasan penerimaan resmi serta MoU kemitraan yang dapat langsung diteruskan ke pihak BKK atau fakultas.
+
+*(Sistem secara otomatis mengubah daftar tanya-jawab di atas menjadi akordion interaktif buka-tutup di tampilan web).*
+
 ## Kesimpulan
 
 Rangkum inti bahasan dalam 1–2 paragraf penutup. Tegaskan kembali bahwa kesuksesan magang merupakan perpaduan antara kompetensi teknis yang teruji, sikap kerja profesional, dan bimbingan mentor yang tepat. Bagi yang ingin bergabung pada periode batch berikutnya, disarankan mempersiapkan diri sejak dini.

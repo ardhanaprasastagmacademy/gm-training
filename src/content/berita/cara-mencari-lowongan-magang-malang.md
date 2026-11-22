@@ -87,17 +87,47 @@ Bagi Anda yang mencari program magang informatika terstruktur dengan bimbingan m
 
 Berikut adalah beberapa pertanyaan mendasar seputar pencarian lowongan magang di wilayah Malang:
 
-- **Apakah lowongan magang yang beredar di media sosial aman untuk dilamar?**  
-  Lowongan di media sosial seperti Instagram atau Facebook bisa saja valid, namun Anda wajib melakukan verifikasi silang (*cross-check*) ke situs web resmi perusahaan atau menghubungi nomor layanan pelanggan yang tertera pada profil terverifikasi.
+<div class="space-y-3 my-6 not-prose">
+  <details class="group rounded-[18px] bg-gray-50/70 border border-gray-200/80 p-4 transition-all open:bg-rose-50/20 open:border-maroon-300">
+    <summary class="font-bold text-sm md:text-base text-gray-900 cursor-pointer flex items-center justify-between list-none [&::-webkit-details-marker]:hidden">
+      <span>Apakah lowongan magang yang beredar di media sosial aman untuk dilamar?</span>
+      <span class="w-6 h-6 rounded-full bg-white border border-gray-200 text-maroon-700 flex items-center justify-center text-xs group-open:rotate-180 transition-transform shrink-0 ml-3">↓</span>
+    </summary>
+    <p class="text-xs md:text-sm text-gray-600 mt-3 leading-relaxed">
+      Lowongan di media sosial seperti Instagram atau Facebook bisa saja valid, namun Anda wajib melakukan verifikasi silang (<em>cross-check</em>) ke situs web resmi perusahaan atau menghubungi nomor layanan pelanggan yang tertera pada profil terverifikasi.
+    </p>
+  </details>
 
-- **Haruskah peserta membayar biaya pendaftaran magang?**  
-  Sangat disarankan berhati-hati. Program magang industri pada umumnya tidak memungut biaya registrasi. Jika ada biaya yang dibebankan, pastikan hal tersebut merupakan program pelatihan berbasis sertifikasi resmi berskala nasional yang memiliki legalitas badan hukum jelas.
+  <details class="group rounded-[18px] bg-gray-50/70 border border-gray-200/80 p-4 transition-all open:bg-rose-50/20 open:border-maroon-300">
+    <summary class="font-bold text-sm md:text-base text-gray-900 cursor-pointer flex items-center justify-between list-none [&::-webkit-details-marker]:hidden">
+      <span>Haruskah peserta membayar biaya pendaftaran magang?</span>
+      <span class="w-6 h-6 rounded-full bg-white border border-gray-200 text-maroon-700 flex items-center justify-center text-xs group-open:rotate-180 transition-transform shrink-0 ml-3">↓</span>
+    </summary>
+    <p class="text-xs md:text-sm text-gray-600 mt-3 leading-relaxed">
+      Sangat disarankan berhati-hati. Program magang industri pada umumnya tidak memungut biaya registrasi. Jika ada biaya yang dibebankan, pastikan hal tersebut merupakan program pelatihan berbasis sertifikasi resmi berskala nasional yang memiliki legalitas badan hukum jelas.
+    </p>
+  </details>
 
-- **Kapan sebaiknya mulai mengirimkan berkas pendaftaran magang?**  
-  Kirimkan berkas lamaran minimal 6 hingga 8 minggu sebelum kalender magang akademik dibuka. Hal ini memberikan ruang bagi bagian HRD industri untuk memeriksa kelayakan portofolio Anda.
+  <details class="group rounded-[18px] bg-gray-50/70 border border-gray-200/80 p-4 transition-all open:bg-rose-50/20 open:border-maroon-300">
+    <summary class="font-bold text-sm md:text-base text-gray-900 cursor-pointer flex items-center justify-between list-none [&::-webkit-details-marker]:hidden">
+      <span>Kapan sebaiknya mulai mengirimkan berkas pendaftaran magang?</span>
+      <span class="w-6 h-6 rounded-full bg-white border border-gray-200 text-maroon-700 flex items-center justify-center text-xs group-open:rotate-180 transition-transform shrink-0 ml-3">↓</span>
+    </summary>
+    <p class="text-xs md:text-sm text-gray-600 mt-3 leading-relaxed">
+      Kirimkan berkas lamaran minimal 6 hingga 8 minggu sebelum kalender magang akademik dibuka. Hal ini memberikan ruang bagi bagian HRD industri untuk memeriksa kelayakan portofolio Anda.
+    </p>
+  </details>
 
-- **Bagaimana memastikan kegiatan magang diakui oleh pihak kampus atau sekolah?**  
-  Koordinasikan draf kemitraan dan deskripsi penugasan dengan koordinator magang prodi atau BKK sekolah sebelum menandatangani perjanjian penempatan.
+  <details class="group rounded-[18px] bg-gray-50/70 border border-gray-200/80 p-4 transition-all open:bg-rose-50/20 open:border-maroon-300">
+    <summary class="font-bold text-sm md:text-base text-gray-900 cursor-pointer flex items-center justify-between list-none [&::-webkit-details-marker]:hidden">
+      <span>Bagaimana memastikan kegiatan magang diakui oleh pihak kampus atau sekolah?</span>
+      <span class="w-6 h-6 rounded-full bg-white border border-gray-200 text-maroon-700 flex items-center justify-center text-xs group-open:rotate-180 transition-transform shrink-0 ml-3">↓</span>
+    </summary>
+    <p class="text-xs md:text-sm text-gray-600 mt-3 leading-relaxed">
+      Koordinasikan draf kemitraan dan deskripsi penugasan dengan koordinator magang prodi atau BKK sekolah sebelum menandatangani perjanjian penempatan.
+    </p>
+  </details>
+</div>
 
 ## Kesimpulan Praktis
 

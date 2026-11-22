@@ -104,20 +104,57 @@ Bagi Anda yang sedang mencari lowongan magang informatika terstruktur di Kota Ma
 
 Berikut adalah beberapa pertanyaan penting yang sering diajukan seputar pemilihan tempat magang di Kota Malang:
 
-- **Berapa lama durasi magang yang ideal?**  
-  Durasi magang yang ideal bergantung pada ketentuan kurikulum sekolah/kampus dan target capaian kompetensi, umumnya berlangsung antara 3 hingga 6 bulan (satu semester penuh). Rentang waktu tersebut cukup untuk memahami siklus kerja tim pengembang dan menuntaskan minimal satu portofolio proyek terapan.
+<div class="space-y-3 my-6 not-prose">
+  <details class="group rounded-[18px] bg-gray-50/70 border border-gray-200/80 p-4 transition-all open:bg-rose-50/20 open:border-maroon-300">
+    <summary class="font-bold text-sm md:text-base text-gray-900 cursor-pointer flex items-center justify-between list-none [&::-webkit-details-marker]:hidden">
+      <span>Berapa lama durasi magang yang ideal?</span>
+      <span class="w-6 h-6 rounded-full bg-white border border-gray-200 text-maroon-700 flex items-center justify-center text-xs group-open:rotate-180 transition-transform shrink-0 ml-3">↓</span>
+    </summary>
+    <p class="text-xs md:text-sm text-gray-600 mt-3 leading-relaxed">
+      Durasi magang yang ideal bergantung pada ketentuan kurikulum sekolah/kampus dan target capaian kompetensi, umumnya berlangsung antara 3 hingga 6 bulan (satu semester penuh). Rentang waktu tersebut cukup untuk memahami siklus kerja tim pengembang dan menuntaskan minimal satu portofolio proyek terapan.
+    </p>
+  </details>
 
-- **Apakah magang harus selalu dibayar atau memberikan uang saku?**  
-  Tidak semua program magang memberikan kompensasi finansial langsung. Bagi siswa SMK dan mahasiswa vokasi pemula, nilai utama magang sering kali terletak pada kurikulum pendampingan intensif, fasilitas perangkat industri, sertifikasi resmi, serta koneksi profesional dengan mentor praktisi. Kebijakan ini sebaiknya dikonfirmasi sejak awal wawancara.
+  <details class="group rounded-[18px] bg-gray-50/70 border border-gray-200/80 p-4 transition-all open:bg-rose-50/20 open:border-maroon-300">
+    <summary class="font-bold text-sm md:text-base text-gray-900 cursor-pointer flex items-center justify-between list-none [&::-webkit-details-marker]:hidden">
+      <span>Apakah magang harus selalu dibayar atau memberikan uang saku?</span>
+      <span class="w-6 h-6 rounded-full bg-white border border-gray-200 text-maroon-700 flex items-center justify-center text-xs group-open:rotate-180 transition-transform shrink-0 ml-3">↓</span>
+    </summary>
+    <p class="text-xs md:text-sm text-gray-600 mt-3 leading-relaxed">
+      Tidak semua program magang memberikan kompensasi finansial langsung. Bagi siswa SMK dan mahasiswa vokasi pemula, nilai utama magang sering kali terletak pada kurikulum pendampingan intensif, fasilitas perangkat industri, sertifikasi resmi, serta koneksi profesional dengan mentor praktisi. Kebijakan ini sebaiknya dikonfirmasi sejak awal wawancara.
+    </p>
+  </details>
 
-- **Bagaimana jika tempat magang ternyata tidak sesuai harapan awal?**  
-  Bicarakan kendala tersebut secara konstruktif dengan mentor pembimbing perusahaan atau dosen pembimbing kampus. Dalam banyak kasus, penyesuaian deskripsi tugas atau pemindahan sub-tim dapat menyelesaikan masalah. Jika kondisi tidak memungkinkan, konsultasikan opsi alternatif dengan pihak kampus atau BKK sekolah.
+  <details class="group rounded-[18px] bg-gray-50/70 border border-gray-200/80 p-4 transition-all open:bg-rose-50/20 open:border-maroon-300">
+    <summary class="font-bold text-sm md:text-base text-gray-900 cursor-pointer flex items-center justify-between list-none [&::-webkit-details-marker]:hidden">
+      <span>Bagaimana jika tempat magang ternyata tidak sesuai harapan awal?</span>
+      <span class="w-6 h-6 rounded-full bg-white border border-gray-200 text-maroon-700 flex items-center justify-center text-xs group-open:rotate-180 transition-transform shrink-0 ml-3">↓</span>
+    </summary>
+    <p class="text-xs md:text-sm text-gray-600 mt-3 leading-relaxed">
+      Bicarakan kendala tersebut secara konstruktif dengan mentor pembimbing perusahaan atau dosen pembimbing kampus. Dalam banyak kasus, penyesuaian deskripsi tugas atau pemindahan sub-tim dapat menyelesaikan masalah. Jika kondisi tidak memungkinkan, konsultasikan opsi alternatif dengan pihak kampus atau BKK sekolah.
+    </p>
+  </details>
 
-- **Apakah lokasi tempat magang di pusat kota selalu lebih baik?**  
-  Lokasi di pusat kota memang menawarkan aksesibilitas angkutan umum yang mudah, namun bukan jaminan kualitas pembelajaran teknis yang lebih unggul. Perhitungkan biaya sewa tempat tinggal, waktu tempuh, serta kedalaman kurikulum industri secara menyeluruh.
+  <details class="group rounded-[18px] bg-gray-50/70 border border-gray-200/80 p-4 transition-all open:bg-rose-50/20 open:border-maroon-300">
+    <summary class="font-bold text-sm md:text-base text-gray-900 cursor-pointer flex items-center justify-between list-none [&::-webkit-details-marker]:hidden">
+      <span>Apakah lokasi tempat magang di pusat kota selalu lebih baik?</span>
+      <span class="w-6 h-6 rounded-full bg-white border border-gray-200 text-maroon-700 flex items-center justify-center text-xs group-open:rotate-180 transition-transform shrink-0 ml-3">↓</span>
+    </summary>
+    <p class="text-xs md:text-sm text-gray-600 mt-3 leading-relaxed">
+      Lokasi di pusat kota memang menawarkan aksesibilitas angkutan umum yang mudah, namun bukan jaminan kualitas pembelajaran teknis yang lebih unggul. Perhitungkan biaya sewa tempat tinggal, waktu tempuh, serta kedalaman kurikulum industri secara menyeluruh.
+    </p>
+  </details>
 
-- **Apakah pengalaman magang benar-benar mempermudah mencari kerja?**  
-  Ya. Pengalaman magang industri yang relevan membuktikan bahwa Anda telah memahami etika profesional dan standar operasional kerja nyata. Kandidat lulusan yang memiliki rekam jejak proyek praktis terbukti jauh lebih diprioritaskan oleh perusahaan teknologi dibanding pelamar yang hanya mengandalkan nilai teoritis di atas kertas.
+  <details class="group rounded-[18px] bg-gray-50/70 border border-gray-200/80 p-4 transition-all open:bg-rose-50/20 open:border-maroon-300">
+    <summary class="font-bold text-sm md:text-base text-gray-900 cursor-pointer flex items-center justify-between list-none [&::-webkit-details-marker]:hidden">
+      <span>Apakah pengalaman magang benar-benar mempermudah mencari kerja?</span>
+      <span class="w-6 h-6 rounded-full bg-white border border-gray-200 text-maroon-700 flex items-center justify-center text-xs group-open:rotate-180 transition-transform shrink-0 ml-3">↓</span>
+    </summary>
+    <p class="text-xs md:text-sm text-gray-600 mt-3 leading-relaxed">
+      Ya. Pengalaman magang industri yang relevan membuktikan bahwa Anda telah memahami etika profesional dan standar operasional kerja nyata. Kandidat lulusan yang memiliki rekam jejak proyek praktis terbukti jauh lebih diprioritaskan oleh perusahaan teknologi dibanding pelamar yang hanya mengandalkan nilai teoritis di atas kertas.
+    </p>
+  </details>
+</div>
 
 ## Kesimpulan
 

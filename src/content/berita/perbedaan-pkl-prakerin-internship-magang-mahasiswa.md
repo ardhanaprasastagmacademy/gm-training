@@ -124,20 +124,57 @@ Sekolah dan perguruan tinggi yang hendak menjalin nota kesepahaman resmi dapat m
 
 Berikut adalah beberapa pertanyaan yang paling sering diajukan seputar istilah PKL dan magang:
 
-- **Apakah PKL dan prakerin itu sama persis?**  
-  Ya. Secara hakikat, keduanya merujuk pada praktik kerja industri bagi siswa SMK. Prakerin adalah sebutan lama, sedangkan PKL adalah nomenklatur resmi yang digunakan dalam kurikulum vokasi saat ini.
+<div class="space-y-3 my-6 not-prose">
+  <details class="group rounded-[18px] bg-gray-50/70 border border-gray-200/80 p-4 transition-all open:bg-rose-50/20 open:border-maroon-300">
+    <summary class="font-bold text-sm md:text-base text-gray-900 cursor-pointer flex items-center justify-between list-none [&::-webkit-details-marker]:hidden">
+      <span>Apakah PKL dan prakerin itu sama persis?</span>
+      <span class="w-6 h-6 rounded-full bg-white border border-gray-200 text-maroon-700 flex items-center justify-center text-xs group-open:rotate-180 transition-transform shrink-0 ml-3">↓</span>
+    </summary>
+    <p class="text-xs md:text-sm text-gray-600 mt-3 leading-relaxed">
+      Ya. Secara hakikat, keduanya merujuk pada praktik kerja industri bagi siswa SMK. Prakerin adalah sebutan lama, sedangkan PKL adalah nomenklatur resmi yang digunakan dalam kurikulum vokasi saat ini.
+    </p>
+  </details>
 
-- **Apakah magang dan internship memiliki perbedaan aturan?**  
-  Secara umum bermakna sama. Istilah *internship* lebih sering digunakan oleh perusahaan swasta dan agensi teknologi, dengan aturan durasi dan kompensasi yang diatur oleh internal kebijakan perusahaan penyelenggara.
+  <details class="group rounded-[18px] bg-gray-50/70 border border-gray-200/80 p-4 transition-all open:bg-rose-50/20 open:border-maroon-300">
+    <summary class="font-bold text-sm md:text-base text-gray-900 cursor-pointer flex items-center justify-between list-none [&::-webkit-details-marker]:hidden">
+      <span>Apakah magang dan internship memiliki perbedaan aturan?</span>
+      <span class="w-6 h-6 rounded-full bg-white border border-gray-200 text-maroon-700 flex items-center justify-center text-xs group-open:rotate-180 transition-transform shrink-0 ml-3">↓</span>
+    </summary>
+    <p class="text-xs md:text-sm text-gray-600 mt-3 leading-relaxed">
+      Secara umum bermakna sama. Istilah <em>internship</em> lebih sering digunakan oleh perusahaan swasta dan agensi teknologi, dengan aturan durasi dan kompensasi yang diatur oleh internal kebijakan perusahaan penyelenggara.
+    </p>
+  </details>
 
-- **Bisakah siswa SMK mendaftar pada program magang mahasiswa?**  
-  Tidak disarankan. Program magang mahasiswa menuntut kedalaman analisis proyek dan koordinasi administrasi kampus. Siswa SMK wajib memilih program PKL yang disesuaikan dengan modul kurikulum kejuruan.
+  <details class="group rounded-[18px] bg-gray-50/70 border border-gray-200/80 p-4 transition-all open:bg-rose-50/20 open:border-maroon-300">
+    <summary class="font-bold text-sm md:text-base text-gray-900 cursor-pointer flex items-center justify-between list-none [&::-webkit-details-marker]:hidden">
+      <span>Bisakah siswa SMK mendaftar pada program magang mahasiswa?</span>
+      <span class="w-6 h-6 rounded-full bg-white border border-gray-200 text-maroon-700 flex items-center justify-center text-xs group-open:rotate-180 transition-transform shrink-0 ml-3">↓</span>
+    </summary>
+    <p class="text-xs md:text-sm text-gray-600 mt-3 leading-relaxed">
+      Tidak disarankan. Program magang mahasiswa menuntut kedalaman analisis proyek dan koordinasi administrasi kampus. Siswa SMK wajib memilih program PKL yang disesuaikan dengan modul kurikulum kejuruan.
+    </p>
+  </details>
 
-- **Apakah magang mahasiswa selalu bisa dikonversi menjadi 20 SKS?**  
-  Tergantung pada kebijakan kaprodi dan fakultas masing-masing. Pastikan tempat magang menyediakan MoU resmi dan logbook kegiatan yang memenuhi bobot capaian pembelajaran kampus.
+  <details class="group rounded-[18px] bg-gray-50/70 border border-gray-200/80 p-4 transition-all open:bg-rose-50/20 open:border-maroon-300">
+    <summary class="font-bold text-sm md:text-base text-gray-900 cursor-pointer flex items-center justify-between list-none [&::-webkit-details-marker]:hidden">
+      <span>Apakah magang mahasiswa selalu bisa dikonversi menjadi 20 SKS?</span>
+      <span class="w-6 h-6 rounded-full bg-white border border-gray-200 text-maroon-700 flex items-center justify-center text-xs group-open:rotate-180 transition-transform shrink-0 ml-3">↓</span>
+    </summary>
+    <p class="text-xs md:text-sm text-gray-600 mt-3 leading-relaxed">
+      Tergantung pada kebijakan kaprodi dan fakultas masing-masing. Pastikan tempat magang menyediakan MoU resmi dan logbook kegiatan yang memenuhi bobot capaian pembelajaran kampus.
+    </p>
+  </details>
 
-- **Berapa lama durasi pelaksanaan PKL dan magang di Gemilang Training?**  
-  Untuk PKL SMK, durasi disesuaikan dengan kalender sekolah (berkisar antara 3 hingga 6 bulan). Sedangkan untuk program magang mahasiswa, durasi umum berlangsung selama 1 semester akademik (4–6 bulan).
+  <details class="group rounded-[18px] bg-gray-50/70 border border-gray-200/80 p-4 transition-all open:bg-rose-50/20 open:border-maroon-300">
+    <summary class="font-bold text-sm md:text-base text-gray-900 cursor-pointer flex items-center justify-between list-none [&::-webkit-details-marker]:hidden">
+      <span>Berapa lama durasi pelaksanaan PKL dan magang di Gemilang Training?</span>
+      <span class="w-6 h-6 rounded-full bg-white border border-gray-200 text-maroon-700 flex items-center justify-center text-xs group-open:rotate-180 transition-transform shrink-0 ml-3">↓</span>
+    </summary>
+    <p class="text-xs md:text-sm text-gray-600 mt-3 leading-relaxed">
+      Untuk PKL SMK, durasi disesuaikan dengan kalender sekolah (berkisar antara 3 hingga 6 bulan). Sedangkan untuk program magang mahasiswa, durasi umum berlangsung selama 1 semester akademik (4–6 bulan).
+    </p>
+  </details>
+</div>
 
 ## Kesimpulan
 

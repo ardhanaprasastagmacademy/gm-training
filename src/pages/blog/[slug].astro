@@ -12,8 +12,16 @@ export async function getStaticPaths() {
       relatedPosts: allPosts
         .filter((p) => p.id !== item.id)
         .sort((a, b) => {
-          if (a.data.kategori === item.data.kategori && b.data.kategori !== item.data.kategori) return -1;
-          if (b.data.kategori === item.data.kategori && a.data.kategori !== item.data.kategori) return 1;
+          if (
+            a.data.kategori === item.data.kategori &&
+            b.data.kategori !== item.data.kategori
+          )
+            return -1;
+          if (
+            b.data.kategori === item.data.kategori &&
+            a.data.kategori !== item.data.kategori
+          )
+            return 1;
           return b.data.tanggal.getTime() - a.data.tanggal.getTime();
         })
         .slice(0, 3),
@@ -41,7 +49,9 @@ const categoryLabels: Record<string, string> = {
 };
 
 const articleImageUrl = data.gambar
-  ? (data.gambar.startsWith("http") ? data.gambar : `${siteConfig.url}${data.gambar}`)
+  ? data.gambar.startsWith("http")
+    ? data.gambar
+    : `${siteConfig.url}${data.gambar}`
   : `${siteConfig.url}/images/galeri/galeri-1.webp`;
 
 // Article JSON-LD Schema (SEO-STRATEGY.md 7.4)
@@ -51,7 +61,12 @@ const articleSchema = {
   headline: data.judul,
   description: data.ringkasan,
   image: data.gambarKedua
-    ? [articleImageUrl, data.gambarKedua.startsWith("http") ? data.gambarKedua : `${siteConfig.url}${data.gambarKedua}`]
+    ? [
+        articleImageUrl,
+        data.gambarKedua.startsWith("http")
+          ? data.gambarKedua
+          : `${siteConfig.url}${data.gambarKedua}`,
+      ]
     : [articleImageUrl],
   datePublished: data.tanggal.toISOString(),
   dateModified: (data.diperbarui || data.tanggal).toISOString(),
@@ -93,12 +108,21 @@ const articleSchema = {
         <!-- Main Content Column (Left, 8 Cols) -->
         <div class="lg:col-span-8">
           <!-- Breadcrumb Navigation -->
-          <nav class="flex items-center gap-2 text-xs text-gray-500 mb-4 flex-wrap" aria-label="Breadcrumb">
-            <a href="/" class="hover:text-maroon-700 transition-colors">Beranda</a>
+          <nav
+            class="flex items-center gap-2 text-xs text-gray-500 mb-4 flex-wrap"
+            aria-label="Breadcrumb"
+          >
+            <a href="/" class="hover:text-maroon-700 transition-colors">
+              Beranda
+            </a>
             <span>/</span>
-            <a href="/blog/" class="hover:text-maroon-700 transition-colors">Blog</a>
+            <a href="/blog/" class="hover:text-maroon-700 transition-colors">
+              Blog
+            </a>
             <span>/</span>
-            <span class="text-maroon-700 font-semibold">{categoryLabels[data.kategori] || "Warta"}</span>
+            <span class="text-maroon-700 font-semibold">
+              {categoryLabels[data.kategori] || "Warta"}
+            </span>
           </nav>
 
           <!-- Category Pill Badge -->
@@ -129,7 +153,13 @@ const articleSchema = {
             </div>
             <span>•</span>
             <span class="tabular-nums flex items-center gap-1">
-              <svg class="w-3.5 h-3.5 text-gray-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <svg
+                class="w-3.5 h-3.5 text-gray-400"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
                 <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
                 <line x1="16" y1="2" x2="16" y2="6"></line>
                 <line x1="8" y1="2" x2="8" y2="6"></line>
@@ -140,12 +170,20 @@ const articleSchema = {
             {data.diperbarui && (
               <>
                 <span>•</span>
-                <span class="text-gray-400">Diperbarui: {formatDate(data.diperbarui)}</span>
+                <span class="text-gray-400">
+                  Diperbarui: {formatDate(data.diperbarui)}
+                </span>
               </>
             )}
             <span>•</span>
             <span class="flex items-center gap-1">
-              <svg class="w-3.5 h-3.5 text-gray-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <svg
+                class="w-3.5 h-3.5 text-gray-400"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
                 <circle cx="12" cy="12" r="10"></circle>
                 <polyline points="12 6 12 12 16 14"></polyline>
               </svg>
@@ -166,17 +204,27 @@ const articleSchema = {
               />
             </div>
             <p class="text-xs text-gray-400 italic text-center mt-2.5">
-              Dokumentasi nyata kegiatan edukatif dan pendampingan karier industri bersama mentor praktisi Gemilang Training.
+              Dokumentasi nyata kegiatan edukatif dan pendampingan karier
+              industri bersama mentor praktisi Gemilang Training.
             </p>
           </div>
 
           <!-- Article Content Card Box -->
           <div class="bg-white border border-gray-200/90 rounded-[28px] p-6 sm:p-10 md:p-12 shadow-sm">
             <!-- Table of Contents (Daftar Isi Artikel) with Collapsible Toggle (Buka/Tutup) -->
-            <details open class="group rounded-[20px] bg-rose-50/40 border border-rose-100/90 p-5 md:p-6 mb-10 transition-all">
+            <details
+              open
+              class="group rounded-[20px] bg-rose-50/40 border border-rose-100/90 p-5 md:p-6 mb-10 transition-all"
+            >
               <summary class="flex items-center justify-between cursor-pointer select-none font-bold text-sm text-gray-900 list-none [&::-webkit-details-marker]:hidden">
                 <div class="flex items-center gap-2">
-                  <svg class="w-4 h-4 text-maroon-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <svg
+                    class="w-4 h-4 text-maroon-700"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
                     <line x1="8" y1="6" x2="21" y2="6"></line>
                     <line x1="8" y1="12" x2="21" y2="12"></line>
                     <line x1="8" y1="18" x2="21" y2="18"></line>
@@ -189,72 +237,95 @@ const articleSchema = {
                 <div class="flex items-center gap-1.5 text-xs text-maroon-700 font-semibold bg-white/90 px-3 py-1 rounded-full border border-rose-200/80 shadow-xs hover:bg-white transition-colors">
                   <span class="group-open:hidden">Buka</span>
                   <span class="hidden group-open:inline">Tutup</span>
-                  <svg class="w-3.5 h-3.5 transition-transform duration-200 group-open:rotate-180" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M4 6l4 4 4-4" stroke-linecap="round" stroke-linejoin="round" />
+                  <svg
+                    class="w-3.5 h-3.5 transition-transform duration-200 group-open:rotate-180"
+                    viewBox="0 0 16 16"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path
+                      d="M4 6l4 4 4-4"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
                   </svg>
                 </div>
               </summary>
               <ul class="mt-4 pt-3.5 border-t border-rose-100/80 space-y-2 text-xs md:text-sm text-maroon-800 font-medium">
-                {
-                  articleH2s.length > 0 ? (
-                    articleH2s.map((h, idx) => (
-                      <li>
-                        <a href={`#${h.slug}`} class="hover:underline hover:text-maroon-900 flex items-center gap-2">
-                          <span class="text-maroon-600 font-bold">{idx + 1}.</span> {h.text}
-                        </a>
-                      </li>
-                    ))
-                  ) : (
+                {articleH2s.length > 0 ? (
+                  articleH2s.map((h, idx) => (
                     <li>
-                      <a href="#poin-1" class="hover:underline hover:text-maroon-900 flex items-center gap-2">
-                        <span class="text-maroon-600 font-bold">1.</span> Pembahasan Artikel
+                      <a
+                        href={`#${h.slug}`}
+                        class="hover:underline hover:text-maroon-900 flex items-center gap-2"
+                      >
+                        <span class="text-maroon-600 font-bold">
+                          {idx + 1}.
+                        </span>{" "}
+                        {h.text}
                       </a>
                     </li>
-                  )
-                }
+                  ))
+                ) : (
+                  <li>
+                    <a
+                      href="#poin-1"
+                      class="hover:underline hover:text-maroon-900 flex items-center gap-2"
+                    >
+                      <span class="text-maroon-600 font-bold">1.</span>{" "}
+                      Pembahasan Artikel
+                    </a>
+                  </li>
+                )}
               </ul>
             </details>
 
             <!-- Prose Markdown Body -->
-            <div id="poin-1" class="prose max-w-none text-gray-700 text-base md:text-lg leading-relaxed space-y-6 [&_h2]:text-2xl [&_h2]:font-extrabold [&_h2]:text-gray-900 [&_h3]:text-xl [&_h3]:font-bold [&_h3]:text-gray-900 [&_h3]:pt-4 [&_ol]:list-decimal [&_ol]:pl-5 [&_ol]:space-y-2.5 [&_ul]:list-disc [&_ul]:pl-5 [&_ul]:space-y-2.5 [&_a]:text-maroon-700 [&_a]:underline [&_a:hover]:text-maroon-900 [&_strong]:text-gray-900 [&_p]:text-gray-600">
+            <div
+              id="poin-1"
+              class="prose max-w-none text-gray-700 text-base md:text-lg leading-relaxed space-y-6 [&_h2]:text-2xl [&_h2]:font-extrabold [&_h2]:text-gray-900 [&_h3]:text-xl [&_h3]:font-bold [&_h3]:text-gray-900 [&_h3]:pt-4 [&_ol]:list-decimal [&_ol]:pl-5 [&_ol]:space-y-2.5 [&_ul]:list-disc [&_ul]:pl-5 [&_ul]:space-y-2.5 [&_a]:text-maroon-700 [&_a]:underline [&_a:hover]:text-maroon-900 [&_strong]:text-gray-900 [&_p]:text-gray-600"
+            >
               <Content />
             </div>
 
             <!-- In-Article Callout "Baca Juga" Artikel Lainnya (Minimal 3 Artikel) -->
-            {
-              relatedPosts.length > 0 && (
-                <div class="my-8 p-5 md:p-6 rounded-[22px] bg-rose-50/50 border-l-4 border-maroon-700 border border-rose-100 shadow-xs">
-                  <div class="flex items-center justify-between gap-3 mb-4 pb-3 border-b border-rose-100/80">
-                    <div class="flex items-center gap-2.5">
-                      <span class="w-2.5 h-2.5 rounded-full bg-maroon-700"></span>
-                      <h4 class="text-xs md:text-sm font-extrabold uppercase tracking-wider text-maroon-900">
-                        Baca Juga Rekomendasi Artikel Terkait
-                      </h4>
-                    </div>
-                    <span class="text-[0.6875rem] font-bold text-maroon-700 bg-white px-2.5 py-0.5 rounded-full border border-rose-200 shadow-2xs">
-                      Pilihan Editor
-                    </span>
+            {relatedPosts.length > 0 && (
+              <div class="my-8 p-5 md:p-6 rounded-[22px] bg-rose-50/50 border-l-4 border-maroon-700 border border-rose-100 shadow-xs">
+                <div class="flex items-center justify-between gap-3 mb-4 pb-3 border-b border-rose-100/80">
+                  <div class="flex items-center gap-2.5">
+                    <span class="w-2.5 h-2.5 rounded-full bg-maroon-700"></span>
+                    <h4 class="text-xs md:text-sm font-extrabold uppercase tracking-wider text-maroon-900">
+                      Baca Juga Rekomendasi Artikel Terkait
+                    </h4>
                   </div>
-
-                  <ul class="space-y-3">
-                    {relatedPosts.slice(0, 3).map((post) => (
-                      <li class="flex items-start gap-2.5 group">
-                        <span class="text-maroon-700 font-extrabold text-sm shrink-0 select-none">→</span>
-                        <a
-                          href={`/blog/${post.id}/`}
-                          class="text-xs md:text-sm text-gray-800 hover:text-maroon-800 transition-colors leading-relaxed"
-                        >
-                          <strong class="text-maroon-700 font-bold group-hover:underline">Baca Juga:</strong>{" "}
-                          <span class="font-medium text-gray-700 group-hover:text-maroon-900 group-hover:underline">
-                            {post.data.judul}
-                          </span>
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
+                  <span class="text-[0.6875rem] font-bold text-maroon-700 bg-white px-2.5 py-0.5 rounded-full border border-rose-200 shadow-2xs">
+                    Pilihan Editor
+                  </span>
                 </div>
-              )
-            }
+
+                <ul class="space-y-3">
+                  {relatedPosts.slice(0, 3).map((post) => (
+                    <li class="flex items-start gap-2.5 group">
+                      <span class="text-maroon-700 font-extrabold text-sm shrink-0 select-none">
+                        →
+                      </span>
+                      <a
+                        href={`/blog/${post.id}/`}
+                        class="text-xs md:text-sm text-gray-800 hover:text-maroon-800 transition-colors leading-relaxed"
+                      >
+                        <strong class="text-maroon-700 font-bold group-hover:underline">
+                          Baca Juga:
+                        </strong>{" "}
+                        <span class="font-medium text-gray-700 group-hover:text-maroon-900 group-hover:underline">
+                          {post.data.judul}
+                        </span>
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
 
             <!-- Dark Highlight Box -->
             <div class="mt-8 bg-[#160408] text-white p-6 md:p-7 rounded-[22px] border border-maroon-800/40 shadow-xl relative overflow-hidden">
@@ -263,7 +334,10 @@ const articleSchema = {
                   <span>💡 Inti Pembelajaran:</span>
                 </div>
                 <p class="text-sm md:text-base text-gray-200 leading-relaxed font-medium">
-                  Keberhasilan magang bukan dinilai dari seberapa rumit teori yang dihafal, melainkan kemampuan menerapkan keahlian nyata, disiplin waktu, dan etika kolaborasi profesional di lini industri.
+                  Keberhasilan magang bukan dinilai dari seberapa rumit teori
+                  yang dihafal, melainkan kemampuan menerapkan keahlian nyata,
+                  disiplin waktu, dan etika kolaborasi profesional di lini
+                  industri.
                 </p>
               </div>
             </div>
@@ -274,10 +348,17 @@ const articleSchema = {
                 GT
               </div>
               <div>
-                <span class="text-[0.6875rem] font-bold uppercase tracking-wider text-maroon-700 block mb-1">Tentang Penulis</span>
-                <h4 class="text-base font-bold text-gray-900">{data.penulis}</h4>
+                <span class="text-[0.6875rem] font-bold uppercase tracking-wider text-maroon-700 block mb-1">
+                  Tentang Penulis
+                </span>
+                <h4 class="text-base font-bold text-gray-900">
+                  {data.penulis}
+                </h4>
                 <p class="text-xs md:text-sm text-gray-600 mt-1.5 leading-relaxed">
-                  Tim Kurikulum & Konselor Karier Gemilang Training berdedikasi membimbing generasi muda vokasi dan akademisi melalui program magang industri terstruktur, sertifikasi resmi, serta bimbingan praktisi ahli.
+                  Tim Kurikulum & Konselor Karier Gemilang Training berdedikasi
+                  membimbing generasi muda vokasi dan akademisi melalui program
+                  magang industri terstruktur, sertifikasi resmi, serta
+                  bimbingan praktisi ahli.
                 </p>
               </div>
             </div>
@@ -312,30 +393,28 @@ const articleSchema = {
             </h3>
 
             <div class="space-y-4">
-              {
-                relatedPosts.map((p) => (
-                  <a
-                    href={`/blog/${p.id}/`}
-                    class="flex items-center gap-3.5 group p-2 rounded-xl hover:bg-gray-50 transition-colors"
-                  >
-                    <img
-                      src={p.data.gambar || "/images/galeri/galeri-1.webp"}
-                      alt={p.data.judul}
-                      width="80"
-                      height="64"
-                      class="w-20 h-16 rounded-xl object-cover shrink-0 border border-gray-200"
-                    />
-                    <div class="flex-1 min-w-0">
-                      <h4 class="text-xs md:text-sm font-bold text-gray-900 group-hover:text-maroon-700 transition-colors line-clamp-2 leading-snug">
-                        {p.data.judul}
-                      </h4>
-                      <div class="text-[0.6875rem] text-gray-400 mt-1 tabular-nums">
-                        {formatDate(p.data.tanggal)}
-                      </div>
+              {relatedPosts.map((p) => (
+                <a
+                  href={`/blog/${p.id}/`}
+                  class="flex items-center gap-3.5 group p-2 rounded-xl hover:bg-gray-50 transition-colors"
+                >
+                  <img
+                    src={p.data.gambar || "/images/galeri/galeri-1.webp"}
+                    alt={p.data.judul}
+                    width="80"
+                    height="64"
+                    class="w-20 h-16 rounded-xl object-cover shrink-0 border border-gray-200"
+                  />
+                  <div class="flex-1 min-w-0">
+                    <h4 class="text-xs md:text-sm font-bold text-gray-900 group-hover:text-maroon-700 transition-colors line-clamp-2 leading-snug">
+                      {p.data.judul}
+                    </h4>
+                    <div class="text-[0.6875rem] text-gray-400 mt-1 tabular-nums">
+                      {formatDate(p.data.tanggal)}
                     </div>
-                  </a>
-                ))
-              }
+                  </div>
+                </a>
+              ))}
             </div>
           </div>
 
@@ -347,25 +426,46 @@ const articleSchema = {
             </h3>
 
             <div class="flex flex-wrap gap-2">
-              <a href="/blog/" class="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-gray-50 border border-gray-200 text-gray-700 hover:border-maroon-700 hover:text-maroon-700 transition-all">
+              <a
+                href="/blog/"
+                class="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-gray-50 border border-gray-200 text-gray-700 hover:border-maroon-700 hover:text-maroon-700 transition-all"
+              >
                 #PanduanCV
               </a>
-              <a href="/blog/" class="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-gray-50 border border-gray-200 text-gray-700 hover:border-maroon-700 hover:text-maroon-700 transition-all">
+              <a
+                href="/blog/"
+                class="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-gray-50 border border-gray-200 text-gray-700 hover:border-maroon-700 hover:text-maroon-700 transition-all"
+              >
                 #WawancaraMagang
               </a>
-              <a href="/blog/" class="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-gray-50 border border-gray-200 text-gray-700 hover:border-maroon-700 hover:text-maroon-700 transition-all">
+              <a
+                href="/blog/"
+                class="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-gray-50 border border-gray-200 text-gray-700 hover:border-maroon-700 hover:text-maroon-700 transition-all"
+              >
                 #SertifikatIndustri
               </a>
-              <a href="/blog/" class="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-gray-50 border border-gray-200 text-gray-700 hover:border-maroon-700 hover:text-maroon-700 transition-all">
+              <a
+                href="/blog/"
+                class="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-gray-50 border border-gray-200 text-gray-700 hover:border-maroon-700 hover:text-maroon-700 transition-all"
+              >
                 #MagangSMK
               </a>
-              <a href="/blog/" class="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-gray-50 border border-gray-200 text-gray-700 hover:border-maroon-700 hover:text-maroon-700 transition-all">
+              <a
+                href="/blog/"
+                class="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-gray-50 border border-gray-200 text-gray-700 hover:border-maroon-700 hover:text-maroon-700 transition-all"
+              >
                 #MahasiswaAktif
               </a>
-              <a href="/blog/" class="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-gray-50 border border-gray-200 text-gray-700 hover:border-maroon-700 hover:text-maroon-700 transition-all">
+              <a
+                href="/blog/"
+                class="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-gray-50 border border-gray-200 text-gray-700 hover:border-maroon-700 hover:text-maroon-700 transition-all"
+              >
                 #K3Industri
               </a>
-              <a href="/blog/" class="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-gray-50 border border-gray-200 text-gray-700 hover:border-maroon-700 hover:text-maroon-700 transition-all">
+              <a
+                href="/blog/"
+                class="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-gray-50 border border-gray-200 text-gray-700 hover:border-maroon-700 hover:text-maroon-700 transition-all"
+              >
                 #SertifikasiDUDI
               </a>
             </div>
@@ -383,7 +483,8 @@ const articleSchema = {
             </h4>
 
             <p class="text-xs text-rose-100/90 leading-relaxed mb-5">
-              Konsultasikan divisi dan posisi magang yang paling cocok dengan keahlianmu bersama konselor Gemilang Training.
+              Konsultasikan divisi dan posisi magang yang paling cocok dengan
+              keahlianmu bersama konselor Gemilang Training.
             </p>
 
             <a
@@ -397,4 +498,52 @@ const articleSchema = {
       </div>
     </div>
   </article>
+
+  <script is:inline>
+    // Auto-enhances plain markdown FAQ lists into interactive buka-tutup accordions
+    document.addEventListener("DOMContentLoaded", () => {
+      const headings = document.querySelectorAll("h2");
+      headings.forEach((h2) => {
+        if (h2.textContent && h2.textContent.includes("FAQ")) {
+          let sibling = h2.nextElementSibling;
+          while (sibling && sibling.tagName !== "H2") {
+            if (sibling.tagName === "UL" && !sibling.classList.contains("enhanced-faq")) {
+              const listItems = sibling.querySelectorAll(":scope > li");
+              if (listItems.length > 0) {
+                const accordionContainer = document.createElement("div");
+                accordionContainer.className = "space-y-3 my-6 not-prose enhanced-faq";
+
+                listItems.forEach((li) => {
+                  const strong = li.querySelector("strong");
+                  if (strong) {
+                    const question = strong.textContent || "";
+                    strong.remove();
+                    const answer = li.innerHTML.trim();
+
+                    const details = document.createElement("details");
+                    details.className = "group rounded-[18px] bg-gray-50/70 border border-gray-200/80 p-4 transition-all open:bg-rose-50/20 open:border-maroon-300";
+                    details.innerHTML = `
+                      <summary class="font-bold text-sm md:text-base text-gray-900 cursor-pointer flex items-center justify-between list-none [&::-webkit-details-marker]:hidden">
+                        <span>${question}</span>
+                        <span class="w-6 h-6 rounded-full bg-white border border-gray-200 text-maroon-700 flex items-center justify-center text-xs group-open:rotate-180 transition-transform shrink-0 ml-3">↓</span>
+                      </summary>
+                      <div class="text-xs md:text-sm text-gray-600 mt-3 leading-relaxed">
+                        ${answer}
+                      </div>
+                    `;
+                    accordionContainer.appendChild(details);
+                  }
+                });
+
+                if (accordionContainer.children.length > 0) {
+                  sibling.replaceWith(accordionContainer);
+                }
+              }
+            }
+            sibling = sibling ? sibling.nextElementSibling : null;
+          }
+        }
+      });
+    });
+  </script>
 </BaseLayout>
