@@ -44,7 +44,9 @@ const articleSchema = {
   "@type": "Article",
   headline: data.judul,
   description: data.ringkasan,
-  image: [articleImageUrl],
+  image: data.gambarKedua
+    ? [articleImageUrl, data.gambarKedua.startsWith("http") ? data.gambarKedua : `${siteConfig.url}${data.gambarKedua}`]
+    : [articleImageUrl],
   datePublished: data.tanggal.toISOString(),
   dateModified: (data.diperbarui || data.tanggal).toISOString(),
   author: {
@@ -235,14 +237,16 @@ const articleSchema = {
             <div id="poin-3" class="my-8">
               <div class="aspect-[16/9] w-full rounded-[20px] overflow-hidden bg-gray-100 border border-gray-200 shadow-sm">
                 <img
-                  src="/images/galeri/galeri-3.webp"
-                  alt="Suasana kolaborasi magang industri"
+                  src={data.gambarKedua || "/images/galeri/galeri-3.webp"}
+                  alt={data.captionGambarKedua || data.judul}
+                  width="1200"
+                  height="675"
                   class="w-full h-full object-cover"
                   loading="lazy"
                 />
               </div>
               <p class="text-xs text-gray-400 italic text-center mt-2.5">
-                Kolaborasi aktif antar peserta magang lintas jurusan dalam menyelesaikan proyek berbasis studi kasus nyata industri.
+                {data.captionGambarKedua || "Kolaborasi aktif antar peserta magang lintas jurusan dalam menyelesaikan proyek berbasis studi kasus nyata industri."}
               </p>
             </div>
 

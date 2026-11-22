@@ -61,6 +61,8 @@ const berita = defineCollection({
     diperbarui: z.coerce.date().optional(),
     kategori: z.enum(["pengumuman", "kegiatan", "artikel"]),
     gambar: z.string().optional(),
+    gambarKedua: z.string().optional(),
+    captionGambarKedua: z.string().optional(),
     penulis: z.string().default("Tim Program Magang"),
     draft: z.boolean().default(false),
   }),
