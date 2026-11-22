@@ -88,6 +88,11 @@ Untuk melihat pemetaan komprehensif antara jalur kejuruan SMK dan jenjang pergur
 | **Dokumen Wajib** | Surat pengantar BKK sekolah, jurnal harian, lembar nilai PKL | Surat pengantar fakultas, proposal magang, laporan akhir/skripsi |
 | **Hasil Kelulusan** | Nilai rapor PKL, sertifikat resmi, & portofolio tugas | Konversi nilai SKS, sertifikat kompetensi, & portofolio karya |
 
+> **Baca Juga:**
+> - [10 Hal Penting Sebelum Memilih Tempat Magang di Malang](/blog/10-hal-penting-sebelum-memilih-tempat-magang-di-malang/)
+> - [Cara Mencari Lowongan Magang di Malang yang Terpercaya](/blog/cara-mencari-lowongan-magang-malang/)
+> - [Panduan Lengkap Menyiapkan CV Magang SMK & Mahasiswa](/blog/panduan-lengkap-menyiapkan-cv-magang-smk/)
+
 ## Siapa yang Cocok Mengikuti Masing-masing Program?
 
 1. **Siswa SMK Jurusan Teknologi & Kreatif:** Jika Anda berada di kelas XI atau XII dan kalender PKL telah ditetapkan oleh sekolah, daftarkan diri pada jalur [Program Magang Siswa SMK](/program/magang-smk/).

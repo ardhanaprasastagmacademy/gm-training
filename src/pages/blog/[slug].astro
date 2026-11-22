@@ -284,48 +284,10 @@ const articleSchema = {
             <!-- Prose Markdown Body -->
             <div
               id="poin-1"
-              class="prose max-w-none text-gray-700 text-base md:text-lg leading-relaxed space-y-6 [&_h2]:text-2xl [&_h2]:font-extrabold [&_h2]:text-gray-900 [&_h3]:text-xl [&_h3]:font-bold [&_h3]:text-gray-900 [&_h3]:pt-4 [&_ol]:list-decimal [&_ol]:pl-5 [&_ol]:space-y-2.5 [&_ul]:list-disc [&_ul]:pl-5 [&_ul]:space-y-2.5 [&_a]:text-maroon-700 [&_a]:underline [&_a:hover]:text-maroon-900 [&_strong]:text-gray-900 [&_p]:text-gray-600"
+              class="prose max-w-none text-gray-700 text-base md:text-lg leading-relaxed space-y-6 [&_h2]:text-2xl [&_h2]:font-extrabold [&_h2]:text-gray-900 [&_h3]:text-xl [&_h3]:font-bold [&_h3]:text-gray-900 [&_h3]:pt-4 [&_ol]:list-decimal [&_ol]:pl-5 [&_ol]:space-y-2.5 [&_ul]:list-disc [&_ul]:pl-5 [&_ul]:space-y-2.5 [&_a]:text-maroon-700 [&_a]:underline [&_a:hover]:text-maroon-900 [&_strong]:text-gray-900 [&_p]:text-gray-600 [&_blockquote]:border-l-4 [&_blockquote]:border-maroon-700 [&_blockquote]:bg-rose-50/50 [&_blockquote]:p-5 [&_blockquote]:rounded-r-2xl [&_blockquote]:border [&_blockquote]:border-rose-100/90 [&_blockquote]:not-italic [&_blockquote]:my-7 [&_blockquote_p]:m-0 [&_blockquote_ul]:my-2 [&_blockquote_li]:my-1.5"
             >
               <Content />
             </div>
-
-            <!-- In-Article Callout "Baca Juga" Artikel Lainnya (Minimal 3 Artikel) -->
-            {relatedPosts.length > 0 && (
-              <div class="my-8 p-5 md:p-6 rounded-[22px] bg-rose-50/50 border-l-4 border-maroon-700 border border-rose-100 shadow-xs">
-                <div class="flex items-center justify-between gap-3 mb-4 pb-3 border-b border-rose-100/80">
-                  <div class="flex items-center gap-2.5">
-                    <span class="w-2.5 h-2.5 rounded-full bg-maroon-700"></span>
-                    <h4 class="text-xs md:text-sm font-extrabold uppercase tracking-wider text-maroon-900">
-                      Baca Juga Rekomendasi Artikel Terkait
-                    </h4>
-                  </div>
-                  <span class="text-[0.6875rem] font-bold text-maroon-700 bg-white px-2.5 py-0.5 rounded-full border border-rose-200 shadow-2xs">
-                    Pilihan Editor
-                  </span>
-                </div>
-
-                <ul class="space-y-3">
-                  {relatedPosts.slice(0, 3).map((post) => (
-                    <li class="flex items-start gap-2.5 group">
-                      <span class="text-maroon-700 font-extrabold text-sm shrink-0 select-none">
-                        →
-                      </span>
-                      <a
-                        href={`/blog/${post.id}/`}
-                        class="text-xs md:text-sm text-gray-800 hover:text-maroon-800 transition-colors leading-relaxed"
-                      >
-                        <strong class="text-maroon-700 font-bold group-hover:underline">
-                          Baca Juga:
-                        </strong>{" "}
-                        <span class="font-medium text-gray-700 group-hover:text-maroon-900 group-hover:underline">
-                          {post.data.judul}
-                        </span>
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
 
             <!-- Dark Highlight Box -->
             <div class="mt-8 bg-[#160408] text-white p-6 md:p-7 rounded-[22px] border border-maroon-800/40 shadow-xl relative overflow-hidden">

@@ -22,7 +22,7 @@ Tampilan artikel diatur secara terpusat oleh template master (`src/pages/blog/[s
 - **Info Penulis, Tanggal Terbit, Status Pembaruan, dan Estimasi Waktu Baca**
 - **Featured Hero Image 16:9** berbingkai rounded & shadow
 - **Daftar Isi Artikel (Table of Contents)** interaktif buka/tutup
-- **Box Rekomendasi "Baca Juga" (Minimal 3 Artikel):** Secara otomatis menampilkan minimal 3 artikel rekomendasi pilihan lainnya yang saling terhubung (*internal cross-linking*) dengan aksen merah marun.
+- **Callout "Baca Juga" In-Article** berdesain boks elegan beraksen merah marun di dalam artikel
 - **Visual Foto Pendukung** di dalam isi pembahasan
 - **Bagian FAQ Terkait Topik** (ditulis langsung di markdown artikel sehingga kontekstual dan masuk daftar isi secara otomatis tanpa duplikasi)
 - **Kotak Rangkuman Gelap "Inti Pembelajaran"**
@@ -99,6 +99,13 @@ draft: false
    * Formulir Pendaftaran: `[Formulir Pendaftaran Batch](/pendaftaran/form/)`
    * Pusat Unduhan Dokumen: `[Pusat Unduhan Resmi](/unduhan/)`
    * Kemitraan Sekolah/Kampus: `[Kemitraan Sekolah & Kampus](/untuk-sekolah-kampus/)`
+   * Sisipkan juga callout **"Baca Juga"** di tengah artikel (minimal 3 artikel rekomendasi):
+     ```markdown
+     > **Baca Juga:**
+     > - [Judul Artikel Terkait 1](/blog/slug-1/)
+     > - [Judul Artikel Terkait 2](/blog/slug-2/)
+     > - [Judul Artikel Terkait 3](/blog/slug-3/)
+     ```
 6. **Optimasi Lokal & Geografis (GEO Malang):**
    Sebutkan entitas wilayah target secara wajar di dalam tulisan:
    * *"Kota Malang"*, *"Malang Raya"*, *"Jawa Timur"*.
