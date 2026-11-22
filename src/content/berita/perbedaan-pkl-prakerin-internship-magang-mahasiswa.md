@@ -21,6 +21,19 @@ Memahami perbedaan istilah ini sangat penting agar siswa SMK, mahasiswa, orang t
 
 Berikut adalah tabel komparasi cepat untuk memahami karakteristik masing-masing program:
 
+| Istilah | Ditujukan Untuk | Diatur & Dipantau Oleh | Durasi Umum | Sistem Penilaian |
+|---|---|---|---|---|
+| **PKL** | Siswa SMK (Kelas XI / XII) | Sekolah & Tempat PKL Industri | 3 hingga 6 bulan (mengikuti kalender sekolah) | Guru Pembimbing & Mentor Industri |
+| **Prakerin** | Siswa SMK (Istilah Lama PKL) | Sekolah & Tempat PKL Industri | Sama dengan PKL | Guru Pembimbing & Mentor Industri |
+| **Internship** | Mahasiswa & *Fresh Graduate* | Perusahaan atau Lembaga Penyelenggara | Bervariasi & fleksibel (1–6 bulan) | Mentor / *Supervisor* Tempat Kerja |
+| **Magang Mahasiswa** | Mahasiswa Aktif Diploma & S1 | Kampus, Dosen Wali, & Tempat Magang | 1 semester (konversi SKS / MBKM) | Dosen Pembimbing & Mentor Industri |
+
+> **Catatan:** Regulasi teknis dapat bervariasi bergantung pada kurikulum masing-masing sekolah, fakultas kampus, serta kebijakan instansi mitra. Selalu pastikan konfirmasi berkas resmi sebelum mendaftar.
+
+## Apa Itu PKL (Praktik Kerja Lapangan)?
+
+PKL atau **Praktik Kerja Lapangan** adalah komponen wajib dalam kurikulum Sekolah Menengah Kejuruan (SMK) yang diselenggarakan di dunia usaha dan dunia industri (DUDI). 
+
 <div class="my-8">
   <div class="aspect-[16/9] w-full rounded-[20px] overflow-hidden bg-gray-100 border border-gray-200 shadow-sm">
     <img
@@ -36,19 +49,6 @@ Berikut adalah tabel komparasi cepat untuk memahami karakteristik masing-masing 
     Tabel perbandingan ringkas perbedaan PKL SMK, prakerin, internship, dan magang mahasiswa.
   </p>
 </div>
-
-| Istilah | Ditujukan Untuk | Diatur & Dipantau Oleh | Durasi Umum | Sistem Penilaian |
-|---|---|---|---|---|
-| **PKL** | Siswa SMK (Kelas XI / XII) | Sekolah & Tempat PKL Industri | 3 hingga 6 bulan (mengikuti kalender sekolah) | Guru Pembimbing & Mentor Industri |
-| **Prakerin** | Siswa SMK (Istilah Lama PKL) | Sekolah & Tempat PKL Industri | Sama dengan PKL | Guru Pembimbing & Mentor Industri |
-| **Internship** | Mahasiswa & *Fresh Graduate* | Perusahaan atau Lembaga Penyelenggara | Bervariasi & fleksibel (1–6 bulan) | Mentor / *Supervisor* Tempat Kerja |
-| **Magang Mahasiswa** | Mahasiswa Aktif Diploma & S1 | Kampus, Dosen Wali, & Tempat Magang | 1 semester (konversi SKS / MBKM) | Dosen Pembimbing & Mentor Industri |
-
-> **Catatan:** Regulasi teknis dapat bervariasi bergantung pada kurikulum masing-masing sekolah, fakultas kampus, serta kebijakan instansi mitra. Selalu pastikan konfirmasi berkas resmi sebelum mendaftar.
-
-## Apa Itu PKL (Praktik Kerja Lapangan)?
-
-PKL atau **Praktik Kerja Lapangan** adalah komponen wajib dalam kurikulum Sekolah Menengah Kejuruan (SMK) yang diselenggarakan di dunia usaha dan dunia industri (DUDI). 
 
 Tujuan utama PKL adalah menyelaraskan kompetensi kejuruan yang dipelajari di bangku sekolah dengan kebutuhan riil industri. Selama menjalani PKL, siswa mengerjakan tugas praktis di bawah pengawasan langsung mentor industri, sementara guru pembimbing dari sekolah bertugas memantau kedisiplinan dan pengisian logbook harian. 
 
