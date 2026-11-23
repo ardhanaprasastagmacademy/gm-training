@@ -2,7 +2,6 @@
 judul: "Tempat PKL TKJ di Malang Kompetensi Teknologi Digital"
 ringkasan: "Tempat PKL TKJ di Malang dengan kompetensi teknologi digital, pengelolaan server website, dan infrastruktur cloud. Simak materi, kegiatan, dan cara daftar untuk siswa jurusan TKJ."
 tanggal: 2026-11-22T19:00:00+07:00
-diperbarui: 2026-11-22T19:00:00+07:00
 kategori: "artikel"
 gambar: "/images/blog/Siswa-PKL-TKJ-belajar-pengelolaan-server.webp"
 gambarKedua: "/images/blog/Siswa-PKL-TKJ-mengonfigurasi-jaringan.webp"

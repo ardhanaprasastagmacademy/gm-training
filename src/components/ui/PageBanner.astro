@@ -37,10 +37,10 @@ const breadcrumbSchema = {
 <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
 
 <header
-  class="relative w-full overflow-hidden bg-[#0A0305] text-white pt-[108px] sm:pt-[118px] md:pt-[132px] pb-16 sm:pb-20 md:pb-24"
+  class="relative w-full overflow-x-clip bg-[#0A0305] text-white pt-[108px] sm:pt-[118px] md:pt-[132px] pb-16 sm:pb-20 md:pb-24"
 >
   <!-- Atmospheric Photography Background (Full Bleed Edge-to-Edge) -->
-  <div class="absolute inset-0 z-0 pointer-events-none">
+  <div class="absolute inset-0 z-0 pointer-events-none overflow-hidden">
     <img
       src="/images/pagebanner.webp"
       alt=""
@@ -105,9 +105,9 @@ const breadcrumbSchema = {
   </div>
 
   <!-- Smooth Organic Bottom Wave (Transitioning seamlessly into #F8F9FA) -->
-  <div class="absolute bottom-0 left-0 right-0 w-full overflow-hidden leading-none z-10 pointer-events-none">
-    <svg class="relative block w-full h-8 md:h-12" viewBox="0 0 1200 120" preserveAspectRatio="none">
-      <path d="M0,0 C150,85 380,20 600,65 C850,115 1050,30 1200,60 L1200,120 L0,120 Z" fill="#F8F9FA"></path>
+  <div class="absolute -bottom-1 sm:-bottom-1.5 left-0 right-0 w-full overflow-hidden leading-none z-10 pointer-events-none translate-y-0.5 sm:translate-y-1">
+    <svg class="relative block w-full h-9 sm:h-10 md:h-14" viewBox="0 0 1200 120" preserveAspectRatio="none">
+      <path d="M0,0 C150,85 380,20 600,65 C850,115 1050,30 1200,60 L1200,125 L0,125 Z" fill="#F8F9FA"></path>
     </svg>
   </div>
 </header>

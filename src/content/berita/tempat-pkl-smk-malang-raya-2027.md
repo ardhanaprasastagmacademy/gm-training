@@ -2,7 +2,6 @@
 judul: "Tempat PKL Malang 2027: Panduan Lengkap untuk Siswa SMK"
 ringkasan: "Bingung cari tempat PKL di Malang? Pelajari cara memilih, syarat, durasi, dokumen, dan tahapan daftar PKL SMK di Malang Raya, lengkap dengan checklist."
 tanggal: 2026-11-21T16:00:00+07:00
-diperbarui: 2026-11-21T16:00:00+07:00
 kategori: "artikel"
 gambar: "/images/blog/tempat-pkl-smk-malang-raya.webp"
 gambarKedua: "/images/blog/tempat-pkl-smk-malang-raya-2.webp"

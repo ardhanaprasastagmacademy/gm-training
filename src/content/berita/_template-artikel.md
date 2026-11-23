@@ -2,7 +2,6 @@
 judul: "Judul Artikel Menarik, Informatif, dan Mengandung Kata Kunci Utama (50-65 Karakter)"
 ringkasan: "Deskripsi padat 1-2 kalimat (maksimal 160-200 karakter) yang merangkum inti pembahasan artikel dan menjadi meta description di Google."
 tanggal: 2026-11-08
-diperbarui: 2026-11-08
 kategori: "artikel" # Pilihan: 'artikel' | 'kegiatan' | 'pengumuman'
 gambar: "/images/galeri/galeri-5.webp" # Rasio 16:9, resolusi 1200x675 px, ukuran < 200 KB
 penulis: "Koordinator Program Gemilang Training"

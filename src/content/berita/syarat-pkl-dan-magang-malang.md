@@ -2,7 +2,6 @@
 judul: "Persyaratan Dokumen PKL SMK dan Magang Mahasiswa yang Harus Disiapkan"
 ringkasan: "Data apa yang diisi saat daftar PKL SMK atau magang mahasiswa di Gemilang Training, kapan surat dari sekolah atau kampus diperlukan, dan dokumen apa yang tidak diminta di awal."
 tanggal: 2026-11-22T18:00:00+07:00
-diperbarui: 2026-11-22T18:00:00+07:00
 kategori: "artikel"
 gambar: "/images/blog/Dua-siswa-SMK-menyiapkan-dokumen-pendaftaran-PKL.webp"
 gambarKedua: "/images/blog/Mahasiswa-mengisi-formulir-magang-online.webp"

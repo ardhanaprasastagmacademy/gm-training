@@ -2,7 +2,6 @@
 judul: "PKL Jurusan RPL di Malang dan Materi Web Development, Coding, dan Proyek"
 ringkasan: "Tempat PKL RPL di Malang dengan materi HTML, CSS, JavaScript, Git dan GitHub, serta pembuatan website responsif. Simak materi, proyek, dan cara daftar untuk siswa SMK jurusan RPL."
 tanggal: 2026-11-22T21:00:00+07:00
-diperbarui: 2026-11-22T21:00:00+07:00
 kategori: "artikel"
 gambar: "/images/blog/Mentoring-siswa-PKL-RPL-menganalisis-kode-program.webp"
 gambarKedua: "/images/blog/Siswa-RPL-menguji-tampilan-web-responsif-di-ponsel.webp"

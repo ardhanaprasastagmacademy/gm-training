@@ -2,7 +2,6 @@
 judul: "Tempat PKL SMK di Malang: Panduan Memilih Mitra Industri yang Tepat"
 ringkasan: "Cara memilih tempat PKL SMK di Malang yang sesuai jurusan, dengan kegiatan, tools, pembimbing, jurnal, dan sertifikat yang jelas. Lihat program PKL RPL, DKV, BDP, TKJ, dan Multimedia."
 tanggal: 2026-11-22T20:00:00+07:00
-diperbarui: 2026-11-22T20:00:00+07:00
 kategori: "artikel"
 gambar: "/images/blog/Pembimbing-industri-mendampingi-siswa-PKL-SMK.webp"
 gambarKedua: "/images/blog/Siswa-PKL-SMK-berkolaborasi-mengerjakan-desain-dan-pemrograman.webp"

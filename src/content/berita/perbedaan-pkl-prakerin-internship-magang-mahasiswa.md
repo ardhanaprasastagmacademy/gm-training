@@ -2,7 +2,6 @@
 judul: "Perbedaan PKL, Prakerin, Internship & Magang Mahasiswa"
 ringkasan: "Apa beda PKL, prakerin, internship, dan magang mahasiswa? Pahami arti, peserta, durasi, penilaian, dan cara memilih program yang tepat untuk SMK dan kampus."
 tanggal: 2026-11-21T14:00:00+07:00
-diperbarui: 2026-11-21T14:00:00+07:00
 kategori: "artikel"
 gambar: "/images/blog/perbedaan-pkl-prakerin-internship-magang.webp"
 gambarKedua: "/images/blog/tabel-perbedaan-pkl-magang.webp"

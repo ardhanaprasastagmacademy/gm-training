@@ -2,7 +2,6 @@
 judul: "10 Hal Penting Sebelum Memilih Tempat Magang di Malang"
 ringkasan: "Pelajari 10 hal penting sebelum memilih tempat magang di Malang, mulai dari bidang kerja, bimbingan, hingga lokasi. Baca panduannya dan tentukan pilihan terbaik."
 tanggal: 2026-11-21T10:00:00+07:00
-diperbarui: 2026-11-21T10:00:00+07:00
 kategori: "artikel"
 gambar: "/images/blog/Mahasiswa-berdiskusi-membandingkan-tempat-magang.webp"
 gambarKedua: "/images/blog/Mahasiswi-magang-mencatat-arahan-pembimbing.webp"

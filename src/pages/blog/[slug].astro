@@ -69,7 +69,7 @@ const articleSchema = {
       ]
     : [articleImageUrl],
   datePublished: data.tanggal.toISOString(),
-  dateModified: (data.diperbarui || data.tanggal).toISOString(),
+  dateModified: data.tanggal.toISOString(),
   author: {
     "@type": "Organization",
     name: data.penulis || siteConfig.name,
@@ -98,7 +98,7 @@ const articleSchema = {
   ogType="article"
   ogImage={articleImageUrl}
   publishedTime={data.tanggal.toISOString()}
-  modifiedTime={(data.diperbarui || data.tanggal).toISOString()}
+  modifiedTime={data.tanggal.toISOString()}
   schema={articleSchema}
 >
   <article class="pt-24 md:pt-28 pb-10 md:pb-16 bg-[#F8F9FA] text-gray-900 border-t border-gray-200/80">
@@ -167,14 +167,6 @@ const articleSchema = {
               </svg>
               {formatDate(data.tanggal)}
             </span>
-            {data.diperbarui && (
-              <>
-                <span>•</span>
-                <span class="text-gray-400">
-                  Diperbarui: {formatDate(data.diperbarui)}
-                </span>
-              </>
-            )}
             <span>•</span>
             <span class="flex items-center gap-1">
               <svg
