@@ -36,7 +36,7 @@ const posisi = defineCollection({
   loader: glob({ pattern: "**/*.{md,yaml}", base: "./src/content/posisi" }),
   schema: z.object({
     judul: z.string(),
-    mitra: reference("mitra"),
+    mitra: reference("mitra").optional(),
     batch: reference("batch"),
     jalur: z.enum(["smk", "mahasiswa", "keduanya"]),
     bidang: z.string(),

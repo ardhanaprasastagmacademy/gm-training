@@ -1,7 +1,7 @@
 ---
 judul: "Checklist Guru Memilih Mitra PKL, Mengurus MoU, Jurnal, dan Penilaian"
 ringkasan: "Panduan guru dan koordinator PKL SMK untuk memilih mitra, mengurus MoU, memantau jurnal siswa, serta menyusun penilaian PKL informatika."
-tanggal: 2026-11-23T23:45:00+07:00
+tanggal: 2026-11-28T09:15:00+07:00
 kategori: "artikel"
 gambar: "/images/blog/Memilih-Mitra-PKL-1.webp"
 gambarKedua: "/images/blog/Memilih-Mitra-PKL-2.webp"

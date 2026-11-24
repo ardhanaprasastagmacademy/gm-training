@@ -6,19 +6,29 @@ import Badge from "../../../components/ui/Badge.astro";
 import { siteConfig } from "../../../data/site";
 
 const allPosisi = await getCollection("posisi", ({ data }) => !data.draft);
-const allMitra = await getCollection("mitra");
 
-// Map mitra name to position
-const posisiList = allPosisi.map((p) => {
-  const m = allMitra.find((item) => item.id === p.data.mitra.id);
-  return {
+const programOrder = [
+  "junior-frontend-developer",
+  "ui-ux-digital-product-design",
+  "data-science-ai",
+  "digital-marketing-social-media",
+  "seo-specialist-digital-analytics",
+  "bisnis-event-organizer",
+  "pariwisata-tour-guide",
+];
+
+const posisiList = allPosisi
+  .map((p) => ({
     id: p.id,
     judul: p.data.judul,
-    mitraNama: m ? m.data.nama : "Mitra Industri",
     jalur: p.data.jalur,
     bidang: p.data.bidang,
-  };
-});
+  }))
+  .sort((a, b) => {
+    const idxA = programOrder.indexOf(a.id);
+    const idxB = programOrder.indexOf(b.id);
+    return (idxA !== -1 ? idxA : 99) - (idxB !== -1 ? idxB : 99);
+  });
 ---
 
 <BaseLayout
@@ -239,8 +249,8 @@ const posisiList = allPosisi.map((p) => {
                   <option value="" disabled selected>-- Pilih Posisi Magang yang Diminati --</option>
                   {
                     posisiList.map((p) => (
-                      <option value={`${p.judul} (${p.mitraNama})`} data-slug={p.id}>
-                        {p.judul} — {p.mitraNama}
+                      <option value={`${p.judul} (${p.bidang})`} data-slug={p.id}>
+                        {p.judul} — {p.bidang}
                       </option>
                     ))
                   }

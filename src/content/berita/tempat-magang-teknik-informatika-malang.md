@@ -1,7 +1,7 @@
 ---
 judul: "Tempat Magang Teknik Informatika di Malang: Pengembangan Website dan Teknologi"
 ringkasan: "Cari tempat magang Teknik Informatika di Malang? Pelajari praktik web development, front-end, back-end, Git, optimasi teknis, syarat kampus, dan daftar."
-tanggal: 2026-11-23T11:00:00+07:00
+tanggal: 2026-11-23T09:00:00+07:00
 kategori: "artikel"
 gambar: "/images/blog/tempat-magang-teknik-informatika-malang.webp"
 gambarKedua: "/images/blog/praktik-web-development-mahasiswa-malang.webp"

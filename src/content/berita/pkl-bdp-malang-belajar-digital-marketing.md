@@ -1,7 +1,7 @@
 ---
 judul: "PKL BDP di Malang: Belajar Digital Marketing dan Pemasaran Online"
 ringkasan: "Cari tempat PKL BDP di Malang? Pelajari materi digital marketing, social media, konten, iklan online, kemampuan awal, durasi, dan cara mendaftar."
-tanggal: 2026-11-23T12:00:00+07:00
+tanggal: 2026-11-23T09:15:00+07:00
 kategori: "artikel"
 gambar: "/images/blog/pkl-bdp-malang-digital-marketing.webp"
 gambarKedua: "/images/blog/peta-bidang-digital-marketing-pkl-bdp.webp"

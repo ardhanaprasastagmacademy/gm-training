@@ -1,7 +1,7 @@
 ---
 judul: "Studi Kasus: Kemitraan Jurnalistik dan Portal Media Digital Bersama Radar Kediri"
 ringkasan: "Simak studi kasus portofolio magang informatika bersama Radar Kediri: peran business consultant lembaga, tugas frontend, CMS, artikel SEO, dan analitik peserta."
-tanggal: 2026-11-23T23:00:00+07:00
+tanggal: 2026-11-27T09:00:00+07:00
 kategori: "artikel"
 gambar: "/images/blog/portofolio-magang-informatika-radar-kediri.webp"
 gambarKedua: "/images/blog/kegiatan-magang-portal-media-cms-seo.webp"

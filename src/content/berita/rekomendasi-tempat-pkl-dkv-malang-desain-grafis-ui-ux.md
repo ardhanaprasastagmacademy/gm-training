@@ -1,7 +1,7 @@
 ---
 judul: "Rekomendasi Tempat PKL DKV di Malang Desain Grafis dan UI/UX"
 ringkasan: "Tempat PKL DKV di Malang dengan kegiatan desain grafis, UI/UX, branding, dan aset visual media sosial menggunakan Figma. Simak materi, proyek, dan cara daftar untuk siswa DKV."
-tanggal: 2026-11-23T14:00:00+07:00
+tanggal: 2026-11-23T09:30:00+07:00
 kategori: "artikel"
 gambar: "/images/blog/Siswa-PKL-DKV-merancang-UI_UX-menggunakan-Figma.webp"
 gambarKedua: "/images/blog/Pembimbing-mereview-hasil-desain-branding-siswa-PKL-DKV.webp"

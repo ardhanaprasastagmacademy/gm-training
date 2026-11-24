@@ -1,7 +1,7 @@
 ---
 judul: "Bimbingan Mentor Saat Magang di Gemilang Training: Apa yang Terjadi Setiap Minggu"
 ringkasan: "Seperti apa pendampingan mentor saat magang IT? Simak jadwal, cara review dan feedback, serta langkah jika tertinggal di Gemilang Training."
-tanggal: 2026-11-23T20:00:00+07:00
+tanggal: 2026-11-27T10:00:00+07:00
 kategori: "artikel"
 gambar: "/images/blog/bimbingan-mentor-magang-gemilang-training.webp"
 gambarKedua: "/images/blog/ritme-mingguan-bimbingan-mentor-magang-it.webp"

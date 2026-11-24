@@ -3,7 +3,7 @@ interface BidangItem {
   id: string;
   judul: string;
   tag: string;
-  category: "software" | "network" | "data-iot" | "design" | "business";
+  category: "software" | "network" | "data-iot" | "design" | "business" | "event" | "tourism";
   skills: string[];
   deskripsi: string;
   gambar: string;
@@ -33,7 +33,7 @@ const bidangList: BidangItem[] = [
     skills: ["HTML", "CSS", "JavaScript", "Astro", "Bootstrap"],
     deskripsi: "Pengembangan antarmuka website modern responsif dengan standar clean code serta user experience interaktif.",
     gambar: "/images/program/frontend.webp",
-    link: "/pendaftaran/form/",
+    link: "/pendaftaran/form/?posisi=junior-frontend-developer",
   },
   {
     id: "ui-ux",
@@ -43,7 +43,7 @@ const bidangList: BidangItem[] = [
     skills: ["Figma", "Design System", "Wireframing", "Usability Test"],
     deskripsi: "Riset pengguna mendalam, pembuatan wireframe, penyusunan design system terstandar, prototipe interaktif Figma, dan pengujian usability testing.",
     gambar: "/images/program/ui-ux.webp",
-    link: "/pendaftaran/form/",
+    link: "/pendaftaran/form/?posisi=ui-ux-digital-product-design",
   },
   {
     id: "data-ai",
@@ -53,7 +53,7 @@ const bidangList: BidangItem[] = [
     skills: ["Python", "Pandas", "Machine Learning", "Looker Studio"],
     deskripsi: "Pengolahan big data menggunakan Python & Pandas, pemodelan Machine Learning terapan, integrasi AI API, dan visualisasi dashboard analitik bisnis.",
     gambar: "/images/program/data-science.webp",
-    link: "/pendaftaran/form/",
+    link: "/pendaftaran/form/?posisi=data-science-ai",
   },
   {
     id: "digital-marketing",
@@ -63,7 +63,7 @@ const bidangList: BidangItem[] = [
     skills: ["Meta & TikTok Ads", "Content Strategy", "Copywriting", "Campaign ROAS"],
     deskripsi: "Perumusan strategi kampanye periklanan digital multi-channel (Meta & TikTok Ads), riset tren konten viral, copywriting persuasif, dan optimasi konversi penjualan online.",
     gambar: "/images/program/digital-marketing.webp",
-    link: "/pendaftaran/form/",
+    link: "/pendaftaran/form/?posisi=digital-marketing-social-media",
   },
   {
     id: "seo-digital-business",
@@ -73,7 +73,27 @@ const bidangList: BidangItem[] = [
     skills: ["Google Analytics 4", "Search Console", "SEO On-Page", "Funnel Conversion"],
     deskripsi: "Optimasi visibilitas website di mesin pencari (SEO On-Page & Off-Page), analisis lalu lintas trafik web menggunakan Google Analytics 4, dan strategi funnel konversi prospek.",
     gambar: "/images/program/seo.webp",
-    link: "/pendaftaran/form/",
+    link: "/pendaftaran/form/?posisi=seo-specialist-digital-analytics",
+  },
+  {
+    id: "event-organizer",
+    judul: "Bisnis Event Organizer & MICE",
+    tag: "Event Organizer",
+    category: "event",
+    skills: ["Bisnis Event Organizer", "Liaison Officer (LO)", "PIC Kegiatan", "Manajemen Kepanitiaan", "MICE"],
+    deskripsi: "Praktik operasional bisnis event organizer, manajemen kepanitiaan dan PIC kegiatan, koordinasi liaison officer (LO), serta produksi acara profesional (MICE).",
+    gambar: "/images/program/event-organizer.webp",
+    link: "/pendaftaran/form/?posisi=bisnis-event-organizer",
+  },
+  {
+    id: "pariwisata",
+    judul: "Usaha Perjalanan Wisata & Tour Guiding",
+    tag: "Pariwisata & Tour",
+    category: "tourism",
+    skills: ["Tour Guide (Pemandu Wisata)", "Itinerary Planning", "Tour Operations", "Layanan Hospitalitas", "Destinasi Wisata"],
+    deskripsi: "Praktik operasional biro perjalanan wisata, pemanduan wisata profesional (tour guide), penyusunan paket tur dan itinerary, serta pelayanan kepariwisataan prima.",
+    gambar: "/images/program/pariwisata.webp",
+    link: "/pendaftaran/form/?posisi=pariwisata-tour-guide",
   },
 ];
 ---
@@ -135,6 +155,20 @@ const bidangList: BidangItem[] = [
           class="program-filter-btn px-5 py-2 rounded-full text-xs md:text-sm font-semibold transition-all bg-white text-gray-700 border border-gray-200 hover:bg-gray-50"
         >
           Bisnis Digital
+        </button>
+        <button
+          type="button"
+          data-filter="event"
+          class="program-filter-btn px-5 py-2 rounded-full text-xs md:text-sm font-semibold transition-all bg-white text-gray-700 border border-gray-200 hover:bg-gray-50"
+        >
+          Event Organizer
+        </button>
+        <button
+          type="button"
+          data-filter="tourism"
+          class="program-filter-btn px-5 py-2 rounded-full text-xs md:text-sm font-semibold transition-all bg-white text-gray-700 border border-gray-200 hover:bg-gray-50"
+        >
+          Pariwisata
         </button>
       </div>
     )

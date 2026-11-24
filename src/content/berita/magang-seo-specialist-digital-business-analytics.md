@@ -1,7 +1,7 @@
 ---
 judul: "Magang SEO Specialist & Digital Business Analytics: GA4, Search Console, dan SEO On-Page"
 ringkasan: "Pelajari magang SEO Specialist & Digital Business Analytics untuk SMK dan mahasiswa: SEO on-page, off-page, Search Console, GA4, funnel konversi, serta strategi meningkatkan trafik website."
-tanggal: 2026-11-23T23:30:00+07:00
+tanggal: 2026-11-28T09:00:00+07:00
 kategori: "artikel"
 gambar: "/images/blog/Magang-SEO-Specialist-1.webp"
 gambarKedua: "/images/blog/Magang-SEO-Specialist-2.webp"

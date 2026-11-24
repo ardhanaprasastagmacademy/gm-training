@@ -1,7 +1,7 @@
 ---
 judul: "Cara Daftar Magang Informatika di Gemilang Training, 8 Tahapan dari Daftar sampai Penempatan"
 ringkasan: "Cara daftar magang informatika Malang di Gemilang Training: 8 tahap, daftar dokumen, estimasi waktu, gratis tanpa biaya pendaftaran."
-tanggal: 2026-11-23T23:59:00+07:00
+tanggal: 2026-11-28T09:30:00+07:00
 kategori: "artikel"
 gambar: "/images/blog/cara-daftar-magang-informatika-1.webp"
 gambarKedua: "/images/blog/cara-daftar-magang-informatika-2.webp"

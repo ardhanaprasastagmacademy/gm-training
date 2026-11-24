@@ -1,7 +1,7 @@
 ---
 judul: "Penilaian dan Sertifikat Magang: Apa yang Dinilai dan Apa yang Didapat Peserta"
 ringkasan: "Cari tahu penilaian dan sertifikat magang bersertifikat informatika di Gemilang Training: aspek evaluasi, jenis sertifikat, syarat lulus, dan kegunaannya."
-tanggal: 2026-11-23T21:00:00+07:00
+tanggal: 2026-11-27T09:30:00+07:00
 kategori: "artikel"
 gambar: "/images/blog/penilaian-sertifikat-magang-bersertifikat-informatika.webp"
 gambarKedua: "/images/blog/aspek-penilaian-pkl-magang-it-malang.webp"

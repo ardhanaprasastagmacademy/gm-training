@@ -1,7 +1,7 @@
 ---
 judul: "Berapa Lama PKL SMK? Panduan Durasi 6 Bulan hingga 1 Tahun"
 ringkasan: "Berapa lama PKL SMK? Pahami durasi 6 bulan hingga 1 tahun, faktor penentunya, cara menghitung jadwal, dan tips memilih durasi yang pas untuk siswa SMK."
-tanggal: 2026-11-23T19:00:00+07:00
+tanggal: 2026-11-23T10:00:00+07:00
 kategori: "artikel"
 gambar: "/images/blog/durasi-pkl-smk-6-bulan-1-tahun.webp"
 gambarKedua: "/images/blog/linimasa-pkl-smk.webp"

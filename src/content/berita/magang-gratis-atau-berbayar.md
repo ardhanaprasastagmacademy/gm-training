@@ -1,7 +1,7 @@
 ---
 judul: "Magang Gratis atau Berbayar? Cara Menilai Biaya dan Menghindari Pungutan Tersembunyi"
 ringkasan: "Mencari PKL tanpa biaya Malang? Simak kebijakan magang gratis tanpa biaya di Gemilang Training, rincian kebutuhan pribadi peserta, dan checklist verifikasi."
-tanggal: 2026-11-23T22:00:00+07:00
+tanggal: 2026-11-27T09:15:00+07:00
 kategori: "artikel"
 gambar: "/images/blog/pkl-tanpa-biaya-malang-gemilang-training.webp"
 gambarKedua: "/images/blog/kebijakan-biaya-magang-it-tanpa-pungutan.webp"

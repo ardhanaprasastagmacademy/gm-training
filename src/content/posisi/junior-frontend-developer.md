@@ -1,35 +1,33 @@
 ---
 judul: "Junior Frontend Web Developer"
-mitra: "polinema"
 batch: "batch-1-2026"
 jalur: "keduanya"
-bidang: "Teknologi Informasi"
+bidang: "Frontend Web Development"
 jurusanRelevan:
   - "Rekayasa Perangkat Lunak (RPL)"
   - "Teknik Informatika"
   - "Sistem Informasi"
   - "Ilmu Komputer"
-lokasi: "Jakarta Selatan"
-mode: "hybrid"
+lokasi: "Kota Malang"
+mode: "onsite"
 durasiBulan: 6
-kuotaAwal: 5
+kuotaAwal: 10
 tugas:
-  - "Membangun komponen antarmuka web interaktif menggunakan HTML, CSS, dan framework modern."
-  - "Mengimplementasikan desain antarmuka dari Figma ke dalam kode yang responsif dan teruji."
-  - "Melakukan pengujian lintas peramban (cross-browser testing) dan perbaikan bug tampilan."
-  - "Berkoordinasi aktif dalam daily stand-up meeting bersama tim pengembang perangkat lunak."
+  - "Membangun komponen antarmuka web modern responsif menggunakan HTML, CSS, JavaScript, dan Astro."
+  - "Mengimplementasikan desain antarmuka dari Figma ke dalam kode yang semantik, clean code, dan teruji."
+  - "Melakukan pengujian performa halaman web, kompatibilitas lintas peramban, dan perbaikan bug tampilan."
+  - "Berkoordinasi aktif dalam alur kerja pengembangan menggunakan Git dan version control."
 kualifikasi:
-  - "Siswa SMK kelas XI/XII jurusan RPL atau mahasiswa aktif minimal semester 5 prodi rumpun informatika."
-  - "Memahami dasar logika pemrograman web (HTML5, CSS3, JavaScript ES6)."
-  - "Memiliki portofolio proyek web sederhana (repository GitHub atau demo tautan)."
-  - "Mampu bekerja sama dalam tim dan bersedia mematuhi etika kerahasiaan data industri."
+  - "Siswa SMK jurusan RPL atau mahasiswa aktif prodi rumpun informatika/ilmu komputer."
+  - "Memahami dasar logika pemrograman web (HTML5, CSS3, JavaScript modern)."
+  - "Memiliki portofolio proyek web sederhana atau eksplorasi slicing antarmuka."
+  - "Disiplin, memiliki kemauan belajar tinggi, dan mampu bekerja sama dalam tim."
 benefit:
-  - "Bimbingan teknis 1-on-1 dari Software Engineer Senior."
-  - "Sertifikat resmi kompetensi magang industri."
-  - "Penilaian magang/PKL yang diakui sekolah dan kampus."
-  - "Akses fasilitas co-working space dan perangkat uji lab."
+  - "Bimbingan langsung dari mentor praktisi Web Developer profesional."
+  - "Sertifikat resmi magang industri Gemilang Training."
+  - "Portofolio proyek website live terindeks."
+  - "Akses fasilitas ruang kerja dan laboratorium komputer berkecepatan tinggi."
 draft: false
 ---
 
-Posisi Junior Frontend Web Developer dirancang untuk kamu yang ingin merasakan langsung alur kerja pengembangan perangkat lunak skala enterprise. Kamu akan terlibat dalam sprint dua mingguan, melakukan code review bersama mentor, dan mempelajari praktik arsitektur web modern yang dapat diterapkan di dunia kerja nyata.
-
+Posisi Junior Frontend Web Developer dirancang untuk siswa SMK dan mahasiswa yang ingin memperdalam pengembangan antarmuka website modern responsif dengan standar clean code dan user experience interaktif di Gemilang Training.
