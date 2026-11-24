@@ -1,7 +1,7 @@
 ---
 judul: "Tempat PKL Multimedia di Malang Content Creation, Video, dan Desain Digital"
 ringkasan: "Tempat PKL Multimedia di Malang dengan kegiatan content creation, video editing, motion graphics, dan desain digital. Simak materi, kegiatan, dan cara daftar untuk siswa jurusan Multimedia."
-tanggal: 2026-11-23T16:00:00+07:00
+tanggal: 2026-11-24T09:00:00+07:00
 kategori: "artikel"
 gambar: "/images/blog/Siswa-PKL-Multimedia-mengedit-video-di-kantor.webp"
 gambarKedua: "/images/blog/Siswa-PKL-Multimedia-melakukan-pengambilan-gambar.webp"

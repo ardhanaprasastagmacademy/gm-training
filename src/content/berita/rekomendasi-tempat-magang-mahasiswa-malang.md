@@ -1,7 +1,7 @@
 ---
 judul: "Rekomendasi Tempat Magang Mahasiswa di Malang untuk Persiapan Karier"
 ringkasan: "Cari rekomendasi tempat magang mahasiswa di Malang untuk persiapan karier? Simak kriteria, pilihan divisi digital, syarat kampus, dan panduan daftarnya."
-tanggal: 2026-11-23T15:00:00+07:00
+tanggal: 2026-11-24T08:30:00+07:00
 kategori: "artikel"
 gambar: "/images/blog/rekomendasi-tempat-magang-mahasiswa-malang.webp"
 gambarKedua: "/images/blog/mentoring-proyek-magang-mahasiswa-malang.webp"

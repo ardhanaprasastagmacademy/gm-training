@@ -1,7 +1,7 @@
 ---
 judul: "Magang Mahasiswa Sistem Informasi di Malang: Data Analytics, SEO, dan Web"
 ringkasan: "Cari tempat magang mahasiswa Sistem Informasi di Malang? Pelajari praktik data analytics web, SEO technical, arsitektur website, syarat kampus, dan daftar."
-tanggal: 2026-11-23T18:00:00+07:00
+tanggal: 2026-11-24T10:00:00+07:00
 kategori: "artikel"
 gambar: "/images/blog/magang-mahasiswa-sistem-informasi-malang.webp"
 gambarKedua: "/images/blog/audit-seo-web-analytics-mahasiswa-malang.webp"

@@ -1,7 +1,7 @@
 ---
 judul: "Contoh Jurnal Harian PKL SMK: Cara Menulis Kegiatan dan Laporan Magang"
 ringkasan: "Bingung menulis jurnal PKL? Lihat contoh jurnal harian PKL SMK per jurusan, format tabel, tips menulis kegiatan, dan struktur laporan PKL yang rapi."
-tanggal: 2026-11-23T17:00:00+07:00
+tanggal: 2026-11-24T09:30:00+07:00
 kategori: "artikel"
 gambar: "/images/blog/contoh-jurnal-harian-pkl-smk.webp"
 gambarKedua: "/images/blog/alur-menulis-jurnal-harian-pkl.webp"
